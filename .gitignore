@@ -1,0 +1,26 @@
+# TokTickIT Lab 1 governance material — must not be committed (explicit instruction)
+/TokTickIT_Lab1_Master_Prompt.md
+
+# Private / local-only material: course PDFs copies, evidence screenshots, planning notes
+/_private/
+
+# Graded product repository — tracked as its own independent Git repo, never as embedded content
+/labs/toktickit_cpe334/
+
+# Course PDFs at their original locations — redistribution not confirmed
+/labs/Lab01/*.pdf
+/lectures/*.pdf
+
+# AI agent skill tooling (mattpocock/skills install) — local tooling, not course content
+/.agents/
+/.claude/
+/skills-lock.json
+
+# Common noise
+node_modules/
+dist/
+build/
+coverage/
+.env
+.DS_Store
+Thumbs.db
