@@ -7,9 +7,18 @@
 # Graded product repository — tracked as its own independent Git repo, never as embedded content
 /labs/toktickit_cpe334/
 
-# Course PDFs at their original locations — redistribution not confirmed
-/labs/Lab01/*.pdf
-/lectures/*.pdf
+# Course materials at their original locations — redistribution not confirmed.
+# Generalized so future labs/lectures are covered without editing this file again.
+/labs/**/*.pdf
+/labs/**/*.docx
+/labs/**/*.pptx
+/labs/**/*.doc
+/labs/**/*.ppt
+/lectures/**/*.pdf
+/lectures/**/*.docx
+/lectures/**/*.pptx
+/lectures/**/*.doc
+/lectures/**/*.ppt
 
 # AI agent skill tooling (mattpocock/skills install) — local tooling, not course content
 /.agents/
