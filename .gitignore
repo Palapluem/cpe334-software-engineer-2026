@@ -8,17 +8,10 @@
 /labs/toktickit_cpe334/
 
 # Course materials at their original locations — redistribution not confirmed.
-# Generalized so future labs/lectures are covered without editing this file again.
-/labs/**/*.pdf
-/labs/**/*.docx
-/labs/**/*.pptx
-/labs/**/*.doc
-/labs/**/*.ppt
-/lectures/**/*.pdf
-/lectures/**/*.docx
-/lectures/**/*.pptx
-/lectures/**/*.doc
-/lectures/**/*.ppt
+# Directory-based, not extension-based: the lecturer distributes .pdf, .docx, .pptx,
+# .md and .zip, and any extension list will miss the next new one.
+/lectures/
+/labs/
 
 # AI agent skill tooling (mattpocock/skills install) — local tooling, not course content
 /.agents/
