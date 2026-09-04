@@ -7,11 +7,14 @@
 # Graded product repository — tracked as its own independent Git repo, never as embedded content
 /labs/toktickit_cpe334/
 
-# Course materials at their original locations — redistribution not confirmed.
-# Directory-based, not extension-based: the lecturer distributes .pdf, .docx, .pptx,
-# .md and .zip, and any extension list will miss the next new one.
-/lectures/
-/labs/
+# CPE334 course materials and lab/homework files are intentionally tracked here.
+# The graded TokTickIT product remains a separate nested Git repository.
+
+# Local tooling and accidental top-level product copies must stay outside this repo.
+/.playwright-cli/
+/tmp/
+/client/
+/server/
 
 # AI agent skill tooling (mattpocock/skills install) — local tooling, not course content
 /.agents/
