@@ -1,6 +1,6 @@
 # Lecture 9 - Git Workflows, Containers, and CI/CD
 
-**Source:** [CPE334 Lecture 9 PDF](<CPE334_Lecture09 - Git workflows_containers_CI:CD.pdf>)
+**Source:** [CPE334 Lecture 9 PDF](<CPE334_Lecture09 - Git workflows_containers_CI_CD.pdf>)
 
 **Course:** CPE 334 Software Engineering, Semester 1/2026
 
