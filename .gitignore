@@ -20,6 +20,7 @@
 /.agents/
 /.claude/
 /skills-lock.json
+/bridge/
 
 # Common noise
 node_modules/
