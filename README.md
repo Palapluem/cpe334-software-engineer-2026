@@ -7,5 +7,6 @@ Course materials and project work for CPE 334.
 - [`lectures/`](lectures/) — lecture slides and supporting examples.
 - [`lectures/Week 10/`](lectures/Week%2010/) — midterm review, project launch, group-work specifications, and a practical guide to the supplied materials.
 - [`labs/`](labs/) — lab sheets, reports, and the TokTickIT course application.
+- [`study-pack/`](study-pack/README.md) — STEP I midterm reading notes, a bilingual mock exam, source map and writing/diagram guide.
 
-Start with the [Week 10 guide](lectures/Week%2010/README.md) for the exam topic map, project workflow, deadlines, deliverable checklists, and source-document conflicts to confirm.
+Start with the [Week 10 guide](lectures/Week%2010/README.md) for the exam topic map, project workflow, deadlines, deliverable checklists, and source-document conflicts to confirm. Use the [study pack](study-pack/README.md) for a concise, worked route through the midterm topics.

@@ -1,0 +1,63 @@
+{
+  "edition": "STEP I Full Production",
+  "generated_on": "2026-10-13",
+  "page_limits": {
+    "study_notes": 120,
+    "mock_exam": 30
+  },
+  "pdfs": [
+    {
+      "file": "CPE334_STEP_I_Study_Notes.pdf",
+      "pages": 91,
+      "nonempty_text_pages": 91,
+      "bytes": 787572,
+      "sha256": "06d3e61341b34d7e5ae2498716134489ae7e2dc76011410b599b58cce77edb00",
+      "encrypted": false
+    },
+    {
+      "file": "CPE334_Mock_Midterm_Exam_with_Solutions.pdf",
+      "pages": 30,
+      "nonempty_text_pages": 30,
+      "bytes": 121309,
+      "sha256": "57bf48e2ac72cdca4d504ac48d91f86be4b7696a7fd3502b52e371feff7feef4",
+      "encrypted": false
+    }
+  ],
+  "latex_logs": {
+    "main.log": {
+      "overfull_boxes": 0,
+      "undefined_references": false,
+      "fatal_errors": false
+    },
+    "mock_exam.log": {
+      "overfull_boxes": 0,
+      "undefined_references": false,
+      "fatal_errors": false
+    }
+  },
+  "visual_review": {
+    "study_pdf_pages": [
+      41,
+      62,
+      64,
+      68,
+      72,
+      73,
+      74,
+      75,
+      76
+    ],
+    "mock_pdf_pages": [
+      7,
+      9,
+      20,
+      21,
+      22,
+      23,
+      28,
+      29,
+      30
+    ],
+    "notes": "WBS, Gantt, security, Activity, UI, KU sequence/activity/UI/class, answer tables, Use Case, State and Git answer pages rendered and inspected at full size."
+  }
+}
