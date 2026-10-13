@@ -10,4 +10,5 @@
 - [x] The DormFix WBS now has visible hierarchy and every source task appears once. Text in diagrams is clear of box borders and arrow paths.
 - [x] Duplicate WBS/Gantt recitations were removed from the casebook; the source slide screenshot appendix is excluded from the final reading PDF.
 - [x] Unspecified RACI notes, performance thresholds, cancellation counting and payment protocols remain labeled rather than invented.
-- [ ] Final source ZIP archive check and repository PR check are completed at packaging time.
+- [x] Final source ZIP rebuilt from the curated production source set; `zip -T` passes.
+- [x] Course repository integration is available for review in [Draft PR #1](https://github.com/Palapluem/cpe334-software-engineer-2026/pull/1).
