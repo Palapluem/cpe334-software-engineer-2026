@@ -10,6 +10,9 @@
 # CPE334 course materials and lab/homework files are intentionally tracked here.
 # The graded TokTickIT product remains a separate nested Git repository.
 
+# Local midterm practice material uses sample exam content marked no-redistribution.
+/preparation/mock-exam/
+
 # Local tooling and accidental top-level product copies must stay outside this repo.
 /.playwright-cli/
 /tmp/
