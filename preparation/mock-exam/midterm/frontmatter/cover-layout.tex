@@ -1,0 +1,55 @@
+% One physical grid for both cover languages. Coordinates reproduce the Thai cover.
+\thispagestyle{empty}\null
+\begin{tikzpicture}[remember picture,overlay]
+\begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm,
+  every node/.style={inner sep=0pt}]
+\draw[line width=.8pt](10.136,13.946)rectangle(78.136,38.946);
+\node[anchor=base,font=\fontsize{18}{21}\selectfont\bfseries]at(44.136,21.727){\underline{\CoverPublication}};
+\node[anchor=north]at(105,13.946){\includegraphics[width=25mm]{../images/KMUTT_Logo.pdf}};
+\foreach \x in {18.2,46.4}{\draw[line width=.8pt](\x,28.5)rectangle++(6.2,6.2);}
+\draw[line width=.8pt](47.1,29.2)--(51.9,34)(47.1,34)--(51.9,29.2);
+\node[anchor=base west,font=\fontsize{16}{20}\selectfont]at(26.894,33.257){\CoverAllowed};
+\node[anchor=base west,font=\fontsize{16}{20}\selectfont]at(54.009,33.257){\CoverNotAllowed};
+\node[anchor=base west,font=\fontsize{24}{28}\selectfont]at(10,47.185){\underline{\CoverCourse}};
+\node[anchor=base west,font=\fontsize{76}{82}\selectfont\bfseries]at(10,66.854){CPE334};
+\node[anchor=base west,font=\fontsize{34}{43}\selectfont]at(10,85.468){Software Engineering};
+\begin{scope}[every node/.style={anchor=base west,inner sep=0pt,font=\fontsize{24}{28}\selectfont}]
+\node at(135.251,21.111){\textbf{\CoverSeat}};
+\draw[line width=.5pt](166.4,21.8)--(191.4,21.8);
+\node at(135.251,33.484){\textbf{\underline{\CoverDateLabel}}};
+\node at(135.251,43.325){\CoverDate};
+\node at(135.251,55.697){\textbf{\underline{\CoverTimeLabel}}};
+\node at(135.251,65.538){13.00 - 16.00 (\CoverDuration)};
+\node at(135.251,77.91){\textbf{\underline{\CoverGroups}}};
+\node at(146.633,88.432){\CoverRegular};
+\node at(146.633,99.117){International};
+\node at(135.251,111.489){\textbf{\underline{\CoverSet}} : 1};
+\end{scope}
+\foreach \y in {82.1,92.785}{
+ \draw[line width=.8pt](135.251,\y)rectangle++(9.3,9.3);
+ \draw[line width=.8pt](136.15,{\y+.9})--(143.65,{\y+8.4})
+ (136.15,{\y+8.4})--(143.65,{\y+.9});}
+\draw[line width=.8pt](10,122.07)rectangle(200,144.85);
+\begin{scope}[every node/.style={anchor=base west,inner sep=0pt,font=\fontsize{20}{26}\selectfont\bfseries}]
+\node at(12.386,130.716){\CoverName};
+\node at(129.617,130.716){\CoverID};
+\node at(12.386,139.854){\CoverDepartment};
+\node at(129.617,139.854){\CoverSection};
+\end{scope}
+\foreach \y/\xl/\xr in {130.65/39.15/127.22,139.79/61/127.22,
+ 130.65/157.5/197.7,139.79/151/197.7}{
+ \draw[line width=.35pt](\xl,\y)--(\xr,\y);}
+\node[anchor=base west,font=\fontsize{16}{20}\selectfont\bfseries]at(10,154.598){\underline{\CoverInstructionsLabel}};
+\node[anchor=base west]at(42.215,154.598){\parbox[t]{157.5mm}{\fontsize{15}{18}\selectfont\raggedright\CoverInstructions}};
+\node[anchor=base west,font=\fontsize{16}{20}\selectfont\bfseries]at(10,214.74){\underline{\CoverConditionsLabel}};
+\node[anchor=base west]at(42.215,214.74){\parbox[t]{157.5mm}{\fontsize{15}{18}\selectfont\raggedright\CoverConditions}};
+\node[anchor=base,font=\fontsize{15}{19}\selectfont]at(105,247.186){* \CoverApproval\ *};
+\draw[line width=.8pt](12.355,252.295)rectangle(102.355,282.295);
+\draw[line width=.8pt](107.645,252.295)rectangle(197.645,282.295);
+\node[anchor=base,font=\fontsize{16}{20}\selectfont\bfseries]at(57.355,260.174){\underline{\CoverHead}};
+\node[anchor=base,font=\fontsize{16}{20}\selectfont\bfseries]at(152.645,260.174){\underline{\CoverInstructor}};
+\draw[dotted,line width=.8pt](22.355,270.295)--(92.355,270.295)
+ (117.645,270.295)--(187.645,270.295);
+\node[anchor=base west,font=\fontsize{14}{18}\selectfont]at(119.119,278.896){\CoverPhone};
+\end{scope}
+\end{tikzpicture}

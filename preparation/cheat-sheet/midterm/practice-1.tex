@@ -1,0 +1,75 @@
+\band{minthead}{Practice Midterm · Part 1}
+\topic{Requirement analysis · 25 คะแนน: ตอบ 5 ขั้น}
+\b{Classify → purpose → quality + reason → check + expected → revise/justify}; แยกข้อเท็จจริงจากข้อเสนอ
+{\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
+\rowcolor{lightrow}Workshop req & แนววิเคราะห์\\\hline
+Browse open & FR; Student ที่ login แล้วดู workshop ที่เปิดรับ; เตรียม open/closed → เห็นเฉพาะ open\\\hline
+“Quick” & NFR; กำกวม ไม่มี metric/load; เสนอ p95 ≤ 2 s ที่ 100 concurrent users \r{รอลูกค้ายืนยัน}\\\hline
+≤3/semester & BR/domain; ทดสอบมี 2 เพิ่มเป็น 3 ได้; มี 3 แล้วเพิ่มครั้งที่ 4 ต้องปฏิเสธ\\\hline
+Cancel + list & สอง FR ไม่ atomic; แยก Student ยกเลิกของตน/Coordinator ดูผู้สมัคร; ตรวจ role/owner ผ่าน API\\\hline
+\end{tabularx}}
+\k{NFR rewrite (เสนอ)}: Under 100 concurrent users, 95\% of valid registration requests receive confirmation within 2 s. \r{ถามจุดเริ่ม/จบการวัด network ปริมาณข้อมูลและกรณีล้มเหลว}
+\k{FR template}: The system shall allow \b{<actor>} to \b{<action/object>} when \b{<condition>}. ระบุผลและข้อยกเว้นที่ตรวจได้
+\boxnote{\r{quick/easy/reliable ยังไม่พอ}; อย่าตั้งตัวเลขแล้วอ้างว่าลูกค้าให้มา; test ต้องมี input/state, action, expected result ไม่ใช่แค่ “ทำ unit test”}
+\topic{2) WorkshopHub proposal: 8 ช่อง}
+{\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
+\rowcolor{lightrow}Element & หลักฐาน / สิ่งที่ขาด\\\hline
+Problem & หลายฟอร์ม รวบรวมด้วยมือ → ข้อมูลซ้ำ/ล่าช้า\\\hline
+Users & ระบุ Student/Coordinator; ต้องถามผู้อนุมัติ\\\hline
+Solution & เว็บดู workshop/สมัคร/จัดการผู้เข้าร่วม\\\hline
+Value & ลดข้อผิดพลาด/งานธุรการ; \r{ขาด metric/baseline}\\\hline
+Scope & รุ่นแรกสมัครฟรี; payment/certificates ไว้ภายหลัง\\\hline
+Risk & ไม่ระบุ; เสนอเรื่องซ้ำซ้อน/สมัครพร้อมกัน/privacy\\\hline
+Effort & “ก่อนภาคหน้า” เป็น deadline \r{ไม่ใช่ effort estimate}\\\hline
+Evidence & ยังไม่มี AC/test/demo/sign-off\\\hline
+\end{tabularx}}
+\k{ย่อหน้าแก้ไข}: ปัญหา/ผู้ใช้ → solution/ขอบเขตรุ่นแรก → คุณค่า/metric ที่เสนอ → risk/วิธีรับมือ → effort/ทรัพยากร/deadline → หลักฐาน/ผู้ยอมรับ
+\g{เสนอให้ Coordinator ลองสมัคร/ยกเลิก ตรวจข้อมูลซ้ำและสิทธิ์; demo + tests ผ่าน + sign-off}; ประเมิน person-days กับทีมก่อนรับปาก ไม่แต่งตัวเลขเป็นข้อเท็จจริง
+\topic{ตัวอย่าง revised proposal (ข้อเสนอเพิ่มเติม)}
+{\smalltable
+WorkshopHub will replace separate workshop forms that coordinators currently combine manually, causing duplicate registrations and delayed confirmations. Students will browse and register for free workshops; coordinators will manage participant lists. Payment and certificates are outside the first release.\par
+We propose agreeing measurable error-reduction and administrative-effort targets with a baseline. Risks include concurrent duplicate registrations and privacy; verify server-side rules and role checks. Estimate effort after breaking down the work, then confirm feasibility before next semester. Completion should require traced acceptance tests, a working demo and coordinator sign-off.}
+\k{ชี้แจงในคำตอบ}: ปัญหา/ผู้ใช้/ขอบเขตมาจากโจทย์; metric, risk/control และวิธีรับงานเป็นข้อเสนอ ไม่อ้างว่าลูกค้าตกลงแล้ว; deadline ไม่ใช่ effort
+\topic{3) RBAC: default deny / ไม่สืบทอดสิทธิ์}
+{\smalltable\begin{tabularx}{\linewidth}{|Y|C{7mm}|C{9mm}|}\hline
+\rowcolor{lightrow}Operation & Student & Coordinator\\\hline
+View published workshops & Allow & Allow\\\hline
+Submit own registration & Allow & Deny\\\hline
+Create workshop & Deny & Allow\\\hline
+Edit workshop & Deny & Allow\\\hline
+Export participant list & Deny & Allow\\\hline
+\end{tabularx}}
+\r{Coordinator ไม่ได้สิทธิ์สมัครเองโดยอัตโนมัติ}; คนละ 1 role; ไม่ grant = deny; อย่าเพิ่มเงื่อนไข owner ที่โจทย์ไม่ให้
+\k{Backend}: authenticate → role/operation → owner/state → validate → perform; คืน 401/403/404 ตามกติกา
+\g{Negative test}: Student เรียก \code{POST /workshops} ตรง → 403 และ DB ไม่เพิ่ม; A ขอ registration ของ B → ปฏิเสธ/ไม่รั่วข้อมูล
+\topic{4) Upload attack: ข้าม trust boundary}
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,tinytext]
+\node[act,fill=bluehead!25](a)at(5,0){Browser};
+\node[act,fill=orangehead!30](b)at(24,0){Upload API};
+\node[act,fill=minthead!30](c)at(42,0){File store};
+\draw[flow](a)--node[above]{fake PDF}(b);\draw[flow](b)--(c);
+\draw[keyred,dashed,line width=.45pt](14,-3.2)--(14,3.8);\node[keyred,font=\fontsize{6.3}{6.6}\selectfont]at(24,-3.5){trust boundary};
+\node[act,fill=orangehead!22](run)at(38,-7.5){Run script};
+\node[act,fill=orangehead!22](leak)at(12,-7.5){Read others' files};
+\draw[flow,keyred](c)--node[right,font=\fontsize{6.3}{6.6}\selectfont]{unsafe}(run);
+\draw[flow,keyred](run)--node[above,font=\fontsize{6.3}{6.6}\selectfont]{C breached}(leak);
+\end{tikzpicture}\end{center}
+\k{Actor}: นักศึกษาข้าม client check; \k{Assets}: รายงานผู้อื่น/server/DB; \k{Surface}: upload endpoint/file URL; \k{Boundary}: client → server, ข้อมูลอัปโหลด → โค้ดที่รัน
+\k{CIA}: อ่านรายงานคนอื่นละเมิด C; code execution เสี่ยง I/A ด้วย \r{แยกเหตุที่เกิดแล้วจากผลที่อาจเกิด}
+\k{Control/test 1}: server ตรวจ PDF type/content/size; ส่ง script, MIME ปลอมหรือไฟล์ใหญ่ → 4xx ไม่เก็บเป็นรายงาน
+\k{Control/test 2}: เก็บนอก webroot/รันไม่ได้; download handler ตรวจ owner; เปิด script → ไม่รัน; ขอรายงานคนอื่น → ปฏิเสธ
+\g{เสริม}: สุ่มชื่อไฟล์ ตรวจ path จำกัดสิทธิ์ สแกนมัลแวร์ตามความเสี่ยง และ log ปลอดภัย; frontend check ช่วย UX เท่านั้น
+\topic{ตอบ security พร้อมเหตุผล}
+\b{ช่องโหว่ → จุดเข้า/asset → boundary → CIA → defense → negative check + expected}; ไม่ใช่แค่รายชื่อ attack
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{6.5}{6.8}\selectfont]
+\foreach\lab/\y/\first/\second/\third in{XSS/0/Payload/Page/Browser runs JS,CSRF/-6/Malicious page/Browser + cookie/API write,SSRF/-12/Input URL/Server/Internal host,SQLi/-18/Input/Unsafe SQL/DB}{
+\node[anchor=west,font=\fontsize{7.1}{7.4}\selectfont\bfseries]at(0,\y){\lab};
+\node[act,text width=8mm,font=\fontsize{6.5}{6.8}\selectfont](a\lab)at(14,\y){\first};
+\node[act,text width=8mm,font=\fontsize{6.5}{6.8}\selectfont](b\lab)at(29,\y){\second};
+\node[act,text width=8mm,font=\fontsize{6.5}{6.8}\selectfont](c\lab)at(43,\y){\third};
+\draw[flow,keyred](a\lab)--(b\lab);\draw[flow,keyred](b\lab)--(c\lab);
+}
+\end{tikzpicture}\end{center}
+\r{ภาพแสดงเส้นทางโจมตี}; ระบุว่าโค้ดรันหรือ request ถูกส่งจากที่ใด
+\k{Boundary}: จำกัด 3 → ทดสอบ 2/3/4, ข้ามภาค, ยกเลิกแล้วนับไหม? เงื่อนไขที่โจทย์ไม่บอกต้องถาม ไม่เพิ่มกฎเอง
+\k{แยกศัพท์}: threat = เหตุร้ายที่อาจเกิด; vulnerability = จุดอ่อน; attack = การใช้จุดอ่อน; risk = โอกาส × ผลกระทบ; control = มาตรการลดความเสี่ยง

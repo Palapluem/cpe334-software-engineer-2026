@@ -1,0 +1,78 @@
+% Shared chapter/solution style; class, font scale and margins match the template.
+\usepackage{fontspec,polyglossia,graphicx,tikz,geometry,enumitem,array,lastpage,amssymb,amsmath,xcolor,tabularx}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,patterns}
+\setmainlanguage{thai}
+\XeTeXlinebreaklocale "th"
+\XeTeXlinebreakskip=0pt plus 1pt
+\setmainfont[Scale=1.33,Path=../fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
+\newfontfamily\thaifont[Scale=1.33,Script=Thai,Path=../fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
+\newfontfamily\thaifonttt[Scale=1.0]{Menlo}
+\setmonofont[Scale=1.0]{Menlo}
+\linespread{1.25}
+\geometry{top=0.8in,bottom=1in,left=0.8in,right=0.8in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlength{\emergencystretch}{2em}
+\AddToHook{env/tabularx/before}{\par\noindent}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.18}
+\setlist{leftmargin=1.5em,itemsep=2pt,parsep=0pt,topsep=3pt}
+\pagestyle{headandfoot}
+\extraheadheight{0.2in}
+\newcommand{\BookKind}{ข้อสอบ}
+\newcommand{\examheader}{\makebox[\textwidth][l]{ชื่อ-นามสกุล \hrulefill\quad รหัสนักศึกษา \makebox[1.9in]{\hrulefill}}}
+\firstpageheader{\examheader}{}{}
+\runningheader{\examheader}{}{}
+\firstpagefooter{{\fontsize{12}{16}\selectfont\textit{\BookKind รายวิชา CPE334 Software Engineering กลางภาคการศึกษาที่ 1/2569}}}{}{\textit{หน้าที่ \thepage/\pageref{LastPage}}}
+\runningfooter{{\fontsize{12}{16}\selectfont\textit{\BookKind รายวิชา CPE334 Software Engineering กลางภาคการศึกษาที่ 1/2569}}}{}{\textit{หน้าที่ \thepage/\pageref{LastPage}}}
+\newcommand{\parttitle}[2]{\noindent\textbf{\Large ส่วนที่ #1\quad #2}\par\medskip}
+\newcommand{\qtitle}[3]{\noindent\textbf{ข้อ #1\quad #2}\hfill\textbf{(#3 คะแนน)}\par\smallskip}
+\newcommand{\subq}[2]{\par\medskip\textbf{#1}\hfill\textbf{(#2 คะแนน)}\par}
+\newcommand{\blankbox}[1]{\par\smallskip\noindent\fbox{\parbox[t][#1][t]{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{\strut}}\par}
+\newcommand{\ruled}[1]{\par\foreach \i in {1,...,#1}{\noindent\rule{\linewidth}{0.2pt}\par\vspace{12pt}}}
+\newcommand{\note}[1]{\par\smallskip\noindent\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{#1}}\par\smallskip}
+\newcommand{\anshead}[2]{\textbf{#1}\hfill\textbf{#2 คะแนน}\par}
+\newcommand{\code}[1]{{\ttfamily #1}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+% Two ten-day panels retain the Gantt fields on portrait A4.
+\newcommand{\ganttgrid}[3][]{%
+\par\smallskip\textbf{#2}\par
+\begin{center}\begin{tikzpicture}[x=1cm,y=.62cm]
+\draw (0,0) rectangle (16.15,-9);
+\foreach \x in {1.25,2.25,3.85,4.75,5.65}{\draw(\x,0)--(\x,-9);}
+\foreach \i in {1,...,9}{\draw({5.65+1.05*\i},0)--({5.65+1.05*\i},-9);}
+\foreach \i in {1,...,8}{\draw(0,-\i)--(16.15,-\i);}
+\node at(.625,-.5){No.};\node at(1.75,-.5){Task};\node at(3.05,-.5){Owner};
+\node at(4.3,-.5){Start};\node at(5.2,-.5){Due};
+\foreach \d[count=\i from 0]in{#3}{\node at({6.175+1.05*\i},-.5){\d};}
+#1
+\end{tikzpicture}\end{center}}
+% Plain triangular control-flow/call heads; replies are open, dashed arrows.
+\tikzset{commit/.style={circle,draw,minimum size=8mm,inner sep=0pt},
+  edge/.style={-{Triangle[length=1.5mm,width=1.1mm]},line width=.45pt},
+  act/.style={draw,rounded corners,align=center,inner sep=4pt},
+  decision/.style={diamond,draw,aspect=2,inner sep=1pt,align=center},
+  flow/.style={-{Triangle[length=1.35mm,width=.95mm]},line width=.4pt,shorten >=.35pt},
+  message/.style={-{Triangle[length=1.5mm,width=1.1mm]},line width=.4pt},
+  reply/.style={-{Straight Barb[length=1.4mm,width=1.1mm]},line width=.4pt,dashed},
+  signal/.style={-{Straight Barb[length=1.4mm,width=1.1mm]},line width=.4pt},
+  ganttdep/.style={-{Straight Barb[length=.95mm,width=.75mm]},line width=.35pt},
+  life/.style={draw,align=center,inner sep=3pt}}
+\newcommand{\startgitFF}{%
+\begin{tikzpicture}[x=2.4cm,y=1cm]
+\foreach \n/\x in {A/0,B/1,C/2,D/3,E/4}{\node[commit] (\n) at (\x,0){\n};}
+\foreach \a/\b in {A/B,B/C,C/D,D/E}{\draw[thick] (\a)--(\b);}
+\node[below=5mm of B,align=center]{main\\origin/main};
+\node[above=5mm of C,align=center]{sprint\_1\_staging\\origin/sprint\_1\_staging};
+\node[below=5mm of E,align=center]{feature/load\_scores\\HEAD};
+\end{tikzpicture}}
+\newcommand{\startgitMerge}{%
+\begin{tikzpicture}[x=2.1cm,y=1cm]
+\foreach \n/\x in {A/0,B/1,C/2,D/3}{\node[commit] (\n) at (\x,0){\n};}
+\node[commit](E)at(4,1.2){E};\node[commit](F)at(4,-1.2){F};
+\foreach \a/\b in {A/B,B/C,C/D,D/E,D/F}{\draw[thick](\a)--(\b);}
+\node[below=5mm of B,align=center]{main\\origin/main};
+\node[right=4mm of E,align=left]{feature/basic\_statistics\\origin/feature/basic\_statistics};
+\node[right=4mm of F,align=left]{sprint\_1\_staging (HEAD)\\origin/sprint\_1\_staging};
+\end{tikzpicture}}

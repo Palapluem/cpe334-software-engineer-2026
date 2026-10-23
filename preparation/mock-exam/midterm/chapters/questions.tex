@@ -1,0 +1,235 @@
+% Page 2: requirements analysis, first pair.
+\parttitle{1}{Requirements และ Security (25 คะแนน)}
+\qtitle{1}{วิเคราะห์ความต้องการของผู้มีส่วนได้ส่วนเสีย}{8}
+มหาวิทยาลัยต้องการพัฒนาระบบลงทะเบียน workshop ให้จำแนกข้อความ 1.1-1.4 เป็น functional, non-functional หรือ business/domain rule พร้อมเหตุผล จุดประสงค์ คุณภาพ วิธีตรวจและผลที่คาดหวัง แล้วปรับข้อความหรือให้เหตุผลว่าทำไมไม่ต้องปรับ เงื่อนไขหรือตัวเลขที่เสนอเพิ่มต้องระบุว่ารอยืนยันกับผู้เกี่ยวข้อง\par
+
+\textbf{1.1 (2 คะแนน)} นักศึกษาที่เข้าสู่ระบบแล้วสามารถดู workshop ทั้งหมดที่เปิดให้ลงทะเบียนได้\par
+\blankbox{6.5cm}
+\textbf{1.2 (2 คะแนน)} กระบวนการลงทะเบียนควรรวดเร็ว\par
+\blankbox{6.5cm}
+\newpage
+\textbf{ข้อ 1 (ต่อ)} วิเคราะห์ข้อความที่เหลือตามหัวข้อเดิม\par
+
+\textbf{1.3 (2 คะแนน)} ตามนโยบายมหาวิทยาลัย นักศึกษาลงทะเบียนได้ไม่เกิน 3 workshop ต่อภาคการศึกษา\par
+\blankbox{7.5cm}
+\textbf{1.4 (2 คะแนน)} นักศึกษาสามารถยกเลิกการลงทะเบียน และผู้ประสานงานสามารถดูรายชื่อผู้เข้าร่วมได้\par
+\blankbox{7.5cm}
+\newpage
+\qtitle{2}{ประเมินข้อเสนอโครงการ WorkshopHub}{7}
+ปัจจุบันนักศึกษาสมัคร workshop ผ่านแบบฟอร์มออนไลน์แยกกัน ผู้ประสานงานรวบรวมข้อมูลด้วยมือ ทำให้ลงทะเบียนซ้ำและยืนยันล่าช้า WorkshopHub เป็นเว็บไซต์ให้นักศึกษาค้นหาและสมัคร workshop และให้ผู้ประสานงานจัดการรายชื่อ คาดว่าจะลดความผิดพลาดและงานจัดการ รุ่นแรกรองรับเฉพาะ workshop ฟรี ส่วน payment และใบรับรองพัฒนาภายหลัง ทีมวางแผนเสร็จก่อนภาคการศึกษาถัดไป\par
+\subq{2.1 ประเมินองค์ประกอบทั้ง 8 ของข้อเสนอ}{4}
+ระบุองค์ประกอบทั้ง 8 ว่ามีแล้ว มีเพียงบางส่วน หรือยังไม่มี พร้อมหลักฐานหรือเหตุผลจากข้อความ\par
+\begingroup
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4cm}|Y|}\hline
+องค์ประกอบ & สถานะและหลักฐาน\\\hline
+Problem & \rule{0pt}{.9cm}\\\hline
+Users & \rule{0pt}{.9cm}\\\hline
+Solution & \rule{0pt}{.9cm}\\\hline
+Expected value & \rule{0pt}{.9cm}\\\hline
+Scope & \rule{0pt}{.9cm}\\\hline
+Risk & \rule{0pt}{.9cm}\\\hline
+Effort & \rule{0pt}{.9cm}\\\hline
+Evidence of completion & \rule{0pt}{.9cm}\\\hline
+\end{tabularx}
+\endgroup
+\subq{2.2 เขียนข้อเสนอฉบับปรับปรุง}{3}
+รักษาปัญหาและขอบเขตรุ่นแรกเดิม เติมส่วนที่ยังขาด และแยกสิ่งที่เสนอเพิ่มออกจากข้อเท็จจริงที่ได้รับ\par
+\blankbox{8.5cm}
+\newpage
+\qtitle{3}{Role-Based Access Control}{4}
+หนึ่งบัญชีมีหนึ่ง role ไม่มี inheritance และปฏิเสธ operation ที่ไม่ได้รับสิทธิ์ Student ดู workshop ที่เผยแพร่และส่งคำขอลงทะเบียนตนเองได้ Coordinator ดู workshop ที่เผยแพร่ สร้างและแก้ไข workshop และส่งออกรายชื่อได้ ไม่มีข้อจำกัดตามเจ้าของ workshop เพิ่มเติม\par
+\subq{3.1 เติม Allow หรือ Deny ให้ครบ}{2.5}
+\begin{tabularx}{\linewidth}{|Y|M{2.8cm}|M{2.8cm}|}\hline
+Operation & Student & Coordinator\\\hline
+ดู workshop ที่เผยแพร่ & &\\\hline
+ส่งคำขอลงทะเบียนตนเอง & &\\\hline
+สร้าง workshop & &\\\hline
+แก้ไข workshop & &\\\hline
+ส่งออกรายชื่อ & &\\\hline
+\end{tabularx}
+\subq{3.2 การซ่อนปุ่มส่งออกจาก Student เพียงพอหรือไม่?}{1.5}
+อธิบายสิ่งที่ backend ต้องตรวจ และยกตัวอย่าง direct-request test พร้อมผลที่คาดหวังหนึ่งกรณี\par
+\blankbox{2.5cm}
+\medskip
+\qtitle{4}{วิเคราะห์ช่องโหว่ระบบส่งรายงาน}{6}
+ระบบส่งรายงานตรวจ PDF เฉพาะใน browser นักศึกษาข้ามการตรวจแล้วอัปโหลด script ปลอมเป็น PDF ระบบเก็บไฟล์ในโฟลเดอร์ที่รัน script ได้ เมื่อเปิด URL ของไฟล์ script จึงทำงานบน server และอ่านรายงานของคนอื่นได้\par
+\subq{4.1 วิเคราะห์เหตุการณ์}{3}
+ระบุผู้โจมตี assets, attack surface, trust boundary ที่ถูกข้าม และ security objective ที่เสียหาย\par
+\blankbox{3cm}
+\subq{4.2 เสนอ control พร้อม negative test จำนวน 2 คู่}{3}
+เสนอ control พร้อม negative test 2 คู่ แต่ละคู่ระบุวิธีป้องกัน วิธีทดสอบ และผลที่ควรได้ โดยเชื่อมกับช่องโหว่ในเหตุการณ์\par
+\blankbox{4cm}
+\newpage
+\parttitle{2}{Project Planning และ Execution (25 คะแนน)}
+\qtitle{5}{วางแผนโครงการ DormFix}{10}
+คุณเป็น PM ของระบบแจ้งซ่อมหอพักแบบ Waterfall ทีมประกอบด้วย Aom (BA), Bank (UX/UI), Chai (Developer), Dao (Developer/Tester) ผู้จัดการหอพักเป็น Sponsor และหัวหน้าช่างเป็นตัวแทน User\par
+{\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\linewidth}{|M{.85cm}|Y|>{\raggedright\arraybackslash}m{1.6cm}|M{1.1cm}|}\hline
+งาน & รายละเอียด & ผู้ทำ & วัน\\\hline
+A & เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ & Chai & 4\\\hline
+B & ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ & PM & 1\\\hline
+C & ออกแบบหน้าจอจาก requirements ที่อนุมัติ & Bank & 3\\\hline
+D & ทดสอบโปรแกรมสองส่วนร่วมกัน & Dao & 2\\\hline
+E & เขียน requirements เป็นงานแรก & Aom & 3\\\hline
+F & ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ & PM & 1\\\hline
+G & ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ & Chai & 2\\\hline
+H & ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ & PM & 1\\\hline
+I & เขียน dashboard ช่างจากแบบที่อนุมัติ & Dao & 3\\\hline
+\end{tabularx}\par}
+\subq{5.1 จัด WBS ตาม milestone ที่บรรลุ}{3}
+ใส่ชื่อ milestone และตัวอักษรงาน A-I ตามลำดับ ใช้ทุกงานครั้งเดียว งานขนานเรียงลำดับใดก่อนก็ได้ เว้นช่องที่ไม่ใช้\par
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|}\hline
+1.1 & 1.2 & 1.3 & 1.4\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\end{tabularx}
+\subq{5.2 เติม RACI ตามบันทึกประชุม}{2}
+ใช้ R, A, C, I หรือ “-” เมื่อไม่มีบทบาท ตามบันทึกประชุมด้านล่าง\par
+\begin{itemize}[itemsep=0pt]
+\item E: Aom ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท
+\item C: Bank ลงมือทำ PM รับผิดชอบผลสำเร็จ Aom ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท
+\item G: Chai ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Dao รับแจ้งหลังทำ Aom ไม่มีบทบาท
+\item D: Dao ลงมือทำ PM รับผิดชอบผลสำเร็จ Chai ให้ความเห็นก่อนทำ Aom รับแจ้งหลังทำ Bank ไม่มีบทบาท
+\end{itemize}
+\begin{tabularx}{\linewidth}{|M{1cm}|*{5}{>{\centering\arraybackslash}X|}}\hline
+Task & PM & Aom & Bank & Chai & Dao\\\hline
+E &\rule{0pt}{.7cm}&&&&\\\hline
+C &\rule{0pt}{.7cm}&&&&\\\hline
+G &\rule{0pt}{.7cm}&&&&\\\hline
+D &\rule{0pt}{.7cm}&&&&\\\hline
+\end{tabularx}
+\newpage
+\subq{5.3 วางกำหนดการเป็น Gantt chart}{5}
+ใช้ owner และจำนวนวันที่ให้ เริ่มจันทร์ที่ 4 มกราคม 2027 ทำงานจันทร์-ศุกร์ ไม่มีวันหยุดอื่น คุณและทีมทั้งสี่ทำ DormFix เต็มเวลา แต่ผู้เกี่ยวข้องภายนอกมีงานอื่น งานถัดไปเริ่มวันทำงานหลัง predecessors และ buffer จบ ใส่ task buffer 1 วันและ project buffer 2 วันเฉพาะจุดจำเป็น Milestone อยู่วันสุดท้ายที่ทำเครื่องหมายของงานสุดท้ายในกลุ่ม; milestone สุดท้ายอยู่วันสุดท้ายของ project buffer โดยไม่เพิ่มวันทำงาน กรอก No. ตาม WBS, Task, Owner, Start และ Due รวม buffer ใช้ X แทนวันทำงาน, - แทน buffer, * แทน milestone แสดง dependencies โดยใช้จุดเชื่อมข้ามตารางได้ เว้นแถวที่ไม่ใช้ และอธิบายด้านล่าง\par
+\textbf{ข้อ 5.3 ตารางคำตอบ Gantt chart}
+\ganttgrid{January 2027: Weeks 1-2}{4,5,6,7,8,11,12,13,14,15}
+\ganttgrid{January 2027: Weeks 3-4}{18,19,20,21,22,25,26,27,28,29}
+\textbf{คำอธิบาย (1 คะแนน รวมในข้อ 5.3):} เพราะเหตุใดจึงวาง buffer เช่นนี้ และ milestone ไม่ใช้เวลาทำงาน?\par
+\blankbox{2.2cm}
+\newpage
+\qtitle{6}{Backlog grooming: จองสนามแบดมินตัน}{10}
+Issue \#12 “Book a badminton court”: Client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมงโดยไม่ต้องต่อคิว ระบบมีข้อมูลสนามและเวลาเปิดให้บริการแล้ว นักศึกษาแต่ละคนจองได้ไม่เกินวันละ 1 ครั้ง ตัวอย่าง: สนาม 2 ว่างเวลา 17:00 วันนี้และต้องแสดง Booked เมื่อจองสำเร็จ ทีมยังไม่กำหนดผู้รับผิดชอบ milestone หรือ estimate ให้เลือก label ที่เหมาะสม ใส่ “-” ในช่องที่ไม่มีข้อมูล และแยกคำถามติดตามออกจากข้อเท็จจริง\par
+\subq{6.1 เขียน user story: role, function และ value}{2}
+\blankbox{1.8cm}
+\subq{6.2 ระบุ assumptions/details จากข้อมูล client}{2}
+\blankbox{2.3cm}
+\subq{6.3 เขียน Acceptance Criteria แบบ Gherkin 2 สถานการณ์}{4}
+เขียน Gherkin 2 สถานการณ์: จองสำเร็จตามตัวอย่าง และขอจองเพิ่มเมื่อมีการจองในวันนั้นแล้ว\par
+\blankbox{3.2cm}
+\blankbox{3.2cm}
+\subq{6.4 กำหนด metadata ของ issue}{2}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|}\hline
+Assignees & Labels & Milestone & Estimate\\\hline
+\rule{0pt}{4cm}&&&\\\hline
+\end{tabularx}
+\newpage
+\qtitle{7}{Sprint planning: ShuttleNow}{5}
+คุณเป็น Scrum Master เป้าหมาย Sprint 6: “นักศึกษาติดตามรถรับส่งและทราบเวลาที่รถจะมาถึงได้” Capacity เท่า Sprint ก่อนคือ 16 points Backlog เรียงตามความสำคัญ Anchor “ดูรายการเส้นทางรถรับส่ง” = 3 points บน scale 1, 2, 3, 5, 8, 13, 21 ใหญ่ขึ้น/เล็กลงหมายถึงขั้นบน scale\par
+\subq{7.1 ประเมิน story points และเลือกงานเข้า Sprint 6}{3}
+ เติม points และ Yes/No ให้ครบ
+\begin{tabularx}{\linewidth}{|M{.9cm}|>{\centering\arraybackslash}X|M{3cm}|M{1.1cm}|M{1.2cm}|}\hline
+ลำดับ & User story & เทียบ anchor & Points & เลือก\\\hline
+1 & ดูตำแหน่งรถสด & ใหญ่ขึ้น 2 ขั้น &\rule{0pt}{1.25cm}&\\\hline
+2 & จ่ายค่าโดยสาร QR & เท่ากัน &\rule{0pt}{1.25cm}&\\\hline
+3 & เวลาถึงป้ายฉัน & ใหญ่ขึ้น 1 ขั้น &\rule{0pt}{1.25cm}&\\\hline
+4 & เตือนก่อนรถถึง & เท่ากัน &\rule{0pt}{1.25cm}&\\\hline
+5 & เวลาถึงทุกป้าย & ใหญ่ขึ้น 1 ขั้น &\rule{0pt}{1.25cm}&\\\hline
+6 & แก้รายการถูกตัดบนมือถือ & เล็กลง 1 ขั้น &\rule{0pt}{1.25cm}&\\\hline
+\end{tabularx}
+\subq{7.2 รวม points ของงานที่เลือก}{1}
+\rule{\linewidth}{.2pt}\par\smallskip
+\subq{7.3 เหตุผลที่เลือกและไม่เลือกแต่ละงาน}{1}
+\blankbox{7cm}
+\newpage
+\parttitle{3}{UML/UI และ Git Workflow (50 คะแนน)}
+\textbf{ใช้ข้อกำหนดต่อไปนี้สำหรับข้อ 8-10}\par
+\textbf{ข้อกำหนด: ระบบลงทะเบียนเรียน KU}\par
+\textbf{R1.} ผู้ใช้ทุกคนต้อง log in ด้วย KU account ผ่าน KU Single Sign-On (KUSSO) ซึ่งให้ข้อมูล role เช่น Student, University Admin และ Instructor\par\smallskip
+\textbf{R2.} Department Admin สร้าง course ใหม่ได้ โดยระบุ course code, course name, description, credits และ fee\par\smallskip
+\textbf{R3.} Department Admin กำหนด course offerings โดยเลือก semester และ course code แล้วกรอก sections list: section number, room, class time, display notes และ maximum students รายวิชาที่เปิด 4 sections จะสร้าง 4 course offerings\par\smallskip
+\textbf{R4.} University Admin สร้าง semester และกำหนด currently active semester ได้\par\smallskip
+\textbf{R5.} Student เปิด Registration Form ของ active semester โดยเริ่มต้นยังไม่มี offering ระบบใช้ logged-in username ดึง student ID, name, degree program, email และ login username จาก KU Student Info System\par\smallskip
+\textbf{R6.} Student เพิ่ม offerings หลายรายการผ่าน Course Offering List View ได้ total registration fee ปรับตามรายวิชาที่เพิ่ม\par\smallskip
+\textbf{R7.} Course Offering List View แสดง course ID, course code, course name, credits, fee, semester, section, room, class time, display notes, maximum students, number registered และ seats remaining นักศึกษากรองและเลือกเพิ่มลงในฟอร์มได้\par\smallskip
+\textbf{R8.} ฟอร์มเริ่มในสถานะ Draft นักศึกษาบันทึกและกลับมาแก้ไขได้ก่อน final submission\par\smallskip
+\textbf{R9.} เมื่อ submit ระบบตรวจที่นั่งทุก offering หาก section ใดเต็ม submission ล้มเหลวและแจ้งเตือนให้แก้ไขแล้ว submit ใหม่ หากทุกรายการมีที่นั่งจึงไปชำระเงิน\par\smallskip
+\textbf{R10.} ชำระด้วย credit card ผ่าน KBank Payment Gateway หรือ bank transfer ผ่าน Bangkok Bank Payment Gateway (BBLPaymentGateway)\par\smallskip
+\textbf{R11.} หลังชำระสำเร็จ ฟอร์มเป็น Done และแก้ไขออนไลน์ไม่ได้ นักศึกษาได้รับ PDF ของ registration ทาง email ผ่าน KU Email (Google Workspace)\par\smallskip
+\newpage
+\qtitle{8}{Sequence Diagram}{10}
+
+เติมแผนภาพตามเหตุการณ์ด้านล่าง แสดง messages พร้อมทิศทางและผลการทำงานของระบบให้ครบ\par
+\begingroup\setlength{\parskip}{0pt}
+1. Student เข้าสู่ระบบ\par 2. ระบบพบ Draft ของภาคปัจจุบันที่มี 2 offerings และเปิดให้ทำต่อ\par 3. Student เพิ่มอีก 1 offering\par 4. Student submit แต่หนึ่งใน 3 offerings เต็ม จึงล้มเหลว\par 5. ระบบแจ้ง Student\par 6. Student เปลี่ยน offering ที่เต็มเป็น section อื่นแล้ว submit ใหม่\par 7. ครั้งนี้ submit สำเร็จ\par 8. Student ชำระด้วย bank transfer\par 9. การลงทะเบียนเสร็จสมบูรณ์\par
+\endgroup
+\begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach\name/\x in{Student/0,{KU\\Registration}/2.8,KUSSO/5.6,{KU Student\\Info}/8.4,{BBL\\Gateway}/11.2,KUEmail/14}{
+\node[life,inner ysep=5pt,text width=2.15cm,minimum height=1.25cm]at(\x,0){\name};\draw[dashed](\x,-.7)--(\x,-14);}
+\end{tikzpicture}\end{center}
+\newpage
+\qtitle{9}{Activity Diagram}{10}
+
+แสดง workflow ใน session เดียว: Student เข้าระบบครั้งแรกของภาค ได้ฟอร์มว่างพร้อมข้อมูลตนเอง เลือกวิชา ชำระสำเร็จ และได้รับยืนยัน ให้แสดง decision branches เช่นวิธีชำระ พร้อม guards และ loops เช่นแก้ไขแล้ว resubmit จนสำเร็จ ใช้ decision nodes แบบ flowchart และวางกิจกรรมใน lane ผู้รับผิดชอบ\par
+\begin{center}\begin{tikzpicture}[x=1.026cm,y=1cm,font=\fontsize{9}{10.5}\selectfont]
+\draw(0,0)rectangle(16.45,-21);\foreach\x in{2.35,4.7,7.05,9.4,11.75,14.1}{\draw(\x,0)--(\x,-21);}\draw(0,-1.55)--(16.45,-1.55);
+\foreach\lab[count=\i from 0]in{Student,KUSSO,{KU\\Registration},{KU Student\\Info},{KBank\\Gateway},{BBL\\Gateway},KUEmail}{\node[align=center,anchor=center,text width=2.1cm]at({1.175+2.35*\i},-.775){\lab};}
+\node[circle,fill,inner sep=3pt](s)at(1.175,-1.8){};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](launch)at(1.175,-2.9){Launch app / log in};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](login)at(3.525,-2.9){Log in};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](open)at(5.875,-2.9){Open blank form};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](profile)at(8.225,-2.9){Get profile by username};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](prefill)at(5.875,-5.4){Prefill student data};
+\draw[flow](s)--(launch);\draw[flow](launch)--(login);\draw[flow](login)--(open);\draw[flow](open)--(profile);\draw[flow](profile)|-(prefill);\draw[flow](prefill.west)--(2.1,-5.4)--(2.1,-5.9)--(1.175,-5.9);
+\end{tikzpicture}\end{center}
+\newpage
+\qtitle{10}{ออกแบบ List View และ Form View}{10}
+
+ออกแบบ generic UI สำหรับ Student ตาม R5-R11 ใช้ \textbf{*} นำหน้า required fields ใช้ textboxes สำหรับ editable fields และขีดเส้นเฉียงภายในช่อง non-editable หรือ calculated\par
+\subq{10.1 Course Offering List View}{4}
+แสดงข้อมูลตาม requirements การกรอง และเลือก offering กลับสู่ฟอร์ม ใช้ตารางหรือการ์ดพร้อมส่วนรายละเอียดได้\par
+\blankbox{20.5cm}
+\newpage
+\textbf{ข้อ 10 (ต่อ): ออกแบบแบบฟอร์มลงทะเบียน}
+\subq{10.2 Student Registration Form View}{6}
+Semester เป็นภาคปัจจุบัน ข้อมูล Student มาจากผู้ใช้ที่เข้าสู่ระบบ แสดง header, line items, fee, controls และการแสดงผลเมื่อ Draft, รายการเต็ม และ Done\par
+\blankbox{21.5cm}
+\newpage
+\textbf{ข้อมูลร่วมสำหรับข้อ 11-12}\par
+ExamScore เป็น Python CLI อ่านรายชื่อและคะแนน 0-100 จาก CSV คำนวณสถิติและอัตราผ่าน ใช้ main สำหรับ release, sprint staging รวมงาน และ feature branches แยกงาน\par
+
+\textbf{สัญลักษณ์และข้อสมมติ}\par
+HEAD ระบุ local branch ที่ checkout; origin/* บันทึกสถานะ remote ล่าสุดที่เครื่องทราบ switch เปลี่ยน HEAD โดยไม่ย้าย branch pointers สมมติ working directory สะอาด คำสั่งสำเร็จ ไม่มี conflict คำสั่งไม่ติดต่อ GitHub เว้นแต่ระบุ fetch, push หรือ remote command แต่ละข้อเริ่มจาก graph ของตน \textbf{Stage ด้วยชื่อไฟล์ ห้ามใช้ \code{git add .}}\par
+
+\qtitle{11}{ทำนาย repository graph}{10}
+จากข้อมูลร่วมข้างต้น feature และ sprint แตกแขนงจาก D ให้ merge สำเร็จและสร้าง G ตามคำสั่งด้านล่าง\par
+\begin{center}\startgitMerge\end{center}
+\begin{verbatim}
+git merge feature/basic_statistics
+git switch main
+\end{verbatim}
+วาด graph สุดท้ายให้มี parents ทั้งสองของ G, local branches, origin/* และ HEAD ระบุประเภท merge พร้อมเหตุผล และผลของ switch ต่อ HEAD และ branch pointers\par
+\blankbox{6cm}
+\textbf{ประเภท merge เหตุผล ผลของ switch:}\par
+\blankbox{2.5cm}
+\newpage
+\qtitle{12}{เขียนคำสั่งและวาด graph}{10}
+ทำ 12.1-12.3 ต่อเนื่องกัน แต่ละขั้นเริ่มจากผลของขั้นก่อน\par
+\begin{center}\startgitFF\end{center}
+\subq{12.1 เปลี่ยนไป sprint\_1\_staging แล้ววาด graph}{2}
+\textbf{คำสั่ง:}\ruled{1}
+\blankbox{4.5cm}
+\subq{12.2 รวม feature/load\_scores เข้า branch ปัจจุบัน}{3}
+รวม feature/load\_scores เข้า branch ปัจจุบัน เขียนคำสั่ง ระบุประเภท merge และวาด graph หลัง merge\par
+\par\textbf{คำสั่งและประเภท merge:}\ruled{1}
+\blankbox{4.5cm}
+\newpage
+\subq{12.3 ตรวจการเปลี่ยนแปลง stage และ commit}{5}
+จาก 12.2 ผู้พัฒนาแก้ \code{score\_data.py} และ \code{scores.csv} แล้วสร้าง \code{validation\_notes.txt} เขียนคำสั่งตรวจการเปลี่ยนแปลง stage เฉพาะสามไฟล์ และสร้าง F ด้วยข้อความ \code{Document score validation cases} แล้ววาด pointers และ HEAD ให้ครบ\par
+\par\textbf{คำสั่ง:}
+\blankbox{6cm}
+\textbf{Graph หลังสร้าง F:}
+\blankbox{10cm}

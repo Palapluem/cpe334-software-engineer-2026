@@ -1,0 +1,435 @@
+\begin{center}\textbf{\Large เฉลยชุดฝึกกลางภาคและเกณฑ์ตรวจ}\par
+\textbf{CPE334 Software Engineering}\quad ภาคการศึกษาที่ 1/2569
+\end{center}
+\textbf{วิธีใช้:} ข้อ 1-2 ใช้ศัพท์เทคนิคตามโจทย์พร้อมอธิบายไทย; แยกข้อ 1 ตาม 1.1-1.4, แจกแจง 2.1 ให้ครบ 8 องค์ประกอบ และเขียน 2.2 เป็นข้อเสนอต่อเนื่องได้ ไม่จำเป็นต้องรวมทุกข้อเป็นเรียงความเดียว คำตอบตัวอย่างสั้นเท่าที่ครบ ส่วน \textbf{เกณฑ์ตรวจ} ใช้ตรวจตนเอง ไม่ต้องคัดลงคำตอบ รับคำตอบอื่นที่รักษาข้อกำหนดและให้เหตุผลได้ ไม่หักซ้ำจากต้นเหตุเดียว และไม่ถือค่าที่เสนอเพิ่มว่าเป็นข้อเท็จจริงจากลูกค้า\par
+\begin{tabularx}{\linewidth}{|Y|Y|C{1.2cm}|}\hline
+ส่วน & ข้อ & คะแนน\\\hline
+1 ความต้องการและความปลอดภัย & 1-4 & 25\\\hline
+2 การวางแผนและดำเนินโครงการ & 5-7 & 25\\\hline
+3 UML/UI และ Git & 8-12 & 50\\\hline
+\multicolumn{2}{|r|}{รวม} & 100\\\hline
+\end{tabularx}
+คะแนนย่อยและเกณฑ์ตรวจเป็นของชุดฝึกนี้ ไม่ใช่ประกาศหรือเฉลยทางการของผู้สอน\par
+\medskip
+\qtitle{1}{วิเคราะห์ความต้องการ}{8}
+\anshead{1.1 ดู workshop ที่เปิดลงทะเบียน}{2}
+\textbf{ประเภท/จุดประสงค์:} ความต้องการเชิงหน้าที่ (Functional Requirement: FR) — ระบบแสดงรายการ workshop ที่เปิดลงทะเบียนแก่ Student ซึ่งเข้าสู่ระบบ \textbf{คุณภาพ/ตรวจ:} ต้องนิยาม “เปิดลงทะเบียน”; ทดสอบรายการเปิด/ปิดและคาดหวังให้แสดงเฉพาะรายการเปิดครบ \textbf{ปรับ:} “ระบบแสดง workshop ทุกรายการที่เปิดลงทะเบียนแก่ Student ที่เข้าสู่ระบบ” โดยยืนยันกฎสถานะและช่วงเวลากับผู้เกี่ยวข้อง
+
+\anshead{1.2 ลงทะเบียนรวดเร็ว}{2}
+\textbf{ประเภท/คุณภาพ:} ความต้องการที่ไม่ใช่เชิงหน้าที่ (Non-functional Requirement: NFR) ด้านประสิทธิภาพ; “รวดเร็ว” ยังไม่มีเกณฑ์วัดหรือผ่าน/ไม่ผ่าน \textbf{ข้อเสนอ/ตรวจ:} load test 10 นาทีที่ผู้ใช้พร้อมกัน 100 คน วัดคำขอลงทะเบียนที่ถูกต้องจาก submit ถึงผลตอบกลับ; คาดหวัง p95 (เปอร์เซ็นไทล์ที่ 95) ไม่เกิน 2 วินาที \textbf{ตัวเลขและเงื่อนไขทดสอบต้องยืนยันกับลูกค้าก่อน}
+
+\anshead{1.3 ไม่เกิน 3 workshop ต่อภาค}{2}
+\textbf{ประเภท/คุณภาพ:} กฎธุรกิจ/โดเมน (business/domain rule) จำกัดจำนวนต่อภาค; ตัวเลขทดสอบได้ แต่ต้องยืนยันว่ารายการยกเลิก/รอยืนยันนับหรือไม่ \textbf{ตรวจ:} มี 2 แล้วเพิ่มรายการที่ 3 ต้องผ่าน; มี 3 แล้วรายการที่ 4 ต้องถูกปฏิเสธและยอดคง 3 \textbf{ปรับ:} ระบบไม่ยืนยันการลงทะเบียนที่ทำให้ Student มีรายการนับสิทธิ์เกิน 3 ในภาคเดียวกัน โดยสถานะที่นับต้องตกลงก่อน
+
+\anshead{1.4 ยกเลิกและดูรายชื่อ}{2}
+\textbf{ประเภท/คุณภาพ:} เป็น FR สองข้อที่ไม่ atomic เพราะรวมคนละผู้ใช้และความสามารถ \textbf{แยก/ตรวจ:} FR-1 Student ยกเลิกของตนได้ตามเงื่อนไขที่ตกลง; ทดสอบรายการตน/ผู้อื่นและคาดหวังให้เปลี่ยนได้เฉพาะที่อนุญาต FR-2 Coordinator ดูรายชื่อ workshop; เทียบกับข้อมูลทดสอบในขอบเขตสิทธิ์ \textbf{ปรับ:} แยกเป็น “Student ยกเลิกการลงทะเบียนของตนได้ตามเงื่อนไขมหาวิทยาลัย” และ “Coordinator ดูรายชื่อผู้เข้าร่วม workshop ที่รับผิดชอบ” โดยยืนยันเงื่อนไขและขอบเขตสิทธิ์ก่อน
+\textbf{เกณฑ์ตรวจต่อข้อย่อย 2 คะแนน:} ประเภทพร้อมเหตุผล 0.25; จุดประสงค์ 0.25; คุณภาพ 0.50; วิธีตรวจและผลคาดหวัง 0.50; ปรับหรือคงข้อความพร้อมเหตุผล 0.50 รับ NFR ด้าน usability หากนิยามและวิธีวัดสอดคล้องกัน
+\newpage
+
+\qtitle{2}{ประเมินข้อเสนอโครงการ WorkshopHub}{7}
+\anshead{2.1 องค์ประกอบของข้อเสนอเดิม}{4}
+\begin{tabularx}{\linewidth}{|p{3.6cm}|Y|}\hline
+องค์ประกอบ & คำตอบตัวอย่าง\\\hline
+Problem & มี: ฟอร์มแยก/รวมด้วยมือ ทำให้ซ้ำและยืนยันช้า\\\hline
+Users & มี: นักศึกษาและผู้ประสานงาน\\\hline
+Solution & มี: เว็บค้นหา สมัคร และจัดการรายชื่อ\\\hline
+Expected value & มีบางส่วน: ลดผิดพลาด/ภาระงาน แต่ยังไม่มีค่าฐานและเป้าหมายวัดผล\\\hline
+Scope & มี: รุ่นแรกเฉพาะ workshop ฟรี; payment/certificates ไว้ภายหลัง\\\hline
+Risk & ไม่มี: ยังไม่ระบุความเสี่ยงและวิธีรับมือ\\\hline
+Effort & ไม่มี: “ก่อนภาคหน้า” เป็นกำหนดส่ง ไม่ใช่ปริมาณงาน/กำลังคน\\\hline
+Evidence of completion & ไม่มี: ยังไม่มีเกณฑ์หรือหลักฐานตรวจรับ\\\hline
+\end{tabularx}
+\textbf{เกณฑ์ตรวจ:} องค์ประกอบละ 0.50 ให้ตามสถานะและเหตุผลที่อิงข้อความ รวม 4 คะแนน
+
+\anshead{2.2 ข้อเสนอฉบับปรับปรุง}{3}
+WorkshopHub รวมการสมัคร workshop ฟรีและรายชื่อไว้ในเว็บเดียว ให้นักศึกษาค้นหา/สมัครและผู้ประสานงานจัดการผู้เข้าร่วม เพื่อลดข้อมูลซ้ำและเวลายืนยัน รุ่นแรกไม่รวม payment และ certificates และวางแผนส่งก่อนภาคถัดไป \textbf{ข้อเสนอที่ต้องยืนยัน:} เก็บค่าฐานข้อมูลซ้ำ/เวลายืนยันก่อนตกลงเป้าหมาย รับมือข้อมูลซ้ำและการสมัครพร้อมกันด้วยการตรวจฝั่ง server และทดสอบกรณีชนกัน ประมาณงานเบื้องต้น 15 คน-วัน (วิเคราะห์ 3 พัฒนา 8 ทดสอบ/ส่งมอบ 4) โดยให้ทีมยืนยันความเป็นไปได้ก่อนรับปากกำหนดส่ง \textbf{หลักฐานรับมอบที่เสนอ:} demo ค้นหา-สมัคร-ดูรายชื่อ ผลทดสอบการสมัครซ้ำและสิทธิ์ผ่าน ผู้ประสานงานตรวจรับ และผลเทียบค่าฐานตามเกณฑ์ที่ตกลง\par
+\textbf{เกณฑ์ตรวจ:} รักษาปัญหา/ผู้ใช้/วิธีแก้/คุณค่า/ขอบเขตเดิม 1; เติมความเสี่ยงและ effort พร้อมระบุว่าเสนอใหม่ 1; หลักฐานเสร็จตรวจได้ 1 ไม่บังคับตัวเลข 15 คน-วัน
+\newpage
+
+\qtitle{3}{สิทธิ์การใช้งานตามบทบาท (RBAC)}{4}
+\begin{tabularx}{\linewidth}{|Y|C{2.8cm}|C{2.8cm}|}\hline
+การกระทำ & Student & Coordinator\\\hline
+ดู workshop ที่เผยแพร่ & Allow & Allow\\\hline
+ส่งคำขอลงทะเบียนของตน & Allow & Deny\\\hline
+สร้าง workshop & Deny & Allow\\\hline
+แก้ไข workshop & Deny & Allow\\\hline
+ส่งออกรายชื่อ & Deny & Allow\\\hline
+\end{tabularx}
+\textbf{3.2:} ซ่อนปุ่มไม่พอ ผู้ใช้เรียก API ตรงได้ ฝั่ง server ต้องยืนยัน session และตรวจ role กับ operation โดยปฏิเสธสิทธิ์ที่ไม่ให้ ไม่เชื่อ role จาก request\par
+\textbf{ทดสอบ:} ใช้ session Student เรียก export ตรง แม้ส่ง role=Coordinator ก็ต้องถูกปฏิเสธ เช่น 403 และไม่คืนไฟล์หรือรายชื่อ\par
+\textbf{เกณฑ์ตรวจ:} 3.1 ช่องละ 0.25 รวม 2.5; 3.2 แยก UI/การบังคับสิทธิ์ 0.5, ตรวจสิทธิ์ที่เชื่อถือได้และ default deny 0.5, ทดสอบตรงพร้อมผลคาดหวัง 0.5 ไม่เพิ่ม inheritance หรือกฎเจ้าของที่โจทย์ไม่ได้ให้
+
+\medskip
+\qtitle{4}{วิเคราะห์การอัปโหลดไฟล์}{6}
+\textbf{4.1 คำตอบตัวอย่าง (3 คะแนน)}
+\begin{tabularx}{\linewidth}{|p{3.2cm}|Y|C{1cm}|}\hline
+ประเด็น & คำตอบ & คะแนน\\\hline
+ผู้โจมตี & นักศึกษาที่ข้ามการตรวจฝั่ง browser & 0.5\\\hline
+ทรัพย์สิน & รายงานของผู้อื่นและ server & 0.5\\\hline
+ช่องทางโจมตี & upload endpoint และ URL ของไฟล์ & 0.5\\\hline
+ขอบเขตความเชื่อถือ & ข้อมูลจาก client เข้าสู่ server; ไฟล์ข้อมูลถูกตีความเป็นโค้ดที่รันได้ & 1\\\hline
+ผลที่เกิดจริง & Confidentiality เสียหาย เพราะอ่านรายงานผู้อื่นได้ & 0.5\\\hline
+\end{tabularx}
+\textbf{4.2 Control + negative test (คู่ละ 1.5 คะแนน)}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|}\hline
+Control & วิธีทดสอบ & ผลที่คาดหวัง\\\hline
+ตรวจชนิด/โครงสร้าง PDF ฝั่ง server ไม่เชื่อชื่อหรือ MIME อย่างเดียว & ส่ง script ปลอม PDF ตรงไป API ข้าม browser & ปฏิเสธ ไม่เก็บเป็นรายงานที่ใช้งานได้ และไม่มี URL รัน script\\\hline
+เก็บไฟล์นอกพื้นที่รันโค้ด; ดาวน์โหลดผ่าน handler ตรวจเจ้าของ & เรียกไฟล์ script ที่เก็บ และให้ A ขอรายงาน B & script ไม่รัน; A ไม่ได้รับเนื้อหาของ B\\\hline
+\end{tabularx}
+\textbf{เกณฑ์ตรวจ 4.2:} คู่ละ control 0.5 + วิธีทดสอบ 0.5 + ผลคาดหวัง 0.5 การเพิ่ม browser check อย่างเดียวไม่พอ เหตุการณ์นี้เป็นโค้ดรันบน server ไม่ใช่ XSS; I/A เป็นความเสี่ยงเพิ่มเติม ไม่ใช่ผลที่พิสูจน์แล้ว
+\newpage
+
+\qtitle{5}{วางแผน DormFix}{10}
+\anshead{5.1 WBS ตามผลสำเร็จ}{3}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|}\hline
+1.1 & 1.2 & 1.3 & 1.4\\\hline
+Requirements อนุมัติ & แบบทั้งสองอนุมัติ & ระบบตรวจรับแล้ว & ว่าง\\\hline
+E, B & C/G ขนาน, F & A/I ขนาน, D, H & ว่าง\\\hline
+\end{tabularx}
+\textbf{เกณฑ์ตรวจ:} milestone/ลำดับ 1; A-I ครบและอยู่กลุ่มถูก 1; dependencies/งานขนาน 1
+
+\anshead{5.2 RACI}{2}
+\begin{tabularx}{\linewidth}{|C{1.5cm}|*{5}{>{\centering\arraybackslash}X|}}\hline
+งาน & PM & Aom & Bank & Chai & Dao\\\hline
+E & A & R & C & I & -\\\hline
+C & A & C & R & I & -\\\hline
+G & A & - & C & R & I\\\hline
+D & A & I & - & C & R\\\hline
+\end{tabularx}
+\textbf{เกณฑ์ตรวจ:} 20 ช่อง ช่องละ 0.10 ตามบันทึกประชุม รวม 2 คะแนน
+
+\anshead{5.3 กำหนดการและคำอธิบาย}{5}
+E $\rightarrow$ B $\rightarrow$ \{C,G\} $\rightarrow$ F $\rightarrow$ \{A,I\} $\rightarrow$ D $\rightarrow$ H $\rightarrow$ project buffer\par
+\textbf{เหตุผลสั้น:} B/F/H รอผู้เกี่ยวข้องภายนอก จึงเผื่อ task buffer อย่างละ 1 วัน และกัน project buffer 2 วันท้ายโครงการ เริ่มงานถัดไปหลัง predecessors และ buffer จบ ใช้เฉพาะวันทำงาน Milestone เป็นจุดบรรลุผล ไม่ใช่งานเพิ่มระยะเวลา
+\begin{tabularx}{\linewidth}{|C{1.4cm}|Y|Y|Y|}\hline
+งาน & ทำงาน (ม.ค. 2027) & Buffer & เริ่ม-สิ้นสุดรวม buffer\\\hline
+E & 4, 5, 6 & ไม่มี & 4-6\\\hline
+B & 7 & 8 & 7-8\\\hline
+C & 11, 12, 13 & ไม่มี & 11-13\\\hline
+G & 11, 12 & ไม่มี & 11-12\\\hline
+F & 14 & 15 & 14-15\\\hline
+A & 18, 19, 20, 21 & ไม่มี & 18-21\\\hline
+I & 18, 19, 20 & ไม่มี & 18-20\\\hline
+D & 22, 25 & ไม่มี & 22-25\\\hline
+H & 26 & 27 & 26-27\\\hline
+PB & - & 28, 29 & 28-29\\\hline
+\end{tabularx}
+\textbf{Milestones:} M1 = 8, M2 = 15, M3 = 29 ม.ค. เสร็จศุกร์ 29 ม.ค. รวม 20 วันทำงาน Chai ทำ G ก่อน A; Dao ทำ I ก่อน D จึงไม่มีคนทำงานทับกัน D ไม่นับเสาร์ 23 ม.ค.\par
+\textbf{เกณฑ์ตรวจ 5.3:} No./Owner 0.5; ระยะเวลา/วัน/Start-Due 1; dependency/resource 1; buffers 1; milestone 0.5; เหตุผล buffer 0.5 และ milestone ไม่เพิ่มเวลา 0.5 รวม 5 ไม่บวกคะแนนคำอธิบายซ้ำ
+\newpage
+\textbf{ข้อ 5.3: Gantt chart ตัวอย่าง}\hfill มกราคม 2027
+\newcommand{\GanttRow}[6]{\node at(.625,-#1-.5){#2};\node at(1.75,-#1-.5){#3};\node at(3.05,-#1-.5){#4};\node at(4.3,-#1-.5){#5};\node at(5.2,-#1-.5){#6};}
+\newcommand{\GanttWork}[3]{\foreach\i in{#2,...,#3}{\fill[gray!18]({5.65+1.05*\i},-#1)rectangle({6.70+1.05*\i},-#1-1);\node at({6.175+1.05*\i},-#1-.5){X};}}
+\ganttgrid[{
+\GanttRow{1}{1.1}{M1}{-}{8}{8}
+\GanttRow{2}{1.1.1}{E}{Aom}{4}{6}
+\GanttRow{3}{1.1.2}{B}{PM}{7}{8}
+\GanttRow{4}{1.2}{M2}{-}{15}{15}
+\GanttRow{5}{1.2.1}{C}{Bank}{11}{13}
+\GanttRow{6}{1.2.2}{G}{Chai}{11}{12}
+\GanttRow{7}{1.2.3}{F}{PM}{14}{15}
+\GanttWork{2}{0}{2}\GanttWork{3}{3}{3}\GanttWork{5}{5}{7}\GanttWork{6}{5}{6}\GanttWork{7}{8}{8}
+\foreach\r/\i in{3/4,7/9}{\node at({6.175+1.05*\i},-\r-.5){-};}
+\foreach\r/\i in{1/4,4/9}{\node at({6.175+1.05*\i},-\r-.5){*};}
+\foreach\r/\e/\s/\n in{2/2/3/3,3/4/5/5,3/4/5/6,5/7/8/7,6/6/8/7}{\draw[ganttdep]({6.5+1.05*\e},-\r-.55)--++(.12,-.25)-|({5.85+1.05*\s},-\n-.55);}
+\node[circle,draw,inner sep=1.5pt](a)at(15.3,-8.5){a};\draw[ganttdep](16,-7.5)--(16,-8.5)--(a);
+}]{สัปดาห์ที่ 1-2}{4,5,6,7,8,11,12,13,14,15}
+\ganttgrid[{
+\GanttRow{1}{1.3}{M3}{-}{29}{29}
+\GanttRow{2}{1.3.1}{A}{Chai}{18}{21}
+\GanttRow{3}{1.3.2}{I}{Dao}{18}{20}
+\GanttRow{4}{1.3.3}{D}{Dao}{22}{25}
+\GanttRow{5}{1.3.4}{H}{PM}{26}{27}
+\GanttRow{6}{-}{PB}{-}{28}{29}
+\GanttWork{2}{0}{3}\GanttWork{3}{0}{2}\GanttWork{4}{4}{5}\GanttWork{5}{6}{6}
+\foreach\r/\i in{5/7,6/8,6/9}{\node at({6.175+1.05*\i},-\r-.5){-};}\node at(15.625,-1.5){*};
+\foreach\r/\e/\s/\n in{2/3/4/4,3/2/4/4,4/5/6/5,5/7/8/6}{\draw[ganttdep]({6.5+1.05*\e},-\r-.55)--++(.12,-.25)-|({5.85+1.05*\s},-\n-.55);}
+\node[circle,draw,inner sep=1.5pt](a)at(6,-8.5){a};\draw[ganttdep](a.north)--(5.85,-8.1)--(5.85,-2.5);\draw[ganttdep](a.north east)--(6,-8)--(6,-3.5);
+}]{สัปดาห์ที่ 3-4}{18,19,20,21,22,25,26,27,28,29}
+X = วันทำงาน\quad - = buffer\quad * = milestone\quad PB = project buffer\par
+จุดเชื่อม a แสดงว่า A และ I ต้องรอ F กับ buffer ของ F ก่อนเริ่ม\par
+M1: requirements อนุมัติ\quad M2: แบบอนุมัติ\quad M3: ตรวจรับระบบรวม project buffer
+
+\newpage
+\qtitle{6}{ปรับรายละเอียด Backlog}{10}
+\anshead{6.1 User story}{2}
+“ในฐานะนักศึกษา ฉันต้องการจองสนามแบดมินตันครั้งละ 1 ชั่วโมง เพื่อมั่นใจว่ามีสนามใช้โดยไม่ต้องต่อคิว”\par
+\textbf{เกณฑ์ตรวจ:} ผู้ใช้ 0.5; ความสามารถ 0.75; คุณค่า 0.75
+
+\anshead{6.2 รายละเอียดจากลูกค้า}{2}
+มีข้อมูลสนาม/เวลาเปิดแล้ว; จองครั้งละ 1 ชั่วโมง; คนละไม่เกินวันละ 1 ครั้ง; สำเร็จแล้วช่วงนั้นแสดงว่าถูกจอง เรื่องยกเลิก/ช่วงจองล่วงหน้า/payment ยังต้องถาม ไม่เติมเป็นข้อกำหนด\par
+\textbf{เกณฑ์ตรวจ:} ข้อเท็จจริงสี่ประเด็น ประเด็นละ 0.5
+
+\anshead{6.3 เกณฑ์ยอมรับสองสถานการณ์}{4}
+\note{\textbf{สถานการณ์: จองสำเร็จ}\par
+Given นักศึกษา S ยังไม่จองวันนี้ และสนาม 2 ว่างเวลา 17:00-18:00 ในเวลาให้บริการ\par
+When S จองสนาม 2 ช่วงนั้น\par
+Then ระบบยืนยันให้ S 1 ชั่วโมง และช่วงดังกล่าวแสดง Booked}
+\note{\textbf{สถานการณ์: เกินสิทธิ์ต่อวัน}\par
+Given S มีการจองวันนี้แล้ว 1 รายการ และมีอีกช่วงที่ว่าง\par
+When S ขอจองเพิ่มวันนี้\par
+Then ปฏิเสธ จำนวนการจองเดิมไม่เพิ่ม และไม่ยึดช่วงใหม่}
+\textbf{เกณฑ์ตรวจต่อสถานการณ์:} เงื่อนไข 0.5; การกระทำ 0.5; ผลและสถานะตามกฎ 1 รวมสองสถานการณ์ 4
+
+\anshead{6.4 Metadata}{2}
+Assignees: -; Labels: enhancement (หรือ feature ที่ทีมใช้); Milestone: -; Estimate: -\par
+\textbf{เกณฑ์ตรวจ:} ช่องละ 0.5 ไม่เดาเจ้าของ/sprint/points และไม่ใช้ 0 แทนค่ายังไม่ทราบ
+
+\medskip
+\qtitle{7}{วางแผน Sprint}{5}
+\begin{tabularx}{\linewidth}{|C{.7cm}|Y|C{1cm}|C{1.1cm}|Y|}\hline
+งาน & เรื่อง & Points & เลือก & เหตุผล\\\hline
+1 & ตำแหน่งรถสด & 8 & Yes & ตรง goal และสำคัญสูง\\\hline
+2 & จ่าย QR & 3 & No & ไม่ช่วย goal รอบนี้\\\hline
+3 & เวลาถึงป้ายฉัน & 5 & Yes & ตรง goal\\\hline
+4 & เตือนก่อนถึง & 3 & Yes & เสริม goal และใส่ได้\\\hline
+5 & เวลาถึงทุกป้าย & 5 & No & ลำดับต่ำกว่าและเต็มแล้ว\\\hline
+6 & แก้ข้อความตัดบนมือถือ & 2 & No & ไม่มี capacity เหลือ\\\hline
+\end{tabularx}
+\textbf{7.2:} $8+5+3=16$ points\quad
+\textbf{7.3:} เลือก 1/3/4 ตาม goal และลำดับความสำคัญ ไม่เกิน 16; เลื่อน QR ที่ไม่ช่วย goal รอบนี้ แล้วไม่เพิ่มงานเมื่อเต็ม\par
+\textbf{เกณฑ์ตรวจ:} points หกช่อง ช่องละ 0.25 และการเลือกหกช่อง ช่องละ 0.25 รวม 3; ผลรวม 1; เหตุผลด้าน goal/priority 0.5 และ capacity 0.5 เลื่อนจาก anchor 3 สองขั้นคือ 8 ไม่ใช่บวก 2; points ไม่ใช่วัน รับแผนอื่นที่มีเหตุผลจากข้อมูลจริงและไม่เกิน capacity
+\newpage
+\qtitle{8}{Sequence Diagram}{10}
+แผนภาพใช้หมายเลขและข้อความสั้นบนลูกศรทุกเส้น ส่วนตารางนี้ขยายเงื่อนไขของแต่ละช่วง เลขเป็นลำดับเหตุการณ์ ไม่ใช่คะแนน เส้นทึบหัวทึบแทน call, เส้นประหัวเปิดแทน return, และเส้นทึบหัวเปิดแทน notification
+\begin{tabularx}{\linewidth}{|C{1.3cm}|Y|}\hline
+เลข & Message หรือผลที่ต้องสื่อ\\\hline
+1-3 & Student ขอ login; KURegistration ส่งไป KUSSO; ได้ผลยืนยันบัญชี/role กลับ (จะวาด redirect ผ่าน Student เพิ่มก็ได้)\\\hline
+4-5 & KURegistration ขอข้อมูลด้วย username จาก KUStudentInfo และได้ profile\\\hline
+6 & เปิด Draft ที่มีอยู่ของ active semester พร้อม 2 offerings และ profile ไม่สร้าง Draft ว่างทับของเดิม\\\hline
+7-8 & Student เลือกเพิ่มจาก List View; ระบบแสดง 3 offerings และ fee รวมใหม่\\\hline
+9-11 & submit; ตรวจทุก offering; พบหนึ่งรายการเต็ม แล้วแจ้ง Student โดยยังไม่เรียก payment\\\hline
+12-13 & Student เปลี่ยน section ของรายการที่เต็ม; ระบบปรับรายการ/fee\\\hline
+14-16 & submit ใหม่; ตรวจทุก offering แล้วผ่าน; แสดงวิธีชำระเงิน\\\hline
+17-20 & Student เลือก bank transfer; ระบบเริ่มรายการกับ BBLPaymentGateway; Student ชำระ; gateway แจ้งผลสำเร็จกลับระบบ\\\hline
+21-24 & ระบบบันทึก Done/ปิดการแก้, ส่ง PDF ผ่าน KUEmail ไปยัง Student และแสดงผลสำเร็จ\\\hline
+\end{tabularx}
+\textbf{เกณฑ์ตรวจ 10 คะแนน:}
+\begin{enumerate}
+\item participants/direction ถูกต้อง 1; login/profile และโหลด Draft เดิม 1 (รวม 2)
+\item เพิ่ม offering และ fee รวมถูก 1; submit ตรวจ 3 offerings แล้วแจ้งเต็มโดยไม่คิดเงิน 1 (รวม 2)
+\item เปลี่ยน section 1; submit และตรวจใหม่ผ่าน 1 (รวม 2)
+\item bank transfer ใช้ BBL และผลสำเร็จกลับถูกทิศ 2
+\item Done และ non-editable 1; PDF ส่งผ่าน KUEmail ถึง Student 1 (รวม 2)
+\end{enumerate}
+รับการรวมบาง messages หรือใช้ alt/loop fragment ถ้าไม่เปลี่ยนลำดับเชิงเหตุผล ไม่บังคับ response ทุกเส้นหรือ activation bars เมื่อโจทย์ไม่ได้กำหนด ไม่หักจากการไม่วาด credit card เพราะ scenario นี้เลือก bank transfer
+\newpage
+\textbf{ข้อ 8: Sequence Diagram ตัวอย่าง}\par
+\begin{center}
+\begin{tikzpicture}[x=1.02cm,y=.68cm]
+\foreach\name/\x in{Student/0,{KU\\Registration}/2.8,KUSSO/5.6,{KU Student\\Info}/8.4,{BBL\\Gateway}/11.2,KUEmail/14}{\node[life,text width=2.15cm,minimum height=1.25cm]at(\x,0){\name};\draw[dashed](\x,-1)--(\x,-25);}
+\begin{scope}[yshift=-4mm]
+\foreach\name/\a/\b/\n in{
+{1. เข้าสู่ระบบ}/0/2.8/1,
+{2. ตรวจบัญชี}/2.8/5.6/2,
+{3. ผลบัญชี + role}/5.6/2.8/3,
+{4. ขอ profile(username)}/2.8/8.4/4,
+{5. profile}/8.4/2.8/5,
+{6. Draft เดิม (2 offerings) + profile}/2.8/0/6,
+{7. เพิ่ม offering ที่ 3}/0/2.8/7,
+{8. แสดงรายการ + fee ใหม่}/2.8/0/8,
+{9. submit}/0/2.8/9,
+{11. แจ้งว่ามี section เต็ม}/2.8/0/11,
+{12. เปลี่ยน section ที่เต็ม}/0/2.8/12,
+{13. ปรับรายการ + fee}/2.8/0/13,
+{14. submit อีกครั้ง}/0/2.8/14,
+{16. ว่างทั้งหมด; แสดงวิธีชำระ}/2.8/0/16,
+{17. เลือก bank transfer}/0/2.8/17,
+{18. เริ่มชำระยอดรวม}/2.8/11.2/18,
+{19. ชำระผ่าน BBL}/0/11.2/19,
+{20. ชำระสำเร็จ}/11.2/2.8/20,
+{22. ส่ง Registration PDF}/2.8/14/22,
+{24. ยืนยันผล}/2.8/0/24
+}{\draw[message](\a,-\n)--node[above,fill=white,inner sep=1pt,font=\fontsize{7.2}{7.6}\selectfont]{\name}(\b,-\n);}
+\foreach\name/\n in{{10. ตรวจที่นั่งทั้ง 3 offerings}/10,{15. ตรวจที่นั่งอีกครั้ง}/15,{21. บันทึก Done; ล็อกการแก้ไข}/21}{\draw[message](2.8,-\n)--(4,-\n)--(4,-\n-.45)--(2.8,-\n-.45);\node[anchor=west,fill=white,inner sep=1pt,font=\fontsize{7.2}{7.6}\selectfont]at(4.1,-\n-.2){\name};}
+\draw[signal](14,-23)--node[above,fill=white,inner sep=1pt,font=\fontsize{7.2}{7.6}\selectfont]{23. ส่ง PDF ทาง KUEmail}(0,-23);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\newpage
+\qtitle{9}{Activity Diagram}{10}
+\textbf{คำตอบย่อ:} Login ผ่าน KUSSO แล้วสร้างฟอร์มว่าง/เติม profile ของภาคปัจจุบัน เลือกหรือแก้ offerings และอัปเดต Draft/fee จากนั้น submit ตรวจที่นั่งทุก offering: ถ้าเต็มให้เตือนและวนกลับไปแก้/ส่งใหม่; ถ้าว่างทั้งหมดให้เลือก card ผ่าน KBank หรือ transfer ผ่าน BBL เมื่อวิธีที่เลือกสำเร็จจึงรวม flow เป็น Done/lock ส่ง PDF ทาง KUEmail แล้วจบ
+
+\textbf{เกณฑ์ตรวจ 10 คะแนน:}
+\begin{tabularx}{\linewidth}{|Y|r|}\hline
+สิ่งที่ตรวจ & คะแนน\\\hline
+Start/login/profile/prefill พร้อม lane ถูกต้อง & 1.5\\\hline
+เลือก/เพิ่ม offerings, fee และ Draft & 1.5\\\hline
+ตรวจทุก offering, guards และเส้นทางเต็มย้อนกลับไปแก้/submit & 2\\\hline
+Decision วิธีชำระมีทั้ง KBank และ BBL วาง lane ถูก พร้อม merge หลังสำเร็จ & 2\\\hline
+Done พร้อมห้ามแก้ 1; PDF email 1; final node 0.5 & 2.5\\\hline
+Control flow อ่านตามได้ ไม่สลับเป็น sequence/lifelines & 0.5\\\hline
+รวม & 10\\\hline
+\end{tabularx}
+\medskip
+ภาพตัวอย่างใช้ภาษาอังกฤษใน action boxes: ``Select / edit'' คือเลือกหรือแก้ offering จาก Course Offering List View; ``Draft + fee'' คืออัปเดตรายการและคำนวณ fee รวม; ``Done/lock'' คือเปลี่ยนสถานะและปิดการแก้ไขออนไลน์
+
+รับ diagram หลายหน้าที่มี connectors ชัดเจน หรือรวมกิจกรรมที่ความหมายเดียวกันได้ ต้องไม่ให้ payment gateway คนหนึ่งรันการชำระอีกวิธี และไม่ใช้ fork/join เพื่อสั่งจ่ายเงินทั้งสองช่องทางพร้อมกัน ในข้อนี้ทุกเส้นทาง payment ที่เลือกสำเร็จตามขอบเขตโจทย์ จึงไม่เรียกร้อง payment-failure branch เพิ่ม
+\newpage
+\textbf{ข้อ 9: Activity Diagram ตัวอย่าง}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,every node/.style={font=\fontsize{9}{10.5}\selectfont}]
+\draw(0,0)rectangle(16.45,-20.2);\foreach\x in{2.35,4.7,7.05,9.4,11.75,14.1}{\draw(\x,0)--(\x,-20.2);}\draw(0,-1.3)--(16.45,-1.3);
+\foreach\lab[count=\i from 0]in{Student,KUSSO,{KU\\Registration},{KU Student\\Info},{KBank\\Gateway},{BBL\\Gateway},KUEmail}{\node[text width=2.1cm,align=center]at({1.175+2.35*\i},-.65){\lab};}
+\node[circle,fill,inner sep=3pt](s)at(1.175,-1.7){};
+\node[act,text width=1.75cm](launch)at(1.175,-2.7){Launch app / log in};
+\node[act,text width=1.75cm](login)at(3.525,-2.7){Verify account};
+\node[act,text width=1.75cm](open)at(5.875,-2.7){Open blank form};
+\node[act,text width=1.75cm](profile)at(8.225,-2.7){Get profile};
+\node[act,text width=1.75cm](prefill)at(5.875,-4.5){Prefill data};
+\node[diamond,draw,inner sep=3pt](editmerge)at(1.175,-5.5){};
+\node[act,text width=1.75cm](choose)at(1.175,-6.5){Select / edit};
+\node[act,text width=1.75cm](fee)at(5.875,-6.5){Draft + fee};
+\node[decision](ready)at(1.175,-7.9){Ready?};
+\node[act,text width=1.75cm](submit)at(1.175,-9.1){Submit};
+\node[act,text width=1.75cm](check)at(5.875,-9.1){Check all seats};
+\node[decision](seat)at(5.875,-10.5){Full?};
+\node[act,text width=1.75cm](warn)at(5.875,-11.9){Show warning};
+\node[act,text width=1.75cm](method)at(1.175,-13.3){Select payment};
+\node[decision](pay)at(5.875,-13.3){Method?};
+\node[act,text width=1.75cm](kb)at(10.575,-13.3){Card succeeds};
+\node[act,text width=1.75cm](bbl)at(12.925,-14.9){Transfer succeeds};
+\node[diamond,draw,inner sep=3pt](merge)at(5.875,-16.4){};
+\node[act,text width=1.75cm](done)at(5.875,-17.8){Done/lock};
+\node[act,text width=1.75cm](mail)at(15.275,-17.8){Email PDF to Student};
+\node[circle,draw,inner sep=4pt](end)at(15.275,-19.6){\tikz\fill circle(2pt);};
+\draw[flow](s)--(launch);\draw[flow](launch)--(login);\draw[flow](login)--(open);\draw[flow](open)--(profile);\draw[flow](profile)|-(prefill);\draw[flow](prefill)-|(editmerge.north);\draw[flow](editmerge)--(choose);
+\draw[flow](choose)--(fee);\draw[flow](fee)|-(ready);\draw[flow](ready.west)--(.05,-7.9)|-(editmerge.west);\node[anchor=west]at(.05,-7.35){[no]};\draw[flow](ready)--node[right]{[yes]}(submit);
+\draw[flow](submit)--(check);\draw[flow](check)--(seat);\draw[flow](seat)--node[right]{[yes]}(warn);\draw[flow](warn.west)--(2.6,-11.9)--(2.6,-5.5)--(editmerge.east);
+\draw[flow](seat.west)--node[above]{[no]}(3.5,-10.5)--(3.5,-12.3)-|(method.north);\draw[flow](method)--(pay);\draw[flow](pay)--node[above]{[card]}(kb);\draw[flow](pay)|-node[pos=.75,above]{[transfer]}(bbl);\draw[flow](kb)--(10.575,-16)--(6.2,-16)--(merge.north east);\draw[flow](bbl)--(12.925,-16.8)--(6.2,-16.8)--(merge.south east);\draw[flow](merge)--(done);\draw[flow](done)--(mail);\draw[flow](mail)--(end);
+\end{tikzpicture}
+\end{center}
+\newpage
+\qtitle{10}{List/Form UI}{10}
+\textbf{10.1 List View ตัวอย่าง (4 คะแนน)}
+
+เพื่อไม่ทำตาราง 13 คอลัมน์จนอ่านไม่ได้ สามารถแสดงคอลัมน์หลักแล้วให้เลือกแถวเพื่อดูรายละเอียดที่สัมพันธ์กันได้ ไม่ถือว่าต้องซ่อน field ที่ requirements ต้องการ
+\note{\textbf{Course Offering List View}\par
+Search course code/name: [\hspace{3cm}]\quad Semester: [active semester]\par
+[Search] [Clear filters]\par
+\begin{tabularx}{\linewidth}{|p{2cm}|Y|C{1cm}|C{1cm}|p{2cm}|}\hline
+Code & Name & Sec. & Seats & Select\\\hline
+CPE201 & Data Structures & 2 & 5 & [Add]\\\hline
+\end{tabularx}
+\textbf{Selected offering details (read-only):}\par
+Course ID: C201; code: CPE201; name: Data Structures; credits: 3; fee: THB 1,500; semester: 1/2569; section: 2; room: CB401; class time: Tue 09:00-12:00; display notes: Group 2; maximum students: 40; number registered: 35; seats remaining: 5\par
+[Back to Registration Form]}
+ค่าตัวอย่างเป็นข้อมูลสมมติสำหรับอธิบาย wireframe ไม่ใช่นโยบายค่าเรียนหรือรายวิชาจริง แถวและรายละเอียดต้องเชื่อมกันชัดเจน ถ้าแสดงทุก field ในการ์ดโดยไม่ใช้ detail panel ก็รับได้
+
+\textbf{เกณฑ์ตรวจ 10.1:} field รวม 2 คะแนน แบ่ง 4 กลุ่ม กลุ่มละ 0.5: (id/code/name), (credits/fee), (semester/section/room/class time/notes), (maximum/registered/remaining) ให้บางส่วนภายในกลุ่มตามความครบ; controls กรองข้อมูล 0.75; เลือก offering ส่งกลับฟอร์ม 0.75; notation/readability และการเชื่อมแถวกับ detail 0.5 รวม 4 ไม่ให้คะแนนเพียงวาดกล่องชื่อ “List” โดยไม่มีข้อมูล
+
+\textbf{ตัวอย่าง notation บน wireframe}
+\begin{center}
+\begin{tikzpicture}
+\draw(0,0)rectangle(4,1);\node at(2,.5){Editable field};
+\draw[pattern=north east lines,pattern color=gray!30](5,0)rectangle(10,1);\node[fill=white]at(7.5,.5){Read-only / calculated};
+\end{tikzpicture}
+\end{center}
+ชื่อ course ที่อยู่ในผลค้นหาไม่ใช่สิ่งที่ Student แก้ได้ ฟิลด์ required ที่ผู้ใช้เลือกต้องแยกจากค่าที่ระบบเติมให้ การใส่ * ให้ profile ทั้งชุดแล้วให้ Student แก้เองขัด R5
+\newpage
+\textbf{10.2 Registration Form ตัวอย่าง (6 คะแนน)}
+\note{\textbf{Registration Form}\hfill Status: Draft [read-only]\par
+\textbf{Header [read-only]:} Student ID: 67000001; name: Kamon; degree program: Computer Engineering; email: student@example.edu; login username: s67000001; semester: active semester\par
+\textbf{Selected offerings}\par
+\begin{tabularx}{\linewidth}{|Y|C{1.5cm}|p{2cm}|p{2.3cm}|}\hline
+* Offering & Section & Fee (RO) & Action\\\hline
+CPE201 & 2 & 1,500 & [Change] [Remove]\\\hline
+CPE202 & 1 & 1,500 & [Change] [Remove]\\\hline
+\end{tabularx}
+[Add from Offering List]\hfill Total fee: 3,000 [calculated]\par
+[Save Draft] [Submit]\par
+On submission: "CPE201 section 2 is full. Change this offering and resubmit." Show beside the affected row. Do not start payment before the seat check passes.\par
+\textbf{After seat validation:} * Payment method: ( ) Credit card - KBank\quad ( ) Bank transfer - BBL\par
+[Proceed to payment]\par
+\textbf{After success:} Status: Done [read-only]. Hide or disable editing/submission controls. "Online editing is closed. Your registration PDF has been emailed."}
+\textbf{หมายเหตุแบบจำลอง:} รูปแสดง state annotations หลายสถานะเพื่ออธิบายการทำงาน ไม่แสดง controls ของทุก state พร้อมกันจริงใน runtime เส้นใต้/แรเงาหรือ legend RO ใช้แทนกันได้ถ้าแยกจาก editable ชัดเจน ผู้ใช้กลับมาเปิด Draft เพื่อแก้ไขได้ก่อน submit สุดท้าย
+
+\textbf{เกณฑ์ตรวจ 10.2:}
+\begin{itemize}
+\item Header มี Student ID, name, degree program, email, login username จากระบบ และ active semester ชัดว่า RO: 1
+\item Line items เชื่อม offering/section, เพิ่มและแก้รายการได้, fee ต่อรายการกับ total คำนวณสัมพันธ์กัน: 1.5
+\item Draft บันทึกและกลับมาแก้; submit แล้วแสดงข้อผิดพลาดที่นั่งและแก้/resubmit ได้: 1.5
+\item เลือก card/KBank หรือ transfer/BBL เมื่อผ่านการตรวจ: 1
+\item Done ห้ามแก้ พร้อมผล PDF email: 0.5; notation required/editable/RO/calculated สอดคล้องกัน: 0.5
+\end{itemize}
+ไม่บังคับ registration number, registration date, total credits หรือจำนวนวิชาขั้นต่ำ เพราะไม่มีใน requirements ที่ให้ ถ้าเพิ่มเพื่อช่วย UI แต่ไม่สร้างกฎใหม่ก็ไม่ต้องหักคะแนน
+\newpage
+\qtitle{11}{Three-way merge แล้ว switch}{10}
+\begin{center}
+\begin{tikzpicture}[x=2cm,y=1cm]
+\foreach\n/\x in{A/0,B/1,C/2,D/3}{\node[commit](\n)at(\x,0){\n};}
+\node[commit](E)at(4,1){E};\node[commit](F)at(4,-1){F};\node[commit](G)at(5,-1){G};
+\foreach\a/\b in{A/B,B/C,C/D,D/E,D/F,E/G,F/G}{\draw[thick](\a)--(\b);}
+\node[below=4mm of B,align=center]{main (HEAD)\\origin/main};
+\node[above=4mm of E,align=center]{feature/basic\_statistics\\origin/feature/basic\_statistics};
+\node[below=4mm of F]{origin/sprint\_1\_staging};
+\node[right=3mm of G]{sprint\_1\_staging};
+\end{tikzpicture}
+\end{center}
+\begin{tabularx}{\linewidth}{|Y|C{1.5cm}|}\hline
+Reference & Commit\\\hline
+main; origin/main & B\\\hline
+feature/basic\_statistics; origin/feature/basic\_statistics & E\\\hline
+sprint\_1\_staging & G\\\hline
+origin/sprint\_1\_staging & F\\\hline
+HEAD & main (B)\\\hline
+\end{tabularx}
+\textbf{คำตอบย่อ:} E/F แยกสายจาก D จึงเป็น three-way merge ไม่ใช่ fast-forward สร้าง G มี first parent F และ second parent E แล้วเลื่อนเฉพาะ sprint\_1\_staging ไป G คำสั่ง \code{git switch main} เปลี่ยน HEAD ไป main ที่ B และใช้ tree ของ B โดยไม่เลื่อน branch อื่น ไม่มี fetch/push จึงคง remote-tracking refs ตามตาราง ความแยกสายไม่ได้พิสูจน์ว่าจะมี file conflict; ข้อนี้กำหนดให้ merge สำเร็จ
+
+\textbf{เกณฑ์ตรวจ:} ancestry A-F เดิม 1; G มี parents F และ E ครบ 2; local sprint=G, feature=E, main=B ตัวละ 1 รวม 3; origin/main=B, origin/feature=E, origin/sprint=F รวม 1.5; HEAD ที่ main/B 1; three-way พร้อมเหตุผล 1; switch ไม่ย้าย branch pointers 0.5 รวม 10
+\newpage
+\qtitle{12}{คำสั่งและ graph แบบต่อเนื่อง}{10}
+\anshead{12.1 Switch}{2}
+\begin{verbatim}
+git switch sprint_1_staging
+\end{verbatim}
+\begin{center}
+\begin{tikzpicture}[x=2.4cm,y=1cm]
+\foreach\n/\x in{A/0,B/1,C/2,D/3,E/4}{\node[commit](\n)at(\x,0){\n};}\foreach\a/\b in{A/B,B/C,C/D,D/E}{\draw[thick](\a)--(\b);}
+\node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C,align=center]{sprint\_1\_staging (HEAD)\\origin/sprint\_1\_staging};\node[below=4mm of E]{feature/load\_scores};
+\end{tikzpicture}
+\end{center}
+\textbf{คะแนน:} คำสั่ง 1; graph พร้อม HEAD ที่ C และ pointers เดิม 1
+
+\anshead{12.2 Merge}{3}
+\begin{verbatim}
+git merge feature/load_scores
+\end{verbatim}
+เป็น fast-forward เพราะ C เป็น ancestor ของ E ไม่สร้าง merge commit ใหม่
+\begin{center}
+\begin{tikzpicture}[x=2.4cm,y=1cm]
+\foreach\n/\x in{A/0,B/1,C/2,D/3,E/4}{\node[commit](\n)at(\x,0){\n};}\foreach\a/\b in{A/B,B/C,C/D,D/E}{\draw[thick](\a)--(\b);}
+\node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C]{origin/sprint\_1\_staging};\node[below=4mm of E,align=center]{feature/load\_scores\\sprint\_1\_staging (HEAD)};
+\end{tikzpicture}
+\end{center}
+\textbf{คะแนน:} คำสั่ง merge ถูก branch 1; ระบุประเภท fast-forward 1; graph เลื่อน local sprint/HEAD ไป E และคง origin/sprint ที่ C 1
+
+\textbf{ข้อควรระวัง:} ไม่มี origin/feature/load\_scores ใน graph เริ่มต้น จึงไม่สร้าง pointer นี้ขึ้นเอง และไม่ใช้ \code{git merge --no-ff} เมื่อคำตอบที่ต้องการเป็น fast-forward ตามโจทย์
+\newpage
+\anshead{12.3 Inspect, stage และ commit}{5}
+\begin{verbatim}
+git status
+git diff -- score_data.py scores.csv
+git add -- score_data.py scores.csv validation_notes.txt
+git diff --cached -- score_data.py scores.csv validation_notes.txt
+git commit -m "Document score validation cases"
+\end{verbatim}
+\textbf{เหตุผลสั้น:} \code{status} เห็นไฟล์แก้/ไฟล์ใหม่; \code{diff} ปกติไม่แสดงเนื้อหาไฟล์ untracked จึงตรวจทั้งสามด้วย \code{diff --cached} หลัง stage และก่อน commit รับคำสั่งอื่นที่ตรวจเนื้อหาและ stage เฉพาะสามไฟล์ได้ครบ
+
+\begin{center}
+\begin{tikzpicture}[x=2.2cm,y=1cm]
+\foreach\n/\x in{A/0,B/1,C/2,D/3,E/4,F/5}{\node[commit](\n)at(\x,0){\n};}\foreach\a/\b in{A/B,B/C,C/D,D/E,E/F}{\draw[thick](\a)--(\b);}
+\node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C]{origin/sprint\_1\_staging};\node[below=4mm of E]{feature/load\_scores};\node[above=4mm of F,align=center]{sprint\_1\_staging\\HEAD};
+\end{tikzpicture}
+\end{center}
+F มี parent เดียวคือ E มีการเปลี่ยนแปลงของสามไฟล์ ส่วน feature/load\_scores ยังที่ E, main และ origin/main ยังที่ B, origin/sprint\_1\_staging ยังที่ C ไม่มี push จึงไม่เลื่อน remote-tracking refs และไม่มีการเผยแพร่ไป remote จริง
+
+\textbf{เกณฑ์ตรวจ 5 คะแนน:}
+\begin{itemize}
+\item Inspect เห็นสถานะและเนื้อหาการเปลี่ยนแปลงที่จะ commit รวมไฟล์ใหม่ 1
+\item Stage ชื่อไฟล์สามรายการชัดเจน ไม่ใช้ \code{git add .} 1
+\item Commit ด้วยข้อความที่กำหนด 1
+\item F ต่อจาก E และ local sprint/HEAD ไป F 1
+\item pointers อื่นคงครบและไม่สร้าง merge commit แทรก 1
+\end{itemize}
+กรณี graph ผิดสืบเนื่องจาก 12.2 ให้ตรวจการทำงานบน branch และ ancestry ที่ผู้ตอบมีอย่างสอดคล้อง ให้คะแนนทักษะใหม่ที่ถูกต้อง ไม่หักต้นเหตุเดิมซ้ำทั้งข้อ

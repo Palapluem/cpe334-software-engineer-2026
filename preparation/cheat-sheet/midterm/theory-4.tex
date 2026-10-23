@@ -1,0 +1,56 @@
+\band{yellowhead}{Lecture 6 · Project Planning}
+\topic{WBS / Schedule / Responsibility}
+\k{WBS}: project → milestone/deliverable → task → subtask; แยกแบบ top-down/bottom-up. \k{Milestone}: จุดสำเร็จ \r{duration = 0}; task มี owner และ duration
+\k{Gantt}: WBS no./task/owner/start/due + แถบเวลา; ทำขนานได้เมื่อ dependency และทรัพยากรพร้อม; roadmap เน้น goal/milestone ภาพรวม
+\k{Critical path}: เส้นทาง dependency ที่ยาวสุด กำหนดวันจบ; float คือเวลาที่เลื่อนได้โดยไม่กระทบวันจบ; CP มี float = 0 เมื่อ deadline เท่ากับ earliest finish
+\b{เริ่มเวลา 0: EF=ES+d; ES=max(EF ของ pred); LS=LF-d; LF=min(LS ของ succ); Float=LS-ES}
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.1}{7.4}\selectfont]
+\node[act](a)at(5,0){A: 2};\node[act](b)at(24,3.2){B: 3};\node[act](c)at(24,-3.2){C: 1};\node[act](d)at(43,0){D: 2};
+\draw[flow,keyred,line width=.5pt](a)--(b);\draw[flow,keyred,line width=.5pt](b)--(d);\draw[flow](a)--(c);\draw[flow](c)--(d);
+\node[anchor=north,align=center,inner sep=.5pt]at(24,-5.2){Example: A → B → D = 7 days (CP)\\A → C → D = 5 days; C float = 2};
+\end{tikzpicture}\end{center}
+{\fontsize{7}{6.9}\selectfont\begin{tabularx}{\linewidth}{|C{4mm}|*{5}{>{\centering\arraybackslash}X|}}\hline
+\rowcolor{lightrow}Task & ES & EF & LS & LF & Float\\\hline
+A & 0 & 2 & 0 & 2 & 0\\\hline
+B & 2 & 5 & 2 & 5 & 0\\\hline
+\rowcolor{minthead!25}C & 2 & 3 & 4 & 5 & 2\\\hline
+D & 5 & 7 & 5 & 7 & 0\\\hline
+\end{tabularx}}
+\r{นับวันที่แบบ inclusive}: Due = Start + d − 1 วันทำงาน; งานถัดไปเริ่มวันทำงานถัดไป; ไม่นับ weekend และห้ามคนเดียวทำงานซ้อนเกินกำลัง
+\k{Effort}: person-hours/days ≠ \k{duration}: เวลาที่งานใช้; Brooks: เพิ่มคนในงานที่ล่าช้าอาจยิ่งช้า
+\b{PERT $E=(O+4M+P)/6$; $\mathrm{SD}=(P-O)/6$}; O ดีสุด, M เป็นไปได้มากสุด, P แย่สุด; variance=$\mathrm{SD}^2$; รวมงานบนเส้นทางที่พิจารณา; เมื่อ estimates อิสระ $\mathrm{SD}_{\mathrm{total}}=\sqrt{\sum_i \mathrm{SD}_i^2}$
+\k{Buffer}: task buffer เผื่อ delay ที่คุมไม่ได้ เช่น รออนุมัติภายนอก; project buffer เผื่อรวมท้ายโครงการ; \r{ไม่ใส่ทุก task ซ้ำซ้อน}
+\k{RACI}: R ลงมือ, A รับผิดชอบผล, C ปรึกษาก่อน, I แจ้ง; ให้ A ชัดคนเดียว/งานและมี R; ไม่เกี่ยวใช้ “–”; ระวัง R กระจุกตัว
+\k{Risk}: identify → analyse (probability × impact) → prioritise → owner → respond → monitor; แผนรับมือต้องมีเจ้าของ; issue คือเกิดแล้ว
+\k{Kick-off}: เป้าหมาย/ขอบเขต/บทบาท/tools/process/สิ่งต้องทำ; charter = ทำไม, plan = อย่างไร/เมื่อไร, risk register = อะไรอาจผิด
+\chapterband{yellowhead}{Lecture 7 · Execution / Agile / Scrum}
+\k{MVP}: ชิ้นเล็กสุดที่ทดสอบคุณค่าได้ → build-measure-learn → pivot/persevere; \r{ไม่ใช่ phase 1 ที่ยังใช้ไม่ได้}
+\k{Pair}: driver เขียน/navigator ตรวจ สลับกัน; \k{DevOps}: dev + ops ร่วมดูแล delivery ใช้ automation/feedback; Water-Scrum-Fall ยังติด batch/approval ที่หัวท้าย
+\k{PO}: คุณค่า/วิสัยทัศน์/เรียง backlog/ตัดสิน req/ยอมรับ/ส่งมอบ; \k{SM}: อำนวยความสะดวก คุมเวลา แก้อุปสรรค \r{ไม่สั่งแบ่งงาน/ตัดสิน product แทน PO}; \k{Developers}: จัดการตนเอง ข้ามทักษะ เลือกวิธีทำ/คน/capacity
+\k{3 artifacts}: product backlog, sprint backlog, Done increment; \k{5 events}: Sprint, Planning, Daily, Review, Retrospective; refinement ทำต่อเนื่อง
+\topic{Story / Backlog refinement}
+\b{As a <role>, I need <function>, so that <value>}; role ไม่ใช่ชื่อคน; มี description/details/assumptions/AC
+\b{Given <precondition> When <event> Then <observable outcome>}; And/But เสริม; ทดสอบบวก/ลบ ไม่กำหนด implementation เกินความต้องการ
+\k{INVEST}: Independent, Negotiable, Valuable, Estimable, Small, Testable; \k{Epic}: ใหญ่เกิน sprint → แบ่งดูรายการ/สร้าง/แก้ทีละ vertical slice
+\k{Groom}: triage → reject/icebox/backlog; PO เรียงคุณค่า แยก/ชี้แจงงานล่วงหน้า ~2 sprints; DoR คือพร้อมเริ่ม; ยังไม่กำหนดคน/sprint/estimate ถ้าไม่ได้ตกลง
+\k{Metadata}: Assignees, Labels (ชนิด), Milestone (sprint), Estimate (points); enhancement เพิ่มพฤติกรรม, bug แก้ผิด, technical debt ปรับโครง/refactor/env/dependencies
+\topic{Sprint planning / execution}
+\k{Points}: effort/complexity/uncertainty แบบสัมพัทธ์; Fibonacci 1,2,3,5,8,13,21; anchor 3: +1 ขั้น = 5, +2 = 8, −1 = 2; \r{ไม่ใช่ชั่วโมง/ไม่เทียบข้ามทีม}
+\k{Velocity}: Done points/sprint ของทีม; ใช้ประวัติและ capacity จริง; เลือกตาม \b{goal, priority, dependencies และ $\sum\text{points}\leq\text{capacity}$}; ไม่เติมงานเพียงเพราะเหลือที่
+\k{Planning}: PO ให้ goal/ลำดับ; ทีมประเมินและเลือกงาน/วิธีทำ; SM คุมเวลา; sprint backlog = forecast + plan; มักยาว 2 สัปดาห์
+\k{Board}: New → Icebox/Backlog → Sprint Backlog → In Progress → Review/QA → Done; WIP 1/คน เว้นติดขัด; เลือกงานสำคัญสุด; เสร็จ → PR → merge/Done ตามกติกา
+\k{Daily}: 15 นาที คุยเมื่อวาน/วันนี้/อุปสรรค; ลงรายละเอียดหลังประชุม; SM ช่วยแก้สิ่งติดขัด
+\k{Review}: demo increment/AC กับ PO/ผู้เกี่ยวข้อง; feedback → Issue ใหม่. \k{Retro}: ทีม/SM ทบทวนสิ่งที่ดี/ไม่ดี/ต้องเปลี่ยน → action + owner + due; ตรวจผล sprint หน้า
+\k{Burndown}: x = เวลา, y = points คงเหลือ; ลดเมื่อ Done ไม่ใช่เริ่มทำ; metrics ต้องมี baseline และนำไปปรับงานได้
+\k{จบ sprint (Lecture 7)}: งานไม่เริ่มคืน backlog/ถอนผู้รับ; งานค้างแยก story ส่วนที่เหลือตามสไลด์; ปิด/เปิด milestone; \r{ทำบางส่วน ≠ ผ่าน DoD}
+\k{Docs/maintenance}: req/design/technical/QA/user/SOP; แก้ bug/UI เพิ่ม feature/ปรับ req. \k{Org}: traditional หัวหน้าเดียว; matrix หลายสาย; Conway: โครงทีมสะท้อนโครงระบบ
+
+\topic{Metrics: ความหมาย ไม่ใช่แค่ชื่อ}
+{\smalltable\begin{tabularx}{\linewidth}{|p{14mm}|Y|}\hline
+\rowcolor{lightrow}Metric & ใช้ตัดสินใจอะไร\\\hline
+Mean Lead Time & เวลา idea → production; ยาว → หาเวลารอ/คอขวด\\\hline
+Release frequency & ส่งขึ้นใช้งานบ่อยแค่ไหน; batch ใหญ่ทำให้ feedback ช้า\\\hline
+Change failure rate & สัดส่วน release/change ที่ก่อปัญหา; ไม่ใช่จำนวน tests ที่ผ่าน\\\hline
+MTTR & เวลาเฉลี่ยฟื้นระบบหลัง failure; ดูทั้งตรวจพบและกู้คืน\\\hline
+\end{tabularx}}
+\k{วัดอย่างมีบริบท}: ระบุจุดเริ่ม/จบ หน่วย ช่วงเวลาและ baseline; commits/lines of code ≠ คุณค่าที่ส่งมอบ

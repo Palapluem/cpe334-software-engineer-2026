@@ -1,0 +1,17 @@
+\documentclass[12pt,a4paper]{exam}
+\input{../style.tex}
+% Keep the running identity fields visibly secondary to the question text.
+\renewcommand{\examheader}{\makebox[\textwidth][l]{{\fontsize{9}{11}\selectfont ชื่อ-นามสกุล \hrulefill\quad รหัสนักศึกษา \makebox[1.9in]{\hrulefill}}}}
+\firstpageheader{\examheader}{}{}
+\runningheader{\examheader}{}{}
+\firstpagefooter{{\fontsize{9}{11}\selectfont\textit{\BookKind รายวิชา CPE334 Software Engineering กลางภาคการศึกษาที่ 1/2569}}}{}{{\fontsize{9}{11}\selectfont\textit{หน้าที่ \thepage/\pageref{LastPage}}}}
+\runningfooter{{\fontsize{9}{11}\selectfont\textit{\BookKind รายวิชา CPE334 Software Engineering กลางภาคการศึกษาที่ 1/2569}}}{}{{\fontsize{9}{11}\selectfont\textit{หน้าที่ \thepage/\pageref{LastPage}}}}
+% Vertically centered fixed-width columns are used for answer tables below;
+% leave tabularx's flexible X-column implementation unchanged.
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+\begin{document}
+% Approximately 14 pt TH Sarabun New; keep questions compact and readable.
+\linespread{1.1}\fontsize{10.5}{14}\selectfont
+\setcounter{page}{2}
+\input{questions.tex}
+\end{document}

@@ -1,0 +1,65 @@
+\band{bluehead}{Lecture 1 · Foundations / SDLC / Git}
+\topic{SDLC: พัฒนาระบบ ไม่ใช่แค่เขียนโค้ด}
+\k{Software engineering}: แก้ปัญหาผู้ใช้ด้วยระบบที่ทดสอบได้ ปลอดภัยและดูแลต่อได้; โค้ดรันได้ ≠ งานผ่านการยอมรับ
+\b{Planning → Requirements → Specification → Design → Implementation → Testing → Deployment → Maintenance}
+\k{Planning}: เหตุผล/ความเป็นไปได้/ขอบเขต/ความเสี่ยง; \k{Req}: ต้องการอะไร; \k{Spec}: พฤติกรรมที่ตกลง; \k{Design}: ทำอย่างไร; \k{Test}: หลักฐาน; \k{Deploy}: build/config/migrate/monitor/rollback; \k{Maintain}: แก้ไขและปรับระบบ
+\k{Feasibility}: เทคนิคพร้อม? คุ้มทุน? ใช้งานในองค์กรได้? ทันเวลาและมีทรัพยากรพอ? ไม่ใช่ดูแค่โค้ดรันได้
+\topic{Process models / Agile values}
+{\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
+\rowcolor{lightrow}Model & จุดเด่น / ข้อควรระวัง\\\hline
+Waterfall & แผนและ sign-off ชัด; เหมาะกับ req คงที่ แต่ feedback ช้า เปลี่ยนแพง\\\hline
+Incremental & ส่ง vertical slice ที่ใช้ได้ทีละส่วน; คุม architecture และ integration\\\hline
+Iterative & ปรับ solution เดิมซ้ำตาม feedback\\\hline
+Scrum & sprint goal, timebox, increment; ตรวจสอบและปรับตัว\\\hline
+Kanban & งานไหลต่อเนื่อง; จำกัด WIP วัด cycle time/throughput\\\hline
+\end{tabularx}}
+\k{Agile ให้ความสำคัญมากกว่า}: คนและปฏิสัมพันธ์ > process/tools; ซอฟต์แวร์ที่ทำงานได้ > เอกสารละเอียด; ร่วมมือกับลูกค้า > ต่อรองสัญญา; ตอบรับการเปลี่ยนแปลง > ยึดแผน \r{ด้านขวายังมีคุณค่า}
+\k{Vertical slice}: UI + API + DB + test ใช้ได้ครบเส้นทาง; \r{ไม่ใช่ทำ DB อย่างเดียวแล้วค่อยต่อ UI}
+\k{DoD}: ผ่าน AC/tests/review; ไม่มี defect หรือช่องโหว่ร้ายแรง; docs ตรง; merge/release ตามกติกา
+\topic{AI engineering / SDD + TDD}
+\k{Agent}: observe → plan → tool/edit/test → inspect → adjust; ต่างจาก chatbot ที่เน้นตอบข้อความ
+\k{Prompt}: บริบท + req/contract + ข้อจำกัด + ขอบเขตไฟล์ + tests + หลักฐาน; วางแผน แบ่งงาน ตรวจ diff/ผลจริง
+\r{คนรับผิดชอบเป้าหมาย การยอมรับและความเสี่ยง}; คำว่า “ผ่าน” จาก agent ไม่ใช่หลักฐาน ระวัง hallucination, regression, secrets, dependencies และ docs ที่ล้าสมัย
+\topic{Architecture / Git พื้นฐาน}
+\b{React UI → HTTP API/Express → service/BR → Prisma ORM → PostgreSQL}; UI ไม่ต่อ DB โดยตรง
+\k{Working tree} แก้ไฟล์ → \code{add} เลือก snapshot เข้า \k{index} → \code{commit} บันทึกใน local → \code{push} ส่งไป remote
+\b{Issue → branch → commit → PR → review → staging → main}; feature แยกงาน; staging รวม/ทดสอบ; main คืองานที่ยอมรับ; README บอก setup/run/test/env/กติกา
+\cl{git status; git diff; git diff --cached}
+\cl{git log --oneline --graph --decorate --all}
+\r{ไม่เก็บ .env, credentials, node\_modules หรือ temp}; ใช้ .env.example และระบุชื่อไฟล์ตอน \code{git add}
+\chapterband{bluehead}{Lecture 2 · Requirement Engineering}
+\k{Business}: เป้าหมาย/คุณค่า; \k{User/URS}: ผู้ใช้ต้องการอะไรและทำไม; \k{System/SysRS}: รวม HW, interfaces, บุคลากร/กฎระเบียบ; \k{Software/SRS}: พฤติกรรมและข้อจำกัดของซอฟต์แวร์
+{\smalltable\begin{tabularx}{\linewidth}{|p{8mm}|Y|}\hline
+\rowcolor{lightrow}ชนิด & คำถาม / ตัวอย่าง\\\hline
+FR & ทำอะไร? \g{Requester สร้าง Ticket ได้}\\\hline
+NFR & ดีแค่ไหน? \g{response p95 ≤ 2 s เมื่อรับ load ที่ระบุ}\\\hline
+BR/domain & กฎควบคุมพฤติกรรม; \g{ไม่เกิน 3 ครั้ง/ภาค}\\\hline
+Constraint & ข้อจำกัด; \g{ต้องใช้ React/ที่ตั้ง server}\\\hline
+\end{tabularx}}
+\r{FR/NFR/BR เป็นชนิด ไม่ใช่ระดับ user/system}; กฎหนึ่งผูกกับหลาย FR ได้ ไม่ต้องสร้าง BR ให้ทุก pixel
+\k{NFR}: performance, security, usability, reliability, maintainability; ระบุตัวชี้วัด เงื่อนไขและเกณฑ์ผ่าน
+\topic{RE process / Quality checklist}
+\b{Elicit/analyse → specify → validate → manage changes}; หา stakeholder/goal → สัมภาษณ์/สังเกต/อ่านเอกสาร → บันทึก → ยืนยัน → จัดลำดับ
+\k{Fact}: ระบุแล้ว; \k{Assumption}: ยังไม่ยืนยัน; \k{Question}: ต้องถาม; \k{Constraint}: จำกัดทางเลือก; แยก in/out/later scope
+\k{Quality}: ชัดเจน ไม่กำกวม มีเรื่องเดียว จำเป็น ครบ สอดคล้อง ทำได้จริง ทดสอบและย้อนรอยได้; ระบุ actor/action/object/condition
+\k{Validation}: ตรงความต้องการ สอดคล้อง ครบ เป็นจริงได้ ตรวจสอบได้; ใช้ review/prototype/derive tests. \k{Change control}: เหตุผล/ผู้รับผิดชอบ/ผลต่อเวลา-ต้นทุน-ความเสี่ยง/ข้อสรุป/รุ่น
+\topic{Proposal 8 ช่อง / Evidence chain}
+\b{Problem · Users · Solution · Expected value · Scope · Risk · Effort · Evidence of completion}
+แยกสิ่งที่มี/ขาดพร้อมหลักฐาน; ข้อเสนอเพิ่มต้องติดป้าย ไม่เขียนเป็นข้อเท็จจริง
+\b{Req ID/source → feature/design → Issue/code → AC/test → PR/release → demo}; ต้องชี้ไฟล์และผลจริง
+\k{AC}: เกณฑ์เฉพาะ feature; \k{DoD}: เกณฑ์เสร็จร่วม; \k{DoR}: พร้อมเริ่ม ≠ เสร็จ. \b{MoSCoW}: Must / Should / Could / Won't (รอบนี้)
+
+\topic{วิเคราะห์ requirement ให้ตอบเป็นเหตุผล}
+{\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
+\rowcolor{lightrow}ปัญหา & ต้องชี้อะไร / แก้อย่างไร\\\hline
+กำกวม & “quick/easy” ไม่มีเกณฑ์ → ตกลง metric/load/threshold\\\hline
+ไม่ atomic & หลาย actor/หลายเป้าหมาย → แยกข้อ แต่คง trace กลับต้นฉบับ\\\hline
+ไม่ครบ & ขาด precondition/output/error/สิทธิ์ → ถามแต่ละสถานะ\\\hline
+ขัดแย้ง & เช่น limit 3 กับ 4 → ให้ผู้มีอำนาจตัดสิน ไม่เลือกเอง\\\hline
+ตรวจไม่ได้ & แปลงคำกว้างเป็นผลสังเกตได้ พร้อมวิธีวัด\\\hline
+ทำไม่ได้ & ตรวจเทคนิค/เวลา/งบ; เจรจาขอบเขต ไม่รับปากลอย ๆ\\\hline
+ย้อนกลับไม่ได้ & ใส่ ID/source/owner แล้วโยง AC/design/test\\\hline
+\end{tabularx}}
+\k{Elicitation}: ใครทำ? เมื่อไร? ข้อมูลเข้า/ออก? กฎ/สิทธิ์? ข้อยกเว้น? นอกขอบเขต? ใช้ interview/observation/docs/prototype ตรวจความเข้าใจร่วม
+\k{BR vs FR}: “ไม่เกิน 3 ครั้ง/ภาค” คือ BR; “ระบบปฏิเสธครั้งที่ 4” คือ FR ที่บังคับกฎนั้น; NFR ระบุระดับคุณภาพของการทำงาน
+\g{AC ตัวอย่าง}: Given สมัครแล้ว 3 ครั้งในภาคนี้; When ส่งครั้งที่ 4; Then ปฏิเสธและจำนวนยังเป็น 3. ต้องตกลงก่อนว่าการยกเลิกนับรวมไหม

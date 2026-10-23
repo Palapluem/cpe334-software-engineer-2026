@@ -1,12 +1,33 @@
-# CPE 334 — Software Engineering (Semester 1/2026)
+# CPE334 — Software Engineering (Semester 1/2026)
 
-Course materials and project work for CPE 334.
+Course materials, lab work, and midterm preparation for CPE334 Software Engineering. This repository keeps the course-facing materials together; the TokTickIT application is maintained in its own repository.
 
-## Repository map
+## Course materials
 
-- [`lectures/`](lectures/) — lecture slides and supporting examples.
-- [`lectures/Week 10/`](lectures/Week%2010/) — midterm review, project launch, group-work specifications, and a practical guide to the supplied materials.
-- [`labs/`](labs/) — lab sheets, reports, and the TokTickIT course application.
-- `preparation/mock-exam/` — local midterm practice set and answer key. This directory is intentionally not published: the course repository is public, while the mock-exam cover carries a no-redistribution condition.
+- [Lecture materials](lectures/): slides, examples, and study notes for the course.
+- [Week 10 midterm and project guide](lectures/Week%2010/README.md): exam-topic map, project-launch material, and source-document notes.
+- [Lab materials and reports](labs/): lab sheets, evidence, and submitted reports for Labs 1–4.
+- [TokTickIT product repository](https://github.com/Palapluem/toktickit_cpe334): the application repository used for the engineering labs. It is separate from this course-material repository.
 
-Start with the [Week 10 guide](lectures/Week%2010/README.md) for the exam topic map, project workflow, deadlines, deliverable checklists, and source-document conflicts to confirm.
+## Midterm preparation
+
+- [Two-page cheat sheet](preparation/cheat-sheet/README.md) — condensed review of Lectures 1–7, with a practice section and source notes.
+- [Practice midterm (Thai and English)](preparation/mock-exam/README.md#midterm) — both practice papers and the Thai solution with marking guide.
+- [Thai practice paper (PDF)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam.pdf)
+- [English practice paper (PDF)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf)
+- [Thai solutions and marking guide (PDF)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf)
+- [Cheat sheet (PDF)](preparation/cheat-sheet/midterm/output/pdf/CPE334_Midterm_Cheat_Sheet.pdf)
+
+The practice papers are student-created study materials, not actual or officially approved examinations, and do not predict the questions on the real exam. The cover reproduces institutional exam-form elements for practice; its publication checkbox and committee/signature fields are examples, not records of actual permission or approval. See the preparation READMEs for scope, sources, and build instructions.
+
+## Repository layout
+
+```text
+lectures/                  Course slides, examples, and study notes
+labs/                      Lab sheets, reports, evidence, and project workflow
+preparation/
+  cheat-sheet/             Editable LaTeX source and two-page PDF
+  mock-exam/               Editable Thai/English exam sources and solution PDFs
+```
+
+LaTeX source files and their printable PDFs are kept together in `preparation/`. Build intermediates and operating-system metadata are excluded. When revising course content, keep the source and its generated deliverable in sync, and verify the rendered PDF before replacing the published copy.

@@ -1,0 +1,68 @@
+\band{orangehead}{Lecture 3 · Specifications / SDD / Tests}
+\topic{SRS → SDS → STS}
+\k{SRS}: ต้องการอะไร (FR/BR/NFR); \k{SDS}: ออกแบบอย่างไร; \k{STS}: ตรวจอย่างไร (cases/data/expected/evidence)
+\b{SRS → feature inventory → req-feature map → system SDS → sprint vertical slice → feature contract → implement → test/review → integrate → main}
+\k{System SDS}: architecture/stack/modules, data, auth, API/error conventions, UI design system, security/performance/logging
+\k{Feature SDS}: purpose/scope, linked req, workflow/state, BR, data/API/UI, permissions, validation/errors, AC/tests
+\k{Contract 7}: \b{inputs → validations → behavior → persistence → side effects → errors → outputs}
+\g{ตัวอย่าง invoice}: รับ header/lines → ตรวจ required/qty → คำนวณ total → บันทึก transaction เดียว → ออก receipt หลัง commit → line ผิดต้อง rollback ไม่เหลือ header → คืน invoice ID/total/ผลบันทึก
+\topic{Tests / Red-Green-Refactor}
+\b{RED}: test ล้มเหลวด้วยเหตุผลที่ตั้งใจ → \b{GREEN}: เขียนโค้ดเท่าที่จำเป็นให้ผ่าน → \b{REFACTOR}: ปรับโครงสร้างโดย tests ยังผ่าน
+\k{AAA}: Arrange เตรียมข้อมูล → Act เรียกใช้ → Assert ตรวจผล; ครอบคลุมปกติ/ผิดเงื่อนไข/ขอบเขต/error/สิทธิ์; \r{ต้องจับ defect ได้ ไม่เขียนตาม implementation อย่างเดียว}
+\k{STS row}: test ID + Req/AC → precondition/data → steps/input → expected UI/API/DB → file + final result
+\g{Boundary example}: คะแนน 0-100 → ทดสอบ −1/0/100/101; 0 และ 100 ต้องผ่าน ส่วน −1 และ 101 ต้องถูกปฏิเสธ
+{\smalltable\begin{tabularx}{\linewidth}{|p{11mm}|Y|}\hline
+\rowcolor{lightrow}ระดับ/ชนิด & ตรวจอะไร\\\hline
+Unit & function/class/component; แยก deps ด้วย mock\\\hline
+Integration & modules/API/DB/interfaces ทำงานร่วมกันจริง\\\hline
+System & ระบบรวมตรง SRS ทั้ง FR/NFR\\\hline
+E2E & เส้นทางผู้ใช้ผ่าน UI → API → DB/external\\\hline
+UAT & ผู้ใช้/ธุรกิจยอมรับตาม need/AC และ sign-off\\\hline
+Regression & ทดสอบของเดิมหลังแก้ไข; ใช้ได้ทุกระดับ\\\hline
+Smoke & เปิดระบบและใช้งานหลักได้หลัง setup/release\\\hline
+Special & load/performance, security, compatibility, recovery\\\hline
+\end{tabularx}}
+\k{Verify}: ทำตรง spec? \k{Validate}: ตรงความต้องการผู้ใช้? \r{coverage สูง ≠ tests ดี}
+\k{Sync}: ผู้เรียกรอผล; \k{Async}: รับผลภายหลังผ่าน event/callback; ระบุวิธี retry และ idempotency (เรียกซ้ำได้ผลต่อระบบเท่าเดิม) ใน contract
+\g{เช่น retry ด้วย key เดิม ต้องไม่ตัดเงินซ้ำ}
+\k{BDD}: เริ่มจากพฤติกรรมด้วย Gherkin (outside-in); \k{TDD}: ให้ tests นำการออกแบบ (inside-out); ใช้ร่วมกันได้
+\chapterband{orangehead}{Lecture 4 · UML / Feature Design / UI}
+\k{Use case}: เป้าหมายของ actor ภายใน system boundary; วงรี = goal; actor association \r{เส้นทึบ ไม่มีหัวลูกศร}
+\b{include}: base → ขั้นตอนบังคับ (เส้นประ); \b{extend}: กรณีเสริม → base (เส้นประ + condition); \b{generalization}: child → parent (สามเหลี่ยมโปร่ง)
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,tinytext]
+\node[draw,ellipse,inner sep=1.3pt](a)at(10,0){Checkout};
+\node[draw,ellipse,inner sep=1.3pt](b)at(36,0){Pay};
+\draw[dependency](a)--node[above,font=\fontsize{6.5}{6.8}\selectfont]{\textless\textless include\textgreater\textgreater}(b);
+\node[draw,ellipse,inner sep=1.3pt](c)at(10,-6){Discount};
+\draw[dependency](c)--node[right]{\textless\textless extend\textgreater\textgreater}(a);
+\end{tikzpicture}\end{center}
+\k{Activity}: workflow ครบทางเลือก; ● เริ่ม, action มุมมน, ◇ decision/merge + [guard], bar = fork/join ขนาน, ◎ จบ; swimlane แบ่งผู้รับผิดชอบ; ลูกศรข้าม lane ได้
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,tinytext]
+\node[act](a)at(3,-4.5){A};\node[act](b)at(24,-2){B};\node[act](c)at(24,-7){C};\node[act](d)at(45,-4.5){D};
+\draw[line width=1.1pt](10,-2)--(10,-7);\draw[line width=1.1pt](38,-2)--(38,-7);
+\draw[flow](a)--(10,-4.5);\draw[flow](10,-2)--(b);\draw[flow](10,-7)--(c);\draw[flow](b)--(38,-2);\draw[flow](c)--(38,-7);\draw[flow](38,-4.5)--(d);
+\node[anchor=north,font=\fontsize{6.8}{7}\selectfont,inner sep=.3pt]at(24,-8.6){fork: ทำ B/C ขนาน; join: รอครบทั้งคู่};
+\end{tikzpicture}\end{center}
+\k{Sequence}: scenario หนึ่งใน workflow; participant/lifeline อยู่ด้านบน เวลาลงล่าง; call เส้นทึบ/return เส้นประ; activation คือช่วงทำงาน; \b{alt [condition], opt, loop}; แสดงระบบภายนอกและผลข้างเคียง
+\k{State}: สถานะของ \r{object เดียว}; event [guard] / effect; ระบุจุดเริ่ม/จบและ transition ที่อนุญาต; อย่าสับสน action กับ state
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,tinytext]
+\node[state](a)at(6,0){Draft};\node[state](b)at(25,0){Ready};\node[state](c)at(44,0){Submitted};
+\draw[flow](a)--node[above]{complete}(b);\draw[flow](b)--node[above]{submit}(c);
+\end{tikzpicture}\end{center}
+\k{Class (Lecture 4; Sample ระบุ Final)}: name/attributes:type/operations; association + multiplicity (1, 0..1, 0..*); inheritance ชี้ parent; composition ◆ ที่ whole (part มีวงจรชีวิตผูกกัน); aggregation ◇ ผูกหลวม; dependency เส้นประ
+\k{Scenario}: basic = ปกติ; alternative = ทางเลือกที่ถูกต้อง; exception = ผิดพลาด; Activity ≠ Sequence; Use Case ≠ flowchart
+\topic{Generic UI: List / Form / LoV}
+\k{List}: title/user/role, search/filter/sort, columns ตาม req, select/open/create, pagination, empty/loading/error; \k{Form}: header + line items + total/status + controls
+\k{สัญลักษณ์สอบ}: \r{*} นำหน้าช่องบังคับ; textbox แก้ได้; ขีดเฉียง = read-only/calculated; เลือก FK ด้วย \b{LoV}; รายการย่อยมี add/remove และ validation
+\k{ตามสถานะ}: Draft แก้/Save/Submit ได้; Done ล็อก; แสดง pending/failure/retry/confirmation ตาม contract; header field ≠ line-item field
+\k{Design system}: สี/ตัวอักษร/ระยะ/components/grid/breakpoints/contrast/keyboard/focus; ตารางยาวอาจเลื่อนแนวนอน
+\r{ไม่เติม split payment/cancel/refund หากโจทย์ไม่ให้}; ทุก field/button/transition ต้องโยง req และสิทธิ์ได้
+\topic{Case patterns จาก Lecture 4 / review}
+{\smalltable\begin{tabularx}{\linewidth}{|p{8mm}|Y|}\hline
+\rowcolor{lightrow}Case & สิ่งที่ต้องรักษาเมื่อวาด UML/UI\\\hline
+POS & Cashier/Customer; รายการสินค้า/ยอด; cash/card; card ไม่ผ่าน → retry/cash/cancel; สำเร็จ → receipt/stock\\\hline
+Hotel & Guest ค้นวัน/เมือง เลือกหลายห้อง/ประเภท จ่าย KBank → ลดห้องว่าง/ยืนยัน/email ถึง Guest และ Hotel; Hotel Admin ดูแลโรงแรมตน\\\hline
+Ticket & Customer สร้าง Requested พร้อม action อัตโนมัติ; CCE/Programmer เพิ่ม action ตาม state; action แก้/ลบไม่ได้; latest status/due อัปเดต; ปิดแล้วห้ามเพิ่ม\\\hline
+Grades & Instructor เลือก semester/course/sections ดึงรายชื่อ/กรอกเกรด; ครบ → Ready → submit → Submitted; อัปเดต Transcript/email; ใช้ SSO/Registration/Student Info/Email ภายนอก\\\hline
+\end{tabularx}}
+\k{ก่อนส่งรูป}: ทุกเส้นโยง req ได้; guards ครบ; error กลับจุดแก้; success มี side effects ตามโจทย์; ไม่แต่ง state/สิทธิ์

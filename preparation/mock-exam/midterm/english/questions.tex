@@ -1,0 +1,235 @@
+\parttitle{1}{Requirements and Security (25 marks)}
+\qtitle{1}{Analyse stakeholder requirements}{8}
+A university plans a workshop registration system. For each statement in 1.1-1.4: classify it as functional, non-functional, or a business/domain rule; justify the classification; explain its purpose and quality; give a verification method and expected result; then revise it or justify keeping it. Mark any proposed conditions or numerical targets as requiring stakeholder confirmation.\par
+\textbf{1.1 (2 marks)} A signed-in student can view all workshops that are open for registration.\par
+\blankbox{6.5cm}
+\textbf{1.2 (2 marks)} The registration process should be fast.\par
+\blankbox{6.5cm}
+\newpage
+\textbf{Question 1 (continued)} Analyse the remaining statements using the same criteria.\par
+\textbf{1.3 (2 marks)} University policy limits each student to three workshops per semester.\par
+\blankbox{7.5cm}
+\textbf{1.4 (2 marks)} Students can cancel their registrations, and coordinators can view participant lists.\par
+\blankbox{7.5cm}
+\newpage
+\qtitle{2}{Evaluate the WorkshopHub proposal}{7}
+Separate online forms and manual consolidation cause duplicate workshop registrations and late confirmations. WorkshopHub lets students find and register for workshops and coordinators manage participant lists, aiming to reduce errors and administrative work. Release 1 covers free workshops only; payment and certificates come later. The team plans to finish before the next semester.\par
+\subq{2.1 Evaluate all eight proposal elements}{4}
+Mark each element present, partial, or missing, with evidence or reasoning from the proposal.\par
+\begingroup
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4cm}|Y|}\hline
+Element & Status and supporting evidence\\\hline
+Problem & \rule{0pt}{.9cm}\\\hline
+Users & \rule{0pt}{.9cm}\\\hline
+Solution & \rule{0pt}{.9cm}\\\hline
+Expected value & \rule{0pt}{.9cm}\\\hline
+Scope & \rule{0pt}{.9cm}\\\hline
+Risk & \rule{0pt}{.9cm}\\\hline
+Effort & \rule{0pt}{.9cm}\\\hline
+Evidence of completion & \rule{0pt}{.9cm}\\\hline
+\end{tabularx}
+\endgroup
+\subq{2.2 Write an improved proposal}{3}
+Keep the original problem and release scope. Fill the gaps; distinguish proposals from given facts.\par
+\blankbox{8.5cm}
+\newpage
+\qtitle{3}{Role-Based Access Control}{4}
+One role per account; no inheritance; default deny. Students may view published workshops and submit their own registrations. Coordinators may view published workshops, create and edit workshops, and export participant lists. No workshop-ownership restrictions apply.\par
+\subq{3.1 Fill in every cell with Allow or Deny}{2.5}
+\begin{tabularx}{\linewidth}{|Y|M{2.8cm}|M{2.8cm}|}\hline
+Operation & Student & Coordinator\\\hline
+View published workshops & &\\\hline
+Submit own registration & &\\\hline
+Create a workshop & &\\\hline
+Edit a workshop & &\\\hline
+Export participant lists & &\\\hline
+\end{tabularx}
+\subq{3.2 Is hiding the export button sufficient?}{1.5}
+State the backend checks and one direct-request test with its expected result.\par
+\blankbox{2.5cm}
+\medskip
+\qtitle{4}{Report-upload vulnerability}{6}
+Browser-only PDF checks are bypassed by a student's script disguised as a PDF. The server stores it in a script-executable directory; opening its URL runs the script and reads other students' reports.\par
+\subq{4.1 Analyse the incident}{3}
+Identify the attacker, assets, attack surface, trust boundary crossed, and violated security objectives.\par
+\blankbox{3cm}
+\subq{4.2 Propose two control and negative-test pairs}{3}
+For each pair, give a relevant control, test procedure, and expected result.\par
+\blankbox{4cm}
+\newpage
+\parttitle{2}{Project Planning and Execution (25 marks)}
+\qtitle{5}{Plan the DormFix project}{10}
+You are PM of DormFix, a Waterfall dormitory maintenance-request project. Your team: Aom (BA), Bank (UX/UI), Chai (Developer), Dao (Developer/Tester). The dormitory manager is Sponsor; the head technician represents Users.\par
+{\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\linewidth}{|M{.85cm}|Y|>{\raggedright\arraybackslash}m{1.6cm}|M{1.1cm}|}\hline
+Task & Description & Owner & Days\\\hline
+A & Implement the approved request-form design & Chai & 4\\\hline
+B & Get requirements approved by the dormitory manager & PM & 1\\\hline
+C & Design screens from approved requirements & Bank & 3\\\hline
+D & Integration-test both components & Dao & 2\\\hline
+E & Write requirements first & Aom & 3\\\hline
+F & Get both designs approved by the head technician & PM & 1\\\hline
+G & Design the database from approved requirements & Chai & 2\\\hline
+H & Get the tested system accepted by the dormitory manager & PM & 1\\\hline
+I & Implement the approved technician-dashboard design & Dao & 3\\\hline
+\end{tabularx}\par}
+\subq{5.1 Organise the WBS by the milestones achieved}{3}
+Name the milestones; order A-I, using each task once. Either order is valid for parallel tasks. Leave unused cells blank.\par
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|}\hline
+1.1 & 1.2 & 1.3 & 1.4\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\rule{0pt}{.7cm}&&&\\\hline
+\end{tabularx}
+\subq{5.2 Complete the RACI matrix from the meeting notes}{2}
+Use R, A, C, I, or ``-'' for no role, following these notes.\par
+\begin{itemize}[itemsep=0pt]
+\item E: Aom works; PM is accountable; Bank advises beforehand; Chai is notified afterwards; Dao has no role.
+\item C: Bank works; PM is accountable; Aom advises beforehand; Chai is notified afterwards; Dao has no role.
+\item G: Chai works; PM is accountable; Bank advises beforehand; Dao is notified afterwards; Aom has no role.
+\item D: Dao works; PM is accountable; Chai advises beforehand; Aom is notified afterwards; Bank has no role.
+\end{itemize}
+\begin{tabularx}{\linewidth}{|M{1cm}|*{5}{>{\centering\arraybackslash}X|}}\hline
+Task & PM & Aom & Bank & Chai & Dao\\\hline
+E &\rule{0pt}{.7cm}&&&&\\\hline
+C &\rule{0pt}{.7cm}&&&&\\\hline
+G &\rule{0pt}{.7cm}&&&&\\\hline
+D &\rule{0pt}{.7cm}&&&&\\\hline
+\end{tabularx}
+\newpage
+\subq{5.3 Build the Gantt chart}{5}
+Start on Monday, 4 January 2027; work Monday-Friday, with no other holidays. Use the given owners and durations. You and all four team members work full-time; external stakeholders have other duties. Each successor starts on the working day after its predecessors and buffers finish. Add a 1-day task buffer and a 2-day project buffer only where needed. Put each milestone on the last marked day of its group's last task; put the final milestone on the last project-buffer day, with no added workday. Fill WBS No./Task/Owner/Start/Due including buffers. Use X for work, - for buffers, and * for milestones. Show dependencies (cross-panel connectors allowed), leave unused rows blank, and explain below.\par
+\textbf{Question 5.3: Gantt chart answer grids}
+\ganttgrid{January 2027: Weeks 1-2}{4,5,6,7,8,11,12,13,14,15}
+\ganttgrid{January 2027: Weeks 3-4}{18,19,20,21,22,25,26,27,28,29}
+\textbf{Explanation (1 mark, included in 5.3):} Justify the buffers and explain why milestones add no working time.\par
+\blankbox{2.2cm}
+\newpage
+\qtitle{6}{Backlog grooming: badminton court booking}{10}
+Issue \#12, ``Book a badminton court'': The client requests one-hour court bookings without queueing. Court details and opening hours are already stored; each student may book once per day. Example: court 2 is available at 17:00 today and must display Booked after a successful booking. No assignee, milestone, or estimate is set. Choose a suitable label, use ``-'' for unspecified fields, and list follow-up questions separately.\par
+\subq{6.1 Write a user story: role, function, and value}{2}
+\blankbox{1.8cm}
+\subq{6.2 State assumptions/details supported by the client information}{2}
+\blankbox{2.3cm}
+\subq{6.3 Write two Gherkin acceptance scenarios}{4}
+Cover a successful booking based on the example, and an additional booking request when the student already has a booking that day.\par
+\blankbox{3.2cm}
+\blankbox{3.2cm}
+\subq{6.4 Specify the issue metadata}{2}
+\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|}\hline
+Assignees & Labels & Milestone & Estimate\\\hline
+\rule{0pt}{4cm}&&&\\\hline
+\end{tabularx}
+\newpage
+\qtitle{7}{Sprint planning: ShuttleNow}{5}
+You are the Scrum Master. Sprint 6 goal: ``Students can track shuttle buses and know when their bus will arrive.'' Capacity is 16 points, as last sprint; the backlog is in priority order. Anchor ``View the list of shuttle routes'' = 3 points. Scale: 1, 2, 3, 5, 8, 13, 21; larger/smaller means steps on this scale.\par
+\subq{7.1 Estimate story points and select Sprint 6 work}{3}
+Fill in every Points and Selected cell; use Yes or No for selection.\par
+\begin{tabularx}{\linewidth}{|M{.9cm}|>{\centering\arraybackslash}X|M{3cm}|M{1.1cm}|M{1.2cm}|}\hline
+No. & User story & Relative to anchor & Points & Pick\\\hline
+1 & View live bus locations & 2 steps larger &\rule{0pt}{1.25cm}&\\\hline
+2 & Pay the fare by QR code & Same size &\rule{0pt}{1.25cm}&\\\hline
+3 & View arrival time at my stop & 1 step larger &\rule{0pt}{1.25cm}&\\\hline
+4 & Receive a bus-arrival alert & Same size &\rule{0pt}{1.25cm}&\\\hline
+5 & View arrival times at every stop & 1 step larger &\rule{0pt}{1.25cm}&\\\hline
+6 & Fix truncated items on mobile & 1 step smaller &\rule{0pt}{1.25cm}&\\\hline
+\end{tabularx}
+\subq{7.2 Total the points of the selected stories}{1}
+\rule{\linewidth}{.2pt}\par\smallskip
+\subq{7.3 Explain each selection and exclusion}{1}
+\blankbox{7cm}
+\newpage
+\parttitle{3}{UML/UI and Git Workflow (50 marks)}
+\textbf{Use the following requirements for Questions 8-10.}\par
+\textbf{Requirements: KU Course Registration System}\par
+\textbf{R1.} All users log in with a KU account through KU Single Sign-On (KUSSO), which provides role information such as Student, University Admin, and Instructor.\par\smallskip
+\textbf{R2.} A Department Admin can create a course by providing its course code, course name, description, credits, and fee.\par\smallskip
+\textbf{R3.} A Department Admin defines course offerings by selecting a semester and course code, then entering a list of sections: section number, room, class time, display notes, and maximum students. A course with four sections produces four course offerings.\par\smallskip
+\textbf{R4.} A University Admin can create a semester and set the currently active semester.\par\smallskip
+\textbf{R5.} A Student opens the Registration Form for the active semester, initially with no offerings. The system uses the logged-in username to obtain the student ID, name, degree programme, email, and login username from the KU Student Info System.\par\smallskip
+\textbf{R6.} A Student can add multiple offerings through the Course Offering List View. The total registration fee updates as courses are added.\par\smallskip
+\textbf{R7.} The Course Offering List View displays course ID, course code, course name, credits, fee, semester, section, room, class time, display notes, maximum students, number registered, and seats remaining. Students can filter offerings and select them for the form.\par\smallskip
+\textbf{R8.} The form starts in Draft. Students can save it and return to edit it before final submission.\par\smallskip
+\textbf{R9.} On submission, the system checks seat availability for every offering. If any section is full, submission fails and the student is warned to revise and resubmit. Payment proceeds only if every offering has an available seat.\par\smallskip
+\textbf{R10.} Payment is by credit card through KBank Payment Gateway or by bank transfer through Bangkok Bank Payment Gateway (BBLPaymentGateway).\par\smallskip
+\textbf{R11.} After successful payment, the form becomes Done and cannot be edited online. The student receives a registration PDF by email through KU Email (Google Workspace).\par\smallskip
+\newpage
+\qtitle{8}{Sequence Diagram}{10}
+Complete the sequence diagram below; show all messages, directions, and system responses.\par
+\begingroup\setlength{\parskip}{0pt}
+1. The Student logs in.\par
+2. The system finds a Draft for the current semester containing two offerings and opens it for continuation.\par
+3. The Student adds one more offering.\par
+4. The Student submits, but one of the three offerings is full, so submission fails.\par
+5. The system notifies the Student.\par
+6. The Student replaces the full offering with another section and resubmits.\par
+7. This submission succeeds.\par
+8. The Student pays by bank transfer.\par
+9. Registration is completed.\par
+\endgroup
+\begin{center}\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach\name/\x in{Student/0,{KU\\Registration}/2.8,KUSSO/5.6,{KU Student\\Info}/8.4,{BBL\\Gateway}/11.2,KUEmail/14}{
+\node[life,inner ysep=5pt,text width=2.15cm,minimum height=1.25cm]at(\x,0){\name};\draw[dashed](\x,-.7)--(\x,-14);}
+\end{tikzpicture}\end{center}
+\newpage
+\qtitle{9}{Activity Diagram}{10}
+Show one session: a Student first logs in this semester, receives a blank form prefilled with their details, selects courses, pays successfully, and gets confirmation. Include all decisions (e.g. payment method), guards, and loops (e.g. revise/resubmit until successful). Use flowchart-style decisions in the responsible swimlanes.\par
+\begin{center}\begin{tikzpicture}[x=1.026cm,y=1cm,font=\fontsize{9}{10.5}\selectfont]
+\draw(0,0)rectangle(16.45,-21);\foreach\x in{2.35,4.7,7.05,9.4,11.75,14.1}{\draw(\x,0)--(\x,-21);}\draw(0,-1.55)--(16.45,-1.55);
+\foreach\lab[count=\i from 0]in{Student,KUSSO,{KU\\Registration},{KU Student\\Info},{KBank\\Gateway},{BBL\\Gateway},KUEmail}{\node[align=center,anchor=center,text width=2.1cm]at({1.175+2.35*\i},-.775){\lab};}
+\node[circle,fill,inner sep=3pt](s)at(1.175,-1.8){};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](launch)at(1.175,-2.9){Launch app / log in};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](login)at(3.525,-2.9){Log in};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](open)at(5.875,-2.9){Open blank form};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](profile)at(8.225,-2.9){Get profile by username};
+\node[act,anchor=center,inner ysep=6pt,text width=1.75cm](prefill)at(5.875,-5.4){Prefill student data};
+\draw[flow](s)--(launch);\draw[flow](launch)--(login);\draw[flow](login)--(open);\draw[flow](open)--(profile);\draw[flow](profile)|-(prefill);\draw[flow](prefill.west)--(2.1,-5.4)--(2.1,-5.9)--(1.175,-5.9);
+\end{tikzpicture}\end{center}
+\newpage
+\qtitle{10}{Design the List View and Form View}{10}
+Design generic Student interfaces for R5-R11. Mark required fields with a leading \textbf{*}. Use textboxes for editable fields and diagonal hatching inside non-editable or calculated fields.\par
+\subq{10.1 Course Offering List View}{4}
+Show all required data, filters, and offering selection; a table or cards with details is acceptable.\par
+\blankbox{20.5cm}
+\newpage
+\textbf{Question 10 (continued): Design the registration form}
+\subq{10.2 Student Registration Form View}{6}
+Use the current semester and the signed-in Student's details. Show the header, line items, fees, controls, and how the interface appears in Draft, when an offering is full, and in Done.\par
+\blankbox{21.5cm}
+\newpage
+\textbf{Shared context for Questions 11-12}\par
+ExamScore is a Python CLI that reads names and scores from 0 to 100 from CSV, calculates statistics and the pass rate, and uses main for releases, sprint staging for integration, and feature branches for separate tasks.\par
+\textbf{Notation and assumptions}\par
+HEAD identifies the checked-out local branch. Each origin/* pointer records the latest remote state known locally. The switch command changes HEAD without moving branch pointers. Assume a clean working directory, successful commands, and no conflicts. Commands do not contact GitHub unless a fetch, push, or remote command is explicitly stated. Each question starts from its own graph. \textbf{Stage files by name; do not use \code{git add .}.}\par
+\qtitle{11}{Predict the repository graph}{10}
+Using the shared context, feature and sprint branches diverge from D. Assume the merge below succeeds and creates G.\par
+\begin{center}\startgitMerge\end{center}
+\begin{verbatim}
+git merge feature/basic_statistics
+git switch main
+\end{verbatim}
+Draw the final graph, including both parents of G, local branches, origin/* pointers, and HEAD. Identify and justify the merge type, and explain how switch affects HEAD and the branch pointers.\par
+\blankbox{6cm}
+\textbf{Merge type, justification, and effect of switch:}\par
+\blankbox{2.5cm}
+\newpage
+\qtitle{12}{Write commands and draw the graph}{10}
+Complete 12.1-12.3 consecutively. Each step starts from the result of the previous step.\par
+\begin{center}\startgitFF\end{center}
+\subq{12.1 Switch to sprint\_1\_staging and draw the graph}{2}
+\textbf{Command:}\ruled{1}
+\blankbox{4.5cm}
+\subq{12.2 Merge feature/load\_scores into the current branch}{3}
+Write the command, identify the merge type, and draw the graph after the merge.\par
+\textbf{Command and merge type:}\ruled{1}
+\blankbox{4.5cm}
+\newpage
+\subq{12.3 Inspect changes, stage files, and commit}{5}
+After 12.2, \code{score\_data.py} and \code{scores.csv} are modified and \code{validation\_notes.txt} is new. Inspect the changes, stage only these three files, and create F with message \code{Document score validation cases}. Draw all pointers and HEAD.\par
+\textbf{Commands:}
+\blankbox{6cm}
+\textbf{Graph after creating F:}
+\blankbox{10cm}

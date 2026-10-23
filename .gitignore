@@ -10,8 +10,16 @@
 # CPE334 course materials and lab/homework files are intentionally tracked here.
 # The graded TokTickIT product remains a separate nested Git repository.
 
-# Local midterm practice material uses sample exam content marked no-redistribution.
-/preparation/mock-exam/
+# Publish editable preparation sources and final PDFs, but never LaTeX build debris.
+/preparation/**/*.aux
+/preparation/**/*.log
+/preparation/**/*.out
+/preparation/**/*.toc
+/preparation/**/*.synctex.gz
+/preparation/**/*.xdv
+/preparation/**/*.fls
+/preparation/**/*.fdb_latexmk
+/preparation/**/*.w18
 
 # Local tooling and accidental top-level product copies must stay outside this repo.
 /.playwright-cli/
