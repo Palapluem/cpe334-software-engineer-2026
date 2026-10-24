@@ -12,9 +12,11 @@ These student-created materials are for study and timed practice. They are not a
 
 หน้าปกทั้งสองภาษาใช้ `midterm/frontmatter/cover-layout.tex` เป็นกริดพิกัดร่วมกัน ยึดตำแหน่งจากฉบับไทยสำหรับกรอบเผยแพร่ โลโก้ รหัส/ชื่อวิชา ช่องสอบ กล่องข้อมูลนักศึกษา หัวข้อคำชี้แจง/เงื่อนไข และกล่องลายเซ็น ความยาวถ้อยคำ/เส้นใต้เปลี่ยนตามภาษา แต่ไม่ปล่อยให้ความสูงข้อความเลื่อนส่วนถัดไป
 
-เฉลยจัดทำเฉพาะภาษาไทย ไม่มีไฟล์เฉลยอังกฤษแยก ข้อ 1.1-1.4 ตอบข้อย่อยละ 2 บรรทัดในรูป “เป็น... เพราะ...” โดยคงประเภท จุดประสงค์ คุณภาพ วิธีตรวจ ผลคาดหวัง และข้อที่ควรปรับ/ยืนยัน; ข้อ 2.1 แจกแจงข้อเสนอครบ 8 ด้าน และข้อ 2.2 เป็นข้อเสนอต่อเนื่องที่กระชับ คำอธิบายข้ออื่นย่อเท่าที่ครบตามโจทย์และแยกจากเกณฑ์ตรวจ คงตาราง WBS/RACI/กำหนดการ, Gherkin ทั้งสองกรณี ผลเลือก Sprint, คำสั่ง Git และแผนภาพพร้อมเกณฑ์ตรวจ โดย Sequence Diagram มีข้อความภาษาไทยกำกับทุก message
+เฉลยจัดทำเฉพาะภาษาไทย ไม่มีไฟล์เฉลยอังกฤษแยก ปรับคำตอบทั้ง 12 ข้อให้เป็นไทยธรรมชาติ คงคำเทคนิคที่ใช้ในข้อสอบ พร้อมอธิบายไทยเมื่อจำเป็น ข้อ 1.1-1.4 ยังตอบข้อย่อยละ 2 บรรทัดในรูป “เป็น... เพราะ...” โดยคงประเภท จุดประสงค์ คุณภาพ วิธีตรวจ ผลคาดหวัง และสิ่งที่ควรปรับ/ยืนยัน ข้อ 2.1 ครบ 8 ด้าน ส่วน 2.2 เป็นย่อหน้าต่อเนื่อง แยกคำตอบจากเกณฑ์ตรวจ คงตาราง ตัวเลข Gherkin คำสั่งและแผนภาพ ไม่ย่อจนเงื่อนไขหรือคำปฏิเสธเปลี่ยน
 
-หัวลูกศรใช้สามเหลี่ยมทึบเรียบสำหรับ control flow/การเรียก และหัวเปิดบนเส้นประสำหรับ reply; ลูกศร dependency ในโพยเป็นหัวเปิด เส้น actor association และ Git ancestry ยังคงไม่มีหัว ป้ายบน Sequence Diagram ของเฉลยระบุข้อความแต่ละเส้น พร้อมแยก call, return และ notification ไม่เติมคำตอบลงใน diagram skeleton ของข้อสอบ
+นำกติกาภาษาและแหล่งข้อมูลจากรอบโพยมาใช้กับเฉลยเดิม ไม่เพิ่มบทสรุปหรือชุดคำถามใหม่: มีแหล่งรายข้อและชื่อไฟล์เต็มท้าย PDF ข้อเสนอที่เติมเองใช้ป้าย “คำอธิบายเสริม” เช่น ค่า NFR และแนวทดสอบ API ส่วน effort 15 คน-วันเดิมถูกนำออกเพราะไม่มีรายการงานรองรับ ใช้การระบุข้อมูลที่ยังขาดและเสนอให้ทีมประเมินก่อนรับกำหนดส่งแทน ไม่อ้างว่าคำนวณ effort จริงได้จากโจทย์
+
+หัวลูกศรใช้สามเหลี่ยมทึบเรียบสำหรับ control flow/การเรียก และหัวเปิดบนเส้นประสำหรับ reply; notification เป็นเส้นทึบหัวเปิด เส้น Git ancestry ไม่มีหัว ปรับ Sequence Diagram ให้เส้นตอบกลับเป็น reply จริงตามคำอธิบาย มีหมายเลขและข้อความไทยครบทุก message ไม่เติมคำตอบลงใน diagram skeleton ของข้อสอบ และไม่แก้ shared style ที่ใช้กับข้อสอบไทย/อังกฤษ
 
 ชุดฝึกนี้อิง blueprint ของ Lecture 10: Requirements/Security 25, Planning/Execution 25, UML/UI 30 และ Git 20 คะแนน ไม่ใช่ข้อสอบทางการหรือคำยืนยันว่าจะออกตรงชุดนี้ เลือก Sequence, Activity, List/Form UI และ Git แบบทำนาย graph กับเขียน commands/redraw เพื่อฝึกทั้งการออกแบบและ repository state ไม่มี Class Diagram ใน midterm; `final/` เป็นพื้นที่เตรียมไว้เท่านั้น
 
@@ -42,7 +44,28 @@ These student-created materials are for study and timed practice. They are not a
 | 8-10 | [Midterm Samples by Suthep](../../lectures/Week%2010/CPE334_Midterm%20Samples%20by%20Suthep.pdf), หน้า 1-5 | ใช้ KU Course Registration ฉบับไทยเทียบกับอังกฤษ เรียบเรียงคำสั่งและรักษา skeleton; ข้อ UI ขยายจาก Form ให้มี List ด้วยตาม blueprint |
 | 11-12 | Samples, ข้อ 2.5 และ 2.3 | แปลคำสั่งเป็นไทย คง ExamScore, commits, branches, filenames และลำดับงาน; วาด graph ใหม่เป็น vector |
 
-ตรวจหลักการกับ Lectures 2, 4, 5, 6, 7 และใช้ [StudyNotes](../../lectures/CPE334_SE_Midterm_StudyNotes.pdf) ประกอบการทบทวน ไม่นำ Group Project/Labs 5-7 ช่วงหลังของ Lecture 10 มารวมเป็นขอบเขตข้อสอบ
+### แหล่งตรวจเฉลยรายข้อ
+
+ตัวเลขคือหน้า PDF ไม่ใช่เลขสไลด์ ชื่อ Lecture ที่ใช้ในเฉลยหมายถึงไฟล์เต็มตามลิงก์นี้
+
+| ข้อเฉลย | ไฟล์และหน้า | สิ่งที่ใช้ตรวจ |
+| --- | --- | --- |
+| 1 | [CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) pp. 5-6; [CPE334_Lecture02 Requirement Engineering.pdf](<../../lectures/Week 2/CPE334_Lecture02 Requirement Engineering.pdf>) pp. 14-26 | ชนิด จุดประสงค์ คุณภาพ วิธีตรวจและการปรับข้อกำหนด |
+| 2 | Lecture 10 pp. 7-8; Lecture 2 pp. 28-29 | องค์ประกอบ 8 ด้าน ข้อเท็จจริงเดิมกับข้อเสนอเพิ่ม; deadline ไม่ใช่ effort |
+| 3 | Lecture 10 p. 9; [CPE334_Lecture05 - Security in SE.pdf](<../../lectures/Week 5/CPE334_Lecture05 - Security in SE.pdf>) pp. 8, 19-23, 34 | AuthN/AuthZ, RBAC/default deny และรหัสตอบกลับตัวอย่าง |
+| 4 | Lecture 10 pp. 10-11; Lecture 5 pp. 5-8, 28-38 | จุดโจมตี ขอบเขตความเชื่อถือ CIA และมาตรการ/การทดสอบที่เสนอ |
+| 5 | Lecture 10 pp. 14-21; [CPE334_Lecture06 - Project Management.pdf](<../../lectures/Week 6/CPE334_Lecture06 - Project Management.pdf>) pp. 71-96 | WBS, Gantt, milestone, buffer และความหมาย RACI; ค่าตาราง RACI อิง notes ข้อ 5.2 ที่ชุดฝึกเพิ่ม |
+| 6 | Lecture 10 pp. 22-23; [CPE334_Lecture07 - Project Execution.pdf](<../../lectures/Week 7/CPE334_Lecture07 - Project Execution.pdf>) pp. 60-64, 94-104 | User story, Gherkin, refinement และ metadata |
+| 7 | Lecture 10 pp. 25-26; Lecture 7 pp. 67-72, 114-118 | Anchor/Fibonacci, sprint goal, points และ capacity |
+| 8 | [CPE334_Midterm Samples by Suthep.pdf](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 1-3; [CPE334_Lecture04 UML, SDS Features, STS Features.pdf](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) p. 13 | R1/R5-R11 และ scenario Draft เดิม/section เต็ม/จ่าย BBL |
+| 9 | Samples pp. 1-2, 4; Lecture 4 pp. 13, 16 | ฟอร์มว่างของครั้งแรก workflow, branches, guards และ loops |
+| 10 | Samples pp. 1-2, 5; Lecture 4 pp. 111-117 | R5-R11, ช่องอ่านอย่างเดียว/แก้ได้/บังคับ และ line items; List View เพิ่มตามโจทย์ชุดฝึก |
+| 11 | Samples pp. 6, 12, 21 | สมมติฐาน Git, ข้อ 2.5 และ model answer |
+| 12 | Samples pp. 6, 10-11, 20-21 | สมมติฐาน Git, ข้อ 2.3 และ model answer |
+
+รอบปรับภาษาตรวจโจทย์ชุดฝึกและเฉลยครบทุกข้อ อ่านซ้ำข้อความแนว Lecture 10 pp. 4-26 และ Samples pp. 1-6, 18-21 ร่วมกับผลตรวจหลักการ Lectures 2/4/5/6/7 จากรอบโพย ไม่ได้ตรวจภาพเฉลยต้นฉบับทุกภาพหรือเอกสารในลิงก์ภายนอก แผนภาพในเฉลยเป็นแบบวาดของชุดฝึก ไม่อ้างว่าเป็นภาพเฉลยทางการ [StudyNotes](../../lectures/CPE334_SE_Midterm_StudyNotes.pdf) ใช้ทบทวนเพิ่มได้ แต่ไม่แทนเอกสารหลัก
+
+ข้อที่ต้องแยกบริบท: Lecture 10 ระบุว่าถือการจองได้หนึ่งรายการต่อวัน ส่วนโจทย์ชุดฝึกข้อ 6 ใช้ “จองได้ไม่เกินวันละ 1 ครั้ง” เฉลยยึดข้อความของชุดฝึกและไม่เดาว่ายกเลิกแล้วได้สิทธิ์คืนหรือไม่ ตัวเลข NFR, HTTP 403 และรายละเอียด UI เป็นข้อเสนอ/แบบจำลองที่ติดป้าย ไม่ใช่ contract ที่โจทย์กำหนดไว้ทั้งหมด ไม่นำ Group Project/Labs 5-7 ช่วงหลังของ Lecture 10 มารวมเป็นขอบเขตข้อสอบ
 
 ข้อควรระวังจากต้นฉบับ: blueprint หน้า 29 ให้เลือก UML/UI เพียง 3 ประเภท; sample หน้า 6 ขีดฆ่า Class Diagram และย้ายไป Final แม้หน้าอื่นกล่าวถึงหัวข้อนี้; เลข Solution 1.2/1.3 ใน sample ไม่ตรงชนิดโจทย์ จึงจับคู่จากเนื้อหา ไม่คัด requirement เรื่องกรอกเกรดที่ปนในตัวอย่าง UI มาใช้ Lecture 10 หน้า 31 ระบุว่าบางเคสจริงใช้ requirements ภาษาอังกฤษเท่านั้น ชุดฝึกนี้ใช้ไทยตามคำขอนักศึกษา จึงควรอ่าน requirements อังกฤษในเอกสารต้นฉบับประกอบ
 
