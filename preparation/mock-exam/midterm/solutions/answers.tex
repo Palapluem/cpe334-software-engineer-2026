@@ -1,7 +1,7 @@
 \begin{center}\textbf{\Large เฉลยชุดฝึกกลางภาคและเกณฑ์ตรวจ}\par
 \textbf{CPE334 Software Engineering}\quad ภาคการศึกษาที่ 1/2569
 \end{center}
-\textbf{วิธีใช้:} ข้อ 1-2 ใช้ศัพท์เทคนิคตามโจทย์พร้อมอธิบายไทย; แยกข้อ 1 ตาม 1.1-1.4, แจกแจง 2.1 ให้ครบ 8 องค์ประกอบ และเขียน 2.2 เป็นข้อเสนอต่อเนื่องได้ ไม่จำเป็นต้องรวมทุกข้อเป็นเรียงความเดียว คำตอบตัวอย่างสั้นเท่าที่ครบ ส่วน \textbf{เกณฑ์ตรวจ} ใช้ตรวจตนเอง ไม่ต้องคัดลงคำตอบ รับคำตอบอื่นที่รักษาข้อกำหนดและให้เหตุผลได้ ไม่หักซ้ำจากต้นเหตุเดียว และไม่ถือค่าที่เสนอเพิ่มว่าเป็นข้อเท็จจริงจากลูกค้า\par
+\textbf{วิธีใช้:} ตัวอย่างตอบสั้นให้ครบตามโจทย์; ข้อ 1 แยกตอบ 1.1-1.4 ในรูป “เป็น... เพราะ...” ตามด้วยจุดที่ต้องยืนยันและวิธีตรวจ ข้อ 2.1 ตอบครบ 8 องค์ประกอบ และ 2.2 เขียนเป็นข้อเสนอเดียวได้ ส่วน \textbf{เกณฑ์ตรวจ} ใช้ตรวจตนเอง ไม่ต้องคัดลงคำตอบ รับคำตอบอื่นที่อิงโจทย์และให้เหตุผลได้ ไม่หักต้นเหตุเดิมซ้ำ และค่าที่เสนอเพิ่มต้องระบุว่ารอยืนยัน\par
 \begin{tabularx}{\linewidth}{|Y|Y|C{1.2cm}|}\hline
 ส่วน & ข้อ & คะแนน\\\hline
 1 ความต้องการและความปลอดภัย & 1-4 & 25\\\hline
@@ -12,18 +12,19 @@
 คะแนนย่อยและเกณฑ์ตรวจเป็นของชุดฝึกนี้ ไม่ใช่ประกาศหรือเฉลยทางการของผู้สอน\par
 \medskip
 \qtitle{1}{วิเคราะห์ความต้องการ}{8}
+\textbf{คำย่อ:} FR = Functional Requirement; NFR = Non-functional Requirement\par
 \anshead{1.1 ดู workshop ที่เปิดลงทะเบียน}{2}
-\textbf{ประเภท/จุดประสงค์:} ความต้องการเชิงหน้าที่ (Functional Requirement: FR) — ระบบแสดงรายการ workshop ที่เปิดลงทะเบียนแก่ Student ซึ่งเข้าสู่ระบบ \textbf{คุณภาพ/ตรวจ:} ต้องนิยาม “เปิดลงทะเบียน”; ทดสอบรายการเปิด/ปิดและคาดหวังให้แสดงเฉพาะรายการเปิดครบ \textbf{ปรับ:} “ระบบแสดง workshop ทุกรายการที่เปิดลงทะเบียนแก่ Student ที่เข้าสู่ระบบ” โดยยืนยันกฎสถานะและช่วงเวลากับผู้เกี่ยวข้อง
+เป็น FR เพราะให้ Student ที่เข้าสู่ระบบดู workshop เพื่อเลือกลงทะเบียน; “เปิดลงทะเบียน” ต้องนิยามให้ชัด จึงปรับให้แสดงเฉพาะรายการเปิดตามเกณฑ์ที่ยืนยัน; ทดสอบเปิด/ปิด ต้องแสดงรายการเปิดครบและไม่แสดงรายการปิด
 
 \anshead{1.2 ลงทะเบียนรวดเร็ว}{2}
-\textbf{ประเภท/คุณภาพ:} ความต้องการที่ไม่ใช่เชิงหน้าที่ (Non-functional Requirement: NFR) ด้านประสิทธิภาพ; “รวดเร็ว” ยังไม่มีเกณฑ์วัดหรือผ่าน/ไม่ผ่าน \textbf{ข้อเสนอ/ตรวจ:} load test 10 นาทีที่ผู้ใช้พร้อมกัน 100 คน วัดคำขอลงทะเบียนที่ถูกต้องจาก submit ถึงผลตอบกลับ; คาดหวัง p95 (เปอร์เซ็นไทล์ที่ 95) ไม่เกิน 2 วินาที \textbf{ตัวเลขและเงื่อนไขทดสอบต้องยืนยันกับลูกค้าก่อน}
+เป็น NFR ด้าน performance เพราะมุ่งความเร็ว แต่ “รวดเร็ว” ไม่มีเกณฑ์วัด; เสนอให้ 95\% ของคำขอตอบใน 2 วินาทีที่ 100 ผู้ใช้พร้อมกัน (รอยืนยัน) โดย load test วัดตั้งแต่ submit ถึงผลตอบกลับและตรวจว่าผ่านเกณฑ์
 
 \anshead{1.3 ไม่เกิน 3 workshop ต่อภาค}{2}
-\textbf{ประเภท/คุณภาพ:} กฎธุรกิจ/โดเมน (business/domain rule) จำกัดจำนวนต่อภาค; ตัวเลขทดสอบได้ แต่ต้องยืนยันว่ารายการยกเลิก/รอยืนยันนับหรือไม่ \textbf{ตรวจ:} มี 2 แล้วเพิ่มรายการที่ 3 ต้องผ่าน; มี 3 แล้วรายการที่ 4 ต้องถูกปฏิเสธและยอดคง 3 \textbf{ปรับ:} ระบบไม่ยืนยันการลงทะเบียนที่ทำให้ Student มีรายการนับสิทธิ์เกิน 3 ในภาคเดียวกัน โดยสถานะที่นับต้องตกลงก่อน
+เป็น business/domain rule เพราะจำกัดจำนวนตามนโยบาย; “ไม่เกิน 3 ต่อภาค” วัดได้ จึงคงไว้แต่ยืนยันสถานะที่นับ; ทดสอบมี 2 เพิ่มเป็น 3 ต้องผ่าน และมี 3 ขอเพิ่มเป็น 4 ต้องถูกปฏิเสธโดยยอดยังเป็น 3
 
 \anshead{1.4 ยกเลิกและดูรายชื่อ}{2}
-\textbf{ประเภท/คุณภาพ:} เป็น FR สองข้อที่ไม่ atomic เพราะรวมคนละผู้ใช้และความสามารถ \textbf{แยก/ตรวจ:} FR-1 Student ยกเลิกของตนได้ตามเงื่อนไขที่ตกลง; ทดสอบรายการตน/ผู้อื่นและคาดหวังให้เปลี่ยนได้เฉพาะที่อนุญาต FR-2 Coordinator ดูรายชื่อ workshop; เทียบกับข้อมูลทดสอบในขอบเขตสิทธิ์ \textbf{ปรับ:} แยกเป็น “Student ยกเลิกการลงทะเบียนของตนได้ตามเงื่อนไขมหาวิทยาลัย” และ “Coordinator ดูรายชื่อผู้เข้าร่วม workshop ที่รับผิดชอบ” โดยยืนยันเงื่อนไขและขอบเขตสิทธิ์ก่อน
-\textbf{เกณฑ์ตรวจต่อข้อย่อย 2 คะแนน:} ประเภทพร้อมเหตุผล 0.25; จุดประสงค์ 0.25; คุณภาพ 0.50; วิธีตรวจและผลคาดหวัง 0.50; ปรับหรือคงข้อความพร้อมเหตุผล 0.50 รับ NFR ด้าน usability หากนิยามและวิธีวัดสอดคล้องกัน
+เป็น FR แต่ไม่ atomic เพราะรวมสองความสามารถ; แยกเป็น Student ยกเลิกการลงทะเบียน และ Coordinator ดูรายชื่อผู้เข้าร่วม; ยืนยันเงื่อนไข/สิทธิ์แล้วทดสอบตามบทบาท ต้องยกเลิกได้เฉพาะที่อนุญาตและรายชื่อตรงข้อมูล\par\smallskip
+\textbf{เกณฑ์ตรวจต่อข้อย่อย 2 คะแนน:} ประเภทพร้อมเหตุผล 0.25; จุดประสงค์ 0.25; คุณภาพ 0.50; วิธีตรวจและผลคาดหวัง 0.50; ปรับหรือคงข้อความพร้อมเหตุผล 0.50 ข้อ 1.2 รับ NFR ด้าน usability หากนิยามและวิธีวัดสอดคล้องกัน
 \newpage
 
 \qtitle{2}{ประเมินข้อเสนอโครงการ WorkshopHub}{7}
@@ -42,7 +43,7 @@ Evidence of completion & ไม่มี: ยังไม่มีเกณฑ�
 \textbf{เกณฑ์ตรวจ:} องค์ประกอบละ 0.50 ให้ตามสถานะและเหตุผลที่อิงข้อความ รวม 4 คะแนน
 
 \anshead{2.2 ข้อเสนอฉบับปรับปรุง}{3}
-WorkshopHub รวมการสมัคร workshop ฟรีและรายชื่อไว้ในเว็บเดียว ให้นักศึกษาค้นหา/สมัครและผู้ประสานงานจัดการผู้เข้าร่วม เพื่อลดข้อมูลซ้ำและเวลายืนยัน รุ่นแรกไม่รวม payment และ certificates และวางแผนส่งก่อนภาคถัดไป \textbf{ข้อเสนอที่ต้องยืนยัน:} เก็บค่าฐานข้อมูลซ้ำ/เวลายืนยันก่อนตกลงเป้าหมาย รับมือข้อมูลซ้ำและการสมัครพร้อมกันด้วยการตรวจฝั่ง server และทดสอบกรณีชนกัน ประมาณงานเบื้องต้น 15 คน-วัน (วิเคราะห์ 3 พัฒนา 8 ทดสอบ/ส่งมอบ 4) โดยให้ทีมยืนยันความเป็นไปได้ก่อนรับปากกำหนดส่ง \textbf{หลักฐานรับมอบที่เสนอ:} demo ค้นหา-สมัคร-ดูรายชื่อ ผลทดสอบการสมัครซ้ำและสิทธิ์ผ่าน ผู้ประสานงานตรวจรับ และผลเทียบค่าฐานตามเกณฑ์ที่ตกลง\par
+WorkshopHub รวมการสมัคร workshop ฟรีและรายชื่อในเว็บแทนฟอร์มแยกและการรวมด้วยมือ ให้นักศึกษาค้นหา/สมัครและผู้ประสานงานจัดรายชื่อ เพื่อลดข้อมูลซ้ำและเวลายืนยัน; ส่งก่อนภาคหน้า ไม่รวม payment/certificates \textbf{เสนอรอยืนยัน:} วัดค่าฐานและตกลงเป้าหมาย; เสี่ยงสมัครซ้ำจึงตรวจฝั่ง server และทดสอบสมัครพร้อมกัน; ประเมิน effort เบื้องต้น 15 คน-วันให้ทีมยืนยัน \textbf{หลักฐานเสร็จที่เสนอ:} demo ค้นหา-สมัคร-จัดรายชื่อ, ผลทดสอบสิทธิ์/สมัครซ้ำผ่าน, ผลเทียบเป้าหมายและผู้ประสานงานตรวจรับ\par
 \textbf{เกณฑ์ตรวจ:} รักษาปัญหา/ผู้ใช้/วิธีแก้/คุณค่า/ขอบเขตเดิม 1; เติมความเสี่ยงและ effort พร้อมระบุว่าเสนอใหม่ 1; หลักฐานเสร็จตรวจได้ 1 ไม่บังคับตัวเลข 15 คน-วัน
 \newpage
 
@@ -55,8 +56,7 @@ WorkshopHub รวมการสมัคร workshop ฟรีและรา�
 แก้ไข workshop & Deny & Allow\\\hline
 ส่งออกรายชื่อ & Deny & Allow\\\hline
 \end{tabularx}
-\textbf{3.2:} ซ่อนปุ่มไม่พอ ผู้ใช้เรียก API ตรงได้ ฝั่ง server ต้องยืนยัน session และตรวจ role กับ operation โดยปฏิเสธสิทธิ์ที่ไม่ให้ ไม่เชื่อ role จาก request\par
-\textbf{ทดสอบ:} ใช้ session Student เรียก export ตรง แม้ส่ง role=Coordinator ก็ต้องถูกปฏิเสธ เช่น 403 และไม่คืนไฟล์หรือรายชื่อ\par
+\textbf{3.2:} ไม่พอ เพราะผู้ใช้เรียก API ตรงได้; backend ต้องยืนยัน session และตรวจ role/operation แบบ default deny โดยไม่เชื่อ role จาก request; ทดสอบ Student เรียก export พร้อมปลอม role=Coordinator ต้องได้ 403 และไม่คืนรายชื่อ\par
 \textbf{เกณฑ์ตรวจ:} 3.1 ช่องละ 0.25 รวม 2.5; 3.2 แยก UI/การบังคับสิทธิ์ 0.5, ตรวจสิทธิ์ที่เชื่อถือได้และ default deny 0.5, ทดสอบตรงพร้อมผลคาดหวัง 0.5 ไม่เพิ่ม inheritance หรือกฎเจ้าของที่โจทย์ไม่ได้ให้
 
 \medskip
@@ -64,11 +64,11 @@ WorkshopHub รวมการสมัคร workshop ฟรีและรา�
 \textbf{4.1 คำตอบตัวอย่าง (3 คะแนน)}
 \begin{tabularx}{\linewidth}{|p{3.2cm}|Y|C{1cm}|}\hline
 ประเด็น & คำตอบ & คะแนน\\\hline
-ผู้โจมตี & นักศึกษาที่ข้ามการตรวจฝั่ง browser & 0.5\\\hline
-ทรัพย์สิน & รายงานของผู้อื่นและ server & 0.5\\\hline
-ช่องทางโจมตี & upload endpoint และ URL ของไฟล์ & 0.5\\\hline
-ขอบเขตความเชื่อถือ & ข้อมูลจาก client เข้าสู่ server; ไฟล์ข้อมูลถูกตีความเป็นโค้ดที่รันได้ & 1\\\hline
-ผลที่เกิดจริง & Confidentiality เสียหาย เพราะอ่านรายงานผู้อื่นได้ & 0.5\\\hline
+Attacker & นักศึกษาที่ข้ามการตรวจฝั่ง browser & 0.5\\\hline
+Assets & รายงานของผู้อื่นและ server & 0.5\\\hline
+Attack surface & upload endpoint และ URL ของไฟล์ & 0.5\\\hline
+Trust boundary & ข้อมูลจาก client เข้าสู่ server; ไฟล์ข้อมูลถูกตีความเป็นโค้ดที่รันได้ & 1\\\hline
+Security objective & Confidentiality เสียหาย เพราะอ่านรายงานผู้อื่นได้ & 0.5\\\hline
 \end{tabularx}
 \textbf{4.2 Control + negative test (คู่ละ 1.5 คะแนน)}
 \begin{tabularx}{\linewidth}{|Y|Y|Y|}\hline
@@ -100,7 +100,7 @@ D & A & I & - & C & R\\\hline
 
 \anshead{5.3 กำหนดการและคำอธิบาย}{5}
 E $\rightarrow$ B $\rightarrow$ \{C,G\} $\rightarrow$ F $\rightarrow$ \{A,I\} $\rightarrow$ D $\rightarrow$ H $\rightarrow$ project buffer\par
-\textbf{เหตุผลสั้น:} B/F/H รอผู้เกี่ยวข้องภายนอก จึงเผื่อ task buffer อย่างละ 1 วัน และกัน project buffer 2 วันท้ายโครงการ เริ่มงานถัดไปหลัง predecessors และ buffer จบ ใช้เฉพาะวันทำงาน Milestone เป็นจุดบรรลุผล ไม่ใช่งานเพิ่มระยะเวลา
+\textbf{เหตุผลสั้น:} วาง task buffer หลัง B/F/H อย่างละ 1 วัน เพราะต้องรอผู้เกี่ยวข้องภายนอก และ project buffer 2 วันท้ายโครงการ; milestone เป็นจุดบรรลุผลจึงใช้เวลา 0 วัน
 \begin{tabularx}{\linewidth}{|C{1.4cm}|Y|Y|Y|}\hline
 งาน & ทำงาน (ม.ค. 2027) & Buffer & เริ่ม-สิ้นสุดรวม buffer\\\hline
 E & 4, 5, 6 & ไม่มี & 4-6\\\hline
@@ -114,7 +114,7 @@ D & 22, 25 & ไม่มี & 22-25\\\hline
 H & 26 & 27 & 26-27\\\hline
 PB & - & 28, 29 & 28-29\\\hline
 \end{tabularx}
-\textbf{Milestones:} M1 = 8, M2 = 15, M3 = 29 ม.ค. เสร็จศุกร์ 29 ม.ค. รวม 20 วันทำงาน Chai ทำ G ก่อน A; Dao ทำ I ก่อน D จึงไม่มีคนทำงานทับกัน D ไม่นับเสาร์ 23 ม.ค.\par
+\textbf{Milestones:} M1 = 8, M2 = 15, M3 = 29 ม.ค.; เสร็จ 29 ม.ค. รวม 20 วันทำงานพร้อม buffer; Chai ทำ G ก่อน A และ Dao ทำ I ก่อน D จึงไม่ซ้อนกัน; D ข้ามเสาร์-อาทิตย์ 23-24 ม.ค.\par
 \textbf{เกณฑ์ตรวจ 5.3:} No./Owner 0.5; ระยะเวลา/วัน/Start-Due 1; dependency/resource 1; buffers 1; milestone 0.5; เหตุผล buffer 0.5 และ milestone ไม่เพิ่มเวลา 0.5 รวม 5 ไม่บวกคะแนนคำอธิบายซ้ำ
 \newpage
 \textbf{ข้อ 5.3: Gantt chart ตัวอย่าง}\hfill มกราคม 2027
@@ -187,7 +187,7 @@ Assignees: -; Labels: enhancement (หรือ feature ที่ทีมใช
 6 & แก้ข้อความตัดบนมือถือ & 2 & No & ไม่มี capacity เหลือ\\\hline
 \end{tabularx}
 \textbf{7.2:} $8+5+3=16$ points\quad
-\textbf{7.3:} เลือก 1/3/4 ตาม goal และลำดับความสำคัญ ไม่เกิน 16; เลื่อน QR ที่ไม่ช่วย goal รอบนี้ แล้วไม่เพิ่มงานเมื่อเต็ม\par
+\textbf{7.3:} เลือก 1/3/4 เพราะตรง Sprint Goal และ priority รวม 16 points; เลื่อน 2 ที่ไม่ช่วย goal และ 5/6 เพราะ capacity เต็ม\par
 \textbf{เกณฑ์ตรวจ:} points หกช่อง ช่องละ 0.25 และการเลือกหกช่อง ช่องละ 0.25 รวม 3; ผลรวม 1; เหตุผลด้าน goal/priority 0.5 และ capacity 0.5 เลื่อนจาก anchor 3 สองขั้นคือ 8 ไม่ใช่บวก 2; points ไม่ใช่วัน รับแผนอื่นที่มีเหตุผลจากข้อมูลจริงและไม่เกิน capacity
 \newpage
 \qtitle{8}{Sequence Diagram}{10}
@@ -248,7 +248,7 @@ Assignees: -; Labels: enhancement (หรือ feature ที่ทีมใช
 \end{center}
 \newpage
 \qtitle{9}{Activity Diagram}{10}
-\textbf{คำตอบย่อ:} Login ผ่าน KUSSO แล้วสร้างฟอร์มว่าง/เติม profile ของภาคปัจจุบัน เลือกหรือแก้ offerings และอัปเดต Draft/fee จากนั้น submit ตรวจที่นั่งทุก offering: ถ้าเต็มให้เตือนและวนกลับไปแก้/ส่งใหม่; ถ้าว่างทั้งหมดให้เลือก card ผ่าน KBank หรือ transfer ผ่าน BBL เมื่อวิธีที่เลือกสำเร็จจึงรวม flow เป็น Done/lock ส่ง PDF ทาง KUEmail แล้วจบ
+\textbf{คำตอบย่อ:} Login ผ่าน KUSSO แล้วเปิดฟอร์มว่างพร้อม profile; เลือก offerings คำนวณ fee และบันทึก Draft ก่อน submit ตรวจที่นั่งทั้งหมด ถ้าเต็มให้เตือนและวนกลับแก้/ส่งใหม่; ถ้าว่างให้เลือก card ผ่าน KBank หรือ transfer ผ่าน BBL เมื่อจ่ายสำเร็จจึง Done/lock ส่ง PDF ผ่าน KUEmail และจบ
 
 \textbf{เกณฑ์ตรวจ 10 คะแนน:}
 \begin{tabularx}{\linewidth}{|Y|r|}\hline
@@ -264,7 +264,7 @@ Control flow อ่านตามได้ ไม่สลับเป็น se
 \medskip
 ภาพตัวอย่างใช้ภาษาอังกฤษใน action boxes: ``Select / edit'' คือเลือกหรือแก้ offering จาก Course Offering List View; ``Draft + fee'' คืออัปเดตรายการและคำนวณ fee รวม; ``Done/lock'' คือเปลี่ยนสถานะและปิดการแก้ไขออนไลน์
 
-รับ diagram หลายหน้าที่มี connectors ชัดเจน หรือรวมกิจกรรมที่ความหมายเดียวกันได้ ต้องไม่ให้ payment gateway คนหนึ่งรันการชำระอีกวิธี และไม่ใช้ fork/join เพื่อสั่งจ่ายเงินทั้งสองช่องทางพร้อมกัน ในข้อนี้ทุกเส้นทาง payment ที่เลือกสำเร็จตามขอบเขตโจทย์ จึงไม่เรียกร้อง payment-failure branch เพิ่ม
+รับ diagram หลายหน้าที่เชื่อมต่อชัดเจนหรือรวมกิจกรรมความหมายเดียวกันได้; ใช้ decision/merge เลือก payment เพียงวิธีเดียว แล้วให้ gateway ที่ตรงกันทำงาน โจทย์กำหนดว่าชำระสำเร็จ จึงไม่ต้องเพิ่ม payment-failure branch
 \newpage
 \textbf{ข้อ 9: Activity Diagram ตัวอย่าง}
 \begin{center}
@@ -303,7 +303,7 @@ Control flow อ่านตามได้ ไม่สลับเป็น se
 \qtitle{10}{List/Form UI}{10}
 \textbf{10.1 List View ตัวอย่าง (4 คะแนน)}
 
-เพื่อไม่ทำตาราง 13 คอลัมน์จนอ่านไม่ได้ สามารถแสดงคอลัมน์หลักแล้วให้เลือกแถวเพื่อดูรายละเอียดที่สัมพันธ์กันได้ ไม่ถือว่าต้องซ่อน field ที่ requirements ต้องการ
+ตารางหลักเชื่อมกับรายละเอียดของแถวที่เลือก เพื่อแสดง fields ตาม R7 ครบและอ่านง่าย
 \note{\textbf{Course Offering List View}\par
 Search course code/name: [\hspace{3cm}]\quad Semester: [active semester]\par
 [Search] [Clear filters]\par
@@ -314,7 +314,7 @@ CPE201 & Data Structures & 2 & 5 & [Add]\\\hline
 \textbf{Selected offering details (read-only):}\par
 Course ID: C201; code: CPE201; name: Data Structures; credits: 3; fee: THB 1,500; semester: 1/2569; section: 2; room: CB401; class time: Tue 09:00-12:00; display notes: Group 2; maximum students: 40; number registered: 35; seats remaining: 5\par
 [Back to Registration Form]}
-ค่าตัวอย่างเป็นข้อมูลสมมติสำหรับอธิบาย wireframe ไม่ใช่นโยบายค่าเรียนหรือรายวิชาจริง แถวและรายละเอียดต้องเชื่อมกันชัดเจน ถ้าแสดงทุก field ในการ์ดโดยไม่ใช้ detail panel ก็รับได้
+ค่าตัวอย่างเป็นข้อมูลสมมติ; แถวและรายละเอียดต้องสัมพันธ์กัน ใช้การ์ดแสดง fields ครบแทน detail panel ได้
 
 \textbf{เกณฑ์ตรวจ 10.1:} field รวม 2 คะแนน แบ่ง 4 กลุ่ม กลุ่มละ 0.5: (id/code/name), (credits/fee), (semester/section/room/class time/notes), (maximum/registered/remaining) ให้บางส่วนภายในกลุ่มตามความครบ; controls กรองข้อมูล 0.75; เลือก offering ส่งกลับฟอร์ม 0.75; notation/readability และการเชื่อมแถวกับ detail 0.5 รวม 4 ไม่ให้คะแนนเพียงวาดกล่องชื่อ “List” โดยไม่มีข้อมูล
 
@@ -342,7 +342,7 @@ On submission: "CPE201 section 2 is full. Change this offering and resubmit." Sh
 \textbf{After seat validation:} * Payment method: ( ) Credit card - KBank\quad ( ) Bank transfer - BBL\par
 [Proceed to payment]\par
 \textbf{After success:} Status: Done [read-only]. Hide or disable editing/submission controls. "Online editing is closed. Your registration PDF has been emailed."}
-\textbf{หมายเหตุแบบจำลอง:} รูปแสดง state annotations หลายสถานะเพื่ออธิบายการทำงาน ไม่แสดง controls ของทุก state พร้อมกันจริงใน runtime เส้นใต้/แรเงาหรือ legend RO ใช้แทนกันได้ถ้าแยกจาก editable ชัดเจน ผู้ใช้กลับมาเปิด Draft เพื่อแก้ไขได้ก่อน submit สุดท้าย
+\textbf{หมายเหตุแบบจำลอง:} แสดง annotations ของ Draft/Done และกรณีที่นั่งเต็ม; ใน runtime ใช้ controls ตามสถานะปัจจุบัน ใช้แรเงาหรือ legend RO แยกจาก editable ให้ชัด และเปิด Draft กลับมาแก้ได้
 
 \textbf{เกณฑ์ตรวจ 10.2:}
 \begin{itemize}
@@ -374,7 +374,7 @@ sprint\_1\_staging & G\\\hline
 origin/sprint\_1\_staging & F\\\hline
 HEAD & main (B)\\\hline
 \end{tabularx}
-\textbf{คำตอบย่อ:} E/F แยกสายจาก D จึงเป็น three-way merge ไม่ใช่ fast-forward สร้าง G มี first parent F และ second parent E แล้วเลื่อนเฉพาะ sprint\_1\_staging ไป G คำสั่ง \code{git switch main} เปลี่ยน HEAD ไป main ที่ B และใช้ tree ของ B โดยไม่เลื่อน branch อื่น ไม่มี fetch/push จึงคง remote-tracking refs ตามตาราง ความแยกสายไม่ได้พิสูจน์ว่าจะมี file conflict; ข้อนี้กำหนดให้ merge สำเร็จ
+\textbf{คำตอบย่อ:} เป็น three-way merge เพราะ E/F แยกจาก D; G มี parents F (first) และ E (second) แล้ว sprint\_1\_staging เลื่อนไป G ส่วน switch main เปลี่ยน HEAD ไป main ที่ B และใช้ tree ของ B; branches อื่นและ origin/* คงเดิมเพราะไม่มี fetch/push
 
 \textbf{เกณฑ์ตรวจ:} ancestry A-F เดิม 1; G มี parents F และ E ครบ 2; local sprint=G, feature=E, main=B ตัวละ 1 รวม 3; origin/main=B, origin/feature=E, origin/sprint=F รวม 1.5; HEAD ที่ main/B 1; three-way พร้อมเหตุผล 1; switch ไม่ย้าย branch pointers 0.5 รวม 10
 \newpage
@@ -414,7 +414,7 @@ git add -- score_data.py scores.csv validation_notes.txt
 git diff --cached -- score_data.py scores.csv validation_notes.txt
 git commit -m "Document score validation cases"
 \end{verbatim}
-\textbf{เหตุผลสั้น:} \code{status} เห็นไฟล์แก้/ไฟล์ใหม่; \code{diff} ปกติไม่แสดงเนื้อหาไฟล์ untracked จึงตรวจทั้งสามด้วย \code{diff --cached} หลัง stage และก่อน commit รับคำสั่งอื่นที่ตรวจเนื้อหาและ stage เฉพาะสามไฟล์ได้ครบ
+\textbf{เหตุผลสั้น:} \code{status} ดูสถานะ; \code{diff} ดู tracked changes; \code{diff --cached} ตรวจเนื้อหาทั้งสามไฟล์รวมไฟล์ใหม่หลัง stage และก่อน commit รับคำสั่งอื่นที่ตรวจครบและ stage เฉพาะสามไฟล์
 
 \begin{center}
 \begin{tikzpicture}[x=2.2cm,y=1cm]
@@ -422,7 +422,7 @@ git commit -m "Document score validation cases"
 \node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C]{origin/sprint\_1\_staging};\node[below=4mm of E]{feature/load\_scores};\node[above=4mm of F,align=center]{sprint\_1\_staging\\HEAD};
 \end{tikzpicture}
 \end{center}
-F มี parent เดียวคือ E มีการเปลี่ยนแปลงของสามไฟล์ ส่วน feature/load\_scores ยังที่ E, main และ origin/main ยังที่ B, origin/sprint\_1\_staging ยังที่ C ไม่มี push จึงไม่เลื่อน remote-tracking refs และไม่มีการเผยแพร่ไป remote จริง
+F มี parent E เพียงตัวเดียวและรวมการแก้สามไฟล์; sprint\_1\_staging = F (HEAD ชี้ branch นี้), feature/load\_scores = E, main และ origin/main = B, origin/sprint\_1\_staging = C เพราะไม่มี push จึงคง remote-tracking refs เดิม
 
 \textbf{เกณฑ์ตรวจ 5 คะแนน:}
 \begin{itemize}
