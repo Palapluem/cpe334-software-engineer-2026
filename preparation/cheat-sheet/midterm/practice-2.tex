@@ -1,20 +1,21 @@
 \band{orangehead}{Practice Midterm · Part 2}
 \k{Part 2 รวม 25 คะแนน}: วางแผนเป็น PM; grooming เป็น PO; sprint planning เป็น SM; ไม่ตัดสินแทนทีม
 \topic{1) DormFix: WBS 3 + RACI 2 + Gantt 5}
-\k{บริบท}: เว็บแจ้งซ่อมหอพักแบบ Waterfall; เราเป็น PM; Aom = BA, Bank = UX/UI, Chai = Dev, Dao = Dev/Tester; ผจก.หอ = sponsor, หัวหน้าช่าง = user
-\k{งานและกำหนดการ}: d = วันทำงาน; ทุกวันด้านล่างอยู่ใน Jan 2027; ช่องท้าย = วันทำ / วันเผื่อ
+\k{บริบท}: DormFix เว็บแจ้งซ่อมหอพัก (Waterfall); PM = เรา; Aom = BA, Bank = UX/UI, Chai = Dev, Dao = Dev/Tester; ผจก.หอ (sponsor) อนุมัติ B/ตรวจรับ H; หัวหน้าช่าง (user) อนุมัติ F
+\k{ตาราง}: Jan 2027; d = วันทำงาน; Work/Buf = ทำ/เผื่อ
 {\smalltable\begin{tabularx}{\linewidth}{|C{2.6mm}|Y|C{8.5mm}|}\hline
-\rowcolor{lightrow}ID & งาน · ผู้ทำ · d & ทำ / เผื่อ\\\hline
-E & เขียนข้อกำหนดเป็นงานแรก · Aom · 3d & 4-6 / –\\\hline
-B & ส่งข้อกำหนดให้ ผจก.หออนุมัติ · PM · 1d & 7 / +8\\\hline
-C & ออกแบบจอจากข้อกำหนดอนุมัติ · Bank · 3d & 11-13 / –\\\hline
-G & ออกแบบ DB จากข้อกำหนดอนุมัติ · Chai · 2d & 11-12 / –\\\hline
-F & ส่งแบบจอ+DB ให้หัวหน้าช่างอนุมัติ · PM · 1d & 14 / +15\\\hline
-A & โค้ดฟอร์มแจ้งซ่อมจากแบบอนุมัติ · Chai · 4d & 18-21 / –\\\hline
-I & โค้ด dashboard ช่างจากแบบอนุมัติ · Dao · 3d & 18-20 / –\\\hline
-D & ทดสอบโปรแกรมสองส่วนร่วมกัน · Dao · 2d & 22,25 / –\\\hline
-H & ส่งระบบทดสอบแล้วให้ ผจก.หอตรวจรับ · PM · 1d & 26 / +27\\\hline
-PB & Project buffer ท้ายโครงการ · 2d & – / 28-29\\\hline
+\rowcolor{lightrow}ID & Task · Owner · d & Work / Buf\\\hline
+E & Write requirements (first) · Aom · 3d & 4-6 / –\\\hline
+B & Submit requirements for approval · PM · 1d & 7 / +8\\\hline
+C & Design screens · Bank · 3d & 11-13 / –\\\hline
+G & Design database · Chai · 2d & 11-12 / –\\\hline
+F & Submit both designs for approval · PM · 1d & 14 / +15\\\hline
+A & Code request form · Chai · 4d & 18-21 / –\\\hline
+I & Code technician dashboard · Dao · 3d & 18-20 / –\\\hline
+D & Test both coded parts together · Dao · 2d & 22,25 / –\\\hline
+H & Submit tested system (acceptance) · PM · 1d & 26 / +27\\\hline
+PB & Project buffer · 2d & – / 28-29\\\hline
+\multicolumn{3}{|l|}{C/G: from approved requirements; A/I: from approved designs}\\\hline
 \end{tabularx}}
 \k{ลำดับ}: \b{E → B → (C∥G) → F → (A∥I) → D → H → PB}
 {\smalltable\begin{tabularx}{\linewidth}{|C{4mm}|*{5}{>{\centering\arraybackslash}X|}}\hline
@@ -36,12 +37,12 @@ D & A & I & – & C & R\\\hline
 \foreach\row/\i in{2/4,5/9,9/17,10/18,10/19}{\node[keyred]at({7.05+2.1*\i},{-1.15-2.3*\row}){–};}
 \foreach\i in{4,9,19}{\node[keygreen]at({7.05+2.1*\i},-26.45){*};}
 \end{tikzpicture}\end{center}
-\k{M}: milestone วันที่ 8/15/29 Jan; X = ทำงาน, – = buffer, * = milestone (0 วัน); Start/Due = วันแรก/ท้ายที่ทำเครื่องหมายรวม buffer
-\g{เหตุผล}: B/F/H รอคนนอกที่มีงานอื่น จึงเผื่อหลังงานละ 1 วัน; ทีมภายในใช้ project buffer ร่วม 2 วันท้าย; milestone \r{ไม่เพิ่มวันทำงาน}
+\k{M}: 8/15/29 Jan; X = งาน, – = buffer, * = milestone (0 วัน); Start/Due = วันแรก/ท้ายรวม buffer
+\g{เหตุผล}: B/F/H รอคนนอกที่มีงานอื่น เผื่อหลังงานละ 1 วัน; ทีมใช้ project buffer ร่วม 2 วันท้าย; milestone \r{ไม่เพิ่มวันทำงาน}
 \topic{WBS แบบภาพ: กลุ่มงาน ≠ dependency}
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.1}{7.4}\selectfont]
 \node[act,fill=bluehead!30](root)at(24,0){DormFix};
-\foreach\num/\id/\x/\title/\tasks in{1/1.1/7/Req approved/{E\\B},2/1.2/24/Designs approved/{C ∥ G\\F},3/1.3/41/System accepted/{A ∥ I\\D\\H}}{
+\foreach\num/\id/\x/\title/\tasks in{1/1.1/7/Requirements approved/{E\\B},2/1.2/24/Designs approved/{C ∥ G\\F},3/1.3/41/System accepted/{A ∥ I\\D\\H}}{
 \node[act,fill=orangehead!22,text width=13mm](m\num)at(\x,-5.5){\id\\\title};
 \node[draw,align=center,text width=12.5mm,inner sep=1pt,anchor=north](t\num)at(\x,-9.5){\tasks};
 \draw(root.south)--(m\num.north);\draw(m\num.south)--(t\num.north);
