@@ -13,7 +13,7 @@
 \extra \g{ค่าขอบเขต (boundary)}: คะแนน 0-100 → ทดสอบ −1/0/100/101; 0 และ 100 ผ่าน ส่วน −1 และ 101 ถูกปฏิเสธ
 {\smalltable\begin{tabularx}{\linewidth}{|p{11mm}|Y|}\hline
 \rowcolor{lightrow}ระดับ/ชนิด & ตรวจอะไร\\\hline
-Unit & function/class/component; แยก deps ด้วย mock\\\hline
+Unit & function/class/component; อาจแยก deps ด้วย mock\\\hline
 Integration & modules/API/DB/interfaces ทำงานร่วมกันจริง\\\hline
 System & ระบบรวมตรง SRS ทั้ง FR/NFR\\\hline
 E2E & เส้นทางผู้ใช้ผ่าน UI → API → DB/external\\\hline
@@ -52,10 +52,11 @@ Special & load/performance, security, compatibility, recovery\\\hline
 \k{Class (Samples: Final)}: attributes:type; links + multiplicity; inheritance → parent; composition ◆ ที่ whole; aggregation ◇; \r{Samples ห้าม methods}
 \k{Scenario}: basic = ปกติ; alternative = ทางเลือกที่ถูกต้อง; exception = ผิดพลาด; Activity ≠ Sequence; Use Case ≠ flowchart
 \topic{Generic UI: List / Form / LoV}
-\k{List}: title/user/role, search/filter/sort, columns ตาม req, select/open/create, pagination, empty/loading/error; \k{Form}: header + line items + total/status + controls
+\k{List}: title/role, search/filter/sort, req columns, select/open/create, pages, empty/loading/error; \k{Form}: header/line items/total/status/controls
 \k{สัญลักษณ์สอบ}: \r{*} นำหน้าช่องบังคับ; textbox แก้ได้; ขีดเฉียง = read-only/calculated; เลือก FK ด้วย \b{LoV}; รายการย่อยมี add/remove และ validation
-\k{ตามสถานะ}: ใน KU Registration, Draft แก้/Save/Submit ได้; Done ล็อก; แสดงผลรอ/สำเร็จ/ผิดพลาดตาม contract; \r{อย่านำชื่อ state นี้ไปใช้ทุกระบบ}
-\k{Design system}: สี/ตัวอักษร/ระยะ/components/grid/breakpoints/contrast/keyboard/focus; ตารางยาวอาจเลื่อนแนวนอน
+\k{ทำ UI}: req → header/line items → label+textbox → */edit/RO/LoV → ปุ่มตาม role/state และ error; ภาพตัวอย่างให้รูปแบบช่อง
+\k{ตามสถานะ}: KU Draft แก้/Save/Submit; Done ล็อก; รอ/สำเร็จ/ผิดพลาดตาม contract; \r{state ยึดแต่ละระบบ}
+\k{Design system}: สี/ฟอนต์/ระยะ/components/grid/breakpoints, contrast/keyboard/focus; ตารางยาวเลื่อนแนวนอนได้
 \r{ไม่เติม split payment/cancel/refund หากโจทย์ไม่ให้}; ทุก field/button/transition ต้องโยง req และสิทธิ์ได้
 \topic{Case patterns จาก Lecture 4 / review}
 {\smalltable\begin{tabularx}{\linewidth}{|p{8mm}|Y|}\hline

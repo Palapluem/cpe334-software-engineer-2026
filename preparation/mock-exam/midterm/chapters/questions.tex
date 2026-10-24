@@ -112,7 +112,7 @@ D &\rule{0pt}{.7cm}&&&&\\\hline
 \blankbox{2.2cm}
 \newpage
 \qtitle{6}{Backlog grooming: จองสนามแบดมินตัน}{10}
-Issue \#12 “Book a badminton court”: Client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมงโดยไม่ต้องต่อคิว ระบบมีข้อมูลสนามและเวลาเปิดให้บริการแล้ว นักศึกษาแต่ละคนจองได้ไม่เกินวันละ 1 ครั้ง ตัวอย่าง: สนาม 2 ว่างเวลา 17:00 วันนี้และต้องแสดง Booked เมื่อจองสำเร็จ ทีมยังไม่กำหนดผู้รับผิดชอบ milestone หรือ estimate ให้เลือก label ที่เหมาะสม ใส่ “-” ในช่องที่ไม่มีข้อมูล และแยกคำถามติดตามออกจากข้อเท็จจริง\par
+Issue \#12 “Book a badminton court”: Client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมงโดยไม่ต้องต่อคิว ระบบมีข้อมูลสนามและเวลาเปิดให้บริการแล้ว นักศึกษาแต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน ตัวอย่าง: สนาม 2 ว่างเวลา 17:00 วันนี้และต้องแสดง Booked เมื่อจองสำเร็จ ทีมยังไม่กำหนดผู้รับผิดชอบ milestone หรือ estimate ให้เลือก label ที่เหมาะสม ใส่ “-” ในช่องที่ไม่มีข้อมูล และแยกคำถามติดตามออกจากข้อเท็จจริง\par
 \subq{6.1 เขียน user story: role, function และ value}{2}
 \blankbox{1.8cm}
 \subq{6.2 ระบุ assumptions/details จากข้อมูล client}{2}
@@ -189,9 +189,11 @@ Assignees & Labels & Milestone & Estimate\\\hline
 \qtitle{10}{ออกแบบ List View และ Form View}{10}
 
 ออกแบบ generic UI สำหรับ Student ตาม R5-R11 ใช้ \textbf{*} นำหน้า required fields ใช้ textboxes สำหรับ editable fields และขีดเส้นเฉียงภายในช่อง non-editable หรือ calculated\par
+\textbf{ตัวอย่างรูปแบบ UI (Invoice):} ใช้ดูสัญลักษณ์ แล้วออกแบบ fields และ controls ของ Registration ตามข้อกำหนด\par
+\uiReferenceExample
 \subq{10.1 Course Offering List View}{4}
 แสดงข้อมูลตาม requirements การกรอง และเลือก offering กลับสู่ฟอร์ม ใช้ตารางหรือการ์ดพร้อมส่วนรายละเอียดได้\par
-\blankbox{20.5cm}
+\blankbox{14cm}
 \newpage
 \textbf{ข้อ 10 (ต่อ): ออกแบบแบบฟอร์มลงทะเบียน}
 \subq{10.2 Student Registration Form View}{6}

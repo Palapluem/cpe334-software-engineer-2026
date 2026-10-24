@@ -172,7 +172,7 @@ M1: ข้อกำหนดอนุมัติ\quad M2: แบบอนุม
 \textbf{เกณฑ์ตรวจ:} ผู้ใช้ 0.5; ความสามารถ 0.75; คุณค่า 0.75
 
 \anshead{6.2 รายละเอียดจากลูกค้า}{2}
-มีข้อมูลสนามและเวลาเปิดแล้ว; จองครั้งละ 1 ชั่วโมง; คนละไม่เกินวันละ 1 ครั้งตามโจทย์ชุดฝึก; จองสำเร็จแล้วแสดง Booked ส่วนการยกเลิกและการคืนสิทธิ์ วันจองล่วงหน้าและการชำระเงินยังต้องถาม\par
+มีข้อมูลสนามและเวลาเปิดแล้ว; จองครั้งละ 1 ชั่วโมง; แต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน; จองสำเร็จแล้วแสดง Booked ส่วนการยกเลิกและการนับสิทธิ์ วันจองล่วงหน้าและการชำระเงินยังต้องถาม\par
 \textbf{เกณฑ์ตรวจ:} ข้อเท็จจริงสี่ประเด็น ประเด็นละ 0.5
 
 \anshead{6.3 เกณฑ์ยอมรับสองสถานการณ์}{4}
@@ -325,46 +325,76 @@ Control flow อ่านตามได้ ไม่สลับเป็น se
 \solsource{Samples หน้า 1-2, 5 (R5-R11); Lecture 4 หน้า 111-117; ข้อ 10.1 เพิ่ม List View ตามโจทย์ชุดฝึก}
 \textbf{10.1 List View ตัวอย่าง (4 คะแนน)}
 
-ตารางหลักเชื่อมกับรายละเอียดแถวที่เลือก เพื่อแสดงข้อมูลตาม R7 ครบโดยไม่อัดทุก field ไว้ในแถวเดียว
-\note{\textbf{Course Offering List View}\par
-Search course code/name: [\hspace{3cm}]\quad Semester: [active semester]\par
-[Search] [Clear filters]\par
-\begin{tabularx}{\linewidth}{|p{2cm}|Y|C{1cm}|C{1cm}|p{2cm}|}\hline
-Code & Name & Sec. & Seats & Select\\\hline
-CPE201 & Data Structures & 2 & 5 & [Add]\\\hline
-\end{tabularx}
-\textbf{Selected offering details (read-only):}\par
-Course ID: C201; code: CPE201; name: Data Structures; credits: 3; fee: THB 1,500; semester: 1/2569; section: 2; room: CB401; class time: Tue 09:00-12:00; display notes: Group 2; maximum students: 40; number registered: 35; seats remaining: 5\par
-[Back to Registration Form]}
+Invoice ใน Samples หน้า 5 เป็นตัวอย่าง notation ให้เปลี่ยนเป็นข้อมูลและพฤติกรรมของ Registration ตาม R5-R11 ตารางหลักเชื่อมกับรายละเอียดแถวที่เลือก เพื่อแสดง R7 ครบโดยไม่อัดทุก field ในแถวเดียว
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,line width=.35pt,font=\fontsize{9.5}{11.5}\selectfont,every node/.append style={inner sep=0pt}]
+\draw (0,0) rectangle (168,-95);
+\node[anchor=west,font=\bfseries] at (3,-4) {Course Offering List View};
+\node[anchor=east] at (165,-4) {Student};
+\node[anchor=west] at (3,-13) {Course code / name:};
+\uiEditField{40}{-10}{60}{6}{}
+\node[anchor=west] at (106,-13) {Semester:};
+\uiReadField{127}{-10}{38}{6}{active}
+\node[anchor=west] at (3,-22) {[Search] [Clear filters]};
+\draw (3,-27) rectangle (165,-51);
+\foreach \x in {28,78,88,98,118,136}{\draw (\x,-27)--(\x,-51);}
+\foreach \y in {-33,-42}{\draw (3,\y)--(165,\y);}
+\uiReadField{3}{-27}{25}{6}{Code}
+\uiReadField{28}{-27}{50}{6}{Name}
+\uiReadField{78}{-27}{10}{6}{Sec.}
+\uiReadField{88}{-27}{10}{6}{Cr.}
+\uiReadField{98}{-27}{20}{6}{Fee}
+\uiReadField{118}{-27}{18}{6}{Seats}
+\node at (150.5,-30) {Select};
+\foreach \txt/\x in {CPE201/15.5,{Data Structures}/53,2/83,3/93,{1,500}/108,5/127,{[Add]}/150.5}{\node at (\x,-37.5) {\txt};}
+\node[anchor=west,font=\bfseries] at (3,-57) {Selected offering details};
+\uiReadField{3}{-60}{162}{24}{}
+\node[anchor=west] at (5,-64.5) {ID: C201 | Code: CPE201 | Name: Data Structures | Credits: 3 | Fee: THB 1,500};
+\node[anchor=west] at (5,-71.5) {Semester: active | Section: 2 | Room: CB401 | Class time: Tue 09:00-12:00};
+\node[anchor=west] at (5,-78.5) {Display notes: Group 2 | Maximum: 40 | Registered: 35 | Seats remaining: 5};
+\node[anchor=west] at (3,-90) {[Back to Registration Form]};
+\node[anchor=east] at (165,-90) {[Prev] 1 [Next]};
+\end{tikzpicture}\end{center}
 \solextra{ข้อมูลในหน้าจอเป็นค่าตัวอย่าง ไม่ใช่ข้อมูลจริงจากโจทย์ แถวที่เลือกต้องตรงกับส่วนรายละเอียด และใช้การ์ดที่แสดงข้อมูลครบแทนได้}
 
 \textbf{เกณฑ์ตรวจ 10.1:} field รวม 2 คะแนน แบ่ง 4 กลุ่ม กลุ่มละ 0.5: (id/code/name), (credits/fee), (semester/section/room/class time/notes), (maximum/registered/remaining) ให้บางส่วนภายในกลุ่มตามความครบ; controls กรองข้อมูล 0.75; เลือก offering ส่งกลับฟอร์ม 0.75; notation/readability และการเชื่อมแถวกับ detail 0.5 รวม 4 ไม่ให้คะแนนเพียงวาดกล่องชื่อ “List” โดยไม่มีข้อมูล
 
-\textbf{ตัวอย่าง notation บน wireframe}
-\begin{center}
-\begin{tikzpicture}
-\draw(0,0)rectangle(4,1);\node at(2,.5){Editable field};
-\draw[pattern=north east lines,pattern color=gray!30](5,0)rectangle(10,1);\node[fill=white]at(7.5,.5){Read-only / calculated};
-\end{tikzpicture}
-\end{center}
-Editable คือช่องแก้ได้; Read-only (RO) คือช่องอ่านอย่างเดียว; calculated คือค่าที่ระบบคำนวณ ในภาพคำตอบให้ขีดเฉียงช่องที่แก้ไม่ได้ตามโจทย์ ส่วน * ใช้กับช่องบังคับที่ผู้ใช้ต้องเลือก ไม่ใช่เปิดให้แก้ profile จาก R5
+\textbf{อ่าน notation:} กรอบว่างคือ editable textbox; กรอบขีดเฉียงคือ read-only/calculated ในตารางใช้เส้นเฉียงที่หัวคอลัมน์กำกับค่าทั้งคอลัมน์ ส่วน * ใช้กับช่องบังคับที่ผู้ใช้ต้องเลือก ไม่ใช่เปิดให้แก้ profile จาก R5
 \newpage
 \textbf{10.2 Registration Form ตัวอย่าง (6 คะแนน)}
-\note{\textbf{Registration Form}\hfill Status: Draft [read-only]\par
-\textbf{Header [read-only]:} Student ID: 67000001; name: Kamon; degree program: Computer Engineering; email: student@example.edu; login username: s67000001; semester: active semester\par
-\textbf{Selected offerings}\par
-\begin{tabularx}{\linewidth}{|Y|C{1.5cm}|p{2cm}|p{2.3cm}|}\hline
-* Offering & Section & Fee (RO) & Action\\\hline
-CPE201 & 2 & 1,500 & [Change] [Remove]\\\hline
-CPE202 & 1 & 1,500 & [Change] [Remove]\\\hline
-\end{tabularx}
-[Add from Offering List]\hfill Total fee: 3,000 [calculated]\par
-[Save Draft] [Submit]\par
-\textbf{เมื่อส่งฟอร์ม:} แสดง "CPE201 section 2 is full. Change this offering and resubmit." ข้างแถวที่มีปัญหา ยังไม่เริ่มชำระจนกว่าจะตรวจที่นั่งผ่าน\par
-\textbf{เมื่อตรวจที่นั่งผ่าน:} * Payment method: ( ) Credit card - KBank\quad ( ) Bank transfer - BBL\par
-[Proceed to payment]\par
-\textbf{เมื่อสำเร็จ:} Status: Done [read-only] ซ่อนหรือปิดปุ่มแก้/ส่งฟอร์ม และแจ้ง "Online editing is closed. Your registration PDF has been emailed."}
-\solextra{ตัวอย่างข้อความนี้รวมคำกำกับของ Draft, section เต็มและ Done ไว้ด้วยกันเพื่ออธิบายสถานะ แต่หน้าจอจริงต้องแสดงปุ่มตามสถานะปัจจุบัน RO ใช้อธิบายว่าช่องใดอ่านอย่างเดียว ไม่ได้ยกเว้นการขีดเฉียงตามโจทย์; Draft ต้องเปิดกลับมาแก้ได้}
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,line width=.35pt,font=\fontsize{9.5}{11.5}\selectfont,every node/.append style={inner sep=0pt}]
+\draw (0,0) rectangle (168,-116.5);
+\node[anchor=west,font=\bfseries] at (3,-4) {Student Registration Form};
+\node[anchor=west] at (122,-4) {Status:};\uiReadField{138}{-1.5}{27}{5}{Draft}
+\node[anchor=west] at (3,-12) {[Close] [Save Draft] [Submit]};
+\node[anchor=west,font=\bfseries] at (3,-18.5) {Student information};
+\node[anchor=west] at (3,-24.5) {Student ID:};\uiReadField{31}{-22}{39}{5}{67000001}
+\node[anchor=west] at (79,-24.5) {Name:};\uiReadField{103}{-22}{62}{5}{Kamon}
+\node[anchor=west] at (3,-32.5) {Degree:};\uiReadField{31}{-30}{39}{5}{Computer Eng.}
+\node[anchor=west] at (79,-32.5) {Email:};\uiReadField{103}{-30}{62}{5}{student@example.edu}
+\node[anchor=west] at (3,-40.5) {Login name:};\uiReadField{31}{-38}{39}{5}{s67000001}
+\node[anchor=west] at (79,-40.5) {Semester:};\uiReadField{103}{-38}{62}{5}{active semester}
+\node[anchor=west,font=\bfseries] at (3,-49) {Selected offerings};
+\draw (3,-53) rectangle (165,-77);
+\foreach \x in {80,105,135}{\draw (\x,-53)--(\x,-77);}
+\foreach \y in {-59,-68}{\draw (3,\y)--(165,\y);}
+\node[anchor=west] at (5,-56) {*Offering};\uiReadField{80}{-53}{25}{6}{Section}\uiReadField{105}{-53}{30}{6}{Fee}
+\node at (150,-56) {Action};
+\uiEditField{3}{-59}{64}{9}{CPE201}\uiEditField{67}{-59}{13}{9}{[LoV]}
+\uiReadField{80}{-59}{25}{9}{2}\uiReadField{105}{-59}{30}{9}{1,500}
+\node at (150,-63.5) {[Change] [Remove]};
+\uiEditField{3}{-68}{64}{9}{CPE202}\uiEditField{67}{-68}{13}{9}{[LoV]}
+\uiReadField{80}{-68}{25}{9}{1}\uiReadField{105}{-68}{30}{9}{1,500}
+\node at (150,-72.5) {[Change] [Remove]};
+\node[anchor=west] at (3,-83.5) {[Add from Offering List]};
+\node[anchor=west] at (107,-83.5) {Total fee:};\uiReadField{131}{-81}{34}{5}{3,000}
+\draw (3,-89) rectangle (165,-100);
+\node[anchor=west] at (5,-92.5) {When section full:};
+\node[anchor=west,text=red!70!black] at (5,-97) {CPE201 section 2 is full. Change this offering and resubmit.};
+\node[anchor=west] at (3,-105) {After seats OK: *Payment method ( ) Credit card / KBank ( ) Bank transfer / BBL};
+\node[anchor=west] at (3,-112) {[Proceed to payment]};
+\end{tikzpicture}\end{center}
+\textbf{เมื่อสำเร็จ:} Status เป็น Done และขีดเฉียงช่องอ่านอย่างเดียว ปิดการเพิ่ม/แก้/ลบและส่งฟอร์ม พร้อมข้อความ "Online editing is closed. Your registration PDF has been emailed."\par
+\solextra{ภาพรวมแผงเตือนเมื่อเต็มและแผงชำระหลังตรวจผ่านไว้เพื่ออธิบายทางเลือก หน้าจอจริงแสดงตามสถานะปัจจุบัน; Draft ต้องเปิดกลับมาแก้ได้ ข้อมูลตัวอย่างและ controls ที่ออกแบบเพิ่มต้องไม่กลายเป็นกฎใหม่}
 
 \textbf{เกณฑ์ตรวจ 10.2:}
 \begin{itemize}

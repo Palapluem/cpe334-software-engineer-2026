@@ -1,37 +1,41 @@
 \band{yellowhead}{Practice Midterm · Part 3 (ต่อ)}
 \topic{UI ต่อ / Git รวม 20 คะแนน}
-\extra แบบหน้าจอย่อจาก R5-R11; ค่าตัวอย่างไม่ใช่ข้อกำหนด และปุ่มที่เพิ่มต้องสอดคล้องกับสิทธิ์
+\k{อ่านคำสั่ง}: Complete = เติมโครง; Design = ออกแบบตาม req; Samples p. 5 ให้ Invoice เป็นตัวอย่างสัญลักษณ์ ภาพ KU ด้านล่างเป็นคำอธิบายเสริม
 \begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{7.1}{7.4}\selectfont]
+\newcommand{\sheetro}[5]{\draw(#1,#2)rectangle++(#3,-#4);\begin{scope}\clip(#1,#2)rectangle++(#3,-#4);\draw[black!65,line width=.25pt]({#1+#3-2.2},{#2-#4})--({#1+#3-.4},#2)({#1+#3-.7},{#2-#4})--({#1+#3+1.1},#2);\end{scope}\node[anchor=west,fill=white,inner xsep=.25pt,inner ysep=0pt]at({#1+.6},{#2-#4/2}){#5};}
 \draw(0,0)rectangle(48,-28);\fill[bluehead!50](0,0)rectangle(48,-4);
 \node[anchor=west]at(1,-2){Course Offering List};\node[anchor=east]at(47,-2){Student};
-\node[anchor=west]at(1,-6){Semester: active /////  Course: [search]};
+\node[anchor=west]at(1,-6){Sem:};\sheetro{7}{-4.7}{15}{2.8}{active}
+\node[anchor=west]at(24,-6){Course:};\draw(33,-4.7)rectangle(47,-7.5);\node[anchor=west,text=black!55]at(33.6,-6.1){code/name};
 \draw(1,-8)rectangle(47,-17);\foreach\y in{-11,-14}{\draw(1,\y)--(47,\y);}
 \foreach\x in{12,18,25,34}{\draw(\x,-8)--(\x,-17);}
-\node at(6,-9.5){Code};\node at(15,-9.5){Sec};\node at(21.5,-9.5){Cr};\node at(29.5,-9.5){Fee};\node at(40.5,-9.5){Seats};
+\sheetro{1}{-8}{11}{3}{Code}\sheetro{12}{-8}{6}{3}{Sec}\sheetro{18}{-8}{7}{3}{Cr}\sheetro{25}{-8}{9}{3}{Fee}\sheetro{34}{-8}{13}{3}{Seats}
 \node at(6,-12.5){CPE334};\node at(15,-12.5){1};\node at(21.5,-12.5){3};\node at(29.5,-12.5){8,000};\node at(40.5,-12.5){3};
 \node[anchor=west]at(1,-19){Detail: ID, name, room, time, notes,};\node[anchor=west]at(1,-22){semester, maximum, number registered};
 \node[anchor=west]at(1,-25.5){[Select / Add to Form]    [Prev] 1 [Next]};
 \begin{scope}[yshift=-26.7mm]
-\draw(0,0)rectangle(48,-42);\fill[minthead!55](0,0)rectangle(48,-4);
+\draw(0,0)rectangle(48,-43);\fill[minthead!55](0,0)rectangle(48,-4);
 \node[anchor=west]at(1,-2){Student Registration Form};
 \node[anchor=west]at(1,-6.5){[Close] [Save Draft] [Submit]};
-\node[anchor=west]at(1,-10){Student ID / name / username /////};
-\node[anchor=west]at(1,-13){Degree programme / email /////};
-\node[anchor=west]at(1,-16){Semester: active ///// | Total fee ///// | Status: Draft /////};
-\node[anchor=west]at(1,-19){After seats OK: *Payment ( )Card/KB ( )Transfer/BBL};
-\draw(1,-21)rectangle(47,-29);\draw(1,-25)--(47,-25);
-\node[anchor=west]at(2,-23){*Offering [LoV] | Code / Sec / Cr / Fee /////};
-\node[anchor=west]at(2,-27){113 [select]    | CPE334 / 1 / 3 / 8,000};
-\node[anchor=west]at(1,-32){[+ Add line] [Remove line]};
-\node[anchor=west,text=keyred]at(1,-35.5){Full section → warning → edit / resubmit};
-\node[anchor=west]at(1,-39.5){Done → locked; confirmation + emailed PDF};
+\node[anchor=west]at(1,-9){Student ID};\node[anchor=west]at(13,-9){Name};\node[anchor=west]at(32,-9){Login};
+\sheetro{1}{-10.3}{11}{3.2}{}\sheetro{13}{-10.3}{18}{3.2}{}\sheetro{32}{-10.3}{15}{3.2}{}
+\node[anchor=west]at(1,-15){Degree programme};\node[anchor=west]at(23,-15){Email};
+\sheetro{1}{-16.3}{21}{3.2}{}\sheetro{23}{-16.3}{24}{3.2}{}
+\node[anchor=west]at(1,-21){Semester};\node[anchor=west]at(17,-21){Status};\node[anchor=west]at(33,-21){Total fee};
+\sheetro{1}{-22.3}{15}{3.2}{active}\sheetro{17}{-22.3}{15}{3.2}{Draft}\sheetro{33}{-22.3}{14}{3.2}{}
+\draw(1,-27)rectangle(47,-35);\draw(1,-30.5)--(47,-30.5);\draw(16,-27)--(16,-35);\draw(22,-27)--(22,-35);
+\node at(8.5,-28.7){*Offering};\node at(19,-28.7){LoV};\node at(34.5,-28.7){Code / Sec / Cr / Fee};
+\node at(8.5,-32.8){[select]};\node at(19,-32.8){[...]};\sheetro{22}{-30.5}{25}{4.5}{auto from selection}
+\node[anchor=west]at(1,-37.5){[+ Add line] [Remove line]};
+\node[anchor=west]at(1,-41){After seats OK: *Pay ( )Card/KB ( )Transfer/BBL};
 \end{scope}
 \end{tikzpicture}\end{center}
-\k{/////}: ขีดเฉียงแทน read-only; *Offering เป็น FK ที่แก้ได้ เลือกด้วย LoV; ข้อมูลที่ดึงมา/total/semester/student อ่านอย่างเดียว; แสดง R7 ครบผ่าน columns/detail ไม่ต้องยัดทุก field ลงตารางเดียว
-\k{ตรวจ UI}: filters/selection, header/line items, add/remove, total, state, permissions, validation; เต็ม → แก้/ลองใหม่; Done → แก้ไม่ได้
+\k{ขีดเฉียง}: read-only/calculated; *Offering เลือก FK ด้วย LoV แล้วดึงข้อมูลอ้างอิง; profile/semester/total ไม่ให้แก้; R7 แสดงครบผ่าน columns/detail
+\k{State}: Draft แก้/Save/Submit; เต็ม → ชี้แถว/แก้/ส่งใหม่; จ่ายหลังตรวจที่นั่งผ่าน; Done ล็อก + email PDF
+\k{Offering}: course+semester+section; prefilled ยังเป็น RO ได้ และ * ไม่ได้ให้สิทธิ์แก้ profile
 \topic{Git: graph = ancestry + pointers}
-\k{HEAD → current branch → commit}; เมื่อ clean จะได้ working tree ตาม HEAD; origin/* คือ remote-tracking ref \r{สถานะ remote ที่ local รู้ล่าสุด ไม่ใช่ GitHub แบบสด}; tag ชี้ commit คงที่
-\k{switch}: เปลี่ยน HEAD/working tree ไม่เลื่อน branch; \k{commit}: สร้างลูกของ HEAD แล้วเลื่อน \r{branch ปัจจุบัน}; \k{merge}: รวมเข้า branch ปัจจุบัน ไม่เลื่อน source
+\k{HEAD → branch → commit}: เมื่อ clean ไฟล์ตรง HEAD; \k{origin/*} = remote ล่าสุดที่ local ทราบ \r{ไม่ใช่ GitHub สด}; tag ชี้ commit คงที่
+\k{switch}: เปลี่ยน HEAD/working tree ไม่เลื่อน branches; \k{commit}: สร้างลูก HEAD แล้วเลื่อน current; \k{merge}: รวมเข้า current ไม่เลื่อน source
 \k{FF}: current เป็น ancestor ของ target → เลื่อน current ไม่สร้าง commit; \k{3-way}: แยกสาย → commit ใหม่ 2 parents; \r{graph ไม่บอกว่าจะมี file conflict}
 \topic{คำอธิบายเสริม A: FF → commit → switch}
 เริ่ม A → B → C → D → E; main=B, staging=C, feature=E (HEAD); origin/main=B, origin/staging=C; ภาพย่อชื่อ branch จากคำสั่ง

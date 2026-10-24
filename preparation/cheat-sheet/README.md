@@ -8,7 +8,9 @@
 
 ยังเป็น **A4 แนวตั้ง 2 หน้า หน้าละ 4 คอลัมน์** ตาม [เรฟ CPE241](<ref/CPE241 Cheat Sheet M3.pdf>) ไม่มีหัวกระดาษ เลขหน้าหรือ legend ท้ายหน้า มีเพียงกรอบชื่อ/รหัส แหล่งอ้างอิง ตารางศัพท์และคำถามฝึกจึงอยู่ใน README นี้ ไม่เพิ่มหน้าให้โพย
 
-รอบเพิ่มบริบทโจทย์: Part 2 มีชื่อและความหมายของงาน DormFix A-I ครบ พร้อมผู้ทำ จำนวนวัน และวันที่ทำ/เผื่อในตารางสามคอลัมน์ ไม่ใช้ช่องวันที่กว้างจนรายละเอียดงานหาย เพิ่มบทบาททีม/ผู้อนุมัติ, anchor ของ ShuttleNow, ข้อมูล bug variant และ O/M/P ของงาน PERT ทั้งหกก่อนแสดงผลรวม ส่วน UML ระบุ Req IDs/ข้อมูล master และความหมายตัวย่อในภาพ; Form มีตัวเลือก card/KBank หรือ transfer/BBL หลังตรวจที่นั่งผ่าน โดยรวมช่อง semester/total/status ให้อยู่บรรทัดเดียวเพื่อไม่เพิ่มขนาดรูป; Git เติมไฟล์ที่แก้/สร้าง ขั้น inspect และข้อความ commit ที่ใช้ในตัวอย่าง
+รอบเพิ่มบริบทโจทย์: Part 2 มีชื่อและความหมายของงาน DormFix A-I ครบ พร้อมผู้ทำ จำนวนวัน และวันที่ทำ/เผื่อในตารางสามคอลัมน์ ไม่ใช้ช่องวันที่กว้างจนรายละเอียดงานหาย เพิ่มบทบาททีม/ผู้อนุมัติ, anchor ของ ShuttleNow, ข้อมูล bug variant และ O/M/P ของงาน PERT ทั้งหกก่อนแสดงผลรวม ส่วน UML ระบุ Req IDs/ข้อมูล master และความหมายตัวย่อในภาพ; Form แสดง profile ทั้งห้าช่องแยกกันด้วยกรอบขีดเฉียงจริง มี semester/status/total ในแถวเดียว และตัวเลือก card/KBank หรือ transfer/BBL หลังตรวจที่นั่งผ่าน; Git เติมไฟล์ที่แก้/สร้าง ขั้น inspect และข้อความ commit ที่ใช้ในตัวอย่าง
+
+รอบตรวจ UI: แยกคำสั่ง Complete ที่ให้เติมโครง ออกจาก Design ที่ต้องออกแบบจาก requirements; Invoice ใน Samples หน้า 5 เป็นตัวอย่าง notation เพิ่มลำดับคิดจาก req ไป header/line items, label/textbox, required/edit/read-only/LoV และ controls ตาม role/state/error พร้อมอธิบายว่า offering รวม course/semester/section และค่าที่ prefill อาจยังเป็น read-only ได้ Activity ย้าย merge เหนือ Select / edit ให้มีช่วงลูกศรชัด แบ่งข้อความ Select/Warn/Done เป็นสองบรรทัด และนำ diamond ที่มีทางเข้า/ออกอย่างละหนึ่งเส้นออกเพื่อไม่สื่อว่าเป็น merge ของหลายทาง โดยไม่ลดฟอนต์
 
 ชื่องาน A-I ใช้ภาษาอังกฤษตามคำหลักใน Lecture 10 pp. 14-16 เพื่อฝึกอ่านโจทย์และเชื่อมกับ WBS/RACI/Gantt โดยย่อถ้อยคำ ไม่อ้างว่าเป็นการคัดโจทย์เต็ม คงเงื่อนไข C/G ใช้ approved requirements, A/I ใช้ approved designs, D ทดสอบสองส่วนร่วมกัน และ H ส่งระบบที่ทดสอบแล้วให้ตรวจรับ แยกผู้อนุมัติ B/F/H ไว้ในบริบท และใช้ชื่อ milestone `Requirements approved`, `Designs approved`, `System accepted` ใน WBS ส่วนวิธีคิดและคำอธิบายยังเป็นไทย
 
@@ -28,9 +30,9 @@
 | Lecture 6 | [CPE334_Lecture06 - Project Management.pdf](<../../lectures/Week 6/CPE334_Lecture06 - Project Management.pdf>) | ข้อความ pp. 1-116 |
 | Lecture 7 | [CPE334_Lecture07 - Project Execution.pdf](<../../lectures/Week 7/CPE334_Lecture07 - Project Execution.pdf>) | ข้อความ pp. 1-171 |
 | Lecture 10 | [CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) | pp. 1-31 เฉพาะ Midterm Review |
-| Samples | [CPE334_Midterm Samples by Suthep.pdf](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) | ข้อความ pp. 1-26; ตรวจภาพโจทย์ Sequence/Activity pp. 3-4 เพิ่ม |
+| Samples | [CPE334_Midterm Samples by Suthep.pdf](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) | ข้อความ pp. 1-26; ตรวจภาพโจทย์ Sequence/Activity และตัวอย่าง notation UI pp. 3-5 เพิ่ม |
 
-ตรวจภาพต้นฉบับเพิ่มเติมที่ Ticket State ใน Lecture 4 p. 62 และ Gantt worked example ใน Lecture 10 p. 20 เพื่อไม่อาศัย text extraction อย่างเดียว **ไม่ได้ตรวจภาพ UI/เฉลยทุกภาพในสไลด์ หรือเอกสารที่ลิงก์ออกนอกไฟล์** จึงไม่อ้างว่าอ่านรายละเอียดภายในภาพทุกหน้าครบแล้ว
+ตรวจภาพต้นฉบับเพิ่มเติมที่ Invoice UI ใน Samples p. 5, Ticket State ใน Lecture 4 p. 62 และ Gantt worked example ใน Lecture 10 p. 20 เพื่อไม่อาศัย text extraction อย่างเดียว **ไม่ได้ตรวจภาพ UI/เฉลยทุกภาพในสไลด์ หรือเอกสารที่ลิงก์ออกนอกไฟล์** จึงไม่อ้างว่าอ่านรายละเอียดภายในภาพทุกหน้าครบแล้ว
 
 ## A. ภาพรวม: แต่ละบทต่อกันอย่างไร
 
@@ -274,6 +276,7 @@ trash "$sheet_build_dir"
 ### ผลตรวจฉบับ 24 October 2026
 
 - PDF 2 หน้า A4 แนวตั้ง คงขนาดตัวอักษรเนื้อหา/ตารางเดิม คำสั่งเปลี่ยนเป็น Sarabun ตัวหนา 8 pt ตรวจภาพรวมทั้งสองหน้าและขยายอ่านครบแปดคอลัมน์ รวมทั้งหัว `Workshop req`, รายละเอียด A-I, เส้น/ป้ายภาพ และคำสั่งจริงหลังเปลี่ยนฟอนต์
+- รอบ UI ตรวจภาพทั้งสองหน้าและขยาย Activity/ช่อง UI อีกครั้ง: diamond เหนือ Select / edit แยกจากหัวลูกศรและขอบกล่อง, เส้นเตือนกลับเข้า merge ชัด, read-only ใช้กรอบขีดเฉียงจริง เปรียบเทียบเนื้อหาห้าคอลัมน์ที่ไม่ได้แก้กับฉบับก่อนด้วยการ render ได้ภาพเหมือนกัน ส่วนคอลัมน์ T2/P3/P4 เพิ่มวิธีตอบ UI และปรับภาพตามรายละเอียดข้างต้น
 - ความสูงทั้งแปดคอลัมน์อยู่ใน budget; build ไม่มี `Overfull`, `Missing character` หรือคำเตือนคอลัมน์เกินหน้า ข้อความทุก span อยู่ในขอบปลอดภัย ฟอนต์ทุกตัวฝังในไฟล์ ภาพเป็นเวกเตอร์
 - ตรวจการเว้นวรรคไทย/อังกฤษ/ตัวเลขในต้นฉบับ ไม่พบการเขียนติดกันแบบ `idempotencyตามcontract` ตรวจชื่อไฟล์/ลิงก์ใน README ว่ามีจริง
 - คำนวณ PERT ซ้ำได้ E=35.6667 h, SD=3.2318 h; ตรวจ milestones 8/15/29 Jan 2027, capacity 16 points และคะแนนแนวสอบ 25+25+30+20=100

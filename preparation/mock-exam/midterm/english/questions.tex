@@ -109,7 +109,7 @@ Start on Monday, 4 January 2027; work Monday-Friday, with no other holidays. Use
 \blankbox{2.2cm}
 \newpage
 \qtitle{6}{Backlog grooming: badminton court booking}{10}
-Issue \#12, ``Book a badminton court'': The client requests one-hour court bookings without queueing. Court details and opening hours are already stored; each student may book once per day. Example: court 2 is available at 17:00 today and must display Booked after a successful booking. No assignee, milestone, or estimate is set. Choose a suitable label, use ``-'' for unspecified fields, and list follow-up questions separately.\par
+Issue \#12, ``Book a badminton court'': The client requests one-hour court bookings without queueing. Court details and opening hours are already stored; each student may hold at most one booking per day. Example: court 2 is available at 17:00 today and must display Booked after a successful booking. No assignee, milestone, or estimate is set. Choose a suitable label, use ``-'' for unspecified fields, and list follow-up questions separately.\par
 \subq{6.1 Write a user story: role, function, and value}{2}
 \blankbox{1.8cm}
 \subq{6.2 State assumptions/details supported by the client information}{2}
@@ -191,9 +191,11 @@ Show one session: a Student first logs in this semester, receives a blank form p
 \newpage
 \qtitle{10}{Design the List View and Form View}{10}
 Design generic Student interfaces for R5-R11. Mark required fields with a leading \textbf{*}. Use textboxes for editable fields and diagonal hatching inside non-editable or calculated fields.\par
+\textbf{UI notation example (Invoice):} Use its notation for the Registration design.\par
+\uiReferenceExample
 \subq{10.1 Course Offering List View}{4}
 Show all required data, filters, and offering selection; a table or cards with details is acceptable.\par
-\blankbox{20.5cm}
+\blankbox{14cm}
 \newpage
 \textbf{Question 10 (continued): Design the registration form}
 \subq{10.2 Student Registration Form View}{6}
