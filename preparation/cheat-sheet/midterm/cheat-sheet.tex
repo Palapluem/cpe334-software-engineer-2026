@@ -13,8 +13,9 @@
 \newfontfamily\thaifont[Script=Thai,Path=../../mock-exam/midterm/fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
 % Formula capitals should have the same visible height as Sarabun capitals.
 \setmathfont[Scale=MatchUppercase]{latinmodern-math.otf}
-\setmonofont{Menlo}
-\newfontfamily\codefamily{Menlo}
+% Keep code at the same visual scale as the prose; preserve literal -- and quotes.
+\setmonofont[Path=../../mock-exam/midterm/fonts/,Extension=.ttf,BoldFont=*-Bold,Ligatures=TeXOff]{THSarabunNew}
+\newfontfamily\codefamily[Path=../../mock-exam/midterm/fonts/,Extension=.ttf,BoldFont=*-Bold,Ligatures=TeXOff]{THSarabunNew}
 % Render mathematical symbols through TeX, rather than missing Thai-font glyphs.
 \catcode`→=13 \def→{\ensuremath{\rightarrow}}
 \catcode`≤=13 \def≤{\ensuremath{\leq}}
@@ -73,8 +74,8 @@
 \renewcommand{\b}[1]{{\color{keyblue}#1}}
 \newcommand{\g}[1]{{\color{keygreen}#1}}
 \newcommand{\extra}{\k{คำอธิบายเสริม:} }
-\newcommand{\code}[1]{{\color{keyblue}\codefamily\fontsize{5.7}{6}\selectfont #1}}
-\newcommand{\cl}[1]{\par{\color{keyblue}\codefamily\fontsize{5.7}{6}\selectfont #1\par}}
+\newcommand{\code}[1]{{\color{keyblue}\codefamily\fontsize{8}{7.35}\selectfont\bfseries #1}}
+\newcommand{\cl}[1]{\par{\color{keyblue}\codefamily\fontsize{8}{7.35}\selectfont\bfseries #1\par}}
 \newcommand{\smalltable}{\fontsize{7.1}{7.2}\selectfont}
 \newcommand{\boxnote}[1]{\par\vspace{.3pt}{\setlength{\fboxsep}{1.4pt}\fcolorbox{black!35}{yellowhead!38}{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{#1}}}\par\vspace{.3pt}}
 \newcommand{\arr}{\ensuremath{\rightarrow}}

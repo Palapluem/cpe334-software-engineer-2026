@@ -8,6 +8,10 @@
 
 ยังเป็น **A4 แนวตั้ง 2 หน้า หน้าละ 4 คอลัมน์** ตาม [เรฟ CPE241](<ref/CPE241 Cheat Sheet M3.pdf>) ไม่มีหัวกระดาษ เลขหน้าหรือ legend ท้ายหน้า มีเพียงกรอบชื่อ/รหัส แหล่งอ้างอิง ตารางศัพท์และคำถามฝึกจึงอยู่ใน README นี้ ไม่เพิ่มหน้าให้โพย
 
+รอบเพิ่มบริบทโจทย์: Part 2 มีชื่อและความหมายของงาน DormFix A-I ครบ พร้อมผู้ทำ จำนวนวัน และวันที่ทำ/เผื่อในตารางสามคอลัมน์ ไม่ใช้ช่องวันที่กว้างจนรายละเอียดงานหาย เพิ่มบทบาททีม/ผู้อนุมัติ, anchor ของ ShuttleNow, ข้อมูล bug variant และ O/M/P ของงาน PERT ทั้งหกก่อนแสดงผลรวม ส่วน UML ระบุ Req IDs/ข้อมูล master และความหมายตัวย่อในภาพ; Form มีตัวเลือก card/KBank หรือ transfer/BBL หลังตรวจที่นั่งผ่าน โดยรวมช่อง semester/total/status ให้อยู่บรรทัดเดียวเพื่อไม่เพิ่มขนาดรูป; Git เติมไฟล์ที่แก้/สร้าง ขั้น inspect และข้อความ commit ที่ใช้ในตัวอย่าง
+
+ใช้พื้นที่จากการลดข้อความซ้ำ จัดหัว `Workshop req` บรรทัดเดียว รวมคำสั่งที่สั้นพอ และลดช่องไฟแนวตั้งของ Sequence/Activity เล็กน้อยโดยไม่ลดตัวอักษรในภาพ คำสั่ง/ชื่อไฟล์ใช้ Sarabun ตัวหนาสีน้ำเงินแทน Menlo แต่คง `--`, `_` และเครื่องหมายคำพูดตรงตามคำสั่งจริง
+
 ## แหล่งหลักและวิธีอ่านเลขหน้า
 
 เลขหน้าทั้งหมดเป็น **ลำดับหน้า PDF เริ่มที่ 1** ไม่ใช่เลขสไลด์บนหน้า โดยเฉพาะ Lecture 6-7 ที่เลขสองแบบไม่ตรงกัน ชื่อย่อในหัวข้อถัดไปอ้างชื่อไฟล์เต็มในตารางนี้
@@ -165,11 +169,11 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 | หน้า 1 คอลัมน์ 4 | Stories/INVEST/points/refinement/planning | Lecture 7 pp. 60-72, 94-126 |
 | หน้า 1 คอลัมน์ 4 | Board/WIP/Daily/Review/Retro/metrics/end sprint | Lecture 7 pp. 77, 129-170; docs/maintenance pp. 12-13 |
 | หน้า 2 คอลัมน์ 1 | Part 1: requirements/proposal/RBAC/security | Lecture 10 pp. 3-11; Lecture 2 pp. 28-29; Lecture 5 pp. 19-40 |
-| หน้า 2 คอลัมน์ 2 | Part 2: DormFix/WBS/owners/Gantt/buffers | Lecture 10 pp. 13-21; p. 17 ให้รูปแบบ RACI แต่ไม่ให้ notes/เฉลยตายตัว |
-| หน้า 2 คอลัมน์ 2 | Badminton story/Gherkin/metadata/bug | Lecture 10 pp. 22-24; คง “Booked”/“Free” ตามโจทย์ |
-| หน้า 2 คอลัมน์ 2 | ShuttleNow/Fibonacci/16 points | Lecture 10 pp. 25-26; Lecture 7 pp. 67-72, 118 |
-| หน้า 2 คอลัมน์ 2 | Worked PERT / remote commands | Lecture 6 pp. 90-92; Samples pp. 6, 19, 22-26 |
-| หน้า 2 คอลัมน์ 3 | Part 3: KU R1-R11/Sequence/Activity | Samples pp. 1-4; Lecture 10 p. 29 สำหรับการเลือก 30 คะแนน |
+| หน้า 2 คอลัมน์ 2 | Part 2: บริบท DormFix, งาน A-I/ผู้ทำ/วันทำและวันเผื่อ, WBS/RACI/Gantt | Lecture 10 pp. 13-21; p. 17 ให้รูปแบบ RACI แต่ไม่ให้ notes/เฉลยตายตัว |
+| หน้า 2 คอลัมน์ 2 | Badminton story/Gherkin/metadata/bug และข้อเท็จจริงการยกเลิกใน DB | Lecture 10 pp. 22-24; คง “Booked”/“Free” ตามโจทย์ |
+| หน้า 2 คอลัมน์ 2 | ShuttleNow: anchor ดูรายการเส้นทาง 3 points, priority/goal/16 points | Lecture 10 pp. 25-26; Lecture 7 pp. 67-72, 118 |
+| หน้า 2 คอลัมน์ 2 | PERT: O/M/P ของ T1-T6 และผลรวม / remote commands | Lecture 6 pp. 90-92; Samples pp. 6, 19, 22-26 |
+| หน้า 2 คอลัมน์ 3 | Part 3: KU R1-R11, master fields, ชื่อเต็มของ lifelines/lanes, Sequence/Activity | Samples pp. 1-4; Lecture 10 p. 29 สำหรับการเลือก 30 คะแนน |
 | หน้า 2 คอลัมน์ 3 | Ticket State / Grades submit slice | Lecture 4 pp. 45-46, 61-65 |
 | หน้า 2 คอลัมน์ 4 | Registration List/Form | Samples pp. 1-2, 5; รูปแบบทั่วไป Lecture 4 pp. 111-117 |
 | หน้า 2 คอลัมน์ 4 | Git 20 คะแนน, HEAD/FF/3-way/remote/tag | Lecture 10 p. 29; Samples pp. 6-14, 18-26 |
@@ -242,9 +246,9 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 
 ## รูปแบบ การ build และการตรวจฉบับพิมพ์
 
-`midterm/cheat-sheet.tex` กำหนด layout; `theory-1.tex` ถึง `theory-4.tex` เป็นหน้าแรก และ `practice-1.tex` ถึง `practice-4.tex` เป็นหน้าที่สอง ใช้ TH Sarabun New ใน `preparation/mock-exam/midterm/fonts/`, Menlo บน Mac และ Latin Modern Math ไม่สร้างสำเนาฟอนต์เพิ่ม
+`midterm/cheat-sheet.tex` กำหนด layout; `theory-1.tex` ถึง `theory-4.tex` เป็นหน้าแรก และ `practice-1.tex` ถึง `practice-4.tex` เป็นหน้าที่สอง ใช้ TH Sarabun New ใน `preparation/mock-exam/midterm/fonts/` และ Latin Modern Math ไม่สร้างสำเนาฟอนต์เพิ่ม คำสั่งใช้ Sarabun ตัวหนาและปิด TeX ligatures เฉพาะ font family นี้ เพื่อไม่ให้ `--` หรือเครื่องหมายคำพูดกลายรูป
 
-คงขนาดเดิม: เนื้อหา 8 pt / leading 7.35 pt; ตาราง 7.1 pt / 7.2 pt; โค้ด 5.7 pt / 6 pt; ป้ายภาพส่วนใหญ่ 7.1 pt; กรอบชื่อ 44.77 × 5.05 mm ตัวอักษร 11.55 pt สูตรใช้ `Scale=MatchUppercase` ให้ความสูงเข้ากับ Sarabun
+คงขนาดเนื้อหา 8 pt / leading 7.35 pt และตาราง 7.1 pt / 7.2 pt; คำสั่งเป็น Sarabun ตัวหนา 8 pt / 7.35 pt จึงมีสเกลเดียวกับข้อความรอบข้างแทนการเทียบขนาด pt กับ Menlo โดยตรง ป้ายภาพส่วนใหญ่ 7.1 pt; กรอบชื่อ 44.77 × 5.05 mm ตัวอักษร 11.55 pt สูตรใช้ `Scale=MatchUppercase` ให้ความสูงเข้ากับ Sarabun
 
 ขอบ 3 mm ความสูงคอลัมน์ 289.5 mm; คอลัมน์ขวาสุดกันชื่อ 8 mm เหลือ 281.5 mm ภาพเป็นเวกเตอร์: flow/call ใช้หัวทึบ reply เส้นประหัวเปิด email delivery เส้นทึบหัวเปิด ส่วน actor association/Git ancestry ไม่มีหัว
 
@@ -267,7 +271,7 @@ trash "$sheet_build_dir"
 
 ### ผลตรวจฉบับ 24 October 2026
 
-- PDF 2 หน้า A4 แนวตั้ง คงขนาดฟอนต์เดิม ตรวจภาพรวมทั้งสองหน้าและขยายอ่านครบแปดคอลัมน์ รวมทั้งตรวจภาพรอบสุดท้ายหลังเก็บรายละเอียดเส้น/บรรทัด
+- PDF 2 หน้า A4 แนวตั้ง คงขนาดตัวอักษรเนื้อหา/ตารางเดิม คำสั่งเปลี่ยนเป็น Sarabun ตัวหนา 8 pt ตรวจภาพรวมทั้งสองหน้าและขยายอ่านครบแปดคอลัมน์ รวมทั้งหัว `Workshop req`, รายละเอียด A-I, เส้น/ป้ายภาพ และคำสั่งจริงหลังเปลี่ยนฟอนต์
 - ความสูงทั้งแปดคอลัมน์อยู่ใน budget; build ไม่มี `Overfull`, `Missing character` หรือคำเตือนคอลัมน์เกินหน้า ข้อความทุก span อยู่ในขอบปลอดภัย ฟอนต์ทุกตัวฝังในไฟล์ ภาพเป็นเวกเตอร์
 - ตรวจการเว้นวรรคไทย/อังกฤษ/ตัวเลขในต้นฉบับ ไม่พบการเขียนติดกันแบบ `idempotencyตามcontract` ตรวจชื่อไฟล์/ลิงก์ใน README ว่ามีจริง
 - คำนวณ PERT ซ้ำได้ E=35.6667 h, SD=3.2318 h; ตรวจ milestones 8/15/29 Jan 2027, capacity 16 points และคะแนนแนวสอบ 25+25+30+20=100

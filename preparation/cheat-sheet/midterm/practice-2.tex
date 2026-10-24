@@ -1,8 +1,22 @@
 \band{orangehead}{Practice Midterm · Part 2}
-\k{Part 2 รวม 25 คะแนน}: WBS/RACI/Gantt ใช้บทบาท PM; grooming ใช้ PO; planning ใช้ SM; อธิบายตามบทบาท ไม่ตัดสินแทนทีม
+\k{Part 2 รวม 25 คะแนน}: วางแผนเป็น PM; grooming เป็น PO; sprint planning เป็น SM; ไม่ตัดสินแทนทีม
 \topic{1) DormFix: WBS 3 + RACI 2 + Gantt 5}
-\k{WBS}: 1.1 Requirements approved: \b{E → B}; 1.2 Designs approved: \b{(C∥G) → F}; 1.3 System accepted: \b{(A∥I) → D → H}; เว้น 1.4 \r{ไม่เติม milestone เอง}
-\k{Dependency}: E เขียน req → B อนุมัติ; C ออกแบบจอ/G ออกแบบ DB → F อนุมัติ; A ฟอร์ม/I dashboard → D ทดสอบทั้งคู่ → H ยอมรับ
+\k{บริบท}: เว็บแจ้งซ่อมหอพักแบบ Waterfall; เราเป็น PM; Aom = BA, Bank = UX/UI, Chai = Dev, Dao = Dev/Tester; ผจก.หอ = sponsor, หัวหน้าช่าง = user
+\k{งานและกำหนดการ}: d = วันทำงาน; ทุกวันด้านล่างอยู่ใน Jan 2027; ช่องท้าย = วันทำ / วันเผื่อ
+{\smalltable\begin{tabularx}{\linewidth}{|C{2.6mm}|Y|C{8.5mm}|}\hline
+\rowcolor{lightrow}ID & งาน · ผู้ทำ · d & ทำ / เผื่อ\\\hline
+E & เขียนข้อกำหนดเป็นงานแรก · Aom · 3d & 4-6 / –\\\hline
+B & ส่งข้อกำหนดให้ ผจก.หออนุมัติ · PM · 1d & 7 / +8\\\hline
+C & ออกแบบจอจากข้อกำหนดอนุมัติ · Bank · 3d & 11-13 / –\\\hline
+G & ออกแบบ DB จากข้อกำหนดอนุมัติ · Chai · 2d & 11-12 / –\\\hline
+F & ส่งแบบจอ+DB ให้หัวหน้าช่างอนุมัติ · PM · 1d & 14 / +15\\\hline
+A & โค้ดฟอร์มแจ้งซ่อมจากแบบอนุมัติ · Chai · 4d & 18-21 / –\\\hline
+I & โค้ด dashboard ช่างจากแบบอนุมัติ · Dao · 3d & 18-20 / –\\\hline
+D & ทดสอบโปรแกรมสองส่วนร่วมกัน · Dao · 2d & 22,25 / –\\\hline
+H & ส่งระบบทดสอบแล้วให้ ผจก.หอตรวจรับ · PM · 1d & 26 / +27\\\hline
+PB & Project buffer ท้ายโครงการ · 2d & – / 28-29\\\hline
+\end{tabularx}}
+\k{ลำดับ}: \b{E → B → (C∥G) → F → (A∥I) → D → H → PB}
 {\smalltable\begin{tabularx}{\linewidth}{|C{4mm}|*{5}{>{\centering\arraybackslash}X|}}\hline
 \rowcolor{lightrow}Task & PM & Aom & Bank & Chai & Dao\\\hline
 E & A & R & C & I & –\\\hline
@@ -10,21 +24,8 @@ C & A & C & R & I & –\\\hline
 G & A & – & C & R & I\\\hline
 D & A & I & – & C & R\\\hline
 \end{tabularx}}
-\extra ตาราง RACI นี้มาจาก meeting notes ที่เราแต่งใน mock exam \r{ไม่ใช่เฉลยตายตัวของอาจารย์}; ข้อสอบจริงให้อ่าน notes ก่อนลงตัวอักษร
-\k{Gantt (Jan 2027)}: เริ่ม จ. 4; ทำเต็มเวลา จ.-ศ.; B/F/H รออนุมัติภายนอก เผื่อ task buffer 1 วัน; project buffer 2 วันท้าย
-{\smalltable\begin{tabularx}{\linewidth}{|C{3mm}|C{6mm}|C{3mm}|Y|}\hline
-\rowcolor{lightrow}ID & Owner & d & Work dates (+buffer)\\\hline
-E & Aom & 3 & 4-6 Jan\\\hline
-B & PM & 1 & 7 Jan (+8 Jan)\\\hline
-C & Bank & 3 & 11-13 Jan\\\hline
-G & Chai & 2 & 11-12 Jan\\\hline
-F & PM & 1 & 14 Jan (+15 Jan)\\\hline
-A & Chai & 4 & 18-21 Jan\\\hline
-I & Dao & 3 & 18-20 Jan\\\hline
-D & Dao & 2 & 22,25 Jan\\\hline
-H & PM & 1 & 26 Jan (+27 Jan)\\\hline
-PB & – & 2 & 28-29 Jan\\\hline
-\end{tabularx}}
+\extra RACI จาก notes ของ mock 5.2 \r{ไม่ใช่เฉลยอาจารย์}; “–” = ไม่มีบทบาท
+\k{กฎ}: เริ่ม จ. 4 Jan; เต็มเวลา จ.-ศ. ไม่มีวันหยุดอื่น; งานถัดไปเริ่มวันทำงานหลังงานก่อน+buffer จบ
 \begin{center}\begin{tikzpicture}[x=.985mm,y=1mm,font=\fontsize{6.2}{6.4}\selectfont]
 \draw[line width=.35pt](0,0)rectangle(48,-27.6);
 \foreach\i in{0,...,20}{\draw[black!55,line width=.2pt]({6+2.1*\i},0)--({6+2.1*\i},-27.6);}
@@ -35,8 +36,8 @@ PB & – & 2 & 28-29 Jan\\\hline
 \foreach\row/\i in{2/4,5/9,9/17,10/18,10/19}{\node[keyred]at({7.05+2.1*\i},{-1.15-2.3*\row}){–};}
 \foreach\i in{4,9,19}{\node[keygreen]at({7.05+2.1*\i},-26.45){*};}
 \end{tikzpicture}\end{center}
-\k{M}: milestone วันที่ 8/15/29 Jan; X = งาน, – = buffer, * = milestone \r{ไม่เพิ่มวันทำงาน}; Start/Due นับรวม buffer; ลูกศร dependency ชี้งานที่รอ
-\g{เหตุผล}: B/F/H รอคนนอกที่มีงานอื่น; ทีมภายในใช้ buffer รวม 2 วันท้าย; C∥G และ A∥I ขนานได้; milestone ใช้เวลา 0 วัน
+\k{M}: milestone วันที่ 8/15/29 Jan; X = ทำงาน, – = buffer, * = milestone (0 วัน); Start/Due = วันแรก/ท้ายที่ทำเครื่องหมายรวม buffer
+\g{เหตุผล}: B/F/H รอคนนอกที่มีงานอื่น จึงเผื่อหลังงานละ 1 วัน; ทีมภายในใช้ project buffer ร่วม 2 วันท้าย; milestone \r{ไม่เพิ่มวันทำงาน}
 \topic{WBS แบบภาพ: กลุ่มงาน ≠ dependency}
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.1}{7.4}\selectfont]
 \node[act,fill=bluehead!30](root)at(24,0){DormFix};
@@ -46,7 +47,7 @@ PB & – & 2 & 28-29 Jan\\\hline
 \draw(root.south)--(m\num.north);\draw(m\num.south)--(t\num.north);
 }
 \end{tikzpicture}\end{center}
-\k{ตรวจ WBS}: ใช้ A-I ครั้งเดียว; ช่อง 1.4 ว่าง; กลุ่มงานในต้นไม้ไม่ใช่ลำดับ dependency
+\k{ตรวจ WBS}: ใช้ A-I ครั้งเดียว; 1.4 ว่าง; เลขใบ 1.1.1, 1.1.2 ฯลฯ ตามกลุ่ม; ต้นไม้ไม่ใช่ dependency
 \topic{2) Backlog grooming (10): Issue \#12}
 \b{ในฐานะนักศึกษา ฉันต้องการจองสนามแบดหนึ่งชั่วโมง เพื่อไม่ต้องต่อคิวที่เคาน์เตอร์} (ใช้โครง As a / I need / So that)
 \k{รายละเอียด}: มีสนาม/เวลาเปิดแล้ว; นักศึกษาถือการจองได้คนละหนึ่งรายการต่อวัน; Court 2 วันนี้ 17:00 ว่าง
@@ -54,11 +55,11 @@ PB & – & 2 & 28-29 Jan\\\hline
 \g{When} นักศึกษาจอง Court 2 เวลา 17:00\par
 \g{Then} ช่วงนั้นแสดง “Booked”
 \extra AC ลบ: มี booking วันนี้อยู่แล้ว → ขอเพิ่ม → ปฏิเสธและไม่สร้างรายการ; ถามเงื่อนไขยกเลิกก่อนขยายกฎ
-\k{Metadata หลังกำหนดรายละเอียด}: Assignees –; Labels \b{enhancement}; Milestone –; Estimate –. \r{ยังไม่ใช่ Sprint planning ไม่กำหนดคน/points/sprint เอง}
-\k{Bug variant (Issue \#15)}: ยกเลิกแล้วยัง Booked → label \b{bug}; Given Court 1 เวลา 18:00 ถูกจอง; When ยกเลิก; Then แสดง “Free” ตามโจทย์
-\k{คำถามที่ควรถาม}: วัน/เวลาของการจองใช้เขตเวลาใด? ยกเลิกได้ไหมและคืนสิทธิ์วันนั้นหรือไม่? รายละเอียดที่ยังไม่ตกลงไม่เติมเป็น AC บังคับ
+\k{Metadata}: Assignees –; Labels \b{enhancement}; Milestone –; Estimate –; \r{ยังไม่ planning อย่ากำหนดคน/points/sprint เอง}
+\k{Bug variant (Issue \#15)}: DB บันทึกการยกเลิกแล้วแต่สนามยัง Booked คนอื่นจองไม่ได้ → label \b{bug}; Given Court 1 เวลา 18:00 ถูกจอง; When ยกเลิก; Then “Free”; อีก 3 metadata ใช้ “–”
+\k{ถามเพิ่ม}: เขตเวลา? ยกเลิกแล้วคืนสิทธิ์วันนั้นไหม? \r{ไม่เติมเงื่อนไขที่ยังไม่ตกลงเป็น AC บังคับ}
 \topic{3) Sprint planning (5): Goal + capacity}
-\k{ShuttleNow}: goal = ติดตามรถ/เวลาถึง; anchor 3, velocity 16
+\k{ShuttleNow Sprint 6}: goal = นักศึกษาติดตามรถ/รู้เวลาถึง; anchor “ดูรายการเส้นทางรถรับส่ง” = 3 points; Sprint ก่อนเสร็จ 16 คง velocity เดิม; backlog เรียง priority
 {\smalltable\begin{tabularx}{\linewidth}{|C{3mm}|Y|C{4mm}|C{5mm}|}\hline
 \rowcolor{lightrow}\# & Story / เทียบ anchor & Pt & Pick\\\hline
 1 & Live position (+2 ขั้น) & 8 & Yes\\\hline
@@ -75,12 +76,12 @@ PB & – & 2 & 28-29 Jan\\\hline
 \node[anchor=south,inner sep=.5pt]at([yshift=.6mm]a.north){−1 step};\node[anchor=north,inner sep=.5pt]at([yshift=-.6mm]b.south){anchor};\node[anchor=south,inner sep=.5pt]at([yshift=.6mm]c.north){+1 step};\node[anchor=north,inner sep=.5pt]at([yshift=-.6mm]d.south){+2 steps};
 \end{tikzpicture}\end{center}
 \topic{PERT (Lecture 6): คำนวณ effort ไม่ใช่วันนัดส่ง}
-\g{T1}: O=2, M=3, P=6 h → E=3.33 h, SD=0.67 h; หกงานรวม E=35.67 h, SD=3.23 h เมื่อประมาณการอิสระ → 35.7 ± 3.2 h (หนึ่ง SD) \r{ไม่ใช่ช่วงที่รับประกัน}; วันจบต้องดูงานขนาน/คนด้วย
+\k{ข้อมูล O/M/P (h), Lecture 6}: T1 guard 2/3/6; T2 queue 3/5/10; T3 workflow 4/6/11; T4 comments 4/7/13; T5 admin 3/5/12; T6 auth/tests 4/6/14
+\g{T1}: E=3.33 h, SD=0.67 h; รวม E=35.67 h, SD=3.23 h เมื่อประมาณการอิสระ → \mbox{35.7 ± 3.2 h} (หนึ่ง SD) \r{ไม่ใช่ช่วงรับประกัน}; วันจบขึ้นกับงานขนาน/คน
 \topic{Git: คำสั่ง remote ที่ควรรู้}
 \cl{git fetch origin}
 รับ commits/อัปเดต origin/*; \r{ไม่เลื่อน local branch, HEAD หรือ working tree} ในการ fetch ปกติ
-\cl{git switch main}
-\cl{git merge --ff-only origin/main}
+\cl{git switch main; git merge --ff-only origin/main}
 อัปเดต main แบบ FF; ถ้าแยกสายจะปฏิเสธ ไม่สร้าง merge commit
 \cl{git push origin sprint\_1\_staging}
 เผยแพร่ staging/อัปเดต tracking ref เมื่อสำเร็จ; push feature \r{ไม่เผยแพร่ merge ที่อยู่เฉพาะ staging}

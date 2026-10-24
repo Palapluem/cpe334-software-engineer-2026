@@ -15,10 +15,10 @@
 \draw(0,0)rectangle(48,-42);\fill[minthead!55](0,0)rectangle(48,-4);
 \node[anchor=west]at(1,-2){Student Registration Form};
 \node[anchor=west]at(1,-6.5){[Close] [Save Draft] [Submit]};
-\node[anchor=west]at(1,-10){Semester: active /////};
-\node[anchor=west]at(1,-13){Student ID / name / username /////};
-\node[anchor=west]at(1,-16){Degree programme / email /////};
-\node[anchor=west]at(1,-19){Total fee /////  Status: Draft /////};
+\node[anchor=west]at(1,-10){Student ID / name / username /////};
+\node[anchor=west]at(1,-13){Degree programme / email /////};
+\node[anchor=west]at(1,-16){Semester: active ///// | Total fee ///// | Status: Draft /////};
+\node[anchor=west]at(1,-19){After seats OK: *Payment ( )Card/KB ( )Transfer/BBL};
 \draw(1,-21)rectangle(47,-29);\draw(1,-25)--(47,-25);
 \node[anchor=west]at(2,-23){*Offering [LoV] | Code / Sec / Cr / Fee /////};
 \node[anchor=west]at(2,-27){113 [select]    | CPE334 / 1 / 3 / 8,000};
@@ -34,13 +34,14 @@
 \k{switch}: เปลี่ยน HEAD/working tree ไม่เลื่อน branch; \k{commit}: สร้างลูกของ HEAD แล้วเลื่อน \r{branch ปัจจุบัน}; \k{merge}: รวมเข้า branch ปัจจุบัน ไม่เลื่อน source
 \k{FF}: current เป็น ancestor ของ target → เลื่อน current ไม่สร้าง commit; \k{3-way}: แยกสาย → commit ใหม่ 2 parents; \r{graph ไม่บอกว่าจะมี file conflict}
 \topic{คำอธิบายเสริม A: FF → commit → switch}
-เริ่ม main=B, staging=C, feature=E บน C → D → E; origin/main=B, origin/staging=C
+เริ่ม A → B → C → D → E; main=B, staging=C, feature=E (HEAD); origin/main=B, origin/staging=C; ภาพย่อชื่อ branch จากคำสั่ง
 \cl{git switch sprint\_1\_staging}
 \cl{git merge feature/load\_scores}
-\cl{git add score\_data.py scores.csv}
-\cl{git add validation\_notes.txt}
-\cl{git commit -m \textbackslash}
-\cl{"Document score validation cases"}
+แก้ \code{score\_data.py}/\code{scores.csv}; เพิ่ม \code{validation\_notes.txt}
+\cl{git status; git diff -- score\_data.py scores.csv}
+\cl{git add score\_data.py scores.csv validation\_notes.txt}
+\cl{git diff --cached}
+\cl{git commit -m "Document score validation cases"}
 \cl{git switch main}
 \begin{center}\begin{tikzpicture}[x=7mm,y=1mm,font=\fontsize{7.3}{7.6}\selectfont]
 \foreach\lab/\x in{A/0,B/1,C/2,D/3,E/4,F/5}{\node[circle,draw,inner sep=1pt](\lab)at(\x,0){\lab};}
@@ -61,14 +62,14 @@
 \node[anchor=north,inner sep=.5pt](featureref)at([yshift=-.7mm]e.south){feature, origin/feature};
 \draw[black!50,line width=.2pt](remoteref.south)--(f.north) (stagingref.south)--(g.north) (featureref.north)--(e.south);
 \end{tikzpicture}\end{center}
-\code{git merge feature/basic\_statistics} บน F → G มี parents F/E; switch main ท้าย → HEAD=B; ภาพขยาย fork ที่ D; main/origin/main=B เป็น ancestor ของ D; source/origins ไม่เลื่อน
+ฐาน A → B → C → D; main/origin/main=B; บน staging=F ใช้ \code{git merge feature/basic\_statistics} → G มี parents F/E; switch main → HEAD=B; source/origins เดิม
 \topic{Sample 2.8: สร้าง feature จากฐานหลัง FF}
-หลัง FF จาก C → E บน staging จึงสร้าง branch ใหม่ที่ E; \code{branch} อย่างเดียวยังไม่เปลี่ยน HEAD
+staging FF C → E แล้วสร้าง branch ใหม่ที่ E; \code{branch} ไม่ย้าย HEAD ต้อง \code{switch}
 \cl{git branch feature/grade\_distribution}
 \cl{git switch feature/grade\_distribution}
-แก้ \code{report.py}, \code{scores.csv}; สร้าง \code{grade\_ranges.csv} แล้ว stage เฉพาะสามไฟล์/commit F → HEAD อยู่ feature ใหม่=F; staging และ feature/pass\_rate ยัง E, origin/staging ยัง C
+แก้ \code{report.py}, \code{scores.csv}; สร้าง \code{grade\_ranges.csv}; stage เฉพาะ 3 ไฟล์ แล้ว commit F ด้วยข้อความ \code{"Add grade distribution report"} → HEAD อยู่ feature ใหม่=F; staging และ feature/pass\_rate ยัง E, origin/staging ยัง C
 \k{Inspect}: \code{status} ดู untracked/index; \code{diff} ดู unstaged; \code{diff --cached} ดู staged; \r{sample ห้ามใช้ git add .}
-\k{วาดให้ครบ}: commits/parents, branch/origin ทุกตัว, tag, HEAD; merge มี 2 parents; commit ที่มีเฉพาะ local คือส่วนที่ ahead จาก tracking ref
+\k{วาดให้ครบ}: commits/parents, branches/origins, tag, HEAD; merge commit ในโจทย์มี 2 parents; FF ไม่สร้าง commit
 \topic{Explain state: fetch / tag / unpublished merge}
 \k{Sample 2.6}: A → B → H; main=B, origin/main=v1.0=H; switch main ได้ B; FF origin/main ได้ H; \r{staging/feature/tag ไม่เลื่อน}
 \k{Sample 2.7}: staging=H (parents E/G), origin/staging=E, feature=G; push feature \r{ไม่เผยแพร่ H}; ต้อง \code{git push origin sprint\_1\_staging} → origin/staging=H เมื่อสำเร็จ
@@ -76,9 +77,7 @@
 \topic{Sample 2.9: อัปเดต staging ก่อนรวม feature}
 เริ่ม staging=D, origin/staging=G; D → E → F อยู่บน feature และ D → G แยกอีกสาย
 \cl{git switch sprint\_2\_staging}
-\cl{git merge --ff-only \textbackslash}
-\cl{origin/sprint\_2\_staging}
+\cl{git merge --ff-only origin/sprint\_2\_staging}
 \cl{git merge feature/export\_results}
 \cl{git push origin sprint\_2\_staging}
-\k{วาดทีละขั้น}: switch → HEAD ที่ D; FF → staging=G; merge → H มี parents G/F; push → origin/staging=H; feature ยัง F และ main ไม่เลื่อน
-\r{ห้าม FF feature ที่แยกสาย}; FF ใช้เฉพาะ D → G; ไม่รวม remote ที่ยังไม่ได้ fetch โดยเดาจาก GitHub
+\k{ทีละขั้น}: switch → HEAD=D; FF → staging=G; 3-way → staging=H (parents G/F); push → origin/staging=H; feature=F, main เดิม; \r{FF ได้เฉพาะ D → G}
