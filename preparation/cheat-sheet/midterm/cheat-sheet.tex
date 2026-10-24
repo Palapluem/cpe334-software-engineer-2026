@@ -18,6 +18,7 @@
 % Render mathematical symbols through TeX, rather than missing Thai-font glyphs.
 \catcode`→=13 \def→{\ensuremath{\rightarrow}}
 \catcode`≤=13 \def≤{\ensuremath{\leq}}
+\catcode`≥=13 \def≥{\ensuremath{\geq}}
 \catcode`≠=13 \def≠{\ensuremath{\neq}}
 \catcode`∥=13 \def∥{\ensuremath{\parallel}}
 \catcode`√=13 \def√{\ensuremath{\surd}}
@@ -71,6 +72,7 @@
 \renewcommand{\r}[1]{{\color{keyred}#1}}
 \renewcommand{\b}[1]{{\color{keyblue}#1}}
 \newcommand{\g}[1]{{\color{keygreen}#1}}
+\newcommand{\extra}{\k{คำอธิบายเสริม:} }
 \newcommand{\code}[1]{{\color{keyblue}\codefamily\fontsize{5.7}{6}\selectfont #1}}
 \newcommand{\cl}[1]{\par{\color{keyblue}\codefamily\fontsize{5.7}{6}\selectfont #1\par}}
 \newcommand{\smalltable}{\fontsize{7.1}{7.2}\selectfont}
@@ -83,6 +85,7 @@
   flow/.style={-{Triangle[length=.88mm,width=.65mm]},line width=.35pt,shorten >=.2pt},
   msg/.style={-{Triangle[length=.95mm,width=.68mm]},line width=.35pt},
   return/.style={-{Straight Barb[length=.85mm,width=.65mm]},line width=.35pt,dashed},
+  asyncmsg/.style={-{Straight Barb[length=.85mm,width=.65mm]},line width=.35pt},
   dependency/.style={-{Straight Barb[length=.9mm,width=.7mm]},line width=.35pt,dashed,shorten >=.2pt},
   state/.style={act,fill=bluehead!22},
   decision/.style={diamond,draw,line width=.38pt,aspect=1.5,inner sep=.3pt,font=\fontsize{6.3}{6.5}\selectfont,align=center}}

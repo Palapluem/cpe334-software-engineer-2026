@@ -1,5 +1,5 @@
 \band{orangehead}{Practice Midterm · Part 2}
-\k{มุมมองตามข้อสอบ · 25 คะแนน}: WBS/RACI/Gantt = PM; grooming = PO; planning = SM; แสดงเหตุผลตามบทบาท ไม่ใช่รับงานแทนทีม
+\k{Part 2 รวม 25 คะแนน}: WBS/RACI/Gantt ใช้บทบาท PM; grooming ใช้ PO; planning ใช้ SM; อธิบายตามบทบาท ไม่ตัดสินแทนทีม
 \topic{1) DormFix: WBS 3 + RACI 2 + Gantt 5}
 \k{WBS}: 1.1 Requirements approved: \b{E → B}; 1.2 Designs approved: \b{(C∥G) → F}; 1.3 System accepted: \b{(A∥I) → D → H}; เว้น 1.4 \r{ไม่เติม milestone เอง}
 \k{Dependency}: E เขียน req → B อนุมัติ; C ออกแบบจอ/G ออกแบบ DB → F อนุมัติ; A ฟอร์ม/I dashboard → D ทดสอบทั้งคู่ → H ยอมรับ
@@ -10,7 +10,7 @@ C & A & C & R & I & –\\\hline
 G & A & – & C & R & I\\\hline
 D & A & I & – & C & R\\\hline
 \end{tabularx}}
-\k{RACI}: อิง meeting notes ในชุดฝึก 12 ข้อ ไม่เดาบทบาทจากชื่อตำแหน่ง
+\extra ตาราง RACI นี้มาจาก meeting notes ที่เราแต่งใน mock exam \r{ไม่ใช่เฉลยตายตัวของอาจารย์}; ข้อสอบจริงให้อ่าน notes ก่อนลงตัวอักษร
 \k{Gantt (Jan 2027)}: เริ่ม จ. 4; ทำเต็มเวลา จ.-ศ.; B/F/H รออนุมัติภายนอก เผื่อ task buffer 1 วัน; project buffer 2 วันท้าย
 {\smalltable\begin{tabularx}{\linewidth}{|C{3mm}|C{6mm}|C{3mm}|Y|}\hline
 \rowcolor{lightrow}ID & Owner & d & Work dates (+buffer)\\\hline
@@ -46,16 +46,16 @@ PB & – & 2 & 28-29 Jan\\\hline
 \draw(root.south)--(m\num.north);\draw(m\num.south)--(t\num.north);
 }
 \end{tikzpicture}\end{center}
-\k{ตรวจ WBS}: A-I ครบครั้งเดียว; milestone เป็นผลสำเร็จ ไม่ใช่งานเพิ่ม; C/G และ A/I อยู่กลุ่มเดียวกันแต่ทำขนานได้; 1.4 ว่าง
+\k{ตรวจ WBS}: ใช้ A-I ครั้งเดียว; ช่อง 1.4 ว่าง; กลุ่มงานในต้นไม้ไม่ใช่ลำดับ dependency
 \topic{2) Backlog grooming (10): Issue \#12}
-\b{As a student, I need to book a badminton court for one hour, so that I do not have to queue at the counter.}
-\k{รายละเอียด}: มี courts/opening hours แล้ว; คนละ 1 booking/day; ตัวอย่าง Court 2 วันนี้ 17:00; ไม่เติม payment/cancel โดยไม่ถาม
-\g{Given} Court 2 is free at 17:00 today\par
-\g{When} I book Court 2 at 17:00\par
-\g{Then} Court 2 at 17:00 is shown as “Booked”
-\k{Negative AC}: Given มี booking วันนี้แล้ว, When ขอเพิ่มอีก, Then ปฏิเสธและไม่สร้าง booking ใหม่
+\b{ในฐานะนักศึกษา ฉันต้องการจองสนามแบดหนึ่งชั่วโมง เพื่อไม่ต้องต่อคิวที่เคาน์เตอร์} (ใช้โครง As a / I need / So that)
+\k{รายละเอียด}: มีสนาม/เวลาเปิดแล้ว; นักศึกษาถือการจองได้คนละหนึ่งรายการต่อวัน; Court 2 วันนี้ 17:00 ว่าง
+\par\g{Given} Court 2 วันนี้ 17:00 ว่าง\par
+\g{When} นักศึกษาจอง Court 2 เวลา 17:00\par
+\g{Then} ช่วงนั้นแสดง “Booked”
+\extra AC ลบ: มี booking วันนี้อยู่แล้ว → ขอเพิ่ม → ปฏิเสธและไม่สร้างรายการ; ถามเงื่อนไขยกเลิกก่อนขยายกฎ
 \k{Metadata หลังกำหนดรายละเอียด}: Assignees –; Labels \b{enhancement}; Milestone –; Estimate –. \r{ยังไม่ใช่ Sprint planning ไม่กำหนดคน/points/sprint เอง}
-\k{Bug variant}: ยกเลิกแล้วยัง Booked → \b{bug}; Given ยกเลิกแล้ว, When เปิด slot, Then Available และจองใหม่ได้; คงข้อเท็จจริงจากลูกค้า
+\k{Bug variant (Issue \#15)}: ยกเลิกแล้วยัง Booked → label \b{bug}; Given Court 1 เวลา 18:00 ถูกจอง; When ยกเลิก; Then แสดง “Free” ตามโจทย์
 \k{คำถามที่ควรถาม}: วัน/เวลาของการจองใช้เขตเวลาใด? ยกเลิกได้ไหมและคืนสิทธิ์วันนั้นหรือไม่? รายละเอียดที่ยังไม่ตกลงไม่เติมเป็น AC บังคับ
 \topic{3) Sprint planning (5): Goal + capacity}
 \k{ShuttleNow}: goal = ติดตามรถ/เวลาถึง; anchor 3, velocity 16
@@ -74,9 +74,8 @@ PB & – & 2 & 28-29 Jan\\\hline
 \draw[flow](b)--(a);\draw[flow](b)--(c);\draw[flow](c)--(d);
 \node[anchor=south,inner sep=.5pt]at([yshift=.6mm]a.north){−1 step};\node[anchor=north,inner sep=.5pt]at([yshift=-.6mm]b.south){anchor};\node[anchor=south,inner sep=.5pt]at([yshift=.6mm]c.north){+1 step};\node[anchor=north,inner sep=.5pt]at([yshift=-.6mm]d.south){+2 steps};
 \end{tikzpicture}\end{center}
-\k{RACI check}: A ชัดคนเดียว; R ลงมือ; C ปรึกษาสองทางก่อนตัดสินใจ; I แจ้งทางเดียว; dependency ≠ responsibility
 \topic{PERT (Lecture 6): คำนวณ effort ไม่ใช่วันนัดส่ง}
-\g{T1}: O=2, M=3, P=6 h → E=3.33 h, SD=0.67 h. หกงานในสไลด์รวม E=35.67 h, SD=3.23 h เมื่อ estimates อิสระ → 35.7 ± 3.2 h. \r{วันจบยังต้องดู dependency/CP/คน ไม่บวกงานขนานเป็น duration}
+\g{T1}: O=2, M=3, P=6 h → E=3.33 h, SD=0.67 h; หกงานรวม E=35.67 h, SD=3.23 h เมื่อประมาณการอิสระ → 35.7 ± 3.2 h (หนึ่ง SD) \r{ไม่ใช่ช่วงที่รับประกัน}; วันจบต้องดูงานขนาน/คนด้วย
 \topic{Git: คำสั่ง remote ที่ควรรู้}
 \cl{git fetch origin}
 รับ commits/อัปเดต origin/*; \r{ไม่เลื่อน local branch, HEAD หรือ working tree} ในการ fetch ปกติ

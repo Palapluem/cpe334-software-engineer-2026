@@ -1,15 +1,16 @@
 \band{minthead}{Lecture 5 · Security Engineering}
 \topic{Security landscape / CIA}
-\k{Actor}: hacker/user/insider/client ที่ผิดพลาด; \k{Asset}: password, ticket, DB; \k{Attack surface}: form/API/upload/admin; \k{Trust boundary}: browser → server, app → DB
+\k{Actor}: ผู้กระทำ; \k{Asset}: สิ่งที่ต้องปกป้อง เช่น บัญชี/รายงาน; \k{Attack surface}: จุดรับการโจมตี เช่น API/upload; \k{Trust boundary}: ขอบเขตความเชื่อถือ เช่น browser → server
 \b{C: Confidentiality} ป้องกันการเห็นข้อมูลโดยไม่มีสิทธิ์; \b{I: Integrity} ป้องกันการแก้ไขโดยมิชอบ; \b{A: Availability} ผู้มีสิทธิ์ยังใช้ระบบได้
 \k{Secure by design}: least privilege, defense in depth, fail safe/default deny, ออกแบบเรียบง่าย แบ่งส่วน ลดจุดโจมตี; ค่าเริ่มต้นปลอดภัยและยังใช้งานได้
 \topic{Authentication ≠ Authorization}
-\k{AuthN}: เป็นใคร? ตรวจตัวตน/บัญชี active/หลักฐาน; \k{AuthZ}: ทำได้ไหม? subject + action + object + \r{state}; ตรวจที่ backend ทุก request
-\k{RBAC}: role → operations; \k{ABAC}: ตรวจ attributes ของผู้ใช้/resource/context; \k{ACL}: รายการสิทธิ์ต่อ resource; ownership ใช้ ID จากการยืนยันตัวตน \r{ไม่เชื่อ userId ที่ client ส่งมา}
+\k{Authentication (AuthN)}: ยืนยันว่าเป็นใคร; \k{Authorization (AuthZ)}: ตรวจว่าทำได้ไหม ตามผู้ใช้ การกระทำ ทรัพยากรและ \r{state}; ตรวจที่ backend ทุก request
+\k{RBAC}: สิทธิ์ตาม role; \k{ABAC}: ตามคุณลักษณะผู้ใช้/ทรัพยากร/บริบท; \k{ACL}: รายการสิทธิ์ต่อทรัพยากร; ตรวจ ownership เทียบตัวตนที่ server ยืนยัน \r{ไม่เชื่อคำอ้างว่าเป็นเจ้าของจาก client}
 \k{Password}: slow hash + salt เฉพาะแต่ละรหัส; ไม่เก็บ/บันทึก plaintext. Base64 แค่แปลงรูปแบบ ไม่ใช่ encryption; encryption ถอดคืนด้วย key; hash ทางเดียว ใช้ตรวจเทียบ
-\k{Session}: login → server สร้าง session → cookie → หมดอายุ/logout แล้วเพิกถอน; เข้าหน้าป้องกันซ้ำต้องถูกปฏิเสธ; current-user คืน profile ไม่คืน secret
-\k{JWT}: signed claims \r{ไม่ใช่ encryption}; ตรวจ signature/expiry; bearer ใช้ได้เมื่อถือ token; ออกแบบ logout/revocation เอง; access token อายุสั้น, refresh token ต้องปกป้อง/เพิกถอนได้
-\k{API key}: secret ของ client/service; \k{OAuth2}: มอบสิทธิ์ให้แอปอื่น; \k{OIDC}: OAuth2 + identity/ID token; \k{SSO}: เข้าใช้หลายระบบด้วยการ sign-in ครั้งเดียว
+\k{Basic}: ส่ง credentials แบบ Base64 ต้องใช้ HTTPS; \k{Digest}: ตอบด้วย hash/nonce เป็นวิธีเก่า ไม่แทน HTTPS
+\k{Session}: server เก็บสถานะ ส่ง session ID ผ่าน cookie; หมดอายุ/logout แล้วใช้ต่อไม่ได้; current-user คืน profile ไม่คืน secret
+\k{JWT}: token ที่ลงลายเซ็น \r{ไม่ได้เข้ารหัสเนื้อหาเสมอ}; ตรวจลายเซ็น/วันหมดอายุ; ต้องออกแบบเพิกถอนเอง; access อายุสั้น ส่วน refresh ต้องปกป้องและเพิกถอนได้
+\k{API key}: secret ของแอป/บริการ; \k{OAuth2}: มอบสิทธิ์ให้แอปอื่น; \k{OIDC}: เพิ่มการยืนยันตัวตนบน OAuth2; \k{SSO}: sign-in ครั้งเดียวใช้หลายระบบ
 \topic{OWASP / Vulnerability / Control}
 {\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
 \rowcolor{lightrow}ช่องโหว่ & การป้องกัน / การทดสอบเชิงลบ\\\hline
@@ -25,8 +26,8 @@ Deps & patch/audit packages; จำกัดสิทธิ์ DB/network; ป�
 \end{tabularx}}
 \r{ซ่อนปุ่มไม่ใช่การควบคุมสิทธิ์}; frontend validation ช่วย UX; backend validation คุม trust boundary
 \k{Status}: 400 ข้อมูลผิด; 401 ยังไม่ยืนยันตัวตน; 403 ไม่มีสิทธิ์; 404 ไม่พบ/ปิดบังตามกติกา; 409 ขัดแย้ง; 500 ข้อผิดพลาดกลาง; log correlation ID ไม่ใช่ password/token
-\k{Reject}: ตรวจ error/status + business data ไม่เปลี่ยน + ไม่มีผลข้างเคียงที่ห้าม; audit log ยังเกิดได้
-\topic{Security check: ทำตรง ๆ แล้วต้องเห็นอะไร}
+\extra เมื่อปฏิเสธ ให้ตรวจ error/status และข้อมูลธุรกิจไม่เปลี่ยน; audit log ยังเกิดได้ตาม contract
+\topic{คำอธิบายเสริม: ตัวอย่างตรวจสิทธิ์ผ่าน API ตรง}
 {\smalltable\begin{tabularx}{\linewidth}{|p{13mm}|Y|}\hline
 \rowcolor{lightrow}ทดสอบ & ผลที่ต้องตรวจตาม policy/contract\\\hline
 AuthN/gate & valid ผ่าน; wrong/inactive/ไม่ login ถูกปฏิเสธ; password gate ต้องคุม API ตรง\\\hline
@@ -36,17 +37,17 @@ logout/expiry & ใช้ session เดิมซ้ำไม่ได้ แม
 input/duplicate & error ปลอดภัย; DB ไม่ค้างครึ่งชุด; ข้อมูลเดิมไม่เสีย\\\hline
 log/config & ไม่พบ token/password/stack trace ใน response หรือ log ที่เปิดเผย\\\hline
 \end{tabularx}}
-\k{ลำดับตรวจ}: AuthN → AuthZ (role/owner/state) → validation → business action → persistence; ตรวจทุก request ไม่เชื่อ userId/role จาก client
+\k{แนวตรวจ}: AuthN → AuthZ → validation → ลงมือ/บันทึก; ไม่เชื่อ role จาก client; ลำดับย่อยขึ้นกับข้อมูลที่ต้องใช้ตรวจสิทธิ์
 \k{Defense in depth}: ต่อให้ไฟล์หลุด validation ต้องยังรันไม่ได้และอ่านข้าม owner ไม่ได้
 \chapterband{minthead}{Lecture 6 · Project Initiation}
 \b{Initiate → Plan → Execute → Close}; เป็นวงจรโครงการ ส่วน SDLC อยู่ภายในโครงการ
 \k{Initiation 6}: goals, scope, deliverables, success criteria, stakeholders, resources → charter → อนุมัติ → วางแผน
 \k{Goal}: ผลที่ต้องการ; \k{Deliverable}: สิ่งส่งมอบ; \k{Success criteria}: หลักฐานว่าสำเร็จ; launch = ส่งมอบ, landing = วัดผล
-\k{SMART}: Specific, Measurable, Attainable, Relevant, Time-bound; \g{ลด median first-response 20\% ภายในภาคนี้ด้วย routing อัตโนมัติ}
+\k{SMART}: Specific ชัด, Measurable วัดได้, Attainable ทำได้, Relevant สอดคล้อง, Time-bound มีเส้นตาย; \g{ลดมัธยฐานเวลาตอบครั้งแรก 20\% ภายในภาคนี้ด้วย routing อัตโนมัติ}
 \k{OKR}: Objective = ทิศทาง; KRs = ผลที่วัดได้; ท้าทายและเชื่อมองค์กร → แผนก → โครงการ; \r{KR ไม่ใช่รายการงาน}
-\b{ROI=(Gain-Cost)/Cost ×100\%}; รวมต้นทุนครั้งเดียว/ประจำในช่วงเวลาเดียวกัน; พิจารณาคุณค่าที่ไม่เป็นตัวเงินแยก
+\b{ROI=(Gain-Cost)/Cost ×100\%}; Gain = ผลตอบแทน, Cost = ต้นทุนทั้งหมดในช่วงเดียวกัน; พิจารณาคุณค่าที่ตีราคาไม่ได้แยก
 \g{G=10,000; C=6,000+25×12=6,300 → ROI=58.7\%}
-\k{Scope}: ตกลง in/out, เวลา/ทุน/ทรัพยากร/ข้อจำกัด; \k{Creep}: ลูกค้าเพิ่มงานหรือทีมเติมเอง (gold-plating); เปลี่ยน → วิเคราะห์ผล → แลกเปลี่ยนขอบเขต → อนุมัติ → บันทึก
+\k{Scope}: ตกลงสิ่งที่ทำ/ไม่ทำและข้อจำกัด; \k{Scope creep}: ขอบเขตเพิ่มโดยไม่ควบคุม ทั้งจากลูกค้าหรือทีม; ขอเปลี่ยน → วิเคราะห์ผล → เสนอทางเลือก → อนุมัติ → บันทึก
 \k{Triangle}: scope/time/cost; เมื่อตรึงด้านหนึ่งต้องปรับด้านอื่น ไม่รับงานเพิ่มโดยไม่ประเมิน
 \k{Stakeholders}: sponsor อนุมัติทุน, PM คุมแผน, ทีมทำ, ลูกค้าซื้อ, ผู้ใช้ใช้; เลือกวิธีดูแลตาม power/interest:
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.1}{7.4}\selectfont]
@@ -60,4 +61,4 @@ log/config & ไม่พบ token/password/stack trace ใน response หร�
 \end{tikzpicture}\end{center}
 \k{Charter}: เหตุผล/เป้าหมาย/ขอบเขต/สิ่งส่งมอบ/เกณฑ์สำเร็จ/ทีม/ทรัพยากร/ทุน/กำหนดการ/สมมติฐาน/ความเสี่ยง/ผู้อนุมัติ
 
-\k{เกณฑ์ก่อนเริ่ม}: เปิดเว็บ = deliverable; ลดเวลารอ = goal; criteria ต้องมี baseline/target/deadline ที่ตกลง
+\extra เว็บที่ใช้ได้ = deliverable; ลดเวลารอ = goal; success criteria ระบุค่าตั้งต้น เป้าหมายและเส้นตายที่ตกลง

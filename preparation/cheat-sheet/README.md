@@ -1,92 +1,252 @@
 # CPE334 Midterm Cheat Sheet
 
-[เปิด PDF สองหน้า](midterm/output/pdf/CPE334_Midterm_Cheat_Sheet.pdf) · [ต้นฉบับ LaTeX](midterm/cheat-sheet.tex)
+[เปิดโพย PDF สองหน้า](midterm/output/pdf/CPE334_Midterm_Cheat_Sheet.pdf) · [ต้นฉบับ LaTeX](midterm/cheat-sheet.tex) · [ชุดฝึกและเฉลย](../mock-exam/README.md)
 
-โพยสำหรับ วิศิษฐ์ สุวรรณเนาว์ 67070501042 ใช้ A4 แนวตั้งสองหน้า หน้าละสี่คอลัมน์ ตามเรฟ [CPE241 Cheat Sheet M3](<ref/CPE241 Cheat Sheet M3.pdf>): หัวข้อพื้นพาสเทล เส้นแบ่งคอลัมน์บาง คำอธิบายไทยพร้อมศัพท์อังกฤษ ตารางเทียบ กฎสีแดง สูตร/คำสั่งสีน้ำเงิน และตัวอย่างสีเขียว ไดอะแกรมวาดด้วย TikZ จึงเป็นเวกเตอร์และแก้ต่อได้
+สื่อทบทวนของ วิศิษฐ์ สุวรรณเนาว์ 67070501042 สำหรับ CPE334 Software Engineering: หน้าแรกสรุป Lecture 1-7 หน้าที่สองเป็น Practice Midterm ตาม Lecture 10 และ Midterm Samples ไม่ใช่การรับรองว่าข้อสอบจริงจะตรงกับตัวอย่าง
 
-ฉบับนี้ไม่มีหัวกระดาษ ไม่มีเลขหน้า/คำอธิบายสี/ข้อความอ้าง README ท้ายกระดาษ เหลือเฉพาะกรอบชื่อและรหัสที่มุมล่างขวาของทั้งสองหน้า ตัวอักษรประมาณ 11.5 pt โดยล็อกกรอบไว้เท่าฉบับก่อน (44.77 × 5.05 mm) และจัดข้อความกึ่งกลางทั้งสองแกน เพื่อให้มีช่องว่างรอบชื่อมากขึ้นตามคำขอ ใช้ชื่อ Lecture 1–7 เต็ม ณ จุดเปลี่ยนบท (Lecture 6 แยก Initiation กับ Planning) ใช้ขอบ 3 mm และความสูงคอลัมน์ 289.5 mm; คอลัมน์ขวาสุดกันพื้นที่ชื่อไว้ 8 mm จึงมี budget 281.5 mm ไม่ปล่อยให้เนื้อหาชนกรอบชื่อ
+ฉบับนี้ปรับภาษาไทยให้เป็นธรรมชาติ คงศัพท์เทคนิค สูตร เงื่อนไขและคำปฏิเสธ แยกสิ่งที่เอกสารระบุจากตัวอย่าง/ข้อเสนอเพิ่มด้วยป้าย **“คำอธิบายเสริม”** ภาพวาดย่อเป็นสื่อช่วยจำ ไม่ใช่ screenshot แอป ผลทดลองหรือภาพเฉลยทางการ
 
-ตรวจภาษาใหม่ทั้งแปดคอลัมน์: เว้นวรรคระหว่างไทยกับอังกฤษ/ตัวเลข ปรับคำแปลและประโยคให้เป็นธรรมชาติ ลดการใช้คำอังกฤษต่อกันโดยไม่จำเป็น แต่รักษาชื่อคำสั่ง API identifiers และศัพท์สำคัญไว้ เช่น อธิบาย idempotency ว่าเรียกซ้ำแล้วมีผลต่อระบบเท่าเดิม พร้อมตัวอย่างไม่ตัดเงินซ้ำ รอบปรับความหนาแน่นเพิ่มตัวเนื้อหาจาก 7.6 เป็น 8 pt แต่ลดระยะบรรทัด/ช่องไฟตามเรฟ ไม่ได้ย่อทั้งหน้า
+ยังเป็น **A4 แนวตั้ง 2 หน้า หน้าละ 4 คอลัมน์** ตาม [เรฟ CPE241](<ref/CPE241 Cheat Sheet M3.pdf>) ไม่มีหัวกระดาษ เลขหน้าหรือ legend ท้ายหน้า มีเพียงกรอบชื่อ/รหัส แหล่งอ้างอิง ตารางศัพท์และคำถามฝึกจึงอยู่ใน README นี้ ไม่เพิ่มหน้าให้โพย
 
-## ค่าที่วัดจากเรฟและฉบับปรับพื้นที่
+## แหล่งหลักและวิธีอ่านเลขหน้า
 
-วัดจาก text spans และตำแหน่ง baseline ใน PDF ไม่ได้กะจากภาพย่อ ตัวเลข font ใน PDF ต่างจากค่า TeX เล็กน้อยเพราะหน่วย pt/bp
+เลขหน้าทั้งหมดเป็น **ลำดับหน้า PDF เริ่มที่ 1** ไม่ใช่เลขสไลด์บนหน้า โดยเฉพาะ Lecture 6-7 ที่เลขสองแบบไม่ตรงกัน ชื่อย่อในหัวข้อถัดไปอ้างชื่อไฟล์เต็มในตารางนี้
 
-| รายการ | เรฟ CPE241 หน้า 1 | ฉบับนี้ |
+| ชื่อย่อ | ไฟล์หลัก | ขอบเขตที่อ่าน |
 | --- | --- | --- |
-| ฟอนต์เนื้อหาหลักใน PDF | 8.00 pt | 7.97 pt (ตั้งใน TeX 8 pt) |
-| ระยะ baseline ที่พบมากในเนื้อหา | 7.34 pt | 7.32 pt (ตั้ง leading 7.35 pt) |
-| ฟอนต์ชื่อ/รหัสใน PDF | 14.50 pt | 11.51 pt (ตั้งใน TeX 11.55 pt; กรอบขนาดเดิม) |
-| ขอบซ้ายข้อความโดยประมาณ | 3 mm | 3 mm |
+| Lecture 1 | [CPE334_Lecture01 Introduction.pdf](<../../lectures/Week 1/CPE334_Lecture01 Introduction.pdf>) | ข้อความ pp. 1-46 |
+| Lecture 2 | [CPE334_Lecture02 Requirement Engineering.pdf](<../../lectures/Week 2/CPE334_Lecture02 Requirement Engineering.pdf>) | ข้อความ pp. 1-43 |
+| Lecture 3 | [CPE334_Lecture03 Specifications, SDD, Testing, TDD.pdf](<../../lectures/Week 3/CPE334_Lecture03 Specifications, SDD, Testing, TDD.pdf>) | ข้อความ pp. 1-59 |
+| Lecture 4 | [CPE334_Lecture04 UML, SDS Features, STS Features.pdf](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) | ข้อความ pp. 1-161; ไม่ได้ตรวจรายละเอียดภาพทุกสไลด์ |
+| Lecture 5 | [CPE334_Lecture05 - Security in SE.pdf](<../../lectures/Week 5/CPE334_Lecture05 - Security in SE.pdf>) | ข้อความ pp. 1-40 |
+| Lecture 6 | [CPE334_Lecture06 - Project Management.pdf](<../../lectures/Week 6/CPE334_Lecture06 - Project Management.pdf>) | ข้อความ pp. 1-116 |
+| Lecture 7 | [CPE334_Lecture07 - Project Execution.pdf](<../../lectures/Week 7/CPE334_Lecture07 - Project Execution.pdf>) | ข้อความ pp. 1-171 |
+| Lecture 10 | [CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) | pp. 1-31 เฉพาะ Midterm Review |
+| Samples | [CPE334_Midterm Samples by Suthep.pdf](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) | ข้อความ pp. 1-26; ตรวจภาพโจทย์ Sequence/Activity pp. 3-4 เพิ่ม |
 
-ฉบับก่อนหน้ามี baseline ประมาณ 9.33 pt เพราะ spacing ของภาษาไทยซ้อนกับค่าที่กำหนด จึงแก้ line spread ที่ต้นเหตุ ลดช่องก่อนหัวข้อและ padding ของตาราง/แถบสี พร้อมคงขนาดตัวอักษรของคำสั่งและรูป ไม่ปล่อยให้สระ/วรรณยุกต์ชนกัน การอ่านบนกระดาษจริงยังควรทดสอบที่ 100% ก่อนพิมพ์ใช้งาน
+ตรวจภาพต้นฉบับเพิ่มเติมที่ Ticket State ใน Lecture 4 p. 62 และ Gantt worked example ใน Lecture 10 p. 20 เพื่อไม่อาศัย text extraction อย่างเดียว **ไม่ได้ตรวจภาพ UI/เฉลยทุกภาพในสไลด์ หรือเอกสารที่ลิงก์ออกนอกไฟล์** จึงไม่อ้างว่าอ่านรายละเอียดภายในภาพทุกหน้าครบแล้ว
 
-รอบปรับความชัดมีแผนภาพรวม 17 ภาพ: เพิ่ม fork/join จากเดิม 16 ภาพ ขยายป้ายทั่วไปเป็นประมาณ 7.1 pt, Git commits/refs เป็น 7.3 pt และวันที่ใน Gantt เป็น 6.2 pt; ใช้เส้นลูกศรทั่วไป 0.35 pt และเน้น Critical Path สีแดง 0.5 pt กราฟ `B: 3` และ `Example B: 3-way` คงขนาดกรอบย่อในคอลัมน์ แต่ป้ายและเส้นชัดขึ้น ไม่ขยายช่องว่างตามสัดส่วนของตัวหนังสือ ส่วน lifelines, swimlanes และทางแยกยังเว้นระยะเท่าที่จำเป็นต่อการอ่าน เสริมพื้นขาวหลังข้อความ Sequence เพื่อไม่ให้เส้น lifeline พาดผ่านตัวอักษร หัว control flow/call เป็นสามเหลี่ยมทึบเรียบ ส่วน reply/dependency เป็นหัวเปิดบนเส้นประ ไม่ใช้หัวเว้า Stealth ปนกันทุกประเภท เพิ่ม merge node ขนาดเล็กให้เส้นวนกลับใน Activity มีช่วงปลายยาวพอและไม่ส่งหัวลูกศรชนกรอบซ้าย; actor association และ Git ancestry ยังคงไม่มีหัว
+## A. ภาพรวม: แต่ละบทต่อกันอย่างไร
 
-สูตรใช้ Latin Modern Math จากไฟล์ใน TeX distribution โดยตั้ง `Scale=MatchUppercase` ให้ความสูงอักษรใหญ่ตรงกับ TH Sarabun New เนื้อหา สูตรจึงมีขนาด nominal ประมาณ 5.55 pt ใน PDF เทียบกับ Sarabun 7.97 pt แต่ความสูงอักษรใหญ่ใกล้กัน ไม่ใช้เลข 8 pt เท่ากันแล้วปล่อยให้สูตรใหญ่กว่าข้อความ รูปเศษส่วน รากและผลรวมยังรักษาสัดส่วนทางคณิตศาสตร์; ชื่อปริมาณ เช่น SD, points และ capacity จัดเป็นข้อความ ไม่คูณตัวอักษรแยกกัน ฟอนต์เนื้อหา ตารางและโค้ดคงขนาดเดิม
+เริ่มจากปัญหาและคุณค่าที่ต้องส่งมอบ (Lecture 1) เปลี่ยนความต้องการให้เป็นข้อกำหนดที่ตรวจได้ (Lecture 2) แล้วออกแบบระบบ สัญญาพฤติกรรมและการทดสอบ (Lecture 3-4) โดยตรวจความปลอดภัยตลอดทาง ไม่ใช่รอทำงานเสร็จ (Lecture 5)
 
-## เนื้อหา
+ด้านบริหาร ให้ตกลงเป้าหมาย ขอบเขต ผู้เกี่ยวข้องและทรัพยากร ก่อนแบ่งงาน วางเวลาและความรับผิดชอบ (Lecture 6) แล้วใช้ backlog, sprint, board และ feedback คุมการส่งมอบจริง (Lecture 7) ทุกส่วนควรตอบได้ว่า **ทำเพราะข้อกำหนดใด และมีหลักฐานใดว่าใช้ได้**
 
-| หน้า | คอลัมน์ | เนื้อหา |
+คำอธิบายเสริม: ปัญหาอาจไม่ได้เริ่มจากโค้ดผิด แต่อาจเริ่มจากขอบเขตไม่ตรงกัน ไม่รู้ว่าจะตรวจอะไร หรือรับงานโดยไม่มีหลักฐาน จึงควรอ่าน requirements, design และ tests เป็นเส้นเดียวกัน ไม่ท่องแยกเป็นชื่อเอกสาร
+
+## B. สรุปไทยสำหรับทำความเข้าใจ
+
+### 1. SDLC และความรับผิดชอบของคน
+
+SDLC คือวงจรพัฒนาตั้งแต่เข้าใจปัญหาจนส่งมอบและดูแล ช่วยแยก “โค้ดรันได้” จาก “ระบบแก้ปัญหาและใช้งานได้จริง” เริ่มจากข้อกำหนด/AC แบ่ง vertical slice ที่ใช้ได้ครบเส้นทาง แล้วทดสอบ ทบทวนและรวมงาน Coding agent ช่วยลงมือ แต่คนยังรับผิดชอบการตัดสินใจและการยอมรับ
+
+จุดสับสน: Incremental เพิ่มส่วนที่ใช้ได้ ส่วน iterative ปรับสิ่งเดิมจาก feedback ทั้งสองใช้ร่วมกันได้ Agile ไม่ใช่การไม่วางแผนหรือไม่เขียนเอกสาร
+
+แหล่ง: Lecture 1 pp. 6-25, 29-30; Lecture 4 pp. 77-89.
+
+### 2. Requirement Engineering: เขียนให้ตรวจได้
+
+FR บอกว่าระบบทำอะไร NFR บอกระดับคุณภาพ BR/domain rule บอกกฎธุรกิจ ให้หาผู้เกี่ยวข้อง/เป้าหมาย สอบถาม สังเกต บันทึก วิเคราะห์ ยืนยันและจัดลำดับ เช่น “ถือการสมัครไม่เกินสามรายการต่อภาค” เป็นกฎ ส่วนการปฏิเสธครั้งที่สี่เป็นพฤติกรรมที่บังคับกฎนั้น
+
+ข้อจำกัด: ชนิด FR/NFR/BR ไม่ใช่ระดับ user/system; “เร็ว” ยังใช้รับงานไม่ได้จนกว่าจะตกลงตัวชี้วัด/เงื่อนไข ต้องแยก fact/assumption/question แบบจำลองช่วยลดความซับซ้อนแต่ไม่ใช่ระบบจริง และ rationale ต้องบอกด้วยว่าทำไมจึงตัดสินใจเช่นนั้น
+
+แหล่ง: Lecture 2 pp. 4-5, 12-31; Lecture 7 pp. 4-6; Lecture 10 pp. 5-8.
+
+### 3. SDD/TDD: เชื่อมข้อกำหนดกับหลักฐาน
+
+SRS บอกสิ่งที่ต้องการ SDS บอกการออกแบบ STS บอกวิธีพิสูจน์ Contract ระบุ input, validation, behavior, persistence, side effects, errors และ output เช่น สร้าง invoice ต้องตรวจลูกค้า/จำนวน/ราคา แล้วบันทึกหัวกับรายการใน transaction เดียว ข้อมูลผิดต้องไม่เหลือชุดครึ่งหนึ่ง TDD เริ่ม test ที่ล้มเหลวตามเหตุผลที่ตั้งใจ ทำให้ผ่าน แล้วปรับโครงสร้างโดยยังผ่าน
+
+จุดสับสน: Coverage สูงหรือ test ผ่านมากไม่ได้ยืนยันว่าจับข้อผิดพลาดสำคัญได้ Regression ใช้ได้หลายระดับ ไม่ใช่ระดับถัดจาก UAT; UAT ให้ผู้เกี่ยวข้องตัดสินว่าตรงความต้องการธุรกิจ
+
+แหล่ง: Lecture 3 pp. 33-43, 54-57; Lecture 4 pp. 79, 88-100, 133-139; Lecture 7 pp. 35-36.
+
+### 4. UML/UI: เลือกภาพให้ตรงคำถาม
+
+Use Case แสดงเป้าหมายของ actor; Activity แสดง workflow ที่มีทางเลือก/วงวน; Sequence แสดงเหตุการณ์ตามลำดับใน scenario หนึ่ง; State แสดงการเปลี่ยนสถานะของ object เดียว เช่น KU Sequence เริ่ม Draft เดิม แต่ Activity เริ่มครั้งแรกด้วยฟอร์มว่าง UI แยกช่องแก้ได้ อ่านอย่างเดียว บังคับกรอก และรายการย่อย
+
+ข้อจำกัด: อย่าเพิ่มสถานะ สิทธิ์หรือช่องชำระที่โจทย์ไม่ให้ อย่าย้ายสถานะระหว่าง Ticket กับ Registration; Class เก็บ notation ย่อไว้ แต่ Samples p. 6 ระบุอยู่ Final
+
+แหล่ง: Lecture 4 pp. 5-16, 28-75, 111-117; Samples pp. 1-6; Lecture 10 pp. 29-31.
+
+### 5. ความปลอดภัย: ตรวจที่ขอบเขตความเชื่อถือ
+
+ระบุผู้กระทำ ทรัพย์สิน จุดโจมตีและ trust boundary แล้วดูผลต่อ CIA; AuthN ยืนยันตัวตน ส่วน AuthZ ตรวจสิทธิ์ต่อการกระทำ/ทรัพยากร กรณีสคริปต์ปลอม PDF ข้าม browser check ได้ server จึงต้องตรวจไฟล์ และแม้ตรวจพลาด ที่เก็บก็ควรรันสคริปต์ไม่ได้พร้อมตรวจสิทธิ์ดาวน์โหลด
+
+จุดสับสน: โจทย์ยืนยันว่าอ่านรายงานผู้อื่นได้ จึงละเมิด C แล้ว ส่วน I/A เป็นสิ่งที่อาจตามมา ไม่อ้างว่าเกิดแล้ว Base64 ไม่ใช่ encryption; JWT ที่ลงลายเซ็นไม่ได้ปิดบังเนื้อหาโดยอัตโนมัติ
+
+แหล่ง: Lecture 5 pp. 5-24, 26-40; Lecture 10 pp. 9-11.
+
+### 6. วางแผน: แยกผลสำเร็จ งาน เวลาและแรงงาน
+
+Goal คือผลที่อยากได้ deliverable คือสิ่งส่งมอบ success criteria คือหลักฐานตัดสิน WBS แบ่งงาน Gantt วางเวลา RACI วางความรับผิดชอบ milestone เป็นจุดสำเร็จไม่ใช่งานกินเวลา ตัวอย่าง DormFix ให้ B/F/H เผื่อหนึ่งวันเพราะรอคนนอก แล้วมี project buffer สองวันท้าย
+
+ข้อจำกัด: Effort ไม่เท่ากับ duration เมื่อทำขนาน PERT เป็นประมาณการไม่ใช่คำรับประกัน และ RACI ต้องอิง notes ไม่เดาจากตำแหน่งงานหรือ dependency
+
+แหล่ง: Lecture 6 pp. 7-65, 71-96, 103-114; Lecture 10 pp. 13-21.
+
+### 7. ดำเนินงาน: จัดลำดับ เรียนรู้และปรับแผน
+
+PO ดูคุณค่า/ลำดับ backlog; SM อำนวยความสะดวกและแก้อุปสรรค; ทีมเลือกวิธีทำและประเมินกำลัง Story ระบุใคร ต้องการอะไร เพื่ออะไร พร้อมรายละเอียดและ AC; grooming ทำให้งานพร้อม planning เลือกงานตาม goal/capacity; review ตรวจผลผลิต ส่วน retro ปรับวิธีทำงาน
+
+จุดสับสน: Story point ไม่ใช่ชั่วโมง ไม่เทียบข้ามทีม Burndown วัดงานคงเหลือ ไม่ใช่คนที่เริ่มงาน และเครดิต unfinished ตามสไลด์ไม่ใช่การผ่าน DoD
+
+แหล่ง: Lecture 7 pp. 24-72, 94-170; Lecture 10 pp. 22-26.
+
+## C. ตารางศัพท์
+
+| English | คำไทยที่ใช้ | ความหมายในวิชานี้ |
 | --- | --- | --- |
-| 1 | 1: Lecture 1–2 | Product/SDLC, feasibility, process models, Agile values, DoD, AI delegation, vertical slice, Git basics, requirement levels/types/NFR, RE process, quality/validation, proposal/traceability, AC/DoR/MoSCoW; quality-defect/revision table, elicitation questions, BR-vs-FR and a worked AC |
-| 1 | 2: Lecture 3–4 | SRS/SDS/STS, seven-field invoice contract, test-case row, score-boundary example, sync/async/idempotency, TDD/BDD, test levels/types, UML/UI, fork/join example, expanded POS/Hotel/Ticket/Grades case table and diagram checklist; Class notation retained only as a Lecture 4 reminder |
-| 1 | 3: Lecture 5 + Lecture 6 | CIA, actors/assets/boundaries, AuthN/AuthZ, RBAC/ABAC/ACL, passwords/sessions/tokens, OAuth/OIDC/SSO, vulnerability-control-test table, direct API/owner/session/validation expected results, defense in depth; initiation, SMART/OKR/ROI, scope/change, Power/Interest and charter |
-| 1 | 4: Lecture 6–7 | WBS/Gantt/CPM/PERT/buffers/RACI/risks, worked critical-path graph and ES/EF/LS/LF/Float table, Agile/MVP/pair/DevOps, Scrum, stories/INVEST/metadata, refinement/planning/capacity/velocity, board/WIP/review/retro, end-sprint, docs/organisation; four metrics with meanings and measurement caveats |
-| 2 | 1 | Practice Midterm Part 1: requirements analysis, eight-element proposal evaluation and a revised proposal, complete RBAC table, upload scenario/controls/negative tests, XSS/CSRF/SSRF/SQLi diagrams, boundary questions and threat/vulnerability/attack/risk/control distinctions |
-| 2 | 2 | Practice Midterm Part 2: PM/PO/SM perspectives, DormFix WBS tree, mock RACI notes, owners/durations/dates/Gantt/buffers/milestones, badminton story/details/Gherkin/metadata, clarification questions, ShuttleNow points/selections/Fibonacci; worked Lecture 6 PERT effort and Git remote reference |
-| 2 | 3 | Practice Midterm Part 3: KU R1-R11 digest plus R1-R4 administrator scope, distinct Sequence/Activity initial states, full branch/loop/payment coverage, Ticket State (Lecture 4 p. 62), Grades submit-use-case/Ready gate; explicit warning not to mix case rules |
-| 2 | 4 | Practice Midterm Part 4: Registration List/Form wireframes, Git pointers/FF/three-way, explicit staging/create-base/inspection/redraw checklist; Samples 2.6/2.7/2.8/2.9 covering remote-tracking vs local/tag, unpublished merge, a new feature based on the integrated tip, FF staging then merge diverged feature and push |
+| Software Development Life Cycle (SDLC) | วงจรพัฒนาซอฟต์แวร์ | ตั้งแต่ทำความเข้าใจความต้องการจนส่งมอบและดูแล |
+| Feasibility | ความเป็นไปได้ | ประเมินเทคนิค ความคุ้มค่า การใช้งาน เวลาและทรัพยากร |
+| Requirement | ข้อกำหนด | พฤติกรรม คุณสมบัติหรือข้อจำกัดที่ต้องมี |
+| Functional / non-functional requirement (FR/NFR) | ข้อกำหนดหน้าที่ / คุณภาพ | ระบบทำอะไร / ทำได้ดีระดับใดภายใต้เงื่อนไขใด |
+| Business rule (BR) | กฎธุรกิจ | กฎที่พฤติกรรมของระบบต้องรักษา |
+| Stakeholder / rationale | ผู้เกี่ยวข้อง / เหตุผลของการตัดสินใจ | ใครมีส่วนได้เสีย / ทำไมจึงเลือกข้อกำหนดหรือแบบนั้น |
+| Acceptance criteria (AC) | เกณฑ์ยอมรับ | เงื่อนไขตรวจรับเฉพาะงาน |
+| Definition of Done (DoD) | เกณฑ์เสร็จร่วม | มาตรฐานที่งานต้องผ่านก่อนถือว่าเสร็จ |
+| Definition of Ready (DoR) | เกณฑ์พร้อมเริ่ม | ข้อมูลพอให้เริ่ม ไม่ใช่ผ่านการตรวจรับ |
+| Traceability | การเชื่อมโยงย้อนรอย | ข้อกำหนดไป design/code/test/release และย้อนกลับ |
+| Engineering contract | สัญญาพฤติกรรมซอฟต์แวร์ | input/state นี้ต้องให้ผลและผลข้างเคียง/ข้อผิดพลาดใด |
+| SRS / SDS / STS | ข้อกำหนดซอฟต์แวร์ / การออกแบบ / การทดสอบ | Software Requirements / Design / Test Specification: ต้องการอะไร สร้างอย่างไร พิสูจน์อย่างไร |
+| Spec-Driven / Test-Driven Development (SDD/TDD) | พัฒนาโดยใช้ข้อกำหนด / การทดสอบนำ | ให้ contract ชี้ทิศทางและใช้ tests ขับการออกแบบ/ตรวจผล |
+| Persistence / side effect | การบันทึกให้คงอยู่ / ผลข้างเคียง | ข้อมูลถาวร / ผลนอกค่าที่คืน เช่น email หรือ stock |
+| Idempotency | เรียกซ้ำไม่เกิดผลซ้ำเกินที่ตกลง | ดูผลต่อระบบ ไม่จำเป็นต้องได้ response เหมือนกันทุก byte |
+| Reconciliation / outbox | ตรวจสถานะให้ตรง / รายการงานรอส่งถาวร | เช่น ตรวจผล PSP / บันทึกพร้อมธุรกรรมแล้วส่งภายหลัง |
+| Workflow / scenario | กระบวนงาน / เหตุการณ์เฉพาะเส้นทาง | Activity ครอบคลุมทางเลือก; Sequence เน้น scenario |
+| Guard | เงื่อนไขกำกับทางเลือก/transition | เช่น [full] หรือ [all available] |
+| List of Values (LoV) | รายการให้เลือกค่า | เลือกข้อมูลอ้างอิง เช่น course offering แทนการเดา foreign key |
+| Authentication / authorization | ยืนยันตัวตน / ตรวจสิทธิ์ | “เป็นใคร” ไม่เท่ากับ “ทำอะไรได้” |
+| Trust boundary | ขอบเขตความเชื่อถือ | จุดเปลี่ยนบริบทที่ต้องตรวจข้อมูล |
+| Threat / vulnerability / attack | ภัยที่อาจเกิด / จุดอ่อน / การโจมตี | ไม่ใช้สามคำนี้แทนกัน |
+| Risk / control | ความเสี่ยง / มาตรการควบคุม | พิจารณาโอกาสและผลกระทบ แล้วลดด้วยมาตรการ |
+| Goal / deliverable | เป้าหมาย / สิ่งส่งมอบ | ผลที่ต้องการต่างจากชิ้นงานที่ใช้ทำให้เกิดผล |
+| Milestone / task | จุดสำเร็จ / งาน | milestone ใช้เวลา 0; task มีเวลา/เจ้าของ |
+| Effort / duration | ปริมาณแรงงาน / ระยะเวลา | person-hours ไม่เท่ากับชั่วโมงตามปฏิทินเสมอไป |
+| Float / critical path | เวลาเลื่อนได้ / เส้นทางวิกฤต | ขึ้นกับ dependency และวันจบที่ใช้คำนวณ |
+| Predecessor / successor (pred/succ) | งานก่อนหน้า / งานถัดไปที่พึ่งกัน | ใช้หาค่า max/min ใน forward/backward pass |
+| RACI | ลงมือ / รับผิดชอบผล / ให้คำปรึกษา / รับแจ้ง | Responsible, Accountable, Consulted, Informed ตามบทบาทในงาน |
+| Project Manager (PM) | ผู้จัดการโครงการ | ดูแผน เวลา ทรัพยากรและการประสานงาน |
+| Product Owner (PO) | เจ้าของผลิตภัณฑ์ | ดูคุณค่า ลำดับ backlog และการยอมรับผลตามบทเรียน |
+| Scrum Master (SM) | ผู้อำนวยความสะดวก Scrum | ดูกระบวนการ/timebox และช่วยแก้อุปสรรค ไม่ใช่ผู้สั่งแบ่งงาน |
+| Minimum Viable Product (MVP) | ผลิตภัณฑ์ขั้นต่ำที่ใช้ทดสอบคุณค่า | สร้างเพื่อเรียนรู้ว่าจะเปลี่ยนทิศทางหรือพัฒนาต่อ |
+| Epic | งานระดับใหญ่ที่ต้องแยก | ใหญ่เกินจะส่งมอบใน sprint เดียวหรือยังประมาณการตรง ๆ ไม่ได้ |
+| Story points / velocity | ขนาดงานสัมพัทธ์ / points เสร็จต่อ sprint | ใช้บริบทและประวัติของทีม ไม่ใช่ชั่วโมงตายตัว |
+| Backlog refinement (grooming) | ปรับ backlog ให้พร้อม | จัดลำดับ แยกและชี้แจงก่อนเลือกเข้า sprint |
+| Remote-tracking reference | ตัวชี้สถานะ remote ที่เครื่องทราบ | origin/* ไม่ใช่ภาพสดของ GitHub |
+| 95th percentile (p95) | เปอร์เซ็นไทล์ที่ 95 | ค่าระยะเวลาที่อย่างน้อย 95% ของคำขอใช้ไม่เกินค่านี้ ภายใต้ชุดข้อมูล/วิธีวัดที่ระบุ |
 
-“บท 1-7 ในหนึ่งหน้า” หมายถึงสรุปสาระและหัวข้อหลักสำหรับทบทวน ไม่ใช่ถอดทุกสไลด์ลงหนึ่งหน้า รายละเอียด setup เฉพาะเครื่อง ภาพ UI ตัวอย่างซ้ำ และขั้นตอน vendor/budget แบบยาวไม่ได้คัดลงโพย ส่วน Git อยู่ในหน้าแนวสอบด้วยเพราะ Lecture 10 ระบุเป็น 20 คะแนน และมีพื้นฐานตั้งแต่ Lecture 1 ไม่ได้นำ architecture/containers ของ Week 8-9 มาเบียดหน้าสรุป
+อ้างอิงกลุ่มหัวข้อ/หน้าในตารางถัดไป คำอธิบายเสริม: นิยาม idempotency ขยายเพื่อไม่ให้เข้าใจว่าต้องได้ response เดิมทุก byte หรือ retry แล้วเก็บเงินซ้ำได้
 
-## แหล่งและจุดที่ตรวจเทียบ
+## D. Coverage ของโพยและแหล่งรายหัวข้อ
 
-เลขหน้าต่อไปนี้เป็นลำดับหน้า PDF ไม่ใช่เลขสไลด์ที่พิมพ์ไว้ในหน้า
+ชื่อ Lecture/Samples อ้างชื่อไฟล์เต็มที่ลิงก์ข้างต้น เพื่อให้ตรวจที่มาได้โดยไม่เบียดพื้นที่หน้าพิมพ์
 
-| แหล่งหลัก | หน้าที่ใช้ตรวจ / หัวข้อ |
-| --- | --- |
-| [Lecture 1](<../../lectures/Week 1/CPE334_Lecture01 Introduction.pdf>) | pp. 3-30: SDLC/models/agent responsibility/DoD/vertical slice; pp. 31-46: Git, PR, staging/main, evidence |
-| [Lecture 2](<../../lectures/Week 2/CPE334_Lecture02 Requirement Engineering.pdf>) | pp. 10-33: requirements/types/quality, elicitation, validation, scope/proposal, traceability; pp. 35-43: architecture/API/testing basics |
-| [Lecture 3](<../../lectures/Week 3/CPE334_Lecture03 Specifications, SDD, Testing, TDD.pdf>) | pp. 28-43: layers, SRS/SDS/STS, feature contracts; pp. 54-57: testing/maintenance |
-| [Lecture 4](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) | pp. 3-75: sync/async, UML/UI/cases; pp. 79-100, 133-139: contracts, engineering process, feature/sprint/release verification |
-| [Lecture 5](<../../lectures/Week 5/CPE334_Lecture05 - Security in SE.pdf>) | pp. 5-24: landscape/CIA/authentication/authorization; pp. 26-40: OWASP topics, validation, vulnerabilities, configuration and tests |
-| [Lecture 6](<../../lectures/Week 6/CPE334_Lecture06 - Project Management.pdf>) | pp. 5-63: initiation/goals/scope/ROI/charter; pp. 68-96: organisation/WBS/schedule/PERT/RACI; pp. 103-114: risks/kick-off |
-| [Lecture 7](<../../lectures/Week 7/CPE334_Lecture07 - Project Execution.pdf>) | pp. 3-19: lifecycle/docs/tracking; pp. 21-72: Agile/Scrum/stories/points; pp. 94-170: grooming/planning/execution/review/retro/metrics/end-sprint |
-| [Lecture 10: Midterm Prep](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) | pp. 3-11: requirements/security; pp. 12-26: planning worked examples; pp. 27-31: UML/UI 30 + Git 20 blueprint and lecture case patterns |
-| [Midterm Samples by Suthep](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) | pp. 1-5: KU registration/scenarios/UI and Git assumptions; pp. 6-14: Git question types; pp. 18-26: Git model answers |
+| ตำแหน่ง | หัวข้อ | ไฟล์และหน้า PDF |
+| --- | --- | --- |
+| หน้า 1 คอลัมน์ 1 | SDLC/models/Agile/vertical slice/DoD | Lecture 1 pp. 8-25, 29-30 |
+| หน้า 1 คอลัมน์ 1 | Agent/ความรับผิดชอบ | Lecture 1 pp. 3, 6-7, 12, 16-17; Lecture 4 pp. 77-83 |
+| หน้า 1 คอลัมน์ 1 | Architecture/Git/Issue/PR/staging/main | Lecture 1 pp. 27-28, 31-46; Lecture 2 pp. 35-43 |
+| หน้า 1 คอลัมน์ 1 | ระดับ/ชนิดข้อกำหนด, quality, RE/validation | Lecture 2 pp. 11-27; Lecture 7 pp. 4-6 |
+| หน้า 1 คอลัมน์ 1 | Proposal/traceability/AC/DoR/MoSCoW | Lecture 2 pp. 23-31; Lecture 7 pp. 4-6, 102 |
+| หน้า 1 คอลัมน์ 2 | SRS/SDS/STS, process, contract/invoice | Lecture 3 pp. 33-43; Lecture 4 pp. 79, 88-100, 133 |
+| หน้า 1 คอลัมน์ 2 | AAA/TDD/BDD/tests/verification | Lecture 2 p. 43; Lecture 3 pp. 54-57; Lecture 4 pp. 136-139; Lecture 7 pp. 8-10, 35-36 |
+| หน้า 1 คอลัมน์ 2 | Sync/async, payment recovery/outbox | Lecture 3 pp. 46-48; Lecture 4 pp. 3, 95-96 |
+| หน้า 1 คอลัมน์ 2 | UML notation/workflow/scenario | Lecture 4 pp. 5-16, 61-62; Samples p. 6 เรื่อง Class |
+| หน้า 1 คอลัมน์ 2 | Generic UI/List/Form/LoV/design system | Lecture 4 pp. 30-31, 47-48, 66-67, 101, 111-117 |
+| หน้า 1 คอลัมน์ 2 | POS/Hotel/Ticket/Grades | Lecture 3 pp. 12-15; Lecture 4 pp. 14-15, 24, 28-29, 38, 41, 45-46, 64-65 |
+| หน้า 1 คอลัมน์ 3 | Landscape/CIA/AuthN/AuthZ/RBAC/ABAC/ACL | Lecture 5 pp. 5-8, 19-23 |
+| หน้า 1 คอลัมน์ 3 | Password/Basic/Digest/session/JWT/OAuth/OIDC/SSO | Lecture 5 pp. 10-17, 24 |
+| หน้า 1 คอลัมน์ 3 | Vulnerabilities/status/config/secrets/tests | Lecture 5 pp. 26-40; Lecture 10 pp. 10-11 |
+| หน้า 1 คอลัมน์ 3 | Initiation/SMART/OKR/ROI/criteria | Lecture 6 pp. 5-33, 59-65 |
+| หน้า 1 คอลัมน์ 3 | Scope/creep/trade-off/stakeholders/charter | Lecture 6 pp. 35-57, 62-65 |
+| หน้า 1 คอลัมน์ 4 | WBS/Gantt/CP/float/effort/PERT/buffers/RACI | Lecture 6 pp. 71-96; Lecture 7 pp. 15-19 |
+| หน้า 1 คอลัมน์ 4 | Risk/kick-off/organisation/Conway | Lecture 6 pp. 68-70, 103-114 |
+| หน้า 1 คอลัมน์ 4 | MVP/pair/DevOps/Scrum | Lecture 7 pp. 24-58 |
+| หน้า 1 คอลัมน์ 4 | Stories/INVEST/points/refinement/planning | Lecture 7 pp. 60-72, 94-126 |
+| หน้า 1 คอลัมน์ 4 | Board/WIP/Daily/Review/Retro/metrics/end sprint | Lecture 7 pp. 77, 129-170; docs/maintenance pp. 12-13 |
+| หน้า 2 คอลัมน์ 1 | Part 1: requirements/proposal/RBAC/security | Lecture 10 pp. 3-11; Lecture 2 pp. 28-29; Lecture 5 pp. 19-40 |
+| หน้า 2 คอลัมน์ 2 | Part 2: DormFix/WBS/owners/Gantt/buffers | Lecture 10 pp. 13-21; p. 17 ให้รูปแบบ RACI แต่ไม่ให้ notes/เฉลยตายตัว |
+| หน้า 2 คอลัมน์ 2 | Badminton story/Gherkin/metadata/bug | Lecture 10 pp. 22-24; คง “Booked”/“Free” ตามโจทย์ |
+| หน้า 2 คอลัมน์ 2 | ShuttleNow/Fibonacci/16 points | Lecture 10 pp. 25-26; Lecture 7 pp. 67-72, 118 |
+| หน้า 2 คอลัมน์ 2 | Worked PERT / remote commands | Lecture 6 pp. 90-92; Samples pp. 6, 19, 22-26 |
+| หน้า 2 คอลัมน์ 3 | Part 3: KU R1-R11/Sequence/Activity | Samples pp. 1-4; Lecture 10 p. 29 สำหรับการเลือก 30 คะแนน |
+| หน้า 2 คอลัมน์ 3 | Ticket State / Grades submit slice | Lecture 4 pp. 45-46, 61-65 |
+| หน้า 2 คอลัมน์ 4 | Registration List/Form | Samples pp. 1-2, 5; รูปแบบทั่วไป Lecture 4 pp. 111-117 |
+| หน้า 2 คอลัมน์ 4 | Git 20 คะแนน, HEAD/FF/3-way/remote/tag | Lecture 10 p. 29; Samples pp. 6-14, 18-26 |
 
-## สมมติฐานและการแยกตัวอย่างจากข้อเท็จจริง
+### ครบในระดับใด และส่วนใดย่อออก
 
-- Target “p95 ≤ 2 s ที่ 100 concurrent users” เป็นตัวอย่าง rewrite ที่เสนอเพิ่ม จึงระบุชัดว่ารอยืนยัน client ไม่ใช่ตัวเลขที่โจทย์ให้
-- WBS มีสาม milestones เท่านั้น ตาม worked example ใน Lecture 10 p. 16 ช่อง 1.4 เว้นว่าง ไม่สร้างงานเพิ่มให้เต็มช่อง
-- DormFix เริ่ม 4 January 2027; ทำงานจันทร์-ศุกร์; buffer หลัง B/F/H อย่างละหนึ่งวัน; project buffer 28-29 January; milestones 8/15/29 January ตรง Lecture 10 pp. 18-21 กฎ buffer นี้ใช้กับเงื่อนไขตัวอย่าง ไม่ใช่กฎว่าทุกโครงการต้องมี buffer หลังทุก approval
-- RACI สี่แถวเป็นตัวอย่างจาก meeting notes ที่เขียนในชุดฝึก CPE334 12 ข้อ ไม่อ้างว่าเป็นตารางคำตอบตายตัวของข้อสอบจริง
-- ShuttleNow: points 8, 3, 5, 3, 5, 2; เลือก stories 1/3/4 รวม 16 ตรง Lecture 10 p. 26
-- Sequence ใช้ scenario ที่มี Draft เดิมสอง offerings แล้วเพิ่มอีกหนึ่ง ต่างจาก Activity ซึ่งเริ่มครั้งแรกของภาคด้วย blank form ภาพทั้งสองจึงไม่ได้ใช้ initial state เดียวกัน
-- UI wireframes เป็นแบบวาดย่อเพื่ออธิบายการตอบโจทย์ ไม่ใช่ screenshot แอปจริง ค่า sample ในตารางใช้ประกอบเท่านั้น `/////` แทน diagonal hatching ของ read-only fields
-- Use Case ของ Grades เป็น architectural slice ของการ Submit เท่านั้น: Instructor ใช้งาน Submit grades ซึ่ง include การ update transcript และ send email ไม่ได้อ้างว่าเป็น Use Case diagram ครบระบบ ต้องเพิ่ม goal และ external actors ตามคำถามจริง
-- Ticket State วาดใหม่ตาม Lecture 4 p. 62 โดยย่อ Programmer เป็น P ตาม legend: มี Requested, Approved, In Progress, Closed by CCE และ Closed by Programmer พร้อม self-loop และจุดจบ; ไม่ใช้สถานะ/สิทธิ์ของแอป TokTickIT มาแทน case ใน lecture
-- Critical-path graph เป็นตัวอย่างที่สร้างเพื่ออธิบายสูตร ไม่ใช่คำตอบ DormFix: A=2, B=3, C=1, D=2 วัน; A→B→D ใช้ 7 วัน, A→C→D ใช้ 5 วัน และ C มี float 2 วัน ภายใต้ dependency ในรูปและไม่มีข้อจำกัดทรัพยากรเพิ่มเติม
-- ตารางใต้กราฟใช้เวลาเริ่ม 0 และเส้นตาย 7: A=(ES 0, EF 2, LS 0, LF 2), B=(2,5,2,5), C=(2,3,4,5), D=(5,7,5,7); Float เท่ากับ LS-ES จึงมีเฉพาะ C ที่เลื่อนได้ 2 วัน
-- PERT worked example มาจาก Lecture 6 pp. 90-92: T1 มี O=2, M=3, P=6 ชั่วโมง จึง E=3.33 และ SD=0.67 ชั่วโมง; หกงานรวม E=35.6667 และ SD=3.2318 ชั่วโมงเมื่อ estimates อิสระ แสดงเป็น 35.7 ± 3.2 ชั่วโมงตามสไลด์ นี่คือ effort รวม ไม่ใช่กำหนดส่งเมื่อทำงานขนาน
-- ภาพโจมตีเป็น conceptual flows ไม่ใช่ screenshot หรือ request log; แยกให้เห็น XSS รันที่ browser, CSRF อาศัย browser/cookie, SSRF ให้ server เรียกปลายทาง และ SQLi เปลี่ยน query ที่ไม่ปลอดภัย
-- Git example A แสดงผลหลัง fast-forward, สร้าง F บน staging แล้ว switch main; example B ขยายเฉพาะ fork ที่ D ไม่ได้แสดงบรรพบุรุษทั้งหมด ยังคงเตือนให้วาดทุก branch/origin/HEAD ในคำตอบจริง
-- คำสั่ง commit ที่ยาวใน example A ใช้ shell continuation (`\` ท้ายบรรทัด) อย่างชัดเจน จึงไม่ตัดคำใน commit message จนกลายเป็นคำสั่งคนละอัน
-- ตัวอย่าง Explain state แยกจาก A/B: Samples 2.6 ใช้ main=B, origin/main=H, tag v1.0=H; Samples 2.7 ใช้ H เป็น unpublished merge ที่มี parents E/G ไม่ใช่ commit G ของ example B
-- Sample 2.8 เริ่มจาก FF staging C→E ก่อนใช้ `branch` และ `switch` สร้าง `feature/grade_distribution` ที่ E; commit F เลื่อนเฉพาะ feature ใหม่ ส่วน staging และ `feature/pass_rate` ยัง E และ `origin/staging` ยัง C
-- Sample 2.9 เป็นกรณีเริ่มใหม่: local staging=D, remote-tracking=G, feature=F; FF D→G ก่อน merge feature จึงได้ H ที่มี parents G/F; ไม่ใช้ FF กับ feature ที่แยกสาย และ main/feature ไม่เลื่อนตาม staging
-- Revised proposal เก็บข้อเท็จจริงเรื่องปัญหา ผู้ใช้และขอบเขตจาก Practice Midterm / Lecture 10; metric, risk/control, effort-planning และ evidence/sign-off เป็นข้อเสนอที่ติดป้าย ไม่ใส่ตัวเลขหรือผู้อนุมัติที่โจทย์ไม่ยืนยัน
-- Mean Lead Time ใช้จุดเริ่ม “idea” ถึง “production” ตาม Lecture 7 p. 159 ในวิชานี้ ไม่สลับไปนิยามที่เริ่มจาก commit โดยไม่แจ้ง
-- การทดสอบ rejection ตรวจว่า business data/side effects ที่ห้ามไม่เปลี่ยน ไม่ได้ห้ามระบบบันทึก audit log ของความพยายามที่ถูกปฏิเสธ
-- สูตร ES/EF/LS/LF ใช้เวลาเริ่มศูนย์ ส่วนวันที่ใน Gantt ใช้วันทำงานแบบ inclusive จึงแยก convention ไม่บวกหรือลบวันปนกัน สูตร SD รวมใช้เมื่อ estimates เป็นอิสระต่อกัน
-- Scrum formal events ห้ารายการนับ Sprint ด้วย; backlog refinement เป็นกิจกรรมต่อเนื่อง ใน Lecture 7 บางหน้าใช้ตารางหัวข้อ “meetings” ซึ่งนับ refinement แทน Sprint จึงจัดคำให้แยกกันชัด
-- Lecture 7 pp. 163-164 กล่าวถึงการแบ่งเครดิตงาน unfinished ตามนโยบายในสไลด์ โพยแยกประเด็นนี้จาก DoD: partial work ไม่ได้แปลว่า increment ผ่าน DoD ส่วนที่เหลือต้องเป็น story ใหม่ ไม่ใช้คำว่า Done แบบกำกวม
-- Blueprint หลัก Lecture 10 p. 29 เลือก 30 คะแนนจาก Sequence/Activity/UI/Use Case/State; หน้า 30 กล่าวถึง Class ในรายการตัวอย่าง lecture แต่ Midterm Samples p. 6 ระบุชัดว่า Class Diagrams จะอยู่ใน Final จึงเก็บเฉพาะ notation สั้น ๆ ไม่เพิ่ม worked Class exercise ลงหน้าแนวกลางภาค
+ครบ **กลุ่มหัวข้อหลักของ Lecture 1-7 และกลุ่มโจทย์ Midterm ที่ตรวจ** ไม่ใช่ทุกประโยคหรือทุกภาพ รายละเอียด career ladder, setup เฉพาะเครื่อง, code snippets ทุกตัว, UI ตัวอย่างซ้ำ, POS features A-R แบบเต็ม และขั้นตอน budget/procurement/communication แบบยาวไม่ได้คัดทั้งหมดลงโพย ให้เปิดหน้าที่อ้างเมื่อยังอธิบายหรือทำโจทย์เองไม่ได้
 
-## ไฟล์และการ build บน Mac
+ไม่ได้ขยาย Component/Package จาก Lecture 4 p. 74 เพราะ blueprint เฉพาะ Midterm ใน Lecture 10 p. 29 ไม่เลือกสองแบบนี้ ไม่ได้รวม group project หลัง Lecture 10 p. 31 หรือ Week 8-9 และไม่ได้เปิด Google Docs ภายนอกที่สไลด์ลิงก์ไว้ จึงไม่รับรองเนื้อหาในลิงก์เหล่านั้น
 
-`midterm/cheat-sheet.tex` กำหนดกระดาษ ฟอนต์ สี คอลัมน์และ macro; `theory-1.tex` ถึง `theory-4.tex` เป็นหน้าแรก; `practice-1.tex` ถึง `practice-4.tex` เป็นหน้าที่สอง เนื้อหาทั้งหมดแก้ได้โดยไม่ต้องแก้ PDF โดยตรง ใช้ฟอนต์ TH Sarabun New ที่มีอยู่แล้วใน `preparation/mock-exam/midterm/fonts/` และ Menlo บน Mac เพื่อไม่สร้างสำเนาฟอนต์ซ้ำ ต้องมีแพ็กเกจ `unicode-math` และ `latinmodern-math.otf` ใน TeX distribution; โหลดด้วยชื่อไฟล์เพื่อไม่พึ่งการลงทะเบียนฟอนต์ใน macOS
+### ตัวอย่างที่เติมเองและเงื่อนไขคำนวณ
+
+- **คำอธิบายเสริม:** p95 ≤ 2 s ที่ 100 concurrent users เป็นค่าที่เสนอ ไม่ใช่ที่ coordinator ระบุ ต้องยืนยันจุดวัด เครือข่าย ชุดข้อมูลและกรณีผิดพลาด
+- **คำอธิบายเสริม:** Proposal revision เพิ่ม metric, risk/control, effort planning และ evidence/sign-off โดยคงปัญหา ผู้ใช้และขอบเขตจากโจทย์ ห้ามอ้างว่าข้อเสนอเพิ่มได้รับอนุมัติแล้ว
+- **คำอธิบายเสริม:** RACI สี่แถวตรงกับ meeting notes ใน [mock exam ข้อ 5.2](../mock-exam/midterm/chapters/questions.tex) ไม่ใช่เฉลย Lecture 10 p. 17
+- **คำอธิบายเสริม:** กราฟ A=2, B=3, C=1, D=2 และตาราง ES/EF/LS/LF ใช้ finish-to-start ไม่มี lag/ข้อจำกัดคน เริ่ม 0 จบ 7; A-B-D=7 วัน, A-C-D=5 วัน, C float=2 ไม่ใช่กราฟ DormFix
+- **คำอธิบายเสริม:** สูตร forward/backward pass ขยาย Lecture 6 pp. 82-85 อย่าปนเวลาเริ่มศูนย์กับวันที่ inclusive ใน Gantt
+- **คำอธิบายเสริม:** SD รวมใช้รากของผลรวม variance เมื่อประมาณการอิสระ หกงาน Lecture 6 pp. 91-92 ให้ E=35.6667 h, SD=3.2318 h เป็น effort ไม่ใช่ duration เมื่อทำขนาน และหนึ่ง SD ไม่ใช่ช่วงรับประกัน
+- DormFix ตาม Lecture 10 pp. 18-21: เริ่ม 4 Jan 2027 ทำ จ.-ศ.; buffer หลัง B/F/H อย่างละวัน, project buffer 28-29 Jan; milestones 8/15/29 Jan ใช้เวลา 0; WBS 1.4 ว่าง
+- ShuttleNow ตาม p. 26: points 8,3,5,3,5,2; เลือก 1/3/4 รวม 16 ไม่เลือก QR fare เพราะไม่ตรง sprint goal
+- **คำอธิบายเสริม:** Negative tests, score-boundary cases, attack flows, UI wireframes และ Grades submit slice เป็นการประยุกต์ การปฏิเสธไม่ควรเปลี่ยน business data แต่ audit log ยังเกิดได้ตาม contract
+- **คำอธิบายเสริม:** KU Sequence/Activity วาดย่อจากโจทย์ ไม่ใช่เฉลยภาพของอาจารย์ Sequence แสดง Student จ่าย BBL และ email PDF ถึง Student; Activity ไม่แต่ง payment-failure loop ที่กรณีสำเร็จไม่ได้ขอ
+- **คำอธิบายเสริม:** UI ไม่ถือ Registration No./Total Credits เป็นข้อบังคับจาก R5-R11 จึงไม่ใส่ แม้ภาพเฉลยตัวอย่างมีช่องเสริม รายละเอียด R7 แสดงผ่านตาราง/พื้นที่รายละเอียดได้
+- **คำอธิบายเสริม:** Git A รวม Samples 2.3 กับ switch main ท้าย; Git B ขยาย fork ที่ D จาก 2.5; 2.6-2.9 เริ่มจากกราฟของตน ไม่ย้ายชื่อ commit ข้ามตัวอย่าง
+
+## E. คำถามทบทวน 10 ข้อ
+
+คำอธิบายเสริม: ชุดนี้สร้างเพื่อฝึก ไม่ใช่ข้อสอบจริง ให้ตอบก่อนอ่านเฉลยท้ายหัวข้อนี้
+
+1. SRS/SDS/STS ต่างกันอย่างไร และควรเชื่อมด้วยอะไร? (Lecture 3 pp. 33-42; Lecture 4 pp. 88-100)
+2. “สมัครได้เร็ว” กับ “ถือการสมัครไม่เกินสามรายการต่อภาค” เป็นชนิดใด ต้องรู้อะไรเพิ่มก่อนเขียน test? (Lecture 2 pp. 14-26; Lecture 10 pp. 5-6)
+3. WorkshopHub รุ่นแรกเฉพาะ workshop ฟรี ข้อมูลใดยังขาดก่อนประเมินและรับงาน? (Lecture 10 pp. 7-8)
+4. Coordinator สร้าง workshop ได้ จึงสมัครได้ด้วยไหม ตรวจที่ไหนและพิสูจน์อย่างไร? (Lecture 10 p. 9)
+5. สคริปต์ปลอม PDF รันแล้วอ่านรายงานผู้อื่น: CIA ใดเกิดขึ้นแล้ว ใดแค่เสี่ยง และป้องกันสองชั้นอย่างไร? (Lecture 10 p. 10; Lecture 5 pp. 5-8, 28-38)
+6. KU Sequence/Activity เริ่มจาก form เดียวกันไหม หลังจ่ายสำเร็จต้องเกิดอะไร? (Samples pp. 1-4)
+7. A=2 วัน ก่อน B=3 และ C=1 ที่ทำขนาน แล้ว D=2 รอทั้งคู่ หากไม่มีข้อจำกัดคนและกำหนดจบเร็วสุด CP/float ของ C เท่าใด? (ประยุกต์ Lecture 6 pp. 82-85)
+8. PERT O=2, M=3, P=6 h ให้ E/SD เท่าใด บวก effort ทุกงานเป็นวันจบได้เลยไหม? (Lecture 6 pp. 86, 90-92)
+9. ShuttleNow anchor=3, velocity=16 เลือก stories ใด ทำไมไม่เอา QR fare และ points เป็นชั่วโมงไหม? (Lecture 10 pp. 25-26; Lecture 7 pp. 67-72)
+10. main=B แต่ origin/main=H ซึ่ง H เป็นลูก B: switch main ถึง H เลยไหม อัปเดตอย่างไร และ branch อื่นเลื่อนตามไหม? (Samples pp. 12, 21-22)
+
+### เฉลยย่อ
+
+1. SRS บอกสิ่งที่ต้องการ SDS บอกแบบที่จะสร้าง STS บอกวิธีพิสูจน์ เชื่อม Req/AC IDs กับ design/code/tests/ไฟล์/ผลจริง ไม่เก็บเอกสารแยกขาดกัน
+2. “เร็ว” เป็น NFR กำกวม ต้องตกลงตัวชี้วัด ภาระงาน จุดวัดและเกณฑ์ผ่าน; “ไม่เกินสาม” เป็น BR/domain rule ถามการยกเลิก/ข้ามภาคก่อนทดสอบขอบเขต 2/3/4
+3. ยังขาดตัววัดคุณค่า/ค่าตั้งต้น ความเสี่ยง effort และหลักฐานรับงาน; “ก่อนภาคหน้า” เป็น deadline ไม่ใช่ effort ต้องติดป้ายสิ่งที่เสนอเพิ่ม
+4. ไม่ได้ เพราะไม่มี grant สมัครและไม่สืบทอด role; ตรวจ backend ทุก request คำอธิบายเสริม: เรียก API สมัครด้วย Coordinator ต้องถูกปฏิเสธ/ไม่เพิ่มข้อมูล
+5. C ถูกละเมิดแล้วจากการอ่านรายงานคนอื่น; I/A อาจตามมาแต่โจทย์ไม่ยืนยัน; ตรวจเนื้อหา/ชนิด/ขนาดบน server และเก็บแบบรันไม่ได้พร้อมตรวจสิทธิ์ดาวน์โหลด
+6. Sequence มี Draft เดิมสอง offerings ก่อนเพิ่มหนึ่ง; Activity เริ่มฟอร์มว่าง; จ่ายสำเร็จเป็น Done แก้ไม่ได้ และส่ง PDF ผ่าน KU Email
+7. A-B-D=7 วันเป็น CP; A-C-D=5 วัน; C float=2: ES=2, EF=3, LS=4, LF=5 ภายใต้เงื่อนไขที่ระบุ
+8. E=(2+4×3+6)/6=3.33 h; SD=(6-2)/6=0.67 h ไม่รับประกันช่วงเวลา วันจบขึ้นกับ dependency งานขนาน คนและปฏิทิน
+9. เลือก 1/3/4 ได้ 8+5+3=16 ตรง goal ติดตามรถ/เวลาถึง; QR fare ไม่ตรง goal; points เป็นขนาดสัมพัทธ์ไม่ใช่ชั่วโมง
+10. switch ให้ HEAD อยู่ main ที่ B ไม่เลื่อน main; บน main ใช้ `git merge --ff-only origin/main` เพื่อเลื่อนไป H เมื่อไม่แยกสาย feature/staging ไม่เลื่อนตาม
+
+## F. จุดต่างของเอกสารและสิ่งที่ควรถาม
+
+| ประเด็น | เอกสารระบุอย่างไร | การใช้ในฉบับนี้ / ข้อควรถาม |
+| --- | --- | --- |
+| UML ในขอบเขตสอบ | Lecture 4 p. 74 รวม Component/Package/Class; Lecture 10 p. 30 ยังมี Class แต่ blueprint p. 29 เลือก Sequence/Activity/UI/Use Case/State; Samples p. 6 ระบุ Class อยู่ Final | ยึด blueprint เฉพาะ Midterm ในหน้าแนวสอบ เก็บ Class ย่อพร้อมป้าย Final; ถามหากมีประกาศแก้ ไม่รับรองว่าจะไม่มีทางออก |
+| Scrum events/meetings | Lecture 7 p. 40 นับ Sprint ใน 5 events แต่ p. 47 ตาราง meetings ใส่ refinement แทน | แยกชื่อหมวด ไม่อ้างว่ารายการเหมือนกัน; ถ้าถามสไลด์เฉพาะหน้าให้อธิบายบริบท |
+| Unfinished/DoD | Lecture 7 pp. 163-164 ปรับ story/points ติด unfinished แยกส่วนเหลือ; pp. 146/169 กล่าวถึง AC/Done increment | เครดิตตามสไลด์ไม่เท่ากับผ่าน DoD; ควรถามก่อนคำนวณ velocity หากโจทย์มีกรณีนี้ |
+| AuthN/AuthZ | Lecture 5 p. 13 หัวข้อ “Common authorization methods” แต่ยก Basic/Digest/API key/session | จัดใต้ AuthN ตามบริบท p. 8 แยก AuthZ ตาม pp. 19-23 ไม่แปลหัวข้อผิดตามไปด้วย |
+| RACI/Gantt | Lecture 10 p. 17 ให้รูปแบบแต่ไม่มี notes/เฉลย RACI; pp. 18-21 ให้กฎและเฉลย Gantt | ไม่อ้าง RACI mock เป็นคำตอบทางการ และไม่เติมบทบาทเอง |
+| ช่อง UI เสริม | Samples pp. 1-2, 5 ให้ข้อกำหนด/คำถาม; ภาพเฉลย pp. 15-16 มีช่องเสริมและป้าย Solution ชวนสับสน | ยึดข้อความ/Req IDs ไม่คัดทุกช่องเป็นข้อบังคับ ไม่อ้างว่าได้ตรวจภาพเฉลยทุกภาพ |
+| Git staging | Lecture 1 pp. 36/43 มี `git add .`; Samples p. 6 ห้ามในโจทย์ | ใช้ชื่อไฟล์ตามกฎข้อสอบ ไม่ใช่ความขัดแย้งของ Git เอง |
+| สิ่งที่โจทย์ไม่ให้ | “quick” ไม่มี threshold; cancellation ไม่บอกการนับ; proposal ไม่มี effort; API ไม่กำหนด | เสนอ/ถามและติดป้าย ไม่แต่งเป็นข้อเท็จจริง |
+
+ไม่มีสมการสำคัญที่เลือกใช้ต้องเดาค่าที่อ่านไม่ออก แต่ยังไม่ได้ตรวจรายละเอียดภาพทุกสไลด์หรือเอกสารในลิงก์ภายนอก รายการ coverage จึงไม่ใช่คำรับรองว่าแทนต้นฉบับได้ทุกหน้า
+
+คำอธิบายเสริม: ก่อนนำเข้าห้องสอบต้องยืนยันประกาศจริงว่าอนุญาตกี่หน้า/กี่ด้านและเงื่อนไขใด การมีโพยสองหน้าไม่ได้ยืนยันสิทธิ์นำเข้าสอบ
+
+## รูปแบบ การ build และการตรวจฉบับพิมพ์
+
+`midterm/cheat-sheet.tex` กำหนด layout; `theory-1.tex` ถึง `theory-4.tex` เป็นหน้าแรก และ `practice-1.tex` ถึง `practice-4.tex` เป็นหน้าที่สอง ใช้ TH Sarabun New ใน `preparation/mock-exam/midterm/fonts/`, Menlo บน Mac และ Latin Modern Math ไม่สร้างสำเนาฟอนต์เพิ่ม
+
+คงขนาดเดิม: เนื้อหา 8 pt / leading 7.35 pt; ตาราง 7.1 pt / 7.2 pt; โค้ด 5.7 pt / 6 pt; ป้ายภาพส่วนใหญ่ 7.1 pt; กรอบชื่อ 44.77 × 5.05 mm ตัวอักษร 11.55 pt สูตรใช้ `Scale=MatchUppercase` ให้ความสูงเข้ากับ Sarabun
+
+ขอบ 3 mm ความสูงคอลัมน์ 289.5 mm; คอลัมน์ขวาสุดกันชื่อ 8 mm เหลือ 281.5 mm ภาพเป็นเวกเตอร์: flow/call ใช้หัวทึบ reply เส้นประหัวเปิด email delivery เส้นทึบหัวเปิด ส่วน actor association/Git ancestry ไม่มีหัว
 
 จาก `preparation/cheat-sheet/midterm/`:
 
@@ -94,30 +254,21 @@
 sheet_build_dir=$(mktemp -d /private/tmp/cpe334-cheatsheet-build.XXXXXX)
 xelatex -interaction=nonstopmode -halt-on-error -output-directory="$sheet_build_dir" cheat-sheet.tex
 xelatex -interaction=nonstopmode -halt-on-error -output-directory="$sheet_build_dir" cheat-sheet.tex
-mkdir -p output/pdf
+# ตรวจ log, จำนวนสองหน้า และภาพเรนเดอร์ก่อนแทนไฟล์ส่งออก
 cp "$sheet_build_dir/cheat-sheet.pdf" output/pdf/CPE334_Midterm_Cheat_Sheet.pdf
 trash "$sheet_build_dir"
 ```
 
-แต่ละคอลัมน์พิมพ์ความสูงลง log และเตือนถ้าเกิน budget อย่าใช้ผล build ที่มี `Column ... exceeds its page budget`, `Overfull`, หรือ `Missing character` ต้องตรวจภาพเรนเดอร์และจำนวนสองหน้าอีกครั้งหลังเปลี่ยนเนื้อหา
+ต้องไม่มี `Column ... exceeds its page budget`, `Overfull` หรือ `Missing character`; ตรวจภาพทั้งสองหน้าและซูมทุกคอลัมน์ โดยเฉพาะ Sequence/Activity, Gantt และสูตร ไม่ใช้เพียง text extraction ยืนยันว่าไม่มี clipping
 
-## การพิมพ์ / การนำไปทำ Canva ต่อ
+พิมพ์ A4 แนวตั้ง 100% ไม่ใช้ Fit โดยไม่ตรวจ หากเครื่องพิมพ์พิมพ์ขอบ 3 mm ไม่ได้ต้องปรับ layout ก่อน ใช้ duplex/flip on long edge เฉพาะเมื่ออนุญาตสองด้าน และลองพิมพ์หนึ่งแผ่นเพราะจอไม่ยืนยันความคมของเครื่องพิมพ์
 
-- A4 แนวตั้ง ขนาดจริง 100% ไม่ใช้ booklet หรือหลายหน้าต่อแผ่น ขอบกระดาษ 3 mm; ตรวจว่าเครื่องพิมพ์พิมพ์ถึงขอบนี้ได้ หากไม่ได้ต้องปรับ layout ใหม่ ไม่กด Fit โดยไม่ตรวจขนาดตัวอักษร
-- ถ้าพิมพ์สองหน้าลงกระดาษหนึ่งแผ่น ให้เลือก duplex / flip on long edge
-- ตัวเนื้อหา TH Sarabun New 8 pt/leading 7.35 pt, ตาราง 7.1 pt/leading 7.2 pt (ตาราง CP 7 pt/leading 6.9 pt), โค้ด Menlo 5.7 pt/leading 6 pt, diagram labels ประมาณ 6-7.3 pt ส่วนใหญ่ 7.1 pt; ชื่อ/รหัส 11.55 pt แบบหนาในกรอบสีเหลืองขนาดคงที่ 44.77 × 5.05 mm
-- ยังไม่ได้สร้าง Canva design ในรอบนี้ ต้นฉบับแยกคอลัมน์และกราฟิกเวกเตอร์ไว้แล้ว จึงใช้ PDF นี้เป็นเรฟ/import หรือจัดใหม่เป็น text boxes ได้ภายหลัง โดยตรวจฟอนต์และ line breaks ใหม่เมื่อแปลง
-- เก็บเฉพาะ source, README, reference เดิม และ PDF สองหน้า ไฟล์ render/aux/log ที่ใช้ตรวจอยู่ใน temporary directory และล้างหลังตรวจ ไม่แตะ repository ของ TokTickIT
+เก็บเฉพาะ source, reference, README และ PDF ตัวจริง aux/log/render ใช้ใน temporary directory แล้วล้างหลังตรวจ งานนี้เฉพาะ course repo ไม่แตะ TokTickIT หรือ Google Docs
 
-## การตรวจฉบับนี้
+### ผลตรวจฉบับ 24 October 2026
 
-- PDF สองหน้า A4 แนวตั้ง ตรวจภาพเรนเดอร์ครบทั้งสองหน้าและขยายดูไดอะแกรม/ตัวพิมพ์เล็ก
-- ไม่มีหัวกระดาษหรือ legend/เลขหน้า/แหล่งอ้างอิงท้ายหน้า; ชื่อ/รหัสประมาณ 11.5 pt มีครบทั้งสองหน้าและไม่ชนเนื้อหาคอลัมน์ขวาสุด กรอบมีขนาด/ตำแหน่งเดิม แต่ชื่ออยู่กึ่งกลางและมีระยะห่างจากเส้นกรอบมากขึ้น
-- ความสูงทั้งแปดคอลัมน์อยู่ใน budget; log ไม่มี `Overfull`, `Missing character` หรือคำเตือนว่าคอลัมน์เกินหน้า
-- ตรวจต้นฉบับทุกคอลัมน์แล้วไม่พบตัวอักษรไทยติดกับอังกฤษ/ตัวเลขโดยไม่เว้นวรรค; ชื่อเฉพาะและ identifiers ในรูปยังคงรูปเดิม
-- ขยายตรวจไดอะแกรมครบทั้ง 17 ภาพและภาพรวมสองหน้า หลังปรับระยะไม่พบป้าย/กล่อง/ลูกศรชนกัน; ไม่ลดฟอนต์เนื้อหาหรือคำสั่งเพื่อบีบพื้นที่
-- ตรวจหัวข้อและกรณีเดิมร่วมกับส่วนเพิ่ม: fork/join, CP forward/backward pass, PERT จาก Lecture 6, คำศัพท์ security และ Sample 2.8; ส่วนเพิ่มใช้พื้นที่ที่เหลือโดยคงจำนวนสองหน้า
-- ฟอนต์ทุกตัวฝังใน PDF ไม่มีภาพ raster ที่อาจแตกเมื่อซูม และไม่พบข้อความออกนอกขอบปลอดภัย
-- ตรวจคำหลักของบท 1-7 บนหน้าแรกครบ; ตรวจวันทำงานและ duration ของ Gantt, milestones 8/15/29 January และผลรวม Sprint 16/16 points ซ้ำด้วยการคำนวณ
-- ตัวอย่างและการเติมข้อมูลที่ไม่ได้มาจากโจทย์ถูกแยกไว้ในหัวข้อสมมติฐานด้านบน ไม่ได้อ้างว่าเป็นเงื่อนไขข้อสอบจริง
-- ตรวจ coverage กับ Practice Midterm Part 1 (4 activities), Part 2 (WBS/RACI/Gantt/grooming/planning) และ Parts 3-4 (UML/UI 30 + Git 20); การย่อเป็นโพยไม่ใช่การรับรองว่าทุกคำถามในข้อสอบจริงจะเหมือนตัวอย่าง
+- PDF 2 หน้า A4 แนวตั้ง คงขนาดฟอนต์เดิม ตรวจภาพรวมทั้งสองหน้าและขยายอ่านครบแปดคอลัมน์ รวมทั้งตรวจภาพรอบสุดท้ายหลังเก็บรายละเอียดเส้น/บรรทัด
+- ความสูงทั้งแปดคอลัมน์อยู่ใน budget; build ไม่มี `Overfull`, `Missing character` หรือคำเตือนคอลัมน์เกินหน้า ข้อความทุก span อยู่ในขอบปลอดภัย ฟอนต์ทุกตัวฝังในไฟล์ ภาพเป็นเวกเตอร์
+- ตรวจการเว้นวรรคไทย/อังกฤษ/ตัวเลขในต้นฉบับ ไม่พบการเขียนติดกันแบบ `idempotencyตามcontract` ตรวจชื่อไฟล์/ลิงก์ใน README ว่ามีจริง
+- คำนวณ PERT ซ้ำได้ E=35.6667 h, SD=3.2318 h; ตรวจ milestones 8/15/29 Jan 2027, capacity 16 points และคะแนนแนวสอบ 25+25+30+20=100
+- README มีแหล่งรายหัวข้อ ตารางศัพท์ คำถาม 10 ข้อและเฉลยแยก รวมทั้งข้อจำกัดการอ่านภาพ/แหล่งภายนอกข้างต้น ไม่รับรองว่าทุกเนื้อหาในข้อสอบจริงจะเหมือนแนว และยังไม่ได้ทดสอบความคมด้วยเครื่องพิมพ์จริง
