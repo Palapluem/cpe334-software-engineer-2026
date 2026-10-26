@@ -552,7 +552,7 @@ F มี parent E ตัวเดียวและบันทึกการ�
 \node[fill=white,inner sep=1pt]at(9.1,-9.5){\textless\textless include\textgreater\textgreater};
 \end{tikzpicture}
 \end{center}
-\textbf{ตรวจตนเอง:} associations ของ actors เป็นเส้นไม่มีหัวลูกศร; include ชี้จาก Submit ไปงานบังคับ; extend ชี้จาก Print ไป Maintain; เก็บการกรอก/แก้เกรดและเปลี่ยน Ready ไว้ใน Maintain; ไม่เพิ่มสิทธิ์หรือระบบภายนอกที่โจทย์ไม่ได้ระบุ\par
+\textbf{ตรวจตนเอง:} actor association เป็นเส้นทึบไม่มีหัว; \code{<<include>>} ชี้จาก Submit ไปงานบังคับ (Update transcript/Email students); \code{<<extend>>} ชี้จาก Print ไป Maintain พร้อมเงื่อนไข [Print selected]. Generalization ต้องชี้จาก child ไป parent ด้วยเส้นทึบและสามเหลี่ยมโปร่งที่ parent แต่โจทย์ Grades ไม่มี actor/use case แบบ parent-child จึงไม่วาดเพิ่ม\par
 \textbf{อ่านภาพให้ถูก:} ไม่ใช่ลำดับขั้นตอนการทำงาน Login เป็นเงื่อนไขก่อนใช้ฟังก์ชัน ไม่จำเป็นต้องลาก include ไป Login จากทุก use case; Student Info ให้ข้อมูลติดต่อแก่การแจ้ง email ส่วน KU Email เป็นผู้ส่ง\par
 \newpage
 \textbf{\Large S2\quad State: Service Ticket}\par

@@ -27,15 +27,16 @@ Special & load/performance, security, compatibility, recovery\\\hline
 \k{POS recovery/outbox}: เก็บ payment attempt; ผลไม่ชัดตรวจ PSP ก่อนเก็บเงินซ้ำ; บันทึก sale + pending inventory แบบ atomic; ส่ง async รอ ack/retry ใช้ transaction ID กัน stock ซ้ำ
 \k{BDD}: เริ่มจากพฤติกรรมด้วย Gherkin (outside-in); \k{TDD}: ให้ tests นำการออกแบบ (inside-out); ใช้ร่วมกันได้
 \chapterband{orangehead}{Lecture 4 · UML / Feature Design / UI}
-\k{Use case}: เป้าหมายของ actor ภายใน system boundary; วงรี = goal; actor association \r{เส้นทึบ ไม่มีหัวลูกศร}
-\b{include}: base → ขั้นตอนบังคับ (เส้นประ); \b{extend}: กรณีเสริม → base (เส้นประ + condition); \b{generalization}: child → parent (สามเหลี่ยมโปร่ง)
-\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,tinytext]
-\node[draw,ellipse,inner sep=1.3pt](a)at(10,0){Checkout};
-\node[draw,ellipse,inner sep=1.3pt](b)at(36,0){Pay};
-\draw[dependency](a)--node[above,font=\fontsize{6.5}{6.8}\selectfont]{\textless\textless include\textgreater\textgreater}(b);
-\node[draw,ellipse,inner sep=1.3pt](c)at(10,-6){Discount};
-\draw[dependency](c)--node[right]{\textless\textless extend\textgreater\textgreater}(a);
+\k{Use Case}: actor มี goal ใน boundary; association เป็นเส้นทึบไม่มีหัวลูกศร (L4 p.7)
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{5.9}{6.1}\selectfont]
+\node[inner sep=.2pt](incbase)at(5,0){Submit};\node[inner sep=.2pt](inctarget)at(45.2,0){Update};
+\draw[dashed,-{Triangle[open,length=1.2mm,width=1mm]}](incbase.east)--node[above,fill=white,inner sep=.2pt]{\textless\textless include\textgreater\textgreater}(inctarget.west);
+\node[inner sep=.2pt](extsource)at(5,-4.5){Print};\node[inner sep=.2pt](extbase)at(45.2,-4.5){Maintain};
+\draw[dashed,-{Triangle[open,length=1.2mm,width=1mm]}](extsource.east)--node[above,fill=white,inner sep=.2pt]{\textless\textless extend\textgreater\textgreater}(extbase.west);
+\node[inner sep=.2pt](child)at(5,-9){Cashier / Manager};\node[inner sep=.2pt](parent)at(45.2,-9){User};
+\draw[-{Triangle[open,length=1.35mm,width=1.2mm]}](child.east)--node[above,fill=white,inner sep=.2pt]{generalization}(parent.west);
 \end{tikzpicture}\end{center}
+\b{include}: base → required; \b{extend}: extension → base [condition]; \b{generalization}: child → parent (เส้นทึบ; สามเหลี่ยมโปร่งชี้ parent)
 \k{Activity}: workflow ครบทางเลือก; ● เริ่ม, action มุมมน, ◇ decision/merge + [guard], bar = fork/join ขนาน, ◎ จบ; swimlane แบ่งผู้รับผิดชอบ; ลูกศรข้าม lane ได้
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,tinytext]
 \node[act](a)at(3,-4.5){A};\node[act](b)at(24,-2){B};\node[act](c)at(24,-7){C};\node[act](d)at(45,-4.5){D};

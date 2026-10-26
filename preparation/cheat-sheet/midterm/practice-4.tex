@@ -1,6 +1,6 @@
 \band{yellowhead}{Practice Midterm · Part 3 (ต่อ)}
-\topic{4/5 Use Case: Grades ทั้งระบบ (L4, 64-65)}
-\k{เริ่มวาด}: boundary+actors → goals จาก req → associations → include/extend ตามเงื่อนไข; \r{ไม่ใช่ flowchart}
+\topic{4/5 Use Case: Grades ทั้งระบบ (L4 pp.64-65; notation p.7)}
+\k{ทิศ}: actor=เส้นทึบไม่มีหัว; include base→required; extend extension→base [condition]; generalization child→parent (หัวสามเหลี่ยมโปร่งชี้ parent). ใช้ตาม req; \r{ไม่ใช่ flowchart}
 \begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{6.8}{7.1}\selectfont]
 \draw[black!65](8,4)rectangle(38,-50);
 \node[anchor=south,font=\fontsize{7.1}{7.4}\selectfont]at(23,4){Grade Submission};
@@ -26,7 +26,7 @@
 \node[fill=white,inner sep=.25pt,font=\fontsize{6.5}{6.8}\selectfont]at(15,-37){\textless\textless include\textgreater\textgreater};
 \node[fill=white,inner sep=.25pt,font=\fontsize{6.5}{6.8}\selectfont]at(31,-37){\textless\textless include\textgreater\textgreater};
 \end{tikzpicture}\end{center}
-\extra ภาพจาก req; กล่อง actor = ระบบนอก; Student Info ให้ contacts; \b{Ready → submit → Submitted}; transcript/email บังคับ
+\extra ในภาพนี้ Submit include การอัปเดต transcript/ส่ง email; ตัวอย่าง S1 แยกต่างหาก: Print extends Maintain [เลือกพิมพ์]. Grades ไม่มี actor/use case แบบแม่–ลูก จึงไม่วาด generalization; L4 p.7 ยก Cashier/Manager→User
 \topic{5/5 State: object เดียว / event [guard] / effect}
 \k{วิธีทำ}: object → states/events/[guards]/effects; initial/final/self-loop; \r{actor ไม่ใช่ state}; P = Programmer
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{6.8}{7.1}\selectfont]
@@ -48,7 +48,8 @@
 \end{tikzpicture}\end{center}
 \k{Ticket}: save [System] → Requested; action อัปเดต Last Status/Due, แก้/ลบไม่ได้; closed ห้ามเพิ่ม; notes/due update เป็น self-loop
 \k{เทียบ}: Registration Draft → Done เมื่อจ่าย / lock+email; เต็มยัง Draft. Grades Draft → Ready → Submitted; \r{ห้ามแต่ง state}
-\topic{Git 20 คะแนน: เตรียมครบ Samples 2.1-2.9}
+\topic{Git: เลือก 2/3 รูปแบบ ข้อละ 10 · Samples 2.1-2.9}
+\k{รูปแบบ}: ทำนาย graph / อธิบาย graph / เขียนคำสั่งแล้ววาด graph ผลลัพธ์
 \k{โจทย์}: clean/คำสั่งสำเร็จ; conflict เฉพาะที่ระบุ. HEAD → branch → commit; origin/* = remote ที่รู้ล่าสุด; tag คงที่
 {\smalltable\begin{tabularx}{\linewidth}{|C{4mm}|Y|}\hline
 \rowcolor{lightrow}ข้อ & ฐาน → ผล / HEAD / ตัวชี้ที่ต้องรักษา\\\hline
@@ -63,29 +64,21 @@
 2.9 & s:D→G (FF)→H (G/F); push→os=H; HEAD=s=H, f=F\\\hline
 \end{tabularx}}
 \k{ชื่อย่อ}: s=staging, f=feature, os=origin/staging; main/origin/main=B ยกเว้น FF ใน 2.6; ใช้ชื่อจริงตามข้อ
-\topic{Ancestry ย่อเฉพาะช่วงเปลี่ยน; refs ดูตาราง}
-\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.1}{7.4}\selectfont]
-\foreach\lab/\x in{C/2,D/8,E/14,F/20}{\node[circle,draw,inner sep=1pt](left\lab)at(\x,0){\lab};}
+\topic{จำ ancestry: 2.3 fast-forward + commit; 2.5 three-way merge (G มี parent F/E)}
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{6.5}{6.7}\selectfont]
+\foreach\lab/\x in{C/2,D/8,E/14,F/20}{\node[circle,draw,inner sep=.8pt](left\lab)at(\x,0){\lab};}
 \draw(leftC)--(leftD)--(leftE)--(leftF);
-\node[anchor=south,inner sep=.5pt]at(11,2){2.3 FF + commit F};
-\node[anchor=north,inner sep=.5pt]at(11,-2){staging=F, feature=E};
-\node[circle,draw,inner sep=1pt](d)at(27,0){D};\node[circle,draw,inner sep=1pt](f)at(35,0){F};\node[circle,draw,inner sep=1pt,fill=minthead!45](g)at(45,0){G};\node[circle,draw,inner sep=1pt](e)at(35,-5){E};
+\node[anchor=south,inner sep=.2pt]at(11,1.5){2.3: FF, then commit};
+\node[circle,draw,inner sep=.8pt](d)at(28,0){D};\node[circle,draw,inner sep=.8pt](f)at(36,0){F};\node[circle,draw,inner sep=.8pt,fill=minthead!45](g)at(46,0){G};\node[circle,draw,inner sep=.8pt](e)at(36,-4){E};
 \draw(d)--(f)--(g);\draw(d)--(e)--(g);
-\node[anchor=south,inner sep=.5pt]at(36,2){2.5 3-way};
-\node[anchor=north,inner sep=.5pt]at(36,-7){G parents F/E};
+\node[anchor=south,inner sep=.2pt]at(37,1.5){2.5: two parents};
 \end{tikzpicture}\end{center}
 \topic{คำสั่ง: b/ref/files/msg ใช้ค่าจากโจทย์}
-\par\code{git status}: ดู branch/staged/unstaged/untracked; ไม่แก้
-\par\code{git diff}: เทียบ working tree กับ index เฉพาะ tracked; ไม่แสดงไฟล์ untracked
-\par\code{git diff --cached}: ดู staged: index เทียบ HEAD
-\par\code{git add <files>}: เก็บเวอร์ชันไฟล์ที่ระบุเข้า index; ยังไม่ commit หรือเลื่อน branch
-\par\code{git commit -m "<msg>"}: บันทึก index เป็นลูก HEAD; เลื่อน current branch/HEAD; ไม่ push
-\par\code{git branch <b>}: สร้าง b ที่ HEAD; HEAD/ไฟล์เดิม
-\par\code{git switch <b>}: HEAD/ไฟล์ไป b เมื่อ clean; ตัวชี้ branch ไม่เลื่อน
-\par\code{git merge <ref>}: รวมเข้า current; FF เลื่อน ref ไม่สร้าง commit; แยกสายสร้าง 2 parents; source เดิม
-\par\code{git merge --ff-only origin/<b>}: เลื่อน current แบบ FF เท่านั้น; แยกสายแล้วปฏิเสธ
-\par\code{git fetch origin}: รับ commits/อัปเดต origin/*; ไม่เลื่อน local branch/HEAD หรือไฟล์
-\par\code{git push origin <b>}: ส่ง b ไป remote/อัปเดต origin/b เมื่อสำเร็จ; HEAD/ไฟล์เดิม
+\par\code{git status}: branch/staged/unstaged/untracked; อ่านอย่างเดียว. \code{git diff}: tracked worktree↔index (ไม่รวม untracked). \code{git diff --cached}: index↔HEAD
+\par\code{git add <files>}: stage เฉพาะชื่อไฟล์; ยังไม่ commit. \code{git commit -m "<msg>"}: บันทึก index เป็นลูก HEAD และเลื่อน current branch; ไม่ push
+\par\code{git branch <b>}: สร้าง branch ที่ HEAD; HEAD/ไฟล์เดิม. \code{git switch <b>}: ย้าย HEAD/ไฟล์เมื่อ clean; ไม่เลื่อน branch pointer
+\par\code{git merge <ref>}: รวมเข้า current; FF เลื่อน ref, แยกสายสร้าง 2 parents; source คงเดิม. \code{git merge --ff-only origin/<b>}: ยอมเฉพาะ FF
+\par\code{git fetch origin}: รับ commits/เลื่อน origin/* เท่านั้น. \code{git push origin <b>}: ส่ง branch/อัปเดต origin/b; local HEAD/ไฟล์เดิม
 \k{2.3}: staging = sprint\_1\_staging, feature/load\_scores; แก้ score\_data.py, scores.csv; สร้าง validation\_notes.txt; message \code{"Document score validation cases"}
 \k{2.8}: s=sprint\_2\_staging; merge feature/pass\_rate; branch+switch feature/grade\_distribution; แก้ report.py, scores.csv; เพิ่ม grade\_ranges.csv; message \code{"Add grade distribution report"}
 \k{2.9}: b=sprint\_2\_staging, ref=feature/export\_results; switch b → FF origin/b → merge ref → push b
