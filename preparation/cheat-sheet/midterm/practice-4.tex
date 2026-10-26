@@ -1,87 +1,92 @@
 \band{yellowhead}{Practice Midterm · Part 3 (ต่อ)}
-\topic{UI ต่อ / Git รวม 20 คะแนน}
-\k{อ่านคำสั่ง}: Complete = เติมโครง; Design = ออกแบบตาม req; Samples p. 5 ให้ Invoice เป็นตัวอย่างสัญลักษณ์ ภาพ KU ด้านล่างเป็นคำอธิบายเสริม
-\begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{7.1}{7.4}\selectfont]
-\newcommand{\sheetro}[5]{\draw(#1,#2)rectangle++(#3,-#4);\begin{scope}\clip(#1,#2)rectangle++(#3,-#4);\draw[black!65,line width=.25pt]({#1+#3-2.2},{#2-#4})--({#1+#3-.4},#2)({#1+#3-.7},{#2-#4})--({#1+#3+1.1},#2);\end{scope}\node[anchor=west,fill=white,inner xsep=.25pt,inner ysep=0pt]at({#1+.6},{#2-#4/2}){#5};}
-\draw(0,0)rectangle(48,-28);\fill[bluehead!50](0,0)rectangle(48,-4);
-\node[anchor=west]at(1,-2){Course Offering List};\node[anchor=east]at(47,-2){Student};
-\node[anchor=west]at(1,-6){Sem:};\sheetro{7}{-4.7}{15}{2.8}{active}
-\node[anchor=west]at(24,-6){Course:};\draw(33,-4.7)rectangle(47,-7.5);\node[anchor=west,text=black!55]at(33.6,-6.1){code/name};
-\draw(1,-8)rectangle(47,-17);\foreach\y in{-11,-14}{\draw(1,\y)--(47,\y);}
-\foreach\x in{12,18,25,34}{\draw(\x,-8)--(\x,-17);}
-\sheetro{1}{-8}{11}{3}{Code}\sheetro{12}{-8}{6}{3}{Sec}\sheetro{18}{-8}{7}{3}{Cr}\sheetro{25}{-8}{9}{3}{Fee}\sheetro{34}{-8}{13}{3}{Seats}
-\node at(6,-12.5){CPE334};\node at(15,-12.5){1};\node at(21.5,-12.5){3};\node at(29.5,-12.5){8,000};\node at(40.5,-12.5){3};
-\node[anchor=west]at(1,-19){Detail: ID, name, room, time, notes,};\node[anchor=west]at(1,-22){semester, maximum, number registered};
-\node[anchor=west]at(1,-25.5){[Select / Add to Form]    [Prev] 1 [Next]};
-\begin{scope}[yshift=-26.7mm]
-\draw(0,0)rectangle(48,-43);\fill[minthead!55](0,0)rectangle(48,-4);
-\node[anchor=west]at(1,-2){Student Registration Form};
-\node[anchor=west]at(1,-6.5){[Close] [Save Draft] [Submit]};
-\node[anchor=west]at(1,-9){Student ID};\node[anchor=west]at(13,-9){Name};\node[anchor=west]at(32,-9){Login};
-\sheetro{1}{-10.3}{11}{3.2}{}\sheetro{13}{-10.3}{18}{3.2}{}\sheetro{32}{-10.3}{15}{3.2}{}
-\node[anchor=west]at(1,-15){Degree programme};\node[anchor=west]at(23,-15){Email};
-\sheetro{1}{-16.3}{21}{3.2}{}\sheetro{23}{-16.3}{24}{3.2}{}
-\node[anchor=west]at(1,-21){Semester};\node[anchor=west]at(17,-21){Status};\node[anchor=west]at(33,-21){Total fee};
-\sheetro{1}{-22.3}{15}{3.2}{active}\sheetro{17}{-22.3}{15}{3.2}{Draft}\sheetro{33}{-22.3}{14}{3.2}{}
-\draw(1,-27)rectangle(47,-35);\draw(1,-30.5)--(47,-30.5);\draw(16,-27)--(16,-35);\draw(22,-27)--(22,-35);
-\node at(8.5,-28.7){*Offering};\node at(19,-28.7){LoV};\node at(34.5,-28.7){Code / Sec / Cr / Fee};
-\node at(8.5,-32.8){[select]};\node at(19,-32.8){[...]};\sheetro{22}{-30.5}{25}{4.5}{auto from selection}
-\node[anchor=west]at(1,-37.5){[+ Add line] [Remove line]};
-\node[anchor=west]at(1,-41){After seats OK: *Pay ( )Card/KB ( )Transfer/BBL};
-\end{scope}
+\topic{4/5 Use Case: Grades ทั้งระบบ (L4, 64-65)}
+\k{เริ่มวาด}: boundary+actors → goals จาก req → associations → include/extend ตามเงื่อนไข; \r{ไม่ใช่ flowchart}
+\begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{6.8}{7.1}\selectfont]
+\draw[black!65](8,4)rectangle(38,-50);
+\node[anchor=south,font=\fontsize{7.1}{7.4}\selectfont]at(23,4){Grade Submission};
+\tikzset{uc/.style={draw,ellipse,align=center,inner sep=.8pt,text width=15mm,font=\fontsize{6.8}{7.1}\selectfont},outside/.style={align=center,text width=8mm,inner sep=.5pt,font=\fontsize{6.5}{6.8}\selectfont}}
+\node[uc](login)at(23,0){Log in};
+\node[uc](courses)at(23,-8){View courses\\and sections};
+\node[uc](students)at(23,-16){Load registered\\students};
+\node[uc](edit)at(23,-24){Edit / print\\grade sheet};
+\node[uc](submit)at(23,-32){Submit grades};
+\node[uc,text width=9mm](tr)at(15,-44){Update\\transcript};
+\node[uc,text width=9mm](em)at(31,-44){Email\\students};
+\draw(2.5,-14)circle(.7mm);\draw(2.5,-14.7)--(2.5,-17.5);\draw(1,-15.6)--(4,-15.6);\draw(2.5,-17.5)--(1,-19);\draw(2.5,-17.5)--(4,-19);
+\node[outside,anchor=north]at(3,-20){Instructor};
+\foreach\goal in{login,courses,students,edit,submit}{\draw(4,-15.6)--(\goal.west);}
+\node[outside,draw](sso)at(43,0){\textless\textless actor\textgreater\textgreater\\KU SSO};
+\node[outside,draw](reg)at(43,-12){\textless\textless actor\textgreater\textgreater\\KU\\Registration};
+\node[outside,draw,text width=7.5mm](transcript)at(3.5,-44){\textless\textless actor\textgreater\textgreater\\KU\\Transcript};
+\node[outside,draw](email)at(43,-44){\textless\textless actor\textgreater\textgreater\\KU Email};
+\node[outside,draw,text width=16mm](info)at(23,-54){\textless\textless actor\textgreater\textgreater\\KU Student Info};
+\draw(login.east)--(sso.west) (courses.east)--(reg.west) (students.east)--(reg.west) (tr.west)--(transcript.east) (em.east)--(email.west) (em.south)--(info.north);
+\draw[dependency](submit.south west)--(tr.north);
+\draw[dependency](submit.south east)--(em.north);
+\node[fill=white,inner sep=.25pt,font=\fontsize{6.5}{6.8}\selectfont]at(15,-37){\textless\textless include\textgreater\textgreater};
+\node[fill=white,inner sep=.25pt,font=\fontsize{6.5}{6.8}\selectfont]at(31,-37){\textless\textless include\textgreater\textgreater};
 \end{tikzpicture}\end{center}
-\k{ขีดเฉียง}: read-only/calculated; *Offering เลือก FK ด้วย LoV แล้วดึงข้อมูลอ้างอิง; profile/semester/total ไม่ให้แก้; R7 แสดงครบผ่าน columns/detail
-\k{State}: Draft แก้/Save/Submit; เต็ม → ชี้แถว/แก้/ส่งใหม่; จ่ายหลังตรวจที่นั่งผ่าน; Done ล็อก + email PDF
-\k{Offering}: course+semester+section; prefilled ยังเป็น RO ได้ และ * ไม่ได้ให้สิทธิ์แก้ profile
-\topic{Git: graph = ancestry + pointers}
-\k{HEAD → branch → commit}: เมื่อ clean ไฟล์ตรง HEAD; \k{origin/*} = remote ล่าสุดที่ local ทราบ \r{ไม่ใช่ GitHub สด}; tag ชี้ commit คงที่
-\k{switch}: เปลี่ยน HEAD/working tree ไม่เลื่อน branches; \k{commit}: สร้างลูก HEAD แล้วเลื่อน current; \k{merge}: รวมเข้า current ไม่เลื่อน source
-\k{FF}: current เป็น ancestor ของ target → เลื่อน current ไม่สร้าง commit; \k{3-way}: แยกสาย → commit ใหม่ 2 parents; \r{graph ไม่บอกว่าจะมี file conflict}
-\topic{คำอธิบายเสริม A: FF → commit → switch}
-เริ่ม A → B → C → D → E; main=B, staging=C, feature=E (HEAD); origin/main=B, origin/staging=C; ภาพย่อชื่อ branch จากคำสั่ง
-\cl{git switch sprint\_1\_staging}
-\cl{git merge feature/load\_scores}
-แก้ \code{score\_data.py}/\code{scores.csv}; เพิ่ม \code{validation\_notes.txt}
-\cl{git status; git diff -- score\_data.py scores.csv}
-\cl{git add score\_data.py scores.csv validation\_notes.txt}
-\cl{git diff --cached}
-\cl{git commit -m "Document score validation cases"}
-\cl{git switch main}
-\begin{center}\begin{tikzpicture}[x=7mm,y=1mm,font=\fontsize{7.3}{7.6}\selectfont]
-\foreach\lab/\x in{A/0,B/1,C/2,D/3,E/4,F/5}{\node[circle,draw,inner sep=1pt](\lab)at(\x,0){\lab};}
-\draw(A)--(B)--(C)--(D)--(E)--(F);
-\node[anchor=south,align=center,inner sep=.5pt](mainref)at([yshift=.7mm]B.north){HEAD → main\\origin/main};
-\node[anchor=north,inner sep=.5pt](remoteref)at([yshift=-.7mm]C.south){origin/staging};
-\node[anchor=south,inner sep=.5pt](featureref)at([yshift=.7mm]E.north){feature};
-\node[anchor=north,inner sep=.5pt](stagingref)at([yshift=-.7mm]F.south){staging};
-\draw[black!50,line width=.2pt](mainref.south)--(B.north) (remoteref.north)--(C.south) (featureref.south)--(E.north) (stagingref.north)--(F.south);
+\extra ภาพจาก req; กล่อง actor = ระบบนอก; Student Info ให้ contacts; \b{Ready → submit → Submitted}; transcript/email บังคับ
+\topic{5/5 State: object เดียว / event [guard] / effect}
+\k{วิธีทำ}: object → states/events/[guards]/effects; initial/final/self-loop; \r{actor ไม่ใช่ state}; P = Programmer
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{6.8}{7.1}\selectfont]
+\node[circle,fill,inner sep=.8pt](s)at(1,0){};
+\node[state,text width=12mm](req)at(11,0){Requested};
+\node[state,text width=12mm](approved)at(35,0){Approved};
+\node[state,text width=12mm](work)at(35,-9){In Progress};
+\node[state,text width=13mm](cc)at(11,-9){Closed by CCE};
+\node[state,text width=19mm](cp)at(35,-18){Closed by Programmer};
+\node[circle,draw,inner sep=1.1pt](e)at(11,-22){};\fill(11,-22)circle(.45mm);
+\draw[flow](s)--node[above,font=\fontsize{6.2}{6.5}\selectfont]{save}(req);
+\draw[flow](req)--node[above,align=center,font=\fontsize{6.2}{6.5}\selectfont]{approve\\{[CCE]}}(approved);
+\draw[flow](req)--node[right,align=center,font=\fontsize{6.2}{6.5}\selectfont]{close\\{[CCE]}}(cc);
+\draw[flow](approved)--node[left,font=\fontsize{6.2}{6.5}\selectfont]{start [P]}(work);
+\draw[flow](work.east)--(46,-9)--(46,-5.5)--(38,-5.5)--([xshift=3mm]work.north);
+\node[rotate=90,font=\fontsize{6.2}{6.5}\selectfont]at(47,-7){update [P]};
+\draw[flow](work)--node[left,font=\fontsize{6.2}{6.5}\selectfont]{close [P]}(cp);
+\draw[flow](cc)--(e);\draw[flow](cp.south)--(35,-22)--(e.east);
 \end{tikzpicture}\end{center}
-\k{ผล}: FF C → E; F อยู่บน staging, feature ยัง E, origins เดิม; switch ท้าย → HEAD → main=B
-\topic{คำอธิบายเสริม B: 3-way / 2 parents}
-\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.3}{7.6}\selectfont]
-\node[circle,draw,inner sep=1pt](d)at(6,0){D};\node[circle,draw,inner sep=1pt](f)at(22,0){F};\node[circle,draw,inner sep=1pt,fill=minthead!45](g)at(40,0){G};\node[circle,draw,inner sep=1pt](e)at(22,-5.5){E};
+\k{Ticket}: save [System] → Requested; action อัปเดต Last Status/Due, แก้/ลบไม่ได้; closed ห้ามเพิ่ม; notes/due update เป็น self-loop
+\k{เทียบ}: Registration Draft → Done เมื่อจ่าย / lock+email; เต็มยัง Draft. Grades Draft → Ready → Submitted; \r{ห้ามแต่ง state}
+\topic{Git 20 คะแนน: เตรียมครบ Samples 2.1-2.9}
+\k{โจทย์}: clean/คำสั่งสำเร็จ; conflict เฉพาะที่ระบุ. HEAD → branch → commit; origin/* = remote ที่รู้ล่าสุด; tag คงที่
+{\smalltable\begin{tabularx}{\linewidth}{|C{4mm}|Y|}\hline
+\rowcolor{lightrow}ข้อ & ฐาน → ผล / HEAD / ตัวชี้ที่ต้องรักษา\\\hline
+2.1 & FF C→E; s=f=E, os=C; switch ท้าย → HEAD/main=B\\\hline
+2.2 & HEAD=s=G, os=F; G ยังไม่ push; f=E แยกสาย → 3-way; graph ไม่ยืนยัน conflict\\\hline
+2.3 & s:C→E (FF)→F; HEAD=s=F, f=E, os=C\\\hline
+2.4 & s:D→E (FF)→F; HEAD=s=F, f=E, os=D\\\hline
+2.5 & merge F/E→G (parents F/E); s=G, f=E, os=F; switch ท้าย → HEAD/main=B\\\hline
+2.6 & main=B, origin/main=v1.0=H; switch ยัง B; FF→H; refs อื่นเดิม\\\hline
+2.7 & HEAD=s=H (E/G), os=E; push f ที่ G ไม่ส่ง H; push s → os=H\\\hline
+2.8 & s:C→E; สร้าง/switch f ใหม่→F; s=feature/pass\_rate=E, os=C\\\hline
+2.9 & s:D→G (FF)→H (G/F); push→os=H; HEAD=s=H, f=F\\\hline
+\end{tabularx}}
+\k{ชื่อย่อ}: s=staging, f=feature, os=origin/staging; main/origin/main=B ยกเว้น FF ใน 2.6; ใช้ชื่อจริงตามข้อ
+\topic{Ancestry ย่อเฉพาะช่วงเปลี่ยน; refs ดูตาราง}
+\begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{7.1}{7.4}\selectfont]
+\foreach\lab/\x in{C/2,D/8,E/14,F/20}{\node[circle,draw,inner sep=1pt](left\lab)at(\x,0){\lab};}
+\draw(leftC)--(leftD)--(leftE)--(leftF);
+\node[anchor=south,inner sep=.5pt]at(11,2){2.3 FF + commit F};
+\node[anchor=north,inner sep=.5pt]at(11,-2){staging=F, feature=E};
+\node[circle,draw,inner sep=1pt](d)at(27,0){D};\node[circle,draw,inner sep=1pt](f)at(35,0){F};\node[circle,draw,inner sep=1pt,fill=minthead!45](g)at(45,0){G};\node[circle,draw,inner sep=1pt](e)at(35,-5){E};
 \draw(d)--(f)--(g);\draw(d)--(e)--(g);
-\node[anchor=south,inner sep=.5pt](remoteref)at([yshift=.7mm]f.north){origin/staging};
-\node[anchor=south,inner sep=.5pt](stagingref)at([yshift=.7mm]g.north){staging};
-\node[anchor=north,inner sep=.5pt](featureref)at([yshift=-.7mm]e.south){feature, origin/feature};
-\draw[black!50,line width=.2pt](remoteref.south)--(f.north) (stagingref.south)--(g.north) (featureref.north)--(e.south);
+\node[anchor=south,inner sep=.5pt]at(36,2){2.5 3-way};
+\node[anchor=north,inner sep=.5pt]at(36,-7){G parents F/E};
 \end{tikzpicture}\end{center}
-ฐาน A → B → C → D; main/origin/main=B; บน staging=F ใช้ \code{git merge feature/basic\_statistics} → G มี parents F/E; switch main → HEAD=B; source/origins เดิม
-\topic{Sample 2.8: สร้าง feature จากฐานหลัง FF}
-staging FF C → E แล้วสร้าง branch ใหม่ที่ E; \code{branch} ไม่ย้าย HEAD ต้อง \code{switch}
-\cl{git branch feature/grade\_distribution}
-\cl{git switch feature/grade\_distribution}
-แก้ \code{report.py}, \code{scores.csv}; สร้าง \code{grade\_ranges.csv}; stage เฉพาะ 3 ไฟล์ แล้ว commit F ด้วยข้อความ \code{"Add grade distribution report"} → HEAD อยู่ feature ใหม่=F; staging และ feature/pass\_rate ยัง E, origin/staging ยัง C
-\k{Inspect}: \code{status} ดู untracked/index; \code{diff} ดู unstaged; \code{diff --cached} ดู staged; \r{sample ห้ามใช้ git add .}
-\k{วาดให้ครบ}: commits/parents, branches/origins, tag, HEAD; merge commit ในโจทย์มี 2 parents; FF ไม่สร้าง commit
-\topic{Explain state: fetch / tag / unpublished merge}
-\k{Sample 2.6}: A → B → H; main=B, origin/main=v1.0=H; switch main ได้ B; FF origin/main ได้ H; \r{staging/feature/tag ไม่เลื่อน}
-\k{Sample 2.7}: staging=H (parents E/G), origin/staging=E, feature=G; push feature \r{ไม่เผยแพร่ H}; ต้อง \code{git push origin sprint\_1\_staging} → origin/staging=H เมื่อสำเร็จ
-
-\topic{Sample 2.9: อัปเดต staging ก่อนรวม feature}
-เริ่ม staging=D, origin/staging=G; D → E → F อยู่บน feature และ D → G แยกอีกสาย
-\cl{git switch sprint\_2\_staging}
-\cl{git merge --ff-only origin/sprint\_2\_staging}
-\cl{git merge feature/export\_results}
-\cl{git push origin sprint\_2\_staging}
-\k{ทีละขั้น}: switch → HEAD=D; FF → staging=G; 3-way → staging=H (parents G/F); push → origin/staging=H; feature=F, main เดิม; \r{FF ได้เฉพาะ D → G}
+\topic{คำสั่ง: b/ref/files/msg ใช้ค่าจากโจทย์}
+\par\code{git status}: ดู branch/staged/unstaged/untracked; ไม่แก้
+\par\code{git diff}: เทียบ working tree กับ index เฉพาะ tracked; ไม่แสดงไฟล์ untracked
+\par\code{git diff --cached}: ดู staged: index เทียบ HEAD
+\par\code{git add <files>}: เก็บเวอร์ชันไฟล์ที่ระบุเข้า index; ยังไม่ commit หรือเลื่อน branch
+\par\code{git commit -m "<msg>"}: บันทึก index เป็นลูก HEAD; เลื่อน current branch/HEAD; ไม่ push
+\par\code{git branch <b>}: สร้าง b ที่ HEAD; HEAD/ไฟล์เดิม
+\par\code{git switch <b>}: HEAD/ไฟล์ไป b เมื่อ clean; ตัวชี้ branch ไม่เลื่อน
+\par\code{git merge <ref>}: รวมเข้า current; FF เลื่อน ref ไม่สร้าง commit; แยกสายสร้าง 2 parents; source เดิม
+\par\code{git merge --ff-only origin/<b>}: เลื่อน current แบบ FF เท่านั้น; แยกสายแล้วปฏิเสธ
+\par\code{git fetch origin}: รับ commits/อัปเดต origin/*; ไม่เลื่อน local branch/HEAD หรือไฟล์
+\par\code{git push origin <b>}: ส่ง b ไป remote/อัปเดต origin/b เมื่อสำเร็จ; HEAD/ไฟล์เดิม
+\k{2.3}: staging = sprint\_1\_staging, feature/load\_scores; แก้ score\_data.py, scores.csv; สร้าง validation\_notes.txt; message \code{"Document score validation cases"}
+\k{2.8}: s=sprint\_2\_staging; merge feature/pass\_rate; branch+switch feature/grade\_distribution; แก้ report.py, scores.csv; เพิ่ม grade\_ranges.csv; message \code{"Add grade distribution report"}
+\k{2.9}: b=sprint\_2\_staging, ref=feature/export\_results; switch b → FF origin/b → merge ref → push b
+\r{ห้าม git add .}; วาด parent/local/origin/tag/HEAD ทุกขั้น

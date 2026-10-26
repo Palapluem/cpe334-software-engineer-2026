@@ -36,6 +36,41 @@
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \input{../ui-reference.tex}
+% One hierarchy is shared by both question languages and the worked answer.
+\newcommand{\wbsgrid}[1][]{%
+\par\begin{center}\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{10.5}\selectfont]
+\path[use as bounding box](0,-3.9)rectangle(16.15,.7);
+\node[draw,fill=gray!15,minimum width=2cm,minimum height=.5cm](wbsroot)at(8.075,.35){DormFix};
+\draw(wbsroot.south)--(8.075,-.05);
+\draw(2,-.05)--(14.15,-.05);
+\foreach\c/\x in{1/2,2/6.05,3/10.10,4/14.15}{%
+  \node[draw,fill=gray!8,minimum width=3.7cm,minimum height=.8cm,inner sep=0pt](wbsmile\c)at(\x,-.65){};
+  \node[anchor=north west,font=\fontsize{7}{8}\selectfont]at({\x-1.8},-.27){1.\c};
+  \draw(\x,-.05)--(wbsmile\c.north);
+  \draw({\x-1.65},-1.05)--({\x-1.65},-3.45);
+  \foreach\r in{1,...,4}{%
+    \pgfmathsetmacro{\tasky}{-1.5-.65*(\r-1)}
+    \node[draw,minimum width=3.2cm,minimum height=.55cm,inner sep=0pt](wbstask\c-\r)at({\x+.15},\tasky){};
+    \node[anchor=north west,font=\fontsize{7}{8}\selectfont]at({\x-1.4},{\tasky+.25}){1.\c.\r};
+    \draw({\x-1.65},\tasky)--(wbstask\c-\r.west);
+  }
+}
+#1
+\end{tikzpicture}\end{center}}
+% The provided Activity prefix stops before the student's course-selection work.
+\newcommand{\registrationActivitySkeleton}{%
+\begin{center}\begin{tikzpicture}[x=1.026cm,y=1cm,font=\fontsize{9}{10.5}\selectfont]
+\draw(0,0)rectangle(16.45,-21);\foreach\x in{2.35,4.7,7.05,9.4,11.75,14.1}{\draw(\x,0)--(\x,-21);}\draw(0,-1.55)--(16.45,-1.55);
+\foreach\lab[count=\i from 0]in{Student,KUSSO,{KU\\Registration},{KU Student\\Info},{KBank\\Gateway},{BBL\\Gateway},KUEmail}{\node[align=center,text width=2.1cm]at({1.175+2.35*\i},-.775){\lab};}
+\node[circle,fill,inner sep=3pt](s)at(1.175,-1.8){};
+\node[act,inner ysep=6pt,text width=1.75cm](launch)at(1.175,-2.65){Launch app};
+\node[act,inner ysep=6pt,text width=1.75cm](selectlogin)at(1.175,-3.9){Select Login};
+\node[act,inner ysep=6pt,text width=1.75cm](login)at(3.525,-3.9){Log in};
+\node[act,inner ysep=6pt,text width=1.75cm](open)at(5.875,-3.9){Open blank form (active semester)};
+\node[act,inner ysep=6pt,text width=1.75cm](profile)at(8.225,-3.9){Get profile by username};
+\node[act,inner ysep=6pt,text width=1.75cm](prefill)at(5.875,-6.2){Prefill ID, name, program, email, username};
+\draw[flow](s)--(launch);\draw[flow](launch)--(selectlogin);\draw[flow](selectlogin)--(login);\draw[flow](login)--(open);\draw[flow](open)--(profile);\draw[flow](profile)|-(prefill);\draw[flow](prefill.west)--(2.1,-6.2)--(2.1,-7.05)--(1.175,-7.05);
+\end{tikzpicture}\end{center}}
 % Two ten-day panels retain the Gantt fields on portrait A4.
 \newcommand{\ganttgrid}[3][]{%
 \par\smallskip\textbf{#2}\par
@@ -76,4 +111,16 @@
 \node[below=5mm of B,align=center]{main\\origin/main};
 \node[right=4mm of E,align=left]{feature/basic\_statistics\\origin/feature/basic\_statistics};
 \node[right=4mm of F,align=left]{sprint\_1\_staging (HEAD)\\origin/sprint\_1\_staging};
+\end{tikzpicture}}
+% Repository snapshot for the supplementary Explain-the-graph exercise.
+\newcommand{\supplementgitgraph}{%
+\begin{tikzpicture}[x=2cm,y=1cm,font=\fontsize{9.5}{11}\selectfont]
+\foreach\n/\x in{A/0,B/1,C/2}{\node[commit](\n)at(\x,0){\n};}
+\node[commit](D)at(3,1){D};\node[commit](E)at(4,1){E};
+\node[commit](F)at(3,-1.1){F};\node[commit](G)at(4,-1.1){G};
+\foreach\a/\b in{A/B,B/C,C/D,D/E,C/F,F/G}{\draw[thick](\a)--(\b);}
+\node[below=4mm of B,align=center]{main\\origin/main};
+\node[right=3mm of E,align=left]{feature/load\_scores\\origin/feature/load\_scores};
+\node[below=4mm of F,align=center]{origin/sprint\_1\_staging};
+\node[right=3mm of G,align=left]{sprint\_1\_staging\\HEAD};
 \end{tikzpicture}}

@@ -4,6 +4,10 @@
 
 สื่อทบทวนของ วิศิษฐ์ สุวรรณเนาว์ 67070501042 สำหรับ CPE334 Software Engineering: หน้าแรกสรุป Lecture 1-7 หน้าที่สองเป็น Practice Midterm ตาม Lecture 10 และ Midterm Samples ไม่ใช่การรับรองว่าข้อสอบจริงจะตรงกับตัวอย่าง
 
+ฉบับปรับ 27 October 2026 เตรียม UML/UI **ครบทั้ง 5 ประเภท** ตาม Lecture 10 หน้า 29 ไม่เลือกอ่านเองเพียง 3 ประเภท: มีตารางวิธีเริ่มทำแต่ละแบบ, Sequence/Activity/UI ของ KU Registration, Use Case ของ Grades Submission ที่เพิ่มเป้าหมายและ external actors ทั้งระบบ และ State ของ Ticket พร้อมเงื่อนไขเปรียบเทียบกับ Registration/Grades ภาพประยุกต์เหล่านี้ใช้ฝึกวิเคราะห์ requirements ไม่ใช่ภาพเฉลยทางการ
+
+หน้าแนวสอบยังมี Part 1-2 ครบกลุ่มโจทย์ เพิ่มบริบทสี่ระบบที่อาจารย์ให้เตรียม และแยกสรุปผล Git ข้อ 2.1-2.9 ทุกข้อ พร้อมแม่แบบคำสั่งและชุดไฟล์/ข้อความ commit ของ 2.3 และ 2.8 กราฟ Git เป็นภาพย่อเฉพาะช่วงที่เปลี่ยน ต้องใช้ผลและตัวชี้ในตารางประกอบ ไม่ใช่การคัดโจทย์และกราฟทุกหน้าไว้ครบ
+
 ฉบับนี้ปรับภาษาไทยให้เป็นธรรมชาติ คงศัพท์เทคนิค สูตร เงื่อนไขและคำปฏิเสธ แยกสิ่งที่เอกสารระบุจากตัวอย่าง/ข้อเสนอเพิ่มด้วยป้าย **“คำอธิบายเสริม”** ภาพวาดย่อเป็นสื่อช่วยจำ ไม่ใช่ screenshot แอป ผลทดลองหรือภาพเฉลยทางการ
 
 ยังเป็น **A4 แนวตั้ง 2 หน้า หน้าละ 4 คอลัมน์** ตาม [เรฟ CPE241](<ref/CPE241 Cheat Sheet M3.pdf>) ไม่มีหัวกระดาษ เลขหน้าหรือ legend ท้ายหน้า มีเพียงกรอบชื่อ/รหัส แหล่งอ้างอิง ตารางศัพท์และคำถามฝึกจึงอยู่ใน README นี้ ไม่เพิ่มหน้าให้โพย
@@ -176,11 +180,24 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 | หน้า 2 คอลัมน์ 2 | Part 2: บริบท DormFix, งาน A-I/ผู้ทำ/วันทำและวันเผื่อ, WBS/RACI/Gantt | Lecture 10 pp. 13-21; p. 17 ให้รูปแบบ RACI แต่ไม่ให้ notes/เฉลยตายตัว |
 | หน้า 2 คอลัมน์ 2 | Badminton story/Gherkin/metadata/bug และข้อเท็จจริงการยกเลิกใน DB | Lecture 10 pp. 22-24; คง “Booked”/“Free” ตามโจทย์ |
 | หน้า 2 คอลัมน์ 2 | ShuttleNow: anchor ดูรายการเส้นทาง 3 points, priority/goal/16 points | Lecture 10 pp. 25-26; Lecture 7 pp. 67-72, 118 |
-| หน้า 2 คอลัมน์ 2 | PERT: O/M/P ของ T1-T6 และผลรวม / remote commands | Lecture 6 pp. 90-92; Samples pp. 6, 19, 22-26 |
-| หน้า 2 คอลัมน์ 3 | Part 3: KU R1-R11, master fields, ชื่อเต็มของ lifelines/lanes, Sequence/Activity | Samples pp. 1-4; Lecture 10 p. 29 สำหรับการเลือก 30 คะแนน |
-| หน้า 2 คอลัมน์ 3 | Ticket State / Grades submit slice | Lecture 4 pp. 45-46, 61-65 |
-| หน้า 2 คอลัมน์ 4 | Registration List/Form | Samples pp. 1-2, 5; รูปแบบทั่วไป Lecture 4 pp. 111-117 |
-| หน้า 2 คอลัมน์ 4 | Git 20 คะแนน, HEAD/FF/3-way/remote/tag | Lecture 10 p. 29; Samples pp. 6-14, 18-26 |
+| หน้า 2 คอลัมน์ 1 ท้ายคอลัมน์ | สี่ระบบ: actors, workflow, constraints และผลข้างเคียงของ POS/Hotel/Ticket/Grades | Lecture 3 pp. 13-14; Lecture 4 pp. 28-29, 45-46, 64-65; Lecture 10 p. 31 |
+| หน้า 2 คอลัมน์ 2 | PERT: O/M/P ของ T1-T6 และผลรวม | Lecture 6 pp. 90-92 |
+| หน้า 2 คอลัมน์ 2 ท้ายคอลัมน์ | ตารางเตรียม UML/UI ครบทั้ง 5 ประเภท ไม่เลือกเตรียมเพียง 3 | Lecture 10 p. 29 |
+| หน้า 2 คอลัมน์ 3 | KU R1-R11, master fields, ชื่อเต็มของ lifelines/lanes, Sequence/Activity | Samples pp. 1-4 |
+| หน้า 2 คอลัมน์ 3 | Registration List/Form | Samples pp. 1-2, 5; รูปแบบทั่วไป Lecture 4 pp. 111-117 |
+| หน้า 2 คอลัมน์ 4 | Use Case: Grades ทุกกลุ่มเป้าหมายและระบบภายนอกทั้งห้า; ทิศ include | Lecture 4 pp. 5-8, 64-65 |
+| หน้า 2 คอลัมน์ 4 | State: Ticket และข้อแตกต่างจาก Registration/Grades | Lecture 4 pp. 45-46, 61-65; Samples pp. 1-2 |
+| หน้า 2 คอลัมน์ 4 | Git 20 คะแนน: ผลข้อ 2.1-2.9, HEAD/FF/3-way/remote/tag และแม่แบบคำสั่ง | Lecture 10 p. 29; Samples pp. 6-14, 18-26 |
+
+### เตรียม UML/UI ครบห้าแบบอย่างไร
+
+| แบบ | ตัวอย่างในหน้าที่สอง | สิ่งที่ต้องตรวจเมื่อเปลี่ยนโจทย์ |
+| --- | --- | --- |
+| Sequence | KU Registration: Draft เดิมสอง offerings เพิ่มหนึ่ง เต็ม แก้ ส่งซ้ำ และจ่าย BBL | participants, ลำดับ request/reply, error ที่กำหนด, Done/lock/email; ไม่ยก workflow ทุกแขนงมาใส่ scenario เดียว |
+| Activity | KU Registration: ฟอร์มว่าง, swimlanes, ตรวจที่นั่ง/กลับแก้, ทางเลือก KBank/BBL, ยืนยันและจบ | actions อยู่ lane ของผู้รับผิดชอบ, guards, decision/merge, loop และ start/end |
+| UI | Course Offering List และ Student Registration Form | fields ตาม R5-R7, profile ห้าช่อง, required/editable/read-only/LoV, controls และ state; Complete ต่างจาก Design |
+| Use Case | Grades Submission: login, courses/sections, students, edit/print sheet, submit, transcript และ email | human/external actors นอก boundary, goals ในกรอบ, association ไม่มีหัว, include ชี้ขั้นบังคับ; extend/generalization ตาม notation หน้าแรก |
+| State | Ticket: Requested, Approved, In Progress, Closed by CCE, Closed by Programmer | object เดียว, event/actor/guard/effect, initial/final, self-loop, closed ห้ามเพิ่ม action; ไม่ย้าย Done ของ Registration ไป Grades |
 
 ### ครบในระดับใด และส่วนใดย่อออก
 
@@ -198,10 +215,35 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 - **คำอธิบายเสริม:** SD รวมใช้รากของผลรวม variance เมื่อประมาณการอิสระ หกงาน Lecture 6 pp. 91-92 ให้ E=35.6667 h, SD=3.2318 h เป็น effort ไม่ใช่ duration เมื่อทำขนาน และหนึ่ง SD ไม่ใช่ช่วงรับประกัน
 - DormFix ตาม Lecture 10 pp. 18-21: เริ่ม 4 Jan 2027 ทำ จ.-ศ.; buffer หลัง B/F/H อย่างละวัน, project buffer 28-29 Jan; milestones 8/15/29 Jan ใช้เวลา 0; WBS 1.4 ว่าง
 - ShuttleNow ตาม p. 26: points 8,3,5,3,5,2; เลือก 1/3/4 รวม 16 ไม่เลือก QR fare เพราะไม่ตรง sprint goal
-- **คำอธิบายเสริม:** Negative tests, score-boundary cases, attack flows, UI wireframes และ Grades submit slice เป็นการประยุกต์ การปฏิเสธไม่ควรเปลี่ยน business data แต่ audit log ยังเกิดได้ตาม contract
-- **คำอธิบายเสริม:** KU Sequence/Activity วาดย่อจากโจทย์ ไม่ใช่เฉลยภาพของอาจารย์ Sequence แสดง Student จ่าย BBL และ email PDF ถึง Student; Activity ไม่แต่ง payment-failure loop ที่กรณีสำเร็จไม่ได้ขอ
+- **คำอธิบายเสริม:** Negative tests, score-boundary cases, attack flows, UI wireframes และ Use Case ของ Grades เป็นการประยุกต์ การปฏิเสธไม่ควรเปลี่ยน business data แต่ audit log ยังเกิดได้ตาม contract
+- **คำอธิบายเสริม:** KU Sequence/Activity วาดย่อจากโจทย์ ไม่ใช่เฉลยภาพของอาจารย์ Sequence แสดง Student จ่าย BBL และ email PDF ถึง Student; Activity ในโพยย่อเส้นทางชำระสำเร็จ ส่วน Samples หน้า 16 และเฉลย Mock Exam แสดงผลชำระไม่สำเร็จแล้วกลับไปเลือกวิธีชำระด้วย จึงควรดูภาพเต็มเมื่อฝึกโจทย์ที่ขอทุกแขนง
 - **คำอธิบายเสริม:** UI ไม่ถือ Registration No./Total Credits เป็นข้อบังคับจาก R5-R11 จึงไม่ใส่ แม้ภาพเฉลยตัวอย่างมีช่องเสริม รายละเอียด R7 แสดงผ่านตาราง/พื้นที่รายละเอียดได้
-- **คำอธิบายเสริม:** Git A รวม Samples 2.3 กับ switch main ท้าย; Git B ขยาย fork ที่ D จาก 2.5; 2.6-2.9 เริ่มจากกราฟของตน ไม่ย้ายชื่อ commit ข้ามตัวอย่าง
+- **คำอธิบายเสริม:** ภาพ Git ย่อช่วง C-D-E-F ของ 2.3 และเส้น D→F→G กับ D→E→G ของ 2.5 เพื่อเทียบ FF+commit กับ 3-way; ตัวชี้ที่ไม่ได้วาดในภาพอ่านจากตาราง 2.1-2.9 แต่ละข้อเริ่มจากกราฟของตน ไม่ย้ายชื่อ commit หรือ remote-tracking refs ข้ามตัวอย่าง
+
+### อธิบายคำสั่ง Git ที่ใช้ในโพยและโจทย์ 20 คะแนน
+
+**คำอธิบายเสริม:** หน้านี้ขยายคำอธิบายสั้นใน PDF โดยยึดเงื่อนไข Samples หน้า 6-14 และเฉลยหน้า 18-26: เริ่มจาก working tree ที่ clean, คำสั่งสำเร็จ และไม่มี conflict เว้นแต่โจทย์ระบุ ชื่อ `<b>`, `<ref>`, `<files>` และ `<msg>` เป็นช่องให้แทนด้วยชื่อจริง ไม่พิมพ์วงเล็บแหลมลงในคำตอบ `;` ใช้แยกคำสั่งที่ทำตามลำดับ
+
+ก่อนอ่านคำสั่ง ให้แยก working tree (ไฟล์ที่กำลังแก้), index/staging area (เวอร์ชันที่เลือกไว้ให้ commit), local repository (commits/branches ในเครื่อง) และ remote repository ออกจากกัน HEAD ในโจทย์ชี้ผ่าน current branch ไปยัง commit ส่วน `origin/main` เป็น ref ในเครื่องที่บันทึกสถานะ remote ล่าสุดที่รู้ ไม่ใช่การอ่าน GitHub สด
+
+| คำสั่ง | ทำอะไร และกระทบส่วนใด |
+| --- | --- |
+| `git status` | แสดง current branch และแยก staged, unstaged, untracked เพื่อเลือกขั้นตอนต่อไป ไม่เปลี่ยนเนื้อหาไฟล์ ไม่สร้าง commit และไม่เลื่อน refs |
+| `git diff` | เปรียบเทียบ working tree กับ index จึงเห็นสิ่งที่แก้หลังการ stage ครั้งล่าสุดของ tracked files ไม่แสดงไฟล์ใหม่ที่ยัง untracked; ใช้ `status` หาไฟล์เหล่านั้น |
+| `git diff --cached` | เปรียบเทียบ index กับ HEAD จึงเห็นชุด staged changes ที่ commit ถัดไปจะบันทึก ต่างจาก `diff` ที่ดูสิ่งซึ่งยังไม่ stage |
+| `git add <files>` | เก็บเวอร์ชันปัจจุบันของไฟล์ที่ระบุเข้า index รวมไฟล์ใหม่หรือการเปลี่ยนแปลงที่เลือก ยังไม่สร้าง commit ไม่เลื่อน branch และไม่ส่ง remote ถ้าแก้ไฟล์หลัง add ต้อง add อีกครั้งหากต้องการรวมเวอร์ชันใหม่ |
+| `git commit -m "<msg>"` | สร้าง commit จาก snapshot ใน index โดยมี HEAD เดิมเป็น parent ในขั้น commit ปกติของโจทย์ แล้วเลื่อน current branch/HEAD ไป commit ใหม่ ไม่รวม unstaged/untracked โดยอัตโนมัติ และยังไม่ push; `-m` กำหนดข้อความ commit |
+| `git branch <b>` | สร้าง local branch ชื่อ b ที่ commit ของ HEAD ปัจจุบัน แต่ยังอยู่ branch เดิม ไม่เปลี่ยนไฟล์และไม่สร้าง commit นี่คือเหตุผลที่ข้อ 2.8 ต้องมี `switch` ตาม |
+| `git switch <b>` | ให้ HEAD ชี้ branch b และเมื่อเริ่ม clean ให้ index/working tree แสดง snapshot ของ b ไม่มี branch tip ใดเลื่อนจากการ switch เพียงอย่างเดียว เช่น switch main ที่ B ไม่ทำให้ main ตาม origin/main ไป H |
+| `git merge <ref>` | รวม ref ที่ระบุเข้ากับ current branch: ถ้า current เป็น ancestor ของ ref จะ fast-forward โดยเลื่อน current/HEAD และไม่สร้าง commit; ถ้าแยกสายจะสร้าง merge commit ที่มีสอง parents เมื่อสำเร็จ โดย source ref ไม่เลื่อน ถ้า source เป็น ancestor อยู่แล้วอาจไม่มีการเปลี่ยนแปลง; graph อย่างเดียวไม่พิสูจน์ว่าจะเกิด file conflict |
+| `git merge --ff-only origin/<b>` | อัปเดต current branch ไปยัง ref ที่รู้แล้วเฉพาะกรณี fast-forward ได้ ถ้าแยกสายจะปฏิเสธแทนการสร้าง merge commit ต้อง switch branch เป้าหมายให้ถูกก่อน; คำสั่งนี้ไม่ fetch สถานะใหม่จาก server |
+| `git fetch origin` | ติดต่อ remote เพื่อรับ commits/objects และอัปเดต refs อย่าง `origin/*` ตามการตั้งค่าของ repository ไม่รวมงานเข้า local branch ไม่เลื่อน HEAD และไม่เปลี่ยน working tree/index ให้ตาม remote โดยอัตโนมัติ |
+| `git push origin <b>` | ส่งประวัติของ local branch b ที่ระบุไปอัปเดต branch นั้นบน remote เมื่อสำเร็จ matching remote-tracking ref เช่น origin/b จะตามสถานะที่ส่งภายใต้การแมปปกติของโจทย์ HEAD/working tree และ local branch tip ไม่เลื่อนเพราะ push การ push feature ที่ G ไม่เผยแพร่ merge H ซึ่งอยู่เฉพาะ staging |
+| `git log --oneline --graph --decorate --all` | แสดงประวัติและ ancestry จาก refs ที่เครื่องมีโดยไม่แก้ข้อมูล: `--oneline` ย่อเป็น SHA สั้นกับหัวเรื่องต่อ commit, `--graph` วาดเส้นเชื่อมประวัติ, `--decorate` แสดงชื่อ branches/tags/refs, `--all` รวมประวัติที่เข้าถึงได้จาก refs ทั้งหมดในเครื่อง ไม่ติดต่อ GitHub หรือ fetch ข้อมูลใหม่ |
+
+วิธีไล่กราฟให้ได้ครบประเด็น: จด HEAD/current branch และ tips ทุกตัวก่อน จากนั้นทำทีละคำสั่งว่าเปลี่ยนไฟล์/index, local refs หรือ remote-tracking refs ส่วนใด ถ้า merge ให้ตรวจ ancestry และระบุ parents ก่อนเลื่อน current branch; source branch และ refs ที่คำสั่งไม่แตะต้องอยู่เดิม สุดท้ายวาดทุก commit/parent, local branch, origin/*, tag และ HEAD ตามที่โจทย์ให้
+
+ในตาราง PDF ใช้ `s` แทน staging, `f` แทน feature และ `os` แทน origin/staging เพื่อประหยัดพื้นที่ ตัวเล็กเหล่านี้เป็นชื่อย่อของ refs ไม่ใช่ commit ตัวใหญ่ A-H และต้องแทนด้วยชื่อจริงของแต่ละข้อเมื่อเขียนคำสั่ง ห้ามใช้ `git add .` ในโจทย์นี้: ระบุสามชื่อไฟล์ให้ตรงและตรวจ `diff --cached` ก่อน commit
 
 ## E. คำถามทบทวน 10 ข้อ
 
@@ -281,3 +323,15 @@ trash "$sheet_build_dir"
 - ตรวจการเว้นวรรคไทย/อังกฤษ/ตัวเลขในต้นฉบับ ไม่พบการเขียนติดกันแบบ `idempotencyตามcontract` ตรวจชื่อไฟล์/ลิงก์ใน README ว่ามีจริง
 - คำนวณ PERT ซ้ำได้ E=35.6667 h, SD=3.2318 h; ตรวจ milestones 8/15/29 Jan 2027, capacity 16 points และคะแนนแนวสอบ 25+25+30+20=100
 - README มีแหล่งรายหัวข้อ ตารางศัพท์ คำถาม 10 ข้อและเฉลยแยก รวมทั้งข้อจำกัดการอ่านภาพ/แหล่งภายนอกข้างต้น ไม่รับรองว่าทุกเนื้อหาในข้อสอบจริงจะเหมือนแนว และยังไม่ได้ทดสอบความคมด้วยเครื่องพิมพ์จริง
+
+### ผลตรวจฉบับ 27 October 2026: เตรียม UML/UI ครบห้าแบบ
+
+- PDF ยังคงเป็น A4 แนวตั้ง 2 หน้า ไม่ลดขนาดฟอนต์หลัก/ตาราง และไม่มี `Overfull`, `Missing character` หรือคอลัมน์เกิน budget ทั้งแปดคอลัมน์ รอบขยาย UML/UI คงหน้าสรุปเดิม; รอบคำสั่ง Git เพิ่มความหมายของ log flags ในคอลัมน์แรกของหน้าแรก
+- หน้าแนวสอบเรียงตัวอย่าง 1/5 Sequence, 2/5 Activity, 3/5 UI, 4/5 Use Case, 5/5 State ครบอย่างละหนึ่งชุด ตรวจภาพทั้งหน้าและขยายอ่านแต่ละแบบ ไม่ใช้เพียงการค้นหัวข้อในข้อความ
+- Use Case ของ Grades มีเป้าหมาย login, courses/sections, load students, edit/print, submit, update transcript และ email พร้อมระบบภายนอก KU SSO, KU Registration, KU Transcript, KU Email, KU Student Info กล่อง `<<actor>>` อยู่นอก boundary และป้าย `<<include>>` อ่านแนวนอนโดยไม่ทับวงรี
+- State ใช้สถานะและ transition ของ Ticket ตาม Lecture 4 หน้า 61-62 พร้อม actor, self-loop และข้อห้ามหลังปิด แยก Draft/Done ของ Registration จาก Draft/Ready/Submitted ของ Grades
+- คง requirements R1-R11 และเส้นทางสำคัญของ KU Registration, profile ห้าช่อง, read-only/LoV และ notation UI เดิม เพิ่มตารางบริบทสี่ระบบและตารางเริ่มทำทั้งห้าแบบ
+- Git มีแถวสรุปข้อ 2.1-2.9 ครบ พร้อมแม่แบบคำสั่ง, ไฟล์/ข้อความ commit ที่ต้องใช้ และภาพ ancestry ย่อ ไม่อ้างว่าเป็นกราฟเต็มทุกข้อ แก้ถ้อยคำตรวจรับให้ Student ทดลองสมัคร/ยกเลิก และ Coordinator ตรวจรายชื่อ/รับรองผล สอดคล้องกับการแยกบทบาท
+- ฟอนต์ที่ใช้ฝังครบ: TH Sarabun New, TH Sarabun New Bold และ Latin Modern Math ไม่พบข้อความอยู่นอกขอบหน้า การตรวจนี้เป็นการตรวจไฟล์/ภาพ render ยังไม่ได้พิมพ์ทดสอบกับเครื่องพิมพ์จริง
+- รอบคำอธิบาย Git: PDF มีความหมายของ 12 รายการ ได้แก่ status, diff, diff --cached, add, commit -m, branch, switch, merge, merge --ff-only, fetch, push และ log พร้อม flags --oneline/--graph/--decorate/--all แยกผลต่อ working tree/index/HEAD/local refs/remote และมีคำอธิบายฉบับเต็มด้านบน
+- หลังเพิ่มคำอธิบายยังเป็น PDF สองหน้าและไม่มีคำเตือน build หรือข้อความนอกขอบ เปรียบเทียบที่ 144 dpi แล้ว Parts 1-2, ตัวอย่าง UML/UI ทั้งห้า และคอลัมน์ทฤษฎี 2-4 ของหน้าแรกเหมือนก่อนรอบ Git ทุกพิกเซล ขนาดฟอนต์หลัก/ตาราง/คำสั่งยังเดิม สรุปกรณี Git 2.1-2.9 ใช้ชื่อย่อ s/f/os ที่อธิบายไว้ครบ

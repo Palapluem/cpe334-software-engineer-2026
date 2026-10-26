@@ -24,9 +24,9 @@ Kanban & งานไหลต่อเนื่อง; จำกัด WIP ว�
 \b{React UI → HTTP API/Express → service/กฎธุรกิจ → Prisma ORM → PostgreSQL}; UI ไม่ต่อฐานข้อมูลโดยตรง
 \k{Working tree} แก้ไฟล์ → \code{add} เลือก snapshot เข้า \k{index} → \code{commit} บันทึกใน local → \code{push} ส่งไป remote
 \b{Issue → branch → commit → PR → review → staging → main}; feature แยกงาน; staging รวม/ทดสอบ; main คืองานที่ยอมรับ; README บอก setup/run/test/env/กติกา
-\cl{git status; git diff; git diff --cached}
 \cl{git log --oneline --graph --decorate --all}
-\r{ไม่เก็บ .env, credentials, node\_modules หรือ temp}; ใช้ .env.example และระบุชื่อไฟล์ตอน \code{git add}
+\k{log flags}: \code{--oneline} SHA สั้น+หัวเรื่อง; \code{--graph} เส้น ancestry; \code{--decorate} ชื่อ refs; \code{--all} ทุก refs ของเครื่อง ไม่ fetch
+\r{ไม่ commit .env/secrets, node\_modules, temp}; ใช้ .env.example
 \chapterband{bluehead}{Lecture 2 · Requirement Engineering}
 \k{ระดับข้อกำหนด}: Business = เป้าหมาย; User/URS = ผู้ใช้ต้องการอะไร/ทำไม; System/SysRS = รวมฮาร์ดแวร์ ส่วนเชื่อมต่อ/กฎระเบียบ; Software/SRS = พฤติกรรมและข้อจำกัดซอฟต์แวร์
 {\smalltable\begin{tabularx}{\linewidth}{|p{8mm}|Y|}\hline

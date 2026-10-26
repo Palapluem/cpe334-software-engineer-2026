@@ -93,12 +93,13 @@ Control & วิธีทดสอบ & ผลที่คาดหวัง\\\h
 \solsource{Lecture 10 หน้า 14-21; Lecture 6 หน้า 71-96; RACI ยึดบันทึกประชุมข้อ 5.2 ของชุดฝึก}
 WBS (Work Breakdown Structure) ใช้แบ่งงานเป็นลำดับชั้น; milestone คือจุดสำเร็จ ไม่ใช่งานที่ใช้เวลาทำ\par
 \anshead{5.1 WBS ตามผลสำเร็จ}{3}
-\begin{tabularx}{\linewidth}{|Y|Y|Y|Y|}\hline
-1.1 & 1.2 & 1.3 & 1.4\\\hline
-ข้อกำหนดอนุมัติแล้ว & แบบทั้งสองอนุมัติแล้ว & ระบบตรวจรับแล้ว & เว้นว่าง\\\hline
-E แล้ว B & C/G ขนานกัน แล้ว F & A/I ขนานกัน แล้ว D, H & เว้นว่าง\\\hline
-\end{tabularx}
-\textbf{เกณฑ์ตรวจ:} milestone/ลำดับ 1; A-I ครบและอยู่กลุ่มถูก 1; dependencies/งานขนาน 1
+\wbsgrid[{
+\node[align=center,font=\fontsize{8.5}{9.5}\selectfont]at([yshift=-1mm]wbsmile1.center){Requirements approved};
+\node[align=center,font=\fontsize{8.5}{9.5}\selectfont]at([yshift=-1mm]wbsmile2.center){Designs approved};
+\node[align=center,font=\fontsize{8.5}{9.5}\selectfont]at([yshift=-1mm]wbsmile3.center){System accepted};
+\foreach\c/\r/\task in{1/1/E,1/2/B,2/1/C,2/2/G,2/3/F,3/1/A,3/2/I,3/3/D,3/4/H}{\node at([xshift=4mm]wbstask\c-\r.center){\textbf{\task}};}
+}]
+\textbf{เกณฑ์ตรวจ:} milestone/ลำดับ 1; A-I ครบและอยู่กลุ่มถูก 1; เรียงงานภายในกลุ่มถูกและเว้นช่องไม่ใช้ 1 งาน C/G และ A/I ทำขนานกัน จึงสลับลำดับในคู่ได้ เส้น WBS แสดงลำดับชั้น ไม่ใช่ dependency\par
 
 \anshead{5.2 RACI}{2}
 R = Responsible (ลงมือทำ), A = Accountable (รับผิดชอบผล), C = Consulted (ให้คำปรึกษา), I = Informed (รับแจ้ง); ไม่เกี่ยวข้องใส่ “-”\par
@@ -127,10 +128,10 @@ D & 22, 25 & ไม่มี & 22-25\\\hline
 H & 26 & 27 & 26-27\\\hline
 PB & - & 28, 29 & 28-29\\\hline
 \end{tabularx}
-\textbf{Milestones:} M1 = 8, M2 = 15, M3 = 29 ม.ค. 2027; จบวันที่ 29 รวม 20 วันทำงานพร้อม buffer Chai ทำ G ก่อน A และ Dao ทำ I ก่อน D จึงไม่ใช้คนซ้อนกัน; D เว้นเสาร์-อาทิตย์ที่ 23-24 ม.ค.\par
-\textbf{เกณฑ์ตรวจ 5.3:} No./Owner 0.5; ระยะเวลา/วัน/Start-Due 1; dependency/resource 1; buffers 1; milestone 0.5; เหตุผล buffer 0.5 และ milestone ไม่เพิ่มเวลา 0.5 รวม 5 ไม่บวกคะแนนคำอธิบายซ้ำ
 \newpage
-\textbf{ข้อ 5.3: Gantt chart ตัวอย่าง}\hfill มกราคม 2027
+\textbf{ข้อ 5.3: Gantt chart ตัวอย่าง}\hfill มกราคม 2027\par
+\textbf{Milestones:} M1 = 8, M2 = 15, M3 = 29 ม.ค. 2027; จบวันที่ 29 รวม 20 วันทำงานพร้อม buffer Chai ทำ G ก่อน A และ Dao ทำ I ก่อน D จึงไม่ใช้คนซ้อนกัน; D เว้นเสาร์-อาทิตย์ที่ 23-24 ม.ค.\par
+\textbf{เกณฑ์ตรวจ 5.3:} No./Owner 0.5; ระยะเวลา/วัน/Start-Due 1; dependency/resource 1; buffers 1; milestone 0.5; เหตุผล buffer 0.5 และ milestone ไม่เพิ่มเวลา 0.5 รวม 5 ไม่บวกคะแนนคำอธิบายซ้ำ\par
 \newcommand{\GanttRow}[6]{\node at(.625,-#1-.5){#2};\node at(1.75,-#1-.5){#3};\node at(3.05,-#1-.5){#4};\node at(4.3,-#1-.5){#5};\node at(5.2,-#1-.5){#6};}
 \newcommand{\GanttWork}[3]{\foreach\i in{#2,...,#3}{\fill[gray!18]({5.65+1.05*\i},-#1)rectangle({6.70+1.05*\i},-#1-1);\node at({6.175+1.05*\i},-#1-.5){X};}}
 \ganttgrid[{
@@ -268,7 +269,7 @@ reply/{24. ยืนยันผล}/2.8/0/24
 \newpage
 \qtitle{9}{Activity Diagram}{10}
 \solsource{Samples หน้า 1-2, 4 (R1, R5-R11 และ workflow ข้อ 1.2); Lecture 4 หน้า 13, 16}
-\textbf{คำตอบย่อ:} เข้าระบบผ่าน KUSSO แล้วเปิดฟอร์มว่างพร้อมข้อมูลนักศึกษา เลือก offerings คำนวณยอดและเก็บ Draft เมื่อส่งฟอร์มให้ตรวจที่นั่งทุกรายการ หากเต็มให้เตือนและวนกลับไปแก้/ส่งใหม่ หากมีที่นั่งครบจึงเลือกบัตรผ่าน KBank หรือโอนผ่าน BBL เมื่อจ่ายสำเร็จให้เป็น Done ห้ามแก้ และส่ง PDF ผ่าน KUEmail
+\textbf{คำตอบย่อ:} เข้าระบบผ่าน KUSSO แล้วเปิดฟอร์มว่างพร้อมข้อมูลนักศึกษา เลือก offerings คำนวณยอดและเก็บ Draft เมื่อส่งฟอร์มให้ตรวจที่นั่งทุกรายการ หากเต็มให้เตือนและวนกลับไปแก้/ส่งใหม่ หากมีที่นั่งครบจึงเลือกบัตรผ่าน KBank หรือโอนผ่าน BBL ผลชำระไม่สำเร็จให้กลับไปเลือกวิธีชำระ; เมื่อสำเร็จให้เป็น Done ห้ามแก้ ส่ง PDF ผ่าน KUEmail และจบเมื่อนักศึกษาได้รับยืนยัน
 
 \textbf{เกณฑ์ตรวจ 10 คะแนน:}
 \begin{tabularx}{\linewidth}{|Y|r|}\hline
@@ -276,8 +277,8 @@ reply/{24. ยืนยันผล}/2.8/0/24
 Start/login/profile/prefill พร้อม lane ถูกต้อง & 1.5\\\hline
 เลือก/เพิ่ม offerings, fee และ Draft & 1.5\\\hline
 ตรวจทุก offering, guards และเส้นทางเต็มย้อนกลับไปแก้/submit & 2\\\hline
-Decision วิธีชำระมีทั้ง KBank และ BBL วาง lane ถูก พร้อม merge หลังสำเร็จ & 2\\\hline
-Done พร้อมห้ามแก้ 1; PDF email 1; final node 0.5 & 2.5\\\hline
+Decision วิธีชำระมีทั้ง KBank และ BBL วาง lane ถูก รวมผลและตรวจว่าชำระสำเร็จหรือไม่ & 2\\\hline
+Done พร้อมห้ามแก้ 1; PDF email/รับยืนยัน 1; final node 0.5 & 2.5\\\hline
 Control flow อ่านตามได้ ไม่สลับเป็น sequence/lifelines & 0.5\\\hline
 รวม & 10\\\hline
 \end{tabularx}
@@ -285,39 +286,45 @@ Control flow อ่านตามได้ ไม่สลับเป็น se
 ภาพใช้ชื่อกิจกรรมภาษาอังกฤษตามแนว: ``Select / edit'' คือเลือกหรือแก้ offering จาก List View; ``Draft + fee'' คือปรับรายการและยอดรวม; ``Done/lock'' คือเปลี่ยนสถานะและปิดการแก้ไขออนไลน์
 
 รับภาพหลายหน้าที่เชื่อมต่อชัด หรือรวมกิจกรรมที่มีความหมายเดียวกันได้ ใช้ decision/merge แยกและรวมทางเลือกชำระเพียงวิธีเดียว ไม่ใช้ fork/join ที่สื่อว่าทำสองวิธีพร้อมกัน\par
-\solextra{workflow นี้กำหนดว่าชำระสำเร็จ จึงไม่เติมเส้นทางจ่ายล้มเหลว ส่วนการกลับไปแก้ section เต็มยังต้องมีตาม R9; อย่าใช้ Draft เดิมจากข้อ 8 แทนฟอร์มว่างของข้อนี้}
+\solextra{ภาพคงทางเลือกและวงรอบตามตัวอย่างเฉลย Samples หน้า 16 รวมการชำระไม่สำเร็จแล้วลองใหม่จนสำเร็จ ไม่เพิ่มเงื่อนไขคืนเงินหรือยกเลิกรายการที่โจทย์ไม่ได้ระบุ; อย่าใช้ Draft เดิมจากข้อ 8 แทนฟอร์มว่างของข้อนี้}
 \newpage
 \textbf{ข้อ 9: Activity Diagram ตัวอย่าง}
 \begin{center}
 \begin{tikzpicture}[x=1cm,y=1cm,every node/.style={font=\fontsize{9}{10.5}\selectfont}]
 \draw(0,0)rectangle(16.45,-20.2);\foreach\x in{2.35,4.7,7.05,9.4,11.75,14.1}{\draw(\x,0)--(\x,-20.2);}\draw(0,-1.3)--(16.45,-1.3);
 \foreach\lab[count=\i from 0]in{Student,KUSSO,{KU\\Registration},{KU Student\\Info},{KBank\\Gateway},{BBL\\Gateway},KUEmail}{\node[text width=2.1cm,align=center]at({1.175+2.35*\i},-.65){\lab};}
-\node[circle,fill,inner sep=3pt](s)at(1.175,-1.7){};
-\node[act,text width=1.75cm](launch)at(1.175,-2.7){Launch app / log in};
-\node[act,text width=1.75cm](login)at(3.525,-2.7){Verify account};
-\node[act,text width=1.75cm](open)at(5.875,-2.7){Open blank form};
-\node[act,text width=1.75cm](profile)at(8.225,-2.7){Get profile};
-\node[act,text width=1.75cm](prefill)at(5.875,-4.5){Prefill data};
-\node[diamond,draw,inner sep=3pt](editmerge)at(1.175,-5.5){};
-\node[act,text width=1.75cm](choose)at(1.175,-6.5){Select / edit};
-\node[act,text width=1.75cm](fee)at(5.875,-6.5){Draft + fee};
-\node[decision](ready)at(1.175,-7.9){Ready?};
-\node[act,text width=1.75cm](submit)at(1.175,-9.1){Submit};
-\node[act,text width=1.75cm](check)at(5.875,-9.1){Check all seats};
-\node[decision](seat)at(5.875,-10.5){Full?};
-\node[act,text width=1.75cm](warn)at(5.875,-11.9){Show warning};
-\node[act,text width=1.75cm](method)at(1.175,-13.3){Select payment};
-\node[decision](pay)at(5.875,-13.3){Method?};
-\node[act,text width=1.75cm](kb)at(10.575,-13.3){Card succeeds};
-\node[act,text width=1.75cm](bbl)at(12.925,-14.9){Transfer succeeds};
-\node[diamond,draw,inner sep=3pt](merge)at(5.875,-16.4){};
-\node[act,text width=1.75cm](done)at(5.875,-17.8){Done/lock};
-\node[act,text width=1.75cm](mail)at(15.275,-17.8){Email PDF to Student};
-\node[circle,draw,inner sep=4pt](end)at(15.275,-19.6){\tikz\fill circle(2pt);};
-\draw[flow](s)--(launch);\draw[flow](launch)--(login);\draw[flow](login)--(open);\draw[flow](open)--(profile);\draw[flow](profile)|-(prefill);\draw[flow](prefill)-|(editmerge.north);\draw[flow](editmerge)--(choose);
-\draw[flow](choose)--(fee);\draw[flow](fee)|-(ready);\draw[flow](ready.west)--(.05,-7.9)|-(editmerge.west);\node[anchor=west]at(.05,-7.35){[no]};\draw[flow](ready)--node[right]{[yes]}(submit);
-\draw[flow](submit)--(check);\draw[flow](check)--(seat);\draw[flow](seat)--node[right]{[yes]}(warn);\draw[flow](warn.west)--(2.6,-11.9)--(2.6,-5.5)--(editmerge.east);
-\draw[flow](seat.west)--node[above]{[no]}(3.5,-10.5)--(3.5,-12.3)-|(method.north);\draw[flow](method)--(pay);\draw[flow](pay)--node[above]{[card]}(kb);\draw[flow](pay)|-node[pos=.75,above]{[transfer]}(bbl);\draw[flow](kb)--(10.575,-16)--(6.2,-16)--(merge.north east);\draw[flow](bbl)--(12.925,-16.8)--(6.2,-16.8)--(merge.south east);\draw[flow](merge)--(done);\draw[flow](done)--(mail);\draw[flow](mail)--(end);
+\node[circle,fill,inner sep=3pt](s)at(1.175,-1.65){};
+\node[act,text width=1.75cm](launch)at(1.175,-2.3){Launch app};
+\node[act,text width=1.75cm](selectlogin)at(1.175,-3.25){Select Login};
+\node[act,text width=1.75cm](login)at(3.525,-3.25){Log in};
+\node[act,text width=1.75cm](open)at(5.875,-3.25){Open blank form};
+\node[act,text width=1.75cm](profile)at(8.225,-3.25){Get profile};
+\node[act,text width=1.75cm](prefill)at(5.875,-4.45){Prefill data};
+\node[diamond,draw,inner sep=3pt](editmerge)at(1.175,-4.95){};
+\node[act,text width=1.75cm](choose)at(1.175,-5.95){Select / edit};
+\node[act,text width=1.75cm](fee)at(5.875,-5.95){Draft + fee};
+\node[decision](ready)at(1.175,-7.25){Submit?};
+\node[act,text width=1.75cm](submit)at(1.175,-8.5){Submit};
+\node[act,text width=1.75cm](check)at(5.875,-8.5){Check all seats};
+\node[decision](seat)at(5.875,-9.8){Full?};
+\node[act,text width=1.75cm](warn)at(5.875,-11.05){Show warning};
+\node[diamond,draw,inner sep=3pt](paymerge)at(1.175,-11.7){};
+\node[act,text width=1.75cm](method)at(1.175,-12.7){Select payment};
+\node[decision](pay)at(5.875,-12.7){Method?};
+\node[act,text width=1.75cm](kb)at(10.575,-12.7){Process card};
+\node[act,text width=1.75cm](bbl)at(12.925,-14){Process transfer};
+\node[diamond,draw,inner sep=3pt](merge)at(5.875,-15.2){};
+\node[decision](paid)at(5.875,-16.2){Paid?};
+\node[act,text width=1.75cm](done)at(5.875,-17.45){Done/lock};
+\node[act,text width=1.75cm](mail)at(15.275,-17.45){Email PDF};
+\node[act,text width=1.75cm](confirm)at(1.175,-18.8){Receive confirmation};
+\node[circle,draw,inner sep=4pt](end)at(1.175,-19.75){\tikz\fill circle(2pt);};
+\draw[flow](s)--(launch);\draw[flow](launch)--(selectlogin);\draw[flow](selectlogin)--(login);\draw[flow](login)--(open);\draw[flow](open)--(profile);\draw[flow](profile)|-(prefill);\draw[flow](prefill)-|(editmerge.north);\draw[flow](editmerge)--(choose);
+\draw[flow](choose)--(fee);\draw[flow](fee)|-(ready);\draw[flow](ready.west)--(.05,-7.25)|-(editmerge.west);\node[anchor=west]at(.05,-6.7){[no]};\draw[flow](ready)--node[right]{[yes]}(submit);
+\draw[flow](submit)--(check);\draw[flow](check)--(seat);\draw[flow](seat)--node[right]{[yes]}(warn);\draw[flow](warn.west)--(2.6,-11.05)--(2.6,-4.95)--(editmerge.east);
+\draw[flow,preaction={draw=white,line width=1.5pt}](seat.west)--node[above]{[no]}(3.8,-9.8)--(3.8,-11.7)--(paymerge.east);
+\draw[flow](paymerge)--(method);\draw[flow](method)--(pay);\draw[flow](pay)--node[above]{[card]}(kb);\draw[flow](pay)|-node[pos=.75,above]{[transfer]}(bbl);\draw[flow](kb)--(10.575,-14.8)--(6.2,-14.8)--(merge.north east);\draw[flow](bbl)--(12.925,-15.5)--(6.2,-15.5)--(merge.south east);\draw[flow](merge)--(paid);
+\draw[flow,preaction={draw=white,line width=1.5pt}](paid.west)--node[above]{[no]}(3.25,-16.2)--(3.25,-11.7)--(paymerge.east);\draw[flow](paid)--node[right]{[yes]}(done);\draw[flow](done)--(mail);\draw[flow](mail)|-(confirm);\draw[flow](confirm)--(end);
 \end{tikzpicture}
 \end{center}
 \newpage
@@ -501,3 +508,114 @@ F มี parent E ตัวเดียวและบันทึกการ�
 \textbf{Samples:} CPE334\_Midterm Samples by Suthep.pdf\par
 เฉลยนี้ใช้ข้อความและหน้าที่อ้าง ไม่ได้ถอดทุกภาพเฉลยหรือเอกสารในลิงก์ภายนอก แผนภาพตัวอย่างวาดขึ้นสำหรับชุดฝึก ไม่ใช่ภาพเฉลยทางการ\par
 \endgroup
+\newpage
+\textbf{\Large เฉลยแบบฝึกเสริม S1-S3}\par
+แบบฝึกเหล่านี้ไม่รวมใน 100 คะแนนหรือเวลา 3 ชั่วโมง ใช้รายการตรวจตนเองแทนการเพิ่มคะแนนให้ชุดหลัก\par
+\medskip
+\textbf{S1\quad Use Case: University Grades Submission}\par
+\solsource{Lecture 4 หน้า 5-8 (notation) และ 64-65 (requirements); ภาพประยุกต์สำหรับแบบฝึกนี้}
+\textbf{คำตอบย่อ:} Instructor เป็นผู้ใช้หลัก ระบบภายนอกทั้งห้าอยู่นอก boundary การ submit ต้องอยู่ใน Ready และต้องอัปเดต transcript/แจ้ง email ทั้งคู่ ส่วน Print เป็นทางเลือกของการดูแล grade sheet\par
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{10.5}\selectfont,
+ uc/.style={draw,ellipse,align=center,text width=3.6cm,minimum height=.9cm,inner sep=3pt},
+ extactor/.style={draw,align=center,text width=2.35cm,inner sep=3pt},
+ ucdep/.style={dashed,-{Straight Barb[length=1.5mm,width=1.1mm]},line width=.45pt}]
+\path[use as bounding box](0,.7)rectangle(16.15,-14.25);
+\draw(3.6,.4)rectangle(12.6,-12.3);
+\node[font=\fontsize{10}{11.5}\selectfont\bfseries]at(8.1,-.05){University Grades Submission};
+\node[uc](login)at(8.1,-1.25){Log in};
+\node[uc](courses)at(8.1,-2.9){View courses and sections};
+\node[uc](students)at(8.1,-4.55){Load registered students};
+\node[uc,text width=3.1cm](maintain)at(6.5,-6.3){Maintain grade sheet};
+\node[uc,text width=2.3cm](print)at(10.5,-7.45){Print grade sheet};
+\node[uc,text width=3.1cm](submit)at(6.5,-8.55){Submit grades};
+\node[uc,text width=2.7cm](transcript)at(6.1,-10.95){Update transcripts};
+\node[uc,text width=2.4cm](notify)at(10.4,-10.95){Email students};
+\draw(1.3,-3.5)circle(.16);\draw(1.3,-3.66)--(1.3,-4.35);
+\draw(.8,-3.95)--(1.8,-3.95);\draw(1.3,-4.35)--(.85,-4.95)(1.3,-4.35)--(1.75,-4.95);
+\node[align=center,anchor=north]at(1.3,-5.1){Instructor};
+\foreach\goal in{login,courses,students,maintain,submit}{\draw(1.8,-3.95)--(\goal.west);}
+\node[extactor](sso)at(14.6,-1.25){\textless\textless actor\textgreater\textgreater\\KU Single Sign-On};
+\node[extactor](registration)at(14.6,-3.7){\textless\textless actor\textgreater\textgreater\\KU Registration};
+\node[extactor](transcriptsystem)at(1.6,-10.95){\textless\textless actor\textgreater\textgreater\\KU Transcript};
+\node[extactor](emailservice)at(14.6,-10.95){\textless\textless actor\textgreater\textgreater\\KU Email};
+\node[extactor,text width=3.2cm](studentinfo)at(10.4,-13.3){\textless\textless actor\textgreater\textgreater\\KU Student Information};
+\draw(login.east)--(sso.west) (courses.east)--(registration.west) (students.east)--(registration.west);
+\draw(transcript.west)--(transcriptsystem.east) (notify.east)--(emailservice.west) (notify.south)--(studentinfo.north);
+\draw[ucdep](print.north)--(10.5,-6.3)--(maintain.east);
+\node[fill=white,inner sep=1pt]at(9.9,-6.05){\textless\textless extend\textgreater\textgreater};
+\node[fill=white,inner sep=1pt,font=\fontsize{8}{9.5}\selectfont]at(10,-6.55){[Print selected]};
+\draw[ucdep](submit.south)--(transcript.north);
+\draw[ucdep](submit.south east)--(notify.north west);
+\node[fill=white,inner sep=1pt]at(5.4,-9.7){\textless\textless include\textgreater\textgreater};
+\node[fill=white,inner sep=1pt]at(9.1,-9.5){\textless\textless include\textgreater\textgreater};
+\end{tikzpicture}
+\end{center}
+\textbf{ตรวจตนเอง:} associations ของ actors เป็นเส้นไม่มีหัวลูกศร; include ชี้จาก Submit ไปงานบังคับ; extend ชี้จาก Print ไป Maintain; เก็บการกรอก/แก้เกรดและเปลี่ยน Ready ไว้ใน Maintain; ไม่เพิ่มสิทธิ์หรือระบบภายนอกที่โจทย์ไม่ได้ระบุ\par
+\textbf{อ่านภาพให้ถูก:} ไม่ใช่ลำดับขั้นตอนการทำงาน Login เป็นเงื่อนไขก่อนใช้ฟังก์ชัน ไม่จำเป็นต้องลาก include ไป Login จากทุก use case; Student Info ให้ข้อมูลติดต่อแก่การแจ้ง email ส่วน KU Email เป็นผู้ส่ง\par
+\newpage
+\textbf{\Large S2\quad State: Service Ticket}\par
+แบบฝึกเสริม ไม่รวม 100 คะแนน\par
+\solsource{Lecture 4 หน้า 45-46 และเส้นทางภาพตัวอย่างหน้า 61-62}
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{10.5}\selectfont,
+ ticketstate/.style={draw,rounded corners,align=center,text width=3.25cm,minimum height=.9cm,inner sep=4pt}]
+\path[use as bounding box](0,.3)rectangle(16.15,-11.3);
+\node[circle,fill,inner sep=3.5pt](initial)at(8.05,0){};
+\node[ticketstate](requested)at(8.05,-1.55){Requested};
+\node[ticketstate](approved)at(4.6,-3.65){Approved};
+\node[ticketstate](progress)at(4.6,-6.1){In Progress};
+\node[ticketstate](cceclosed)at(12,-3.65){Closed by CCE};
+\node[ticketstate](programmerclosed)at(4.6,-9.25){Closed by Programmer};
+\node[circle,draw,inner sep=4pt](final)at(12,-10.85){\tikz\fill circle(2pt);};
+\draw[flow](initial)--node[right]{saveNewTicket [System]}(requested);
+\draw[flow](requested.west)-|(approved.north);
+\node[align=center,fill=white,inner sep=1pt]at(4.6,-2.5){approve [CCE]};
+\draw[flow](requested.east)-|(cceclosed.north);
+\node[align=center,fill=white,inner sep=1pt]at(12,-2.5){closeByCCE [CCE]};
+\draw[flow](approved)--node[right,align=left]{startWork\\{[Programmer]}}(progress);
+\draw[flow](progress.west)--(.65,-6.1)--(.65,-4.85)--(3.25,-4.85)--([xshift=3.5mm]progress.north west);
+\node[align=center,fill=white,inner sep=1pt,text width=2.4cm]at(1.8,-5.35){addProgress\\{[Programmer]}};
+\draw[flow](progress)--node[right,align=left]{closeByProgrammer\\{[Programmer]}\\/ due = completion date}(programmerclosed);
+\draw[flow](cceclosed)--(final);
+\draw[flow](programmerclosed.south)--(4.6,-10.85)--(final.west);
+\end{tikzpicture}
+\end{center}
+\textbf{คำตอบย่อ:} เริ่ม Requested แล้ว CCE เลือกอนุมัติหรือปิด หากอนุมัติ Programmer เริ่มเป็น In Progress เพิ่ม progress แบบ self-loop และปิดเมื่อเสร็จ ทั้งสองสถานะ Closed จบวงจรและไม่มี actions ใหม่\par
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4cm}|Y|}\hline
+จุดตรวจ & สิ่งที่ต้องมี\\\hline
+เริ่มวงจร & save สร้าง Action แรกด้วย Requested และ Initial Due Date\\\hline
+บทบาท & CCE ทำเฉพาะ Requested; Programmer ใช้เส้นทาง Approved/In Progress\\\hline
+Self-loop & progress notes/วันนัดใหม่ไม่ทำให้หลุดจาก In Progress\\\hline
+ผลของ action & อัปเดต Last Status/Last Due Date; action เดิมแก้หรือลบไม่ได้\\\hline
+สิ้นสุด & Closed ทั้งสองแบบไป final และไม่มีเส้นทางกลับไปเพิ่ม action\\\hline
+\end{tabularx}
+\par\smallskip
+\textbf{ขอบเขตภาพ:} โจทย์นี้ยึดเส้นทางเริ่มงานก่อนปิดจากตัวอย่างหน้า 62 ไม่เพิ่มทางลัด Approved ไป Closed by Programmer จากการตีความข้อความหน้า 46 ที่กว้างกว่า\par
+\textbf{Notation:} วงเล็บเหลี่ยมในข้อนี้ระบุ actor ตามคำสั่งหน้า 61 ไม่ใช่ Boolean guard ของ UML ทั่วไป ไม่ควรนำรูปแบบนี้ไปใช้แทน guard โดยไม่อธิบายบริบท\par
+\newpage
+\textbf{\Large S3\quad Git: Explain the repository graph}\par
+แบบฝึกเสริม ไม่รวม 100 คะแนน\par
+\solsource{Samples ข้อ 2.2 หน้า 8-9; model answer หน้า 19; ข้อสมมติหน้า 6}
+\begin{center}\supplementgitgraph\end{center}
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{1.1cm}|Y|}\hline
+ข้อ & คำตอบพร้อมเหตุผล\\\hline
+S3.1 & checkout อยู่ที่ \code{sprint\_1\_staging}; HEAD ชี้ branch นี้และระบุ G\\\hline
+S3.2 & G เพราะ local sprint อยู่ที่ G แต่ \code{origin/sprint\_1\_staging} อยู่ที่ F ส่วน F เป็น ancestor ของ G การมี commit G ใน local จึงยังไม่แสดงว่า remote-tracking ref นี้ตามมาถึง G แล้ว\\\hline
+S3.3 & G เพราะ working directory สะอาดและ HEAD ระบุ G ผ่าน current branch\\\hline
+S3.4 & fast-forward ไม่ได้ เพราะ E และ G แยกสายจาก common ancestor C และไม่มีปลายใดเป็น ancestor ของอีกปลาย ต้องทำ three-way merge; หากสำเร็จจะสร้าง merge commit ที่มี parents G และ E\\\hline
+S3.5 & พิสูจน์ไม่ได้ เพราะ graph แสดง ancestry ไม่ได้แสดงเนื้อหาบรรทัดที่แก้ การเกิด conflict ขึ้นกับการเปลี่ยนแปลงที่เข้ากันไม่ได้\\\hline
+S3.6 & \code{git fetch origin} อาจรับ commits/objects ใหม่และอัปเดต remote-tracking refs ตาม refspec แต่ไม่ merge งาน ไม่เลื่อน local branches หรือ HEAD และไม่เปลี่ยน working directory ให้โดยอัตโนมัติ\\\hline
+\end{tabularx}
+\par\medskip
+\textbf{ตัวชี้ใน snapshot ก่อนทำคำสั่งใด ๆ}\par
+\begin{tabularx}{\linewidth}{|Y|>{\centering\arraybackslash}m{2.2cm}|}\hline
+Reference & Commit\\\hline
+main; origin/main & B\\\hline
+feature/load\_scores; origin/feature/load\_scores & E\\\hline
+sprint\_1\_staging; HEAD ผ่าน branch นี้ & G\\\hline
+origin/sprint\_1\_staging & F\\\hline
+\end{tabularx}
+\par\medskip
+\textbf{ตรวจตนเอง:} แยก local branch ออกจาก origin/*; อ่าน parent/common ancestor ถูก; ไม่อ้างว่าแยกสายแล้วต้อง conflict; ไม่เปลี่ยนคำว่า fetch ให้หมายถึง pull/merge\par
+\textbf{ข้อจำกัดของ snapshot:} origin/* บอกสถานะ remote ล่าสุดที่เครื่องรู้ ไม่ได้ยืนยัน GitHub ณ เวลาปัจจุบัน คำตอบข้อ S3.2 จึงอธิบายความต่างของ refs ที่แสดง ไม่เดาว่ามีใคร push หรือแก้ remote หลัง snapshot หรือไม่\par
