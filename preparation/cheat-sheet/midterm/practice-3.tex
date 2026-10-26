@@ -1,5 +1,5 @@
 \band{bluehead}{Practice Midterm · Part 3}
-\k{UML/UI 30 คะแนน}: เลือก 3 จาก Sequence/Activity/UI/Use Case/State แบบละ 10; \r{ไม่ยืนยันว่าจะออกแบบใด}
+\k{UML/UI 30 คะแนน}: เลือก 3 จาก 5 แบบ แบบละ 10 คะแนน; เตรียมโครงให้ครบทุกแบบ
 \topic{KU Registration: อ่าน R1-R11 ก่อนวาด}
 \k{R1}: KUSSO login/คืน role; \k{R5}: ฟอร์มภาค active ดึง ID/name/degree/email/username จาก Student Info; \k{R6-7}: เพิ่ม/กรอง offering แล้วยอดเปลี่ยน; \k{R8}: Draft บันทึก/แก้ได้; \k{R9}: ตรวจทุก section เต็ม → แก้/ส่งใหม่; \k{R10}: card/KBank หรือ transfer/BBL; \k{R11}: Done/ล็อก/email PDF
 {\smalltable\begin{tabularx}{\linewidth}{|p{13mm}|Y|}\hline
@@ -8,8 +8,8 @@ Department Admin & R2 สร้าง course: code/name/description/credits/fee;
 University Admin & R4 สร้าง semester และกำหนด active semester\\\hline
 \end{tabularx}}
 \r{SSO คืน Instructor ได้ แต่ R1-R11 ไม่กำหนดงานให้}; ไม่แต่งสิทธิ์
-\extra ภาพวาดย่อจากข้อกำหนด ข้อความไม่ใช่ชื่อ API จริง
-\topic{1/5 Sequence: Draft → เต็ม → แก้ → จ่าย BBL}
+\extra ชื่อข้อความในภาพอธิบายพฤติกรรม ไม่ใช่ชื่อ API
+\topic{1. Sequence: Draft → เต็ม → แก้ → จ่าย BBL}
 \begin{center}\begin{tikzpicture}[x=1mm,y=.75mm,font=\fontsize{7.1}{7.3}\selectfont,every node/.append style={fill=white,inner sep=.4pt}]
 \foreach\lab/\x in{Stu/2,Reg/11,SSO/20,Info/29,BBL/38,Mail/47}{\node[draw,fill=bluehead!35,inner sep=1pt]at(\x,0){\lab};\draw[dashed,black!65,line width=.3pt](\x,-2)--(\x,-83);}
 \draw[msg](2,-5)--node[above]{login}(11,-5);
@@ -34,7 +34,7 @@ University Admin & R4 สร้าง semester และกำหนด active s
 \draw[return](11,-79)--node[above]{confirmation}(2,-79);
 \end{tikzpicture}\end{center}
 \r{เริ่มจาก Draft เดิม 2 offerings แล้วเพิ่ม 1}; ส่งแล้วเต็มก่อนแก้/ส่งซ้ำสำเร็จ; Reg จัดการ DB ภายใน; หากโจทย์ให้ DB lifeline ต้องแสดง call
-\topic{2/5 Activity: ฟอร์มว่าง / ครบทางเลือก}
+\topic{2. Activity: ฟอร์มว่าง / ครบทางเลือก}
 \begin{center}\begin{tikzpicture}[x=1mm,y=.8mm,font=\fontsize{6.5}{6.8}\selectfont]
 \draw[line width=.38pt](0,1)rectangle(48,-83.5);
 \foreach\x in{6.857,13.714,20.571,27.428,34.285,41.142}{\draw[black!65,line width=.3pt](\x,1)--(\x,-83.5);}
@@ -71,8 +71,8 @@ University Admin & R4 สร้าง semester และกำหนด active s
 \draw[flow](paidmerge)--(done);\draw[flow](done)--(mail);\draw[flow](mail.south)--(44.57,-78)--(confirm);\draw[flow](confirm)--(end);
 \end{tikzpicture}\end{center}
 Stu = Student; Reg = KU Registration; SSO = KUSSO; Info = KU Student Info; Mail = KUEmail; KB = KBank; BBL = Bangkok Bank; จ่ายสำเร็จตามโจทย์ วนเฉพาะแก้ section เต็ม
-\topic{3/5 UI: List + Form จาก requirements}
-\k{คำสั่ง}: Complete เติมโครง; Design ออกแบบ; Invoice เป็นตัวอย่าง notation; ภาพ KU ประยุกต์จาก req
+\topic{3. UI: List + Form จากข้อกำหนด}
+\k{คำสั่ง}: Complete เติมข้อมูลในโครงที่กำหนด; Design ออกแบบจากข้อกำหนด; Invoice ใช้ฝึกสัญลักษณ์ UI; KU เป็นตัวอย่างประยุกต์
 \begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{7.1}{7.4}\selectfont]
 \newcommand{\sheetro}[5]{\draw(#1,#2)rectangle++(#3,-#4);\begin{scope}\clip(#1,#2)rectangle++(#3,-#4);\draw[black!65,line width=.25pt]({#1+#3-2.2},{#2-#4})--({#1+#3-.4},#2)({#1+#3-.7},{#2-#4})--({#1+#3+1.1},#2);\end{scope}\node[anchor=west,fill=white,inner xsep=.25pt,inner ysep=0pt]at({#1+.6},{#2-#4/2}){#5};}
 \draw(0,0)rectangle(48,-28);\fill[bluehead!50](0,0)rectangle(48,-4);

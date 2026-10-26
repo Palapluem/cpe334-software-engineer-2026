@@ -1,15 +1,15 @@
 \band{orangehead}{Lecture 3 · Specifications / SDD / Tests}
 \topic{SRS → SDS → STS}
 \k{SRS}: ต้องการอะไร; \k{SDS}: ออกแบบอย่างไร; \k{STS}: ตรวจอะไร ด้วยข้อมูลใด คาดผลอย่างไร และเก็บหลักฐานใด
-\b{SRS → feature inventory → req-feature map → system SDS → sprint vertical slice → feature contract → implement → test/review → integrate → main}
-\k{System SDS}: โครงสร้าง/stack/data, auth, มาตรฐาน API/UI/errors และ NFR ร่วม
-\k{Feature SDS}: ขอบเขต/req, workflow/state/BR, data/API/UI, สิทธิ์/validation/errors, AC/tests
+\b{SRS → feature inventory → Req-to-feature map → system SDS → vertical slice → feature contract → code → test/review → integrate → main}
+\k{System SDS}: architecture/stack/data, auth, มาตรฐาน API/UI/error และ NFR ร่วม
+\k{Feature SDS}: scope, Req, workflow/state/BR, data/API/UI, สิทธิ์/validation/error, AC/tests
 \k{Contract 7}: \b{inputs → validations → behavior → persistence → side effects → errors → outputs}
 \g{Invoice}: รับ customer/date/lines → ตรวจ customer, qty > 0, price ≥ 0 → คำนวณ → บันทึกหัว/รายการใน transaction เดียว; ผิด → ไม่บันทึก \extra receipt เป็น side effect ที่ต้องตกลง
 \topic{Tests / Red-Green-Refactor}
 \b{RED}: test ล้มเหลวด้วยเหตุผลที่ตั้งใจ → \b{GREEN}: เขียนโค้ดเท่าที่จำเป็นให้ผ่าน → \b{REFACTOR}: ปรับโครงสร้างโดย tests ยังผ่าน
 \k{AAA}: Arrange เตรียมข้อมูล → Act เรียกใช้ → Assert ตรวจผล; ครอบคลุมปกติ/ผิดเงื่อนไข/ขอบเขต/error/สิทธิ์; \r{ต้องจับ defect ได้ ไม่เขียนตาม implementation อย่างเดียว}
-\k{STS row}: test ID + Req/AC → precondition/data → steps/input → expected UI/API/DB → file + final result
+\k{STS row}: test ID + Req/AC → precondition/data → steps/input → expected UI/API/DB → file/result
 \extra \g{ค่าขอบเขต (boundary)}: คะแนน 0-100 → ทดสอบ −1/0/100/101; 0 และ 100 ผ่าน ส่วน −1 และ 101 ถูกปฏิเสธ
 {\smalltable\begin{tabularx}{\linewidth}{|p{11mm}|Y|}\hline
 \rowcolor{lightrow}ระดับ/ชนิด & ตรวจอะไร\\\hline
@@ -27,7 +27,7 @@ Special & load/performance, security, compatibility, recovery\\\hline
 \k{POS recovery/outbox}: เก็บ payment attempt; ผลไม่ชัดตรวจ PSP ก่อนเก็บเงินซ้ำ; บันทึก sale + pending inventory แบบ atomic; ส่ง async รอ ack/retry ใช้ transaction ID กัน stock ซ้ำ
 \k{BDD}: เริ่มจากพฤติกรรมด้วย Gherkin (outside-in); \k{TDD}: ให้ tests นำการออกแบบ (inside-out); ใช้ร่วมกันได้
 \chapterband{orangehead}{Lecture 4 · UML / Feature Design / UI}
-\k{Use Case}: actor มี goal ใน boundary; association เป็นเส้นทึบไม่มีหัวลูกศร (L4 p.7)
+\k{Use Case}: actor มี goal ใน boundary; association เป็นเส้นทึบไม่มีหัวลูกศร
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{5.9}{6.1}\selectfont]
 \node[inner sep=.2pt](incbase)at(5,0){Submit};\node[inner sep=.2pt](inctarget)at(45.2,0){Update};
 \draw[dashed,-{Triangle[open,length=1.2mm,width=1mm]}](incbase.east)--node[above,fill=white,inner sep=.2pt]{\textless\textless include\textgreater\textgreater}(inctarget.west);
@@ -50,21 +50,21 @@ Special & load/performance, security, compatibility, recovery\\\hline
 \node[state](a)at(6,0){Draft};\node[state](b)at(25,0){Ready};\node[state](c)at(44,0){Submitted};
 \draw[flow](a)--node[above]{complete}(b);\draw[flow](b)--node[above]{submit}(c);
 \end{tikzpicture}\end{center}
-\k{Class (Samples: Final)}: attributes:type; links + multiplicity; inheritance → parent; composition ◆ ที่ whole; aggregation ◇; \r{Samples ห้าม methods}
+\k{Class Diagram}: attributes:type; associations + multiplicity; inheritance → parent; composition ◆ ที่ whole; aggregation ◇; แสดงเฉพาะองค์ประกอบที่โจทย์กำหนด
 \k{Scenario}: basic = ปกติ; alternative = ทางเลือกที่ถูกต้อง; exception = ผิดพลาด; Activity ≠ Sequence; Use Case ≠ flowchart
 \topic{Generic UI: List / Form / LoV}
-\k{List}: title/role, search/filter/sort, req columns, select/open/create, pages, empty/loading/error; \k{Form}: header/line items/total/status/controls
+\k{List}: title/role, search/filter/sort, columns, select/open/create, pagination, empty/loading/error; \k{Form}: header/lines/total/status/actions
 \k{สัญลักษณ์สอบ}: \r{*} นำหน้าช่องบังคับ; textbox แก้ได้; ขีดเฉียง = read-only/calculated; เลือก FK ด้วย \b{LoV}; รายการย่อยมี add/remove และ validation
-\k{ทำ UI}: req → header/line items → label+textbox → */edit/RO/LoV → ปุ่มตาม role/state และ error; ภาพตัวอย่างให้รูปแบบช่อง
+\k{ทำ UI}: Req → header/lines → label+textbox → */edit/RO/LoV → controls ตาม role/state และ errors
 \k{ตามสถานะ}: KU Draft แก้/Save/Submit; Done ล็อก; รอ/สำเร็จ/ผิดพลาดตาม contract; \r{state ยึดแต่ละระบบ}
 \k{Design system}: สี/ฟอนต์/ระยะ/components/grid/breakpoints, contrast/keyboard/focus; ตารางยาวเลื่อนแนวนอนได้
-\r{ไม่เติม split payment/cancel/refund หากโจทย์ไม่ให้}; ทุก field/button/transition ต้องโยง req และสิทธิ์ได้
-\topic{Case patterns จาก Lecture 4 / review}
+\r{ไม่เติม split payment/cancel/refund หากโจทย์ไม่ให้}; ทุก field/button/transition ต้องโยง Req/สิทธิ์ได้
+\topic{จุดเน้นเมื่อวาดระบบตัวอย่าง}
 {\smalltable\begin{tabularx}{\linewidth}{|p{8mm}|Y|}\hline
-\rowcolor{lightrow}Case & สิ่งที่ต้องรักษาเมื่อวาด UML/UI\\\hline
-POS & Cashier/Customer; รายการสินค้า/ยอด; cash/card; card ไม่ผ่าน → retry/cash/cancel; สำเร็จ → receipt/stock\\\hline
-Hotel & Guest ค้นวัน/เมือง เลือกหลายห้อง/ประเภท จ่าย KBank → ลดห้องว่าง/ยืนยัน/email ถึง Guest และ Hotel; Hotel Admin ดูแลโรงแรมตน\\\hline
-Ticket & Customer สร้าง Requested พร้อม action อัตโนมัติ; CCE/Programmer เพิ่ม action ตาม state; action แก้/ลบไม่ได้; latest status/due อัปเดต; ปิดแล้วห้ามเพิ่ม\\\hline
-Grades & Instructor เลือก semester/course/sections ดึงรายชื่อ/กรอกเกรด; ครบ → Ready → submit → Submitted; อัปเดต Transcript/email; ใช้ SSO/Registration/Student Info/Email ภายนอก\\\hline
+\rowcolor{lightrow}ระบบ & จุดที่ควรแสดงในแบบจำลอง\\\hline
+POS & ทางเลือกเมื่อชำระไม่ผ่าน; การยกเลิก/คืนเงินและผลต่อ stock\\\hline
+Hotel & actor และขอบเขต; payment, Map, Email และสิทธิ์ดูแลโรงแรมตน\\\hline
+Ticket & role/guard ของ state transition; action history เพิ่มได้อย่างเดียว\\\hline
+Grades & งานที่ต้องเกิดหลัง submit; ใช้ generalization เมื่อมี parent-child ที่ระบุ\\\hline
 \end{tabularx}}
-\k{ตรวจรูป}: ตรง req; guard/ผลข้างเคียงครบ; กรณีผิดกลับแก้ได้; ไม่แต่ง state/สิทธิ์
+\k{ตรวจรูป}: ตรงข้อกำหนด; guard/ผลข้างเคียงครบ; กรณีผิดกลับแก้ได้; ไม่แต่ง state/สิทธิ์

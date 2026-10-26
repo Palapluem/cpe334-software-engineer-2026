@@ -27,8 +27,8 @@ D & 5 & 7 & 5 & 7 & 0\\\hline
 \chapterband{yellowhead}{Lecture 7 · Execution / Agile / Scrum}
 \k{MVP}: ชิ้นเล็กสุดที่ทดสอบคุณค่าได้ → build-measure-learn → pivot/persevere; \r{ไม่ใช่ phase 1 ที่ยังใช้ไม่ได้}
 \k{Pair}: driver เขียน/navigator ตรวจ สลับกัน; \k{DevOps}: dev + ops ร่วมดูแล delivery ใช้ automation/feedback; Water-Scrum-Fall ยังติด batch/approval ที่หัวท้าย
-\k{PO}: คุณค่า/วิสัยทัศน์/เรียง backlog/ตัดสิน req/ยอมรับ/ส่งมอบ; \k{SM}: อำนวยความสะดวก คุมเวลา แก้อุปสรรค \r{ไม่สั่งแบ่งงาน/ตัดสิน product แทน PO}; \k{Developers}: จัดการตนเอง ข้ามทักษะ เลือกวิธีทำ/คน/capacity
-\k{Artifacts 3}: product backlog, sprint backlog, Done increment; \k{Events 5}: Sprint, Planning, Daily, Review, Retrospective; \r{p. 47 นับ refinement แทน Sprint ในหมวด meetings}
+\k{PO}: คุณค่า/วิสัยทัศน์/เรียง backlog/ตัดสินใจเรื่องข้อกำหนด/ยอมรับ/ส่งมอบ; \k{SM}: อำนวยความสะดวก คุมเวลา แก้อุปสรรค \r{ไม่สั่งแบ่งงาน/ตัดสิน product แทน PO}; \k{Developers}: จัดการตนเอง ข้ามทักษะ เลือกวิธีทำ/คน/capacity
+\k{Artifacts 3}: product backlog, sprint backlog, Done increment; \k{Events 5}: Sprint, Planning, Daily, Review, Retrospective
 \topic{Story / Backlog refinement}
 \b{As a <role>, I need <function>, so that <value>}; role ไม่ใช่ชื่อคน; มี description/details/assumptions/AC
 \b{Given <precondition> When <event> Then <observable outcome>}; And/But เสริม; ทดสอบบวก/ลบ ไม่กำหนด implementation เกินความต้องการ
@@ -40,11 +40,11 @@ D & 5 & 7 & 5 & 7 & 0\\\hline
 \k{Velocity}: points ที่ทีมทำเสร็จต่อ sprint; ใช้ประวัติร่วมกับกำลังทีม (capacity); เลือกตาม \b{goal, priority, dependencies และ $\sum\text{points}\leq\text{capacity}$}; ไม่เติมงานเพียงเพราะยังมีที่
 \k{Planning}: PO ให้ goal/ลำดับ; ทีมประเมินและเลือกงาน/วิธีทำ; SM คุมเวลา; sprint backlog = forecast + plan; มักยาว 2 สัปดาห์
 \k{Board}: New → Icebox/Backlog → Sprint Backlog → In Progress → Review/QA → Done; WIP 1/คน เว้นติดขัด; เลือกงานสำคัญสุด; เสร็จ → PR → merge/Done ตามกติกา
-\k{Daily}: ตามสไลด์ 15 นาที คุยงานเมื่อวาน วันนี้และอุปสรรค; แก้รายละเอียดหลังประชุม ไม่ใช่รายงานหัวหน้า
+\k{Daily}: timebox 15 นาที; คุยความคืบหน้า เป้าหมายวันนี้และอุปสรรค; วางแผนร่วมกัน ไม่ใช่รายงานหัวหน้า
 \k{Review}: demo/AC กับ PO/ผู้เกี่ยวข้อง; feedback → Issue; \k{Retro}: ทีม/SM ทบทวนดี/ไม่ดี/สิ่งที่จะเปลี่ยน แล้วนำไปปรับ sprint หน้า
 \k{Burndown}: x = เวลา, y = points คงเหลือ; ลดเมื่อ Done ไม่ใช่เริ่มทำ; metrics ต้องมี baseline และนำไปปรับงานได้
-\k{จบ sprint (pp. 161-165)}: งานไม่เริ่มคืน backlog/ถอน milestone; งานค้างปรับ story/points ส่วนที่ทำ ติด unfinished และแยกงานที่เหลือ; \r{เครดิตตามสไลด์ ≠ ผ่าน DoD}
-\k{Docs}: req/design/technical/QA/user/SOP; \k{Org}: traditional หัวหน้าเดียว, matrix หลายสาย; Conway: โครงทีมสะท้อนระบบ
+\k{จบ sprint}: งานไม่เริ่มคืน backlog; งานไม่ผ่าน DoD ไม่ถือว่า Done ให้ประเมินและจัดลำดับใหม่; บันทึกส่วนที่เสร็จกับงานค้างแยกกัน
+\k{Docs}: ข้อกำหนด/design/technical/QA/user/SOP; \k{Org}: traditional หัวหน้าเดียว, matrix หลายสาย; Conway: โครงทีมสะท้อนระบบ
 
 \topic{Metrics: ความหมาย ไม่ใช่แค่ชื่อ}
 {\smalltable\begin{tabularx}{\linewidth}{|p{14mm}|Y|}\hline

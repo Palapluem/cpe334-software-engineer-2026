@@ -1,7 +1,7 @@
 \band{orangehead}{Practice Midterm · Part 2}
 \k{Part 2 รวม 25 คะแนน}: PM ทำ WBS/RACI/Gantt; PO ทำ grooming; SM ทำ sprint planning
 \topic{1) DormFix: WBS 3 + RACI 2 + Gantt 5}
-\k{บริบท}: DormFix เว็บแจ้งซ่อมหอพัก (Waterfall); PM = เรา; Aom = BA, Bank = UX/UI, Chai = Dev, Dao = Dev/Tester; ผจก.หอ (sponsor) อนุมัติ B/ตรวจรับ H; หัวหน้าช่าง (user) อนุมัติ F
+\k{บริบท}: DormFix เว็บแจ้งซ่อมหอพัก (Waterfall); PM = Project Manager; Aom = BA, Bank = UX/UI, Chai = Dev, Dao = Dev/Tester; ผจก.หอ (sponsor) อนุมัติ B/ตรวจรับ H; หัวหน้าช่าง (user) อนุมัติ F
 \k{ตาราง}: Jan 2027; d = วันทำงาน; Work/Buf = ทำ/เผื่อ
 {\smalltable\begin{tabularx}{\linewidth}{|C{2.6mm}|Y|C{8.5mm}|}\hline
 \rowcolor{lightrow}ID & Task · Owner · d & Work / Buf\\\hline
@@ -25,7 +25,7 @@ C & A & C & R & I & –\\\hline
 G & A & – & C & R & I\\\hline
 D & A & I & – & C & R\\\hline
 \end{tabularx}}
-\extra RACI จาก notes ของ mock 5.2 \r{ไม่ใช่เฉลยอาจารย์}; “–” = ไม่มีบทบาท
+\extra ตัวอย่าง RACI; “–” = ไม่มีบทบาทในงานนั้น
 \k{กฎ}: เริ่ม จ. 4 Jan; เต็มเวลา จ.-ศ. ไม่มีวันหยุดอื่น; งานถัดไปเริ่มวันทำงานหลังงานก่อน+buffer จบ
 \begin{center}\begin{tikzpicture}[x=.985mm,y=1mm,font=\fontsize{6.2}{6.4}\selectfont]
 \draw[line width=.35pt](0,0)rectangle(48,-27.6);
@@ -71,8 +71,8 @@ D & A & I & – & C & R\\\hline
 6 & Fix mobile truncation (−1) & 2 & No\\\hline
 \end{tabularx}}
 \b{เลือก 1/3/4: 8+5+3=16}; 2 ไม่ตรง goal; เพิ่ม 5 รวม 21 เกิน capacity; 6 ไม่มีที่เหลือ. \r{Fibonacci นับขั้น ไม่บวกเลขตรง}
-\topic{PERT (Lecture 6): คำนวณ effort ไม่ใช่วันนัดส่ง}
-\k{ข้อมูล O/M/P (h), Lecture 6}: T1 guard 2/3/6; T2 queue 3/5/10; T3 workflow 4/6/11; T4 comments 4/7/13; T5 admin 3/5/12; T6 auth/tests 4/6/14
+\topic{PERT: คำนวณ effort ไม่ใช่วันนัดส่ง}
+\k{ข้อมูล O/M/P (h)}: T1 guard 2/3/6; T2 queue 3/5/10; T3 workflow 4/6/11; T4 comments 4/7/13; T5 admin 3/5/12; T6 auth/tests 4/6/14
 \g{T1}: E=3.33 h, SD=0.67 h; รวม E=35.67 h, SD=3.23 h เมื่อประมาณการอิสระ → \mbox{35.7 ± 3.2 h} (หนึ่ง SD) \r{ไม่ใช่ช่วงรับประกัน}; วันจบขึ้นกับงานขนาน/คน
 \chapterband{bluehead}{Part 3 · เตรียมครบ 5 แบบ เลือกสอบ 3}
 {\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
@@ -83,4 +83,3 @@ D & A & I & – & C & R\\\hline
 4 Use Case & boundary+actors → goals; include/extend/generalization ให้ทิศถูก\\\hline
 5 State & object เดียว → states/events/[guards]/effects และข้อห้ามหลังปิด\\\hline
 \end{tabularx}}
-\r{ฝึกครบ 5 แบบ}; ปรับตาม req ของข้อสอบ

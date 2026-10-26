@@ -1,17 +1,17 @@
 \band{minthead}{Practice Midterm · Part 1}
-\k{Part 1 รวม 25 คะแนน}: ข้อกำหนด ข้อเสนอโครงการ RBAC และความปลอดภัย; ไม่ใช่ข้อวิเคราะห์ข้อกำหนดข้อเดียว
+\k{Part 1 รวม 25 คะแนน}: วิเคราะห์ข้อกำหนด ข้อเสนอโครงการ RBAC และความปลอดภัย
 \topic{1) วิเคราะห์ข้อกำหนดให้ครบ 5 ขั้น}
 \b{จำแนกชนิด → อธิบายจุดประสงค์ → ประเมินคุณภาพพร้อมเหตุผล → วิธีตรวจ/ผลที่คาด → เสนอแก้}; แยกข้อเท็จจริงจากข้อเสนอ
 {\smalltable\begin{tabularx}{\linewidth}{|p{11mm}|Y|}\hline
-\rowcolor{lightrow}\mbox{Workshop req} & แนววิเคราะห์\\\hline
+\rowcolor{lightrow}\mbox{ข้อกำหนด} & แนววิเคราะห์\\\hline
 Browse open & FR; นักศึกษาที่ login แล้วดู workshop ที่เปิดรับ; เตรียม open/closed → เห็นเฉพาะ open\\\hline
 “Quick” & NFR; กำกวมเพราะไม่มีตัวชี้วัด/ภาระงาน ต้องตกลงก่อนทดสอบ\\\hline
 ≤3/semester & BR/domain; ทดสอบมี 2 เพิ่มเป็น 3 ได้; มี 3 แล้วเพิ่มครั้งที่ 4 ต้องปฏิเสธ\\\hline
 Cancel + list & รวมสอง FR; แยกนักศึกษายกเลิกกับผู้ประสานงานดูรายชื่อ; ถามขอบเขตสิทธิ์ให้ชัด\\\hline
 \end{tabularx}}
-\extra เสนอ NFR: เมื่อมีผู้ใช้พร้อมกัน 100 คน คำขอสมัครที่ถูกต้องอย่างน้อย 95\% ได้รับการยืนยันภายใน 2 s; \r{ไม่ใช่ค่าที่โจทย์ให้} ต้องตกลงจุดวัด เครือข่าย ชุดข้อมูลและกรณีผิดพลาด
+\extra \g{ตัวอย่าง NFR ที่วัดได้}: เมื่อมีผู้ใช้พร้อมกัน 100 คน คำขอสมัครที่ถูกต้องอย่างน้อย 95\% ได้รับการยืนยันภายใน 2 s; ต้องตกลงจุดวัด เครือข่าย ชุดข้อมูลและกรณีผิดพลาดก่อนใช้
 \k{FR template}: The system shall allow \b{<actor>} to \b{<action/object>} when \b{<condition>}. ระบุผลและข้อยกเว้นที่ตรวจได้
-\boxnote{\r{quick/easy/reliable ยังไม่พอ}; อย่าตั้งตัวเลขแล้วอ้างว่าลูกค้าให้มา; test ต้องมี input/state, action, expected result ไม่ใช่แค่ “ทำ unit test”}
+\boxnote{\r{“quick/easy/reliable” ยังวัดไม่ได้}; ตกลงตัวชี้วัดก่อนระบุตัวเลข; test ต้องมี input/state, action และ expected result ไม่ใช่แค่ “ทำ unit test”}
 \topic{2) WorkshopHub proposal: 8 ช่อง}
 {\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
 \rowcolor{lightrow}Element & หลักฐาน / สิ่งที่ขาด\\\hline
@@ -47,11 +47,11 @@ Export participant list & Deny & Allow\\\hline
 \extra สุ่มชื่อไฟล์ ตรวจ path จำกัดสิทธิ์ สแกนมัลแวร์ตามความเสี่ยงและ log อย่างปลอดภัย; ตรวจใน browser ช่วย UX ไม่ได้แทน server
 \topic{ตอบ security พร้อมเหตุผล}
 \b{ช่องโหว่ → จุดเข้า/asset → boundary → CIA → defense → negative check + expected}; ไม่ใช่แค่รายชื่อ attack
-\k{อย่าสับสน}: XSS รันใน browser; CSRF ใช้ browser/cookie ส่งคำสั่ง; SSRF ให้ server ดึง URL; SQLi เปลี่ยนความหมาย query; defenses/tests ดูหน้า 1
+\k{อย่าสับสน}: XSS รันใน browser; CSRF ใช้ browser/cookie ส่งคำสั่ง; SSRF ให้ server ดึง URL; SQLi เปลี่ยนความหมาย query; เลือกวิธีป้องกันและทดสอบให้ตรงกับช่องโหว่
 \k{Boundary}: จำกัด 3 → ทดสอบ 2/3/4, ข้ามภาค, ยกเลิกแล้วนับไหม? เงื่อนไขที่โจทย์ไม่บอกต้องถาม ไม่เพิ่มกฎเอง
 \k{แยกศัพท์}: threat = เหตุร้ายที่อาจเกิด; vulnerability = จุดอ่อน; attack = การใช้จุดอ่อน; risk ประเมินโอกาส/ผลกระทบ; control = มาตรการลดความเสี่ยง
-\chapterband{bluehead}{Part 3 · สี่ระบบที่อาจารย์ให้เตรียม}
-\k{ใช้กับโจทย์จริง}: actor/goal → workflow/scenario → data/UI → state; ย่อจาก Lecture 3-4
+\chapterband{bluehead}{Part 3 · ตัวอย่างการประยุกต์ UML/UI}
+\k{ลำดับคิด}: actor/goal → workflow/scenario → data/UI → state
 {\smalltable\begin{tabularx}{\linewidth}{|p{6mm}|Y|}\hline
 \rowcolor{lightrow}ระบบ & ข้อเท็จจริงสำคัญก่อนวาด UML/UI\\\hline
 POS & Cashier: items/discount/total; cancel ก่อนจบ; cash/card ผ่าน PSP; declined → retry/cash/cancel; สำเร็จพิมพ์ receipt/ลด stock; return บันทึกเหตุผล/refund/คืน stock; Manager ดู daily cash/card และดูแลสินค้า/ราคา\\\hline

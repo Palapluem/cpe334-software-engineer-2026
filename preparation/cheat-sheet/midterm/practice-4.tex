@@ -1,6 +1,6 @@
 \band{yellowhead}{Practice Midterm · Part 3 (ต่อ)}
-\topic{4/5 Use Case: Grades ทั้งระบบ (L4 pp.64-65; notation p.7)}
-\k{ทิศ}: actor=เส้นทึบไม่มีหัว; include base→required; extend extension→base [condition]; generalization child→parent (หัวสามเหลี่ยมโปร่งชี้ parent). ใช้ตาม req; \r{ไม่ใช่ flowchart}
+\topic{4. Use Case: Grades}
+\k{ทิศ}: actor = เส้นทึบไม่มีหัว; include base→required; extend extension→base [condition]; generalization child→parent (สามเหลี่ยมโปร่งชี้ parent). แสดง actor/goal ไม่ใช่ลำดับขั้นแบบ flowchart; เลือกความสัมพันธ์ตามข้อกำหนด
 \begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{6.8}{7.1}\selectfont]
 \draw[black!65](8,4)rectangle(38,-50);
 \node[anchor=south,font=\fontsize{7.1}{7.4}\selectfont]at(23,4){Grade Submission};
@@ -26,8 +26,8 @@
 \node[fill=white,inner sep=.25pt,font=\fontsize{6.5}{6.8}\selectfont]at(15,-37){\textless\textless include\textgreater\textgreater};
 \node[fill=white,inner sep=.25pt,font=\fontsize{6.5}{6.8}\selectfont]at(31,-37){\textless\textless include\textgreater\textgreater};
 \end{tikzpicture}\end{center}
-\extra ในภาพนี้ Submit include การอัปเดต transcript/ส่ง email; ตัวอย่าง S1 แยกต่างหาก: Print extends Maintain [เลือกพิมพ์]. Grades ไม่มี actor/use case แบบแม่–ลูก จึงไม่วาด generalization; L4 p.7 ยก Cashier/Manager→User
-\topic{5/5 State: object เดียว / event [guard] / effect}
+\extra Submit ต้อง include การอัปเดต transcript และส่ง email; โจทย์ Grades ไม่มี actor/use case แบบแม่–ลูก จึงไม่ใช้ generalization
+\topic{5. State: object เดียว / event [guard] / effect}
 \k{วิธีทำ}: object → states/events/[guards]/effects; initial/final/self-loop; \r{actor ไม่ใช่ state}; P = Programmer
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{6.8}{7.1}\selectfont]
 \node[circle,fill,inner sep=.8pt](s)at(1,0){};
@@ -48,38 +48,38 @@
 \end{tikzpicture}\end{center}
 \k{Ticket}: save [System] → Requested; action อัปเดต Last Status/Due, แก้/ลบไม่ได้; closed ห้ามเพิ่ม; notes/due update เป็น self-loop
 \k{เทียบ}: Registration Draft → Done เมื่อจ่าย / lock+email; เต็มยัง Draft. Grades Draft → Ready → Submitted; \r{ห้ามแต่ง state}
-\topic{Git: เลือก 2/3 รูปแบบ ข้อละ 10 · Samples 2.1-2.9}
+\topic{Git: เลือก 2 จาก 3 รูปแบบ ข้อละ 10 คะแนน}
 \k{รูปแบบ}: ทำนาย graph / อธิบาย graph / เขียนคำสั่งแล้ววาด graph ผลลัพธ์
 \k{โจทย์}: clean/คำสั่งสำเร็จ; conflict เฉพาะที่ระบุ. HEAD → branch → commit; origin/* = remote ที่รู้ล่าสุด; tag คงที่
 {\smalltable\begin{tabularx}{\linewidth}{|C{4mm}|Y|}\hline
-\rowcolor{lightrow}ข้อ & ฐาน → ผล / HEAD / ตัวชี้ที่ต้องรักษา\\\hline
-2.1 & FF C→E; s=f=E, os=C; switch ท้าย → HEAD/main=B\\\hline
-2.2 & HEAD=s=G, os=F; G ยังไม่ push; f=E แยกสาย → 3-way; graph ไม่ยืนยัน conflict\\\hline
-2.3 & s:C→E (FF)→F; HEAD=s=F, f=E, os=C\\\hline
-2.4 & s:D→E (FF)→F; HEAD=s=F, f=E, os=D\\\hline
-2.5 & merge F/E→G (parents F/E); s=G, f=E, os=F; switch ท้าย → HEAD/main=B\\\hline
-2.6 & main=B, origin/main=v1.0=H; switch ยัง B; FF→H; refs อื่นเดิม\\\hline
-2.7 & HEAD=s=H (E/G), os=E; push f ที่ G ไม่ส่ง H; push s → os=H\\\hline
-2.8 & s:C→E; สร้าง/switch f ใหม่→F; s=feature/pass\_rate=E, os=C\\\hline
-2.9 & s:D→G (FF)→H (G/F); push→os=H; HEAD=s=H, f=F\\\hline
+\rowcolor{lightrow}กรณี & ฐาน → ผล / HEAD / ตัวชี้ที่ต้องรักษา\\\hline
+A & FF C→E; s=f=E, os=C; switch ท้าย → HEAD/main=B\\\hline
+B & HEAD=s=G, os=F; G ยังไม่ push; f=E แยกสาย → 3-way; graph อย่างเดียวสรุปไม่ได้ว่าจะ conflict\\\hline
+C & s:C→E (FF)→F; HEAD=s=F, f=E, os=C\\\hline
+D & s:D→E (FF)→F; HEAD=s=F, f=E, os=D\\\hline
+E & merge F/E→G (parents F/E); s=G, f=E, os=F; switch ท้าย → HEAD/main=B\\\hline
+F & main=B, origin/main=v1.0=H; switch ยัง B; FF→H; refs อื่นเดิม\\\hline
+G & HEAD=s=H (E/G), os=E; push f ที่ G ไม่ส่ง H; push s → os=H\\\hline
+H & s:C→E; สร้าง/switch f ใหม่→F; s=feature/pass\_rate=E, os=C\\\hline
+I & s:D→G (FF)→H (G/F); push→os=H; HEAD=s=H, f=F\\\hline
 \end{tabularx}}
-\k{ชื่อย่อ}: s=staging, f=feature, os=origin/staging; main/origin/main=B ยกเว้น FF ใน 2.6; ใช้ชื่อจริงตามข้อ
-\topic{จำ ancestry: 2.3 fast-forward + commit; 2.5 three-way merge (G มี parent F/E)}
+\k{ชื่อย่อ}: s=staging, f=feature, os=origin/staging; main/origin/main=B ยกเว้น fast-forward ในกรณี F; ใช้ชื่อจริงตามโจทย์
+\topic{จำ ancestry: fast-forward แล้ว commit / three-way merge}
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{6.5}{6.7}\selectfont]
 \foreach\lab/\x in{C/2,D/8,E/14,F/20}{\node[circle,draw,inner sep=.8pt](left\lab)at(\x,0){\lab};}
 \draw(leftC)--(leftD)--(leftE)--(leftF);
-\node[anchor=south,inner sep=.2pt]at(11,1.5){2.3: FF, then commit};
+\node[anchor=south,inner sep=.2pt]at(11,1.5){กรณี C: FF แล้ว commit};
 \node[circle,draw,inner sep=.8pt](d)at(28,0){D};\node[circle,draw,inner sep=.8pt](f)at(36,0){F};\node[circle,draw,inner sep=.8pt,fill=minthead!45](g)at(46,0){G};\node[circle,draw,inner sep=.8pt](e)at(36,-4){E};
 \draw(d)--(f)--(g);\draw(d)--(e)--(g);
-\node[anchor=south,inner sep=.2pt]at(37,1.5){2.5: two parents};
+\node[anchor=south,inner sep=.2pt]at(37,1.5){กรณี E: two parents};
 \end{tikzpicture}\end{center}
-\topic{คำสั่ง: b/ref/files/msg ใช้ค่าจากโจทย์}
-\par\code{git status}: branch/staged/unstaged/untracked; อ่านอย่างเดียว. \code{git diff}: tracked worktree↔index (ไม่รวม untracked). \code{git diff --cached}: index↔HEAD
+\topic{คำสั่ง: แทนชื่อใน < > ด้วยค่าจากโจทย์}
+\par\code{git status}: branch/staged/unstaged/untracked; อ่านอย่างเดียว. \code{git diff}: tracked worktree เทียบ index (ไม่รวม untracked). \code{git diff --cached}: index เทียบ HEAD
 \par\code{git add <files>}: stage เฉพาะชื่อไฟล์; ยังไม่ commit. \code{git commit -m "<msg>"}: บันทึก index เป็นลูก HEAD และเลื่อน current branch; ไม่ push
 \par\code{git branch <b>}: สร้าง branch ที่ HEAD; HEAD/ไฟล์เดิม. \code{git switch <b>}: ย้าย HEAD/ไฟล์เมื่อ clean; ไม่เลื่อน branch pointer
 \par\code{git merge <ref>}: รวมเข้า current; FF เลื่อน ref, แยกสายสร้าง 2 parents; source คงเดิม. \code{git merge --ff-only origin/<b>}: ยอมเฉพาะ FF
 \par\code{git fetch origin}: รับ commits/เลื่อน origin/* เท่านั้น. \code{git push origin <b>}: ส่ง branch/อัปเดต origin/b; local HEAD/ไฟล์เดิม
-\k{2.3}: staging = sprint\_1\_staging, feature/load\_scores; แก้ score\_data.py, scores.csv; สร้าง validation\_notes.txt; message \code{"Document score validation cases"}
-\k{2.8}: s=sprint\_2\_staging; merge feature/pass\_rate; branch+switch feature/grade\_distribution; แก้ report.py, scores.csv; เพิ่ม grade\_ranges.csv; message \code{"Add grade distribution report"}
-\k{2.9}: b=sprint\_2\_staging, ref=feature/export\_results; switch b → FF origin/b → merge ref → push b
+\k{กรณี C}: staging = sprint\_1\_staging, feature/load\_scores; แก้ score\_data.py, scores.csv; สร้าง validation\_notes.txt; message \code{"Document score validation cases"}
+\k{กรณี H}: s=sprint\_2\_staging; merge feature/pass\_rate; branch+switch feature/grade\_distribution; แก้ report.py, scores.csv; เพิ่ม grade\_ranges.csv; message \code{"Add grade distribution report"}
+\k{กรณี I}: b=sprint\_2\_staging, ref=feature/export\_results; switch b → FF origin/b → merge ref → push b
 \r{ห้าม git add .}; วาด parent/local/origin/tag/HEAD ทุกขั้น

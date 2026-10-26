@@ -2,12 +2,12 @@
 \topic{SDLC: พัฒนาระบบ ไม่ใช่แค่เขียนโค้ด}
 \k{Software engineering}: พัฒนาระบบให้แก้ปัญหาผู้ใช้ ทดสอบได้ ปลอดภัยและดูแลต่อได้; โค้ดรันได้ ≠ ผู้ใช้ยอมรับ
 \b{Planning → Requirements → Specification → Design → Implementation → Testing → Deployment → Maintenance}
-\k{Planning}: เหตุผล ขอบเขตและความเสี่ยง; \k{Req}: ต้องการอะไร; \k{Spec}: ตกลงพฤติกรรม; \k{Design}: ทำอย่างไร; \k{Test}: พิสูจน์ผล; \k{Deploy}: ตั้งค่า นำขึ้นใช้ เฝ้าดู/ย้อนรุ่น; \k{Maintain}: แก้และปรับระบบ
-\extra Feasibility: เทคนิคพร้อม คุ้มทุน ใช้ได้จริง ทันเวลา/ทรัพยากรพอไหม
+\k{Planning}: เหตุผล ขอบเขตและความเสี่ยง; \k{Req}: ระบบต้องทำอะไร; \k{Spec}: ตกลงพฤติกรรม; \k{Design}: ทำอย่างไร; \k{Test}: พิสูจน์ผล; \k{Deploy}: ตั้งค่า นำขึ้นใช้ เฝ้าดู/ย้อนรุ่น; \k{Maintain}: แก้และปรับระบบ
+\extra Feasibility: ทำได้ทางเทคนิค คุ้มทุน และมีเวลา/ทรัพยากรพอ
 \topic{Process models / Agile values}
 {\smalltable\begin{tabularx}{\linewidth}{|p{10mm}|Y|}\hline
 \rowcolor{lightrow}Model & จุดเด่น / ข้อควรระวัง\\\hline
-Waterfall & แผนและ sign-off ชัด; เหมาะกับ req คงที่ แต่ feedback ช้า เปลี่ยนแพง\\\hline
+Waterfall & แผนและ sign-off ชัด; เหมาะกับข้อกำหนดคงที่ แต่ feedback ช้า เปลี่ยนแพง\\\hline
 Incremental & ส่ง vertical slice ที่ใช้ได้ทีละส่วน; คุม architecture และ integration\\\hline
 Iterative & ปรับ solution เดิมซ้ำตาม feedback\\\hline
 Scrum & sprint goal, timebox, increment; ตรวจสอบและปรับตัว\\\hline
@@ -46,7 +46,7 @@ Constraint & ข้อจำกัดทางเลือก เช่น เ�
 \topic{Proposal 8 ช่อง / Evidence chain}
 \b{Problem · Users · Solution · Expected value · Scope · Risk · Effort · Evidence of completion}
 แยกสิ่งที่มี/ขาดพร้อมหลักฐาน; ข้อเสนอเพิ่มต้องติดป้าย ไม่เขียนเป็นข้อเท็จจริง
-\b{Req ID/source → feature/design → Issue/code → AC/test → PR/release → demo}; ต้องชี้ไฟล์และผลจริง
+\b{Req ID/ต้นทาง → feature/design → Issue/code → AC/test → PR/release → demo}; ย้อนถึงไฟล์/ผลจริงได้
 \k{Acceptance criteria (AC)}: เกณฑ์ยอมรับเฉพาะงาน; \k{DoD}: เกณฑ์เสร็จร่วม; \k{Definition of Ready (DoR)}: พร้อมเริ่ม ≠ เสร็จ; \b{MoSCoW}: Must / Should / Could / Won't (รอบนี้)
 
 \topic{วิเคราะห์ข้อกำหนดพร้อมเหตุผล}

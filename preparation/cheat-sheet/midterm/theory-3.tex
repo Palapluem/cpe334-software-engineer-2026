@@ -27,7 +27,7 @@ Deps & patch/audit packages; จำกัดสิทธิ์ DB/network; ป�
 \r{ซ่อนปุ่มไม่ใช่การควบคุมสิทธิ์}; frontend validation ช่วย UX; backend validation คุม trust boundary
 \k{Status}: 400 ข้อมูลผิด; 401 ยังไม่ยืนยันตัวตน; 403 ไม่มีสิทธิ์; 404 ไม่พบ/ปิดบังตามกติกา; 409 ขัดแย้ง; 500 ข้อผิดพลาดกลาง; log correlation ID ไม่ใช่ password/token
 \extra เมื่อปฏิเสธ ให้ตรวจ error/status และข้อมูลธุรกิจไม่เปลี่ยน; audit log ยังเกิดได้ตาม contract
-\topic{คำอธิบายเสริม: ตัวอย่างตรวจสิทธิ์ผ่าน API ตรง}
+\topic{ตัวอย่างตรวจสิทธิ์ผ่าน API โดยตรง}
 {\smalltable\begin{tabularx}{\linewidth}{|p{13mm}|Y|}\hline
 \rowcolor{lightrow}ทดสอบ & ผลที่ต้องตรวจตาม policy/contract\\\hline
 AuthN/gate & valid ผ่าน; wrong/inactive/ไม่ login ถูกปฏิเสธ; password gate ต้องคุม API ตรง\\\hline
