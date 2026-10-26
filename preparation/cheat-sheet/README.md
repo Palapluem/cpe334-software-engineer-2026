@@ -279,7 +279,7 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 
 | ประเด็น | เอกสารระบุอย่างไร | การใช้ในฉบับนี้ / ข้อควรถาม |
 | --- | --- | --- |
-| UML ในขอบเขตสอบ | Lecture 4 p. 74 รวม Component/Package/Class; Lecture 10 p. 30 ยังมี Class แต่ blueprint p. 29 เลือก Sequence/Activity/UI/Use Case/State; Samples p. 6 ระบุ Class อยู่ Final | ยึด blueprint เฉพาะ Midterm ในหน้าแนวสอบ เก็บ Class ย่อพร้อมป้าย Final; ถามหากมีประกาศแก้ ไม่รับรองว่าจะไม่มีทางออก |
+| UML ในขอบเขตสอบ | Lecture 4 p. 74 รวม Component/Package/Class; Lecture 10 p. 30 ยังมี Class แต่ blueprint p. 29 เลือก Sequence/Activity/UI/Use Case/State; Samples p. 6 ระบุ Class อยู่ Final | โพยสรุป Class Diagram notation/checklist ไว้ใน Lecture 4 แต่ไม่ใส่เป็นแบบที่ 6 ของกลางภาค เพราะ blueprint มี 5 แบบ; ทบทวนขอบเขตอีกครั้งหากมีประกาศสอบใหม่ |
 | Scrum events/meetings | Lecture 7 p. 40 นับ Sprint ใน 5 events แต่ p. 47 ตาราง meetings ใส่ refinement แทน | แยกชื่อหมวด ไม่อ้างว่ารายการเหมือนกัน; ถ้าถามสไลด์เฉพาะหน้าให้อธิบายบริบท |
 | Unfinished/DoD | Lecture 7 pp. 163-164 ปรับ story/points ติด unfinished แยกส่วนเหลือ; pp. 146/169 กล่าวถึง AC/Done increment | เครดิตตามสไลด์ไม่เท่ากับผ่าน DoD; ควรถามก่อนคำนวณ velocity หากโจทย์มีกรณีนี้ |
 | AuthN/AuthZ | Lecture 5 p. 13 หัวข้อ “Common authorization methods” แต่ยก Basic/Digest/API key/session | จัดใต้ AuthN ตามบริบท p. 8 แยก AuthZ ตาม pp. 19-23 ไม่แปลหัวข้อผิดตามไปด้วย |
@@ -337,3 +337,6 @@ trash "$sheet_build_dir"
 - ฟอนต์ที่ใช้ฝังครบ: TH Sarabun New, TH Sarabun New Bold และ Latin Modern Math ไม่พบข้อความอยู่นอกขอบหน้า การตรวจนี้เป็นการตรวจไฟล์/ภาพ render ยังไม่ได้พิมพ์ทดสอบกับเครื่องพิมพ์จริง
 - รอบคำอธิบาย Git: PDF มีความหมายของ 12 รายการ ได้แก่ status, diff, diff --cached, add, commit -m, branch, switch, merge, merge --ff-only, fetch, push และ log พร้อม flags --oneline/--graph/--decorate/--all แยกผลต่อ working tree/index/HEAD/local refs/remote และมีคำอธิบายฉบับเต็มด้านบน
 - หลังเพิ่มคำอธิบายยังเป็น PDF สองหน้าและไม่มีคำเตือน build หรือข้อความนอกขอบ เปรียบเทียบที่ 144 dpi แล้ว Parts 1-2, ตัวอย่าง UML/UI ทั้งห้า และคอลัมน์ทฤษฎี 2-4 ของหน้าแรกเหมือนก่อนรอบ Git ทุกพิกเซล ขนาดฟอนต์หลัก/ตาราง/คำสั่งยังเดิม สรุปกรณี Git A-I ใช้ชื่อย่อ s/f/os ที่อธิบายไว้ครบ
+- ตรวจขอบเขตโจทย์กับ Lecture 10 อีกครั้ง: Part 1 มี requirement analysis, proposal, RBAC และ security; Part 2 มี DormFix WBS/RACI/Gantt, Badminton backlog grooming และ ShuttleNow sprint planning; Part 3 มี UML/UI ห้าแบบกับ Git สามรูปแบบ และกรณี Git A-I ครบตาม Samples 2.1-2.9
+- เติม checklist Class Diagram ตามโจทย์ตัวอย่าง: ชื่อคลาส/attributes, ไม่ใส่ methods, associations/multiplicity, inheritance, composition, aggregation, external calls และจำกัด links ของ Header/Line Item ไว้ชั้นแรก โพยเก็บส่วนนี้ในสรุป Lecture 4 ไม่เพิ่มเป็นแบบที่ 6 ของกลางภาค เพราะ blueprint ให้เลือก 3 จาก 5 และ Sample ระบุ Class ว่าเป็น Final
+- PDF build ล่าสุดยังเป็น A4 สองหน้า; T2 สูง 816.67 pt จาก budget 823.99 pt ไม่มีคำเตือนคอลัมน์เกินหน้า/อักขระหาย ตรวจภาพเรนเดอร์ทั้งสองหน้าแล้ว ไม่ได้ทดสอบกับเครื่องพิมพ์จริง
