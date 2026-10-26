@@ -1,5 +1,11 @@
 \documentclass[12pt,a4paper]{exam}
 \input{../style.tex}
+\newif\ifMockExamSupplements
+\ifdefined\MockExamCoreOnly
+  \MockExamSupplementsfalse
+\else
+  \MockExamSupplementstrue
+\fi
 \renewcommand{\BookKind}{เฉลยชุดฝึก}
 \renewcommand{\examheader}{\makebox[\textwidth][l]{{\fontsize{9}{11}\selectfont ชื่อ-นามสกุล \hrulefill\quad รหัสนักศึกษา \makebox[1.9in]{\hrulefill}}}}
 \firstpageheader{\examheader}{}{}

@@ -7,7 +7,13 @@
 \XeTeXlinebreakskip=0pt plus 1pt
 \input{../exam-info.tex}
 \newcount\ExamPages
-\ExamPages=\XeTeXpdfpagecount "../chapters/exam.pdf"
+\ifdefined\MockExamCoreOnly
+  \ExamPages=\XeTeXpdfpagecount "../chapters/exam-core.pdf"
+  \def\SupplementCoverInstruction{}
+\else
+  \ExamPages=\XeTeXpdfpagecount "../chapters/exam.pdf"
+  \def\SupplementCoverInstruction{\hspace{.35cm}-- ท้ายเล่ม: แบบฝึกเสริม S1-S3 ไม่รวมใน 100 คะแนนและเวลา 3 ชั่วโมง\par}
+\fi
 \advance\ExamPages by 1
 \def\CoverPublication{การเผยแพร่ข้อสอบ}
 \def\CoverAllowed{อนุญาต}\def\CoverNotAllowed{ไม่อนุญาต}
@@ -24,7 +30,7 @@
 \hspace{.35cm}-- ส่วนที่ 1 Requirements และ Security ข้อ 1-4 รวม 25 คะแนน\par
 \hspace{.35cm}-- ส่วนที่ 2 Project Planning และ Execution ข้อ 5-7 รวม 25 คะแนน\par
 \hspace{.35cm}-- ส่วนที่ 3 UML/UI และ Git Workflow ข้อ 8-12 รวม 50 คะแนน\par
-\hspace{.35cm}-- ท้ายเล่ม: แบบฝึกเสริม S1-S3 ไม่รวมใน 100 คะแนนและเวลา 3 ชั่วโมง\par
+\SupplementCoverInstruction
 \hspace{.35cm}\textbf{\underline{ให้ทำคำตอบลงในข้อสอบ}}\par\vspace{.08cm}
 2. เขียนชื่อและรหัสนักศึกษาลงในข้อสอบทุกหน้า\par\vspace{.06cm}
 3. ใช้ปากกาหมึกสีน้ำเงินหรือสีดำ หากพื้นที่คำตอบไม่พอ ให้เขียนต่อด้านหลังของหน้าข้อสอบข้อเดียวกัน\par\vspace{.06cm}

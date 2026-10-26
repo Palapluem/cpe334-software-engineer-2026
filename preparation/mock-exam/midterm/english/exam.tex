@@ -1,5 +1,11 @@
 \documentclass[12pt,a4paper]{exam}
 \input{../style.tex}
+\newif\ifMockExamSupplements
+\ifdefined\MockExamCoreOnly
+  \MockExamSupplementsfalse
+\else
+  \MockExamSupplementstrue
+\fi
 \setmainlanguage{english}
 \XeTeXlinebreaklocale "en"
 \setmainfont[Scale=1.33,Path=../fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}

@@ -2,17 +2,25 @@
 
 These student-created materials are for study and timed practice. They are not actual or officially approved examinations, and they do not predict the questions on the real exam. The cover reproduces institutional exam-paper fields; its publication checkbox and committee/signature lines are layout examples, not records of actual permission or approval. The set is published as a practice resource in this repository.
 
-## Midterm
+## Midterm editions
 
-- [ข้อสอบไทย 21 หน้า: ชุดหลัก 100 คะแนน + แบบฝึกเสริม S1-S3](midterm/output/pdf/CPE334_Midterm_Mock_Exam.pdf)
-- [ข้อสอบอังกฤษ 21 หน้า: ชุดหลัก 100 คะแนน + แบบฝึกเสริม S1-S3](midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf)
-- [เฉลยไทย 18 หน้า: คำตอบชุดหลักและแบบฝึกเสริมพร้อมแผนภาพ](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf)
+| Edition | Thai | English | Use |
+| --- | --- | --- | --- |
+| Core mock exam, 17 pages | [ข้อสอบชุดหลัก](midterm/output/pdf/CPE334_Midterm_Mock_Exam.pdf) | [Core mock exam](midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf) | Questions 1-12 only: 3 parts, 100 marks, 3 hours |
+| Full practice booklet, 21 pages | [ข้อสอบพร้อมแบบฝึกเสริม](midterm/output/pdf/CPE334_Midterm_Mock_Exam_With_Supplements.pdf) | [Full practice booklet](midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN_With_Supplements.pdf) | The same core paper followed by S1-S3, which are outside the 100 marks and 3 hours |
 
-ฉบับอังกฤษแปลหน้าปก คำชี้แจง เงื่อนไข โจทย์ และตารางครบทุกข้อจากฉบับไทย โดยคงคะแนน ข้อกำหนด R1-R11 สถานการณ์ ตัวเลข ลำดับข้อ และความสูงช่องตอบทุกช่อง ใช้ TH Sarabun New ที่สเกล ขนาดตัวอักษร ระยะบรรทัด และระยะขอบตรงกับฉบับไทย (เนื้อหาประมาณ 14 pt) ทั้งสองภาษามีชุดหลักหน้า 1-17 และแบบฝึกเสริมหน้า 18-21 ตรงกัน ไม่แยกข้อ 2.2, ข้อ 4 หรือ RACI เป็นหน้าเพิ่ม แหล่งแก้ไขอยู่ใน `midterm/english/` และใช้เฉลยภาษาไทยอ้างอิงตามหมายเลขข้อเดิม
+| Answer key | Thai | Contents |
+| --- | --- | --- |
+| Core edition, 15 pages | [เฉลยชุดหลัก](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | Answers and marking guide for Questions 1-12 |
+| Full practice booklet, 18 pages | [เฉลยพร้อมแบบฝึกเสริม](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | Core answers followed by answers to S1-S3 |
 
-**การใช้แบบฝึกเสริม:** ทำข้อ 1-12 ในหน้า 1-17 เมื่อต้องการจำลอง 100 คะแนน/3 ชั่วโมง แล้วจึงฝึก S1-S3 แยกต่างหากท้ายเล่ม โดยไม่เพิ่มคะแนนหรือขยายเวลาของชุดหลัก S1 ใช้ Grades Submission และมี requirements พร้อมตารางระบบภายนอกในหน้า 18 ก่อนพื้นที่วาดหน้า 19; S2 ใช้ Service Ticket ในหน้า 20; S3 ใช้ Git Explain graph พร้อมคำถามหกประเด็นในหน้า 21 เฉลยอยู่หน้า 16-18 ของไฟล์เฉลยไทย ไม่มีไฟล์ข้อฝึกเสริมแยก
+เฉลยคงเป็นภาษาไทยตามที่กำหนดไว้ก่อนหน้า และไม่มีฉบับเฉลยอังกฤษ ฉบับอังกฤษของข้อสอบแปลหน้าปก คำชี้แจง เงื่อนไข โจทย์ และตารางครบทุกข้อจากฉบับไทย โดยคงคะแนน ข้อกำหนด R1-R11 สถานการณ์ ตัวเลข ลำดับข้อ และพื้นที่คำตอบ ใช้ TH Sarabun New ที่สเกล ขนาดตัวอักษร ระยะบรรทัด และระยะขอบตรงกับฉบับไทย (เนื้อหาประมาณ 14 pt)
 
-ผลตรวจฉบับรวมแบบฝึกเสริม: ไทย 21 หน้า อังกฤษ 21 หน้า เฉลยไทย 18 หน้า รวม 60 หน้า เป็น A4 แนวตั้ง ไม่มีหน้าว่าง ข้อความล้นขอบ หรือ `Overfull`/`Missing character` ตรวจภาพหน้าใหม่ หน้าปก และรูปเฉลยโดยละเอียด เทียบภาพเนื้อหาชุดหลักกับฉบับก่อนที่ 108 dpi แล้วเหมือนเดิมทุกพิกเซลเมื่อไม่นับหน้าปกและบริเวณเลขหน้ารวม หน้าปกเพิ่มบรรทัดอธิบาย S1-S3 และย่อคำชี้แจงข้อ 4 ให้พอดีกรอบเดิมโดยคงความหมาย
+**ความแตกต่างระหว่างไฟล์:** ไฟล์ชุดหลักหยุดหลังข้อ 12 และหน้าปกระบุ 17 หน้า ส่วนไฟล์ที่มีแบบฝึกเสริมเป็นข้อสอบชุดหลักเดิมตามด้วย S1-S3 และหน้าปกระบุ 21 หน้า ทั้งสองฉบับยังคงชุดหลัก 100 คะแนน/3 ชั่วโมงเหมือนกัน S1 ใช้ Grades Submission และมี requirements พร้อมตารางระบบภายนอกในหน้า 18 ก่อนพื้นที่วาดหน้า 19; S2 ใช้ Service Ticket ในหน้า 20; S3 ใช้ Git Explain graph พร้อมคำถามหกประเด็นในหน้า 21 ไม่มีการนำข้อเสริมไปคิดคะแนนหรือเพิ่มเวลาให้การสอบหลัก
+
+เฉลยชุดหลักมี 15 หน้า ส่วนเฉลยฉบับเต็มมี 18 หน้า โดยคำตอบ S1-S3 อยู่หน้า 16-18 เฉลยทั้งสองไฟล์เป็นภาษาไทย ไม่มีฉบับเฉลยอังกฤษแยก
+
+ผลตรวจรอบแยก edition: ชุดหลักไทย/อังกฤษ 17 หน้า; ฉบับมี S1-S3 ไทย/อังกฤษ 21 หน้า; เฉลยไทย 15 และ 18 หน้า ทุกไฟล์เป็น A4 แนวตั้ง ตรวจจำนวนหน้าและข้อความหน้าปกแยกตาม edition และตรวจ layout ของหน้าที่ถูกแยกกับหน้าฝึกเสริม เพื่อให้แน่ใจว่าฉบับชุดหลักไม่มีหน้าหรือข้อความ S1-S3 หลงเหลือ
 
 หน้าปกทั้งสองภาษาใช้ `midterm/frontmatter/cover-layout.tex` เป็นกริดพิกัดร่วมกัน ยึดตำแหน่งจากฉบับไทยสำหรับกรอบเผยแพร่ โลโก้ รหัส/ชื่อวิชา ช่องสอบ กล่องข้อมูลนักศึกษา หัวข้อคำชี้แจง/เงื่อนไข และกล่องลายเซ็น ความยาวถ้อยคำ/เส้นใต้เปลี่ยนตามภาษา แต่ไม่ปล่อยให้ความสูงข้อความเลื่อนส่วนถัดไป
 
@@ -30,7 +38,7 @@ These student-created materials are for study and timed practice. They are not a
 
 **การจับเวลา 180 นาที:** แนะนำส่วนที่ 1 จำนวน 45 นาที ส่วนที่ 2 จำนวน 40 นาที ส่วนที่ 3 จำนวน 85 นาที และตรวจคำตอบ 10 นาที เป็นงบเวลาสำหรับการฝึก โดยยังไม่ได้ทดลองจับเวลาผู้สอบจริง ส่วนที่ 3 ของชุดหลักเลือก Sequence/Activity/List+Form ตาม blueprint; Use Case และ State อยู่ในแบบฝึกเสริมท้ายไฟล์ ไม่จับเวลารวมกับชุดหลัก
 
-ทั้งข้อสอบและเฉลยเป็น A4 แนวตั้งทั้งหมด ข้อสอบไทยและอังกฤษอย่างละ 21 หน้ารวมปก คงศัพท์เทคนิคและชื่อระบบที่ใช้ในแนว ตัวโจทย์และเฉลยใช้ TH Sarabun New ประมาณ 14 pt ช่องวาด Sequence ยาว 14 ซม.; Activity สูง 21 ซม.; List View และ Form View แยกคนละหน้า มีกรอบสูง 14 และ 21.5 ซม. ตามลำดับ หน้า List เพิ่มตัวอย่าง Invoice แบบเวกเตอร์สูง 5.1 ซม. เพื่อสาธิต notation ตาม Samples หน้า 5 โดยเว้นพื้นที่ให้ออกแบบ Registration เอง ข้อความใน participant, lane header และ action boxes จัดกึ่งกลางพร้อม padding รอบข้อความ ชื่อ participants, guards, identifiers และ UI wireframes คงภาษาอังกฤษตามแนว; ข้อความอธิบายและเกณฑ์ตรวจใช้ภาษาไทย โดย Sequence Diagram ในเฉลยมีป้ายข้อความภาษาไทยครบทุก message แผนภาพ Activity ขยายเต็มความกว้างเขตพิมพ์ ใช้ฟอนต์ภายใน 9 pt และคง 7 lanes โดยเว้นระยะจาก footer และขอบกระดาษอย่างปลอดภัย
+ทั้งข้อสอบและเฉลยเป็น A4 แนวตั้งทั้งหมด ข้อสอบชุดหลักไทยและอังกฤษอย่างละ 17 หน้า; ฉบับที่มี S1-S3 อย่างละ 21 หน้า คงศัพท์เทคนิคและชื่อระบบที่ใช้ในแนว ตัวโจทย์และเฉลยใช้ TH Sarabun New ประมาณ 14 pt ช่องวาด Sequence ยาว 14 ซม.; Activity สูง 21 ซม.; List View และ Form View แยกคนละหน้า มีกรอบสูง 14 และ 21.5 ซม. ตามลำดับ หน้า List เพิ่มตัวอย่าง Invoice แบบเวกเตอร์สูง 5.1 ซม. เพื่อสาธิต notation ตาม Samples หน้า 5 โดยเว้นพื้นที่ให้ออกแบบ Registration เอง ข้อความใน participant, lane header และ action boxes จัดกึ่งกลางพร้อม padding รอบข้อความ ชื่อ participants, guards, identifiers และ UI wireframes คงภาษาอังกฤษตามแนว; ข้อความอธิบายและเกณฑ์ตรวจใช้ภาษาไทย โดย Sequence Diagram ในเฉลยมีป้ายข้อความภาษาไทยครบทุก message แผนภาพ Activity ขยายเต็มความกว้างเขตพิมพ์ ใช้ฟอนต์ภายใน 9 pt และคง 7 lanes โดยเว้นระยะจาก footer และขอบกระดาษอย่างปลอดภัย
 
 **อ่านโจทย์ UI ให้ตรงคำสั่ง:** Samples หน้า 5 ใช้คำว่า “Design” และให้ Invoice เป็นตัวอย่างสัญลักษณ์ ไม่ใช่ Registration Form ที่เติมคำตอบลงช่องเดิม ส่วน Sequence/Activity ใช้ “Complete” พร้อมโครงภาพให้เติม ชุดฝึกจึงเพิ่มตัวอย่าง Invoice หนึ่งครั้งในข้อ 10 ของทั้งสองภาษา และยังให้วาด List/Form จาก R5-R11; `ui-reference.tex` เก็บภาพตัวอย่างและตัวช่วยวาด textbox/ช่องขีดเฉียงที่ใช้ร่วมกัน เฉลยข้อ 10 วาด List/Form จริงพร้อมช่องอ่านอย่างเดียว, LoV, line items และสถานะ ไม่ใช้เพียงคำว่า RO แทน notation ฉบับอังกฤษใช้ปี ค.ศ. 2026 ที่วันที่และท้ายกระดาษ ส่วนมกราคม 2027 เป็นวันในโจทย์โครงการ
 
@@ -100,24 +108,36 @@ These student-created materials are for study and timed practice. They are not a
 
 ## แก้ไขและคอมไพล์
 
-แก้โจทย์โดยตรงที่ `midterm/chapters/questions.tex` และเฉลยที่ `midterm/solutions/answers.tex` ใช้ XeLaTeX พร้อม `exam`, `polyglossia`, `tikz`, `pdfpages`, `geometry`, `lastpage`, `tabularx` และฟอนต์ TH Sarabun New ที่แนบมา ใช้โครงหน้าปกสองคอลัมน์ กล่องข้อมูลนักศึกษา และช่องลายเซ็นว่างตามแม่แบบ CPE333 หน้าปกไม่มีท้ายกระดาษชื่อวิชา; หน้าเนื้อหามีชื่อวิชาและเลขหน้าเป็นตัวเอียง class/font/margins ของเนื้อหาคงตามแม่แบบ โลโก้ PDF ใช้ในการ build ส่วน SVG เก็บเป็นต้นฉบับแก้ไข
+แก้โจทย์ไทยที่ `midterm/chapters/questions.tex`, ฉบับอังกฤษที่ `midterm/english/questions.tex` และเฉลยที่ `midterm/solutions/answers.tex` ใช้ XeLaTeX, `exam`, `polyglossia`, `tikz`, `pdfpages`, `geometry`, `lastpage`, `tabularx` และฟอนต์ TH Sarabun New ที่แนบมา หน้าปกสอง edition ใช้กริดเดียวกัน; core cover ไม่กล่าวถึงแบบฝึกเสริมและนับ 17 หน้า ส่วน cover ของฉบับเต็มแจ้ง S1-S3 และนับ 21 หน้า
 
-จากโฟลเดอร์ `midterm/` ใช้คำสั่งต่อไปนี้ (ไม่ต้องใช้ shell escape หรือดาวน์โหลดฟอนต์):
+จาก root ของ repository ใช้คำสั่งต่อไปนี้ (ไม่ต้องใช้ shell escape หรือดาวน์โหลดฟอนต์):
 
 ```bash
-mock_build_dir=$(mktemp -d /private/tmp/cpe334-mock-build.XXXXXX)
-mkdir -p "$mock_build_dir"/{exam,cover,solutions,main}
-(cd chapters && xelatex -halt-on-error -output-directory="$mock_build_dir/exam" exam.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/exam" exam.tex)
-cp "$mock_build_dir/exam/exam.pdf" chapters/exam.pdf
-(cd frontmatter && xelatex -halt-on-error -output-directory="$mock_build_dir/cover" cover.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/cover" cover.tex)
-cp "$mock_build_dir/cover/cover.pdf" frontmatter/cover.pdf
-(cd solutions && xelatex -halt-on-error -output-directory="$mock_build_dir/solutions" solutions.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/solutions" solutions.tex)
-xelatex -halt-on-error -output-directory="$mock_build_dir/main" main.tex
-cp "$mock_build_dir/main/main.pdf" output/pdf/CPE334_Midterm_Mock_Exam.pdf
-cp "$mock_build_dir/solutions/solutions.pdf" output/pdf/CPE334_Midterm_Mock_Solutions.pdf
-mkdir -p "$mock_build_dir/english"
-(cd english && xelatex -halt-on-error -output-directory="$mock_build_dir/english" exam.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/english" exam.tex)
-cp "$mock_build_dir/english/exam.pdf" output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf
+repo_root=$PWD
+mkdir -p "$repo_root/tmp/pdfs"
+mock_build_dir=$(mktemp -d "$repo_root/tmp/pdfs/cpe334-mock.XXXXXX")
+cd "$repo_root/preparation/mock-exam/midterm"
+mkdir -p "$mock_build_dir"/{chapter-full,chapter-core,cover-full,cover-core,main-core,main-full,english-full,english-core,solutions-full,solutions-core}
+(cd chapters && xelatex -halt-on-error -output-directory="$mock_build_dir/chapter-full" exam.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/chapter-full" exam.tex)
+cp "$mock_build_dir/chapter-full/exam.pdf" chapters/exam.pdf
+(cd chapters && xelatex -halt-on-error -jobname=exam-core -output-directory="$mock_build_dir/chapter-core" '\def\MockExamCoreOnly{1}\input{exam.tex}' && xelatex -halt-on-error -jobname=exam-core -output-directory="$mock_build_dir/chapter-core" '\def\MockExamCoreOnly{1}\input{exam.tex}')
+cp "$mock_build_dir/chapter-core/exam-core.pdf" chapters/exam-core.pdf
+(cd frontmatter && xelatex -halt-on-error -output-directory="$mock_build_dir/cover-full" cover.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/cover-full" cover.tex)
+cp "$mock_build_dir/cover-full/cover.pdf" frontmatter/cover-with-supplements.pdf
+(cd frontmatter && xelatex -halt-on-error -jobname=cover-core -output-directory="$mock_build_dir/cover-core" '\def\MockExamCoreOnly{1}\input{cover.tex}' && xelatex -halt-on-error -jobname=cover-core -output-directory="$mock_build_dir/cover-core" '\def\MockExamCoreOnly{1}\input{cover.tex}')
+cp "$mock_build_dir/cover-core/cover-core.pdf" frontmatter/cover.pdf
+(cd solutions && xelatex -halt-on-error -output-directory="$mock_build_dir/solutions-full" solutions.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/solutions-full" solutions.tex)
+(cd solutions && xelatex -halt-on-error -jobname=solutions-core -output-directory="$mock_build_dir/solutions-core" '\def\MockExamCoreOnly{1}\input{solutions.tex}' && xelatex -halt-on-error -jobname=solutions-core -output-directory="$mock_build_dir/solutions-core" '\def\MockExamCoreOnly{1}\input{solutions.tex}')
+(cd english && xelatex -halt-on-error -output-directory="$mock_build_dir/english-full" exam.tex && xelatex -halt-on-error -output-directory="$mock_build_dir/english-full" exam.tex)
+(cd english && xelatex -halt-on-error -jobname=exam-core -output-directory="$mock_build_dir/english-core" '\def\MockExamCoreOnly{1}\input{exam.tex}' && xelatex -halt-on-error -jobname=exam-core -output-directory="$mock_build_dir/english-core" '\def\MockExamCoreOnly{1}\input{exam.tex}')
+xelatex -halt-on-error -output-directory="$mock_build_dir/main-core" main.tex
+xelatex -halt-on-error -output-directory="$mock_build_dir/main-full" main-with-supplements.tex
+cp "$mock_build_dir/main-core/main.pdf" output/pdf/CPE334_Midterm_Mock_Exam.pdf
+cp "$mock_build_dir/main-full/main-with-supplements.pdf" output/pdf/CPE334_Midterm_Mock_Exam_With_Supplements.pdf
+cp "$mock_build_dir/english-core/exam-core.pdf" output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf
+cp "$mock_build_dir/english-full/exam.pdf" output/pdf/CPE334_Midterm_Mock_Exam_EN_With_Supplements.pdf
+cp "$mock_build_dir/solutions-core/solutions-core.pdf" output/pdf/CPE334_Midterm_Mock_Solutions.pdf
+cp "$mock_build_dir/solutions-full/solutions.pdf" output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf
 ```
 
-`main.tex` รวม cover PDF และ chapter PDF ทีละหน้าเป็น A4 แนวตั้ง จำนวนหน้าปกอ่านจาก chapter PDF ส่วน footer ใช้ LastPage หลัง build ให้ render ตรวจทุกหน้าก่อนใช้งาน แล้วล้างเฉพาะ temporary directory ที่คำสั่งสร้างไว้ เก็บ `frontmatter/cover.pdf` และ `chapters/exam.pdf` เพราะ wrapper ใช้จริง ไม่เก็บ aux/log หรือ QA scripts ใน repo พิมพ์ที่ขนาดจริง 100% เพื่อรักษาขนาดตัวอักษรและพื้นที่ตอบ
+`MockExamCoreOnly` omits S1-S3 from the question, cover and answer sources; the default build retains them. `main.tex` combines the core cover with `exam-core.pdf`; `main-with-supplements.tex` combines the extended cover with `exam.pdf`. The persistent component PDFs are build inputs; keep them in the repository. Keep aux/log files only in the temporary build directory, render and inspect all six deliverables, then remove only the temporary directory created for this build. Print at 100% to preserve type size and answer space.

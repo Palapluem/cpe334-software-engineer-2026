@@ -12,10 +12,13 @@ Course materials, lab work, and midterm preparation for CPE334 Software Engineer
 ## Midterm preparation
 
 - [Two-page cheat sheet](preparation/cheat-sheet/README.md) — natural-Thai review of Lectures 1–7 and Practice Midterm; includes topic-to-source pages, a glossary, and 10 review questions with answers in the companion README.
-- [Practice midterm (Thai and English)](preparation/mock-exam/README.md#midterm) — 21-page booklets: the 17-page timed paper plus supplementary Use Case, State and Git graph exercises outside the 100 marks; 18-page Thai solutions with worked diagrams and a marking guide.
-- [Thai practice paper (PDF)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam.pdf)
-- [English practice paper (PDF)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf)
-- [Thai solutions and marking guide (PDF)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf)
+- [Practice midterm editions and sources](preparation/mock-exam/README.md#midterm-editions) — separate 17-page core papers and 21-page versions with supplementary Use Case, State and Git graph exercises, in Thai and English.
+- [Core mock exam (Thai, 17 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam.pdf)
+- [Core mock exam (English, 17 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf)
+- [Mock exam with supplementary exercises (Thai, 21 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_With_Supplements.pdf)
+- [Mock exam with supplementary exercises (English, 21 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN_With_Supplements.pdf)
+- [Thai solutions and marking guide: core edition (15 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf)
+- [Thai solutions and marking guide: with supplementary answers (18 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf)
 - [Cheat sheet (PDF)](preparation/cheat-sheet/midterm/output/pdf/CPE334_Midterm_Cheat_Sheet.pdf)
 
 The practice papers are student-created study materials, not actual or officially approved examinations, and do not predict the questions on the real exam. The cover reproduces institutional exam-form elements for practice; its publication checkbox and committee/signature fields are examples, not records of actual permission or approval. See the preparation READMEs for scope, sources, and build instructions.

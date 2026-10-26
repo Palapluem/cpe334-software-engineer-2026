@@ -9,12 +9,17 @@
 \def\CoverName{Full name:}\def\CoverID{Student ID:}
 \def\CoverDepartment{Department / Major:}\def\CoverSection{Section:}
 \def\CoverInstructionsLabel{Instructions}\def\CoverConditionsLabel{Conditions}
+\ifdefined\MockExamCoreOnly
+  \def\SupplementCoverInstruction{}
+\else
+  \def\SupplementCoverInstruction{\hspace{.35cm}-- End of booklet: S1-S3 are extra practice, outside the 100 marks and 3 hours.\par}
+\fi
 \def\CoverInstructions{%
 1. This \pageref{LastPage}-page examination (cover included) has \textbf{3 parts, 12 questions and 100 marks}.\par
 \hspace{.35cm}-- Part 1: Requirements and Security, Questions 1-4, 25 marks.\par
 \hspace{.35cm}-- Part 2: Project Planning and Execution, Questions 5-7, 25 marks.\par
 \hspace{.35cm}-- Part 3: UML/UI and Git Workflow, Questions 8-12, 50 marks.\par
-\hspace{.35cm}-- End of booklet: S1-S3 are extra practice, outside the 100 marks and 3 hours.\par
+\SupplementCoverInstruction
 \hspace{.35cm}\textbf{\underline{Write your answers in this examination booklet.}}\par\vspace{.08cm}
 2. Write your name and student ID on every page.\par\vspace{.06cm}
 3. Use blue or black ink. If space is insufficient, continue on the reverse of the same question page.\par\vspace{.06cm}
