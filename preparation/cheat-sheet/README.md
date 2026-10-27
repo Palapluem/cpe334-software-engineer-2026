@@ -36,7 +36,7 @@ Use Case แสดงทิศทางแยกครบทั้ง `<<include
 | Lecture 6 | [CPE334_Lecture06 - Project Management.pdf](<../../lectures/Week 6/CPE334_Lecture06 - Project Management.pdf>) | ข้อความ pp. 1-116 |
 | Lecture 7 | [CPE334_Lecture07 - Project Execution.pdf](<../../lectures/Week 7/CPE334_Lecture07 - Project Execution.pdf>) | ข้อความ pp. 1-171 |
 | Lecture 10 | [CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) | pp. 1-31 เฉพาะ Midterm Review |
-| Samples | [CPE334_Midterm Samples by Suthep.pdf](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) | ข้อความ pp. 1-26; ตรวจภาพโจทย์ Sequence/Activity และตัวอย่าง notation UI pp. 3-5 เพิ่ม |
+| Samples | [CPE334_Midterm Samples by Suthep.pdf](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) | ข้อความ pp. 1-26; ตรวจภาพโจทย์ Sequence/Activity, notation UI pp. 3-5 และ Activity solution p. 16 เพิ่ม |
 
 ตรวจภาพต้นฉบับเพิ่มเติมที่ Invoice UI ใน Samples p. 5, Ticket State ใน Lecture 4 p. 62 และ Gantt worked example ใน Lecture 10 p. 20 เพื่อไม่อาศัย text extraction อย่างเดียว **ไม่ได้ตรวจภาพ UI/เฉลยทุกภาพในสไลด์ หรือเอกสารที่ลิงก์ออกนอกไฟล์** จึงไม่อ้างว่าอ่านรายละเอียดภายในภาพทุกหน้าครบแล้ว
 
@@ -196,7 +196,7 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 | แบบ | ตัวอย่างในหน้าที่สอง | สิ่งที่ต้องตรวจเมื่อเปลี่ยนโจทย์ |
 | --- | --- | --- |
 | Sequence | KU Registration: Draft เดิมสอง offerings เพิ่มหนึ่ง เต็ม แก้ ส่งซ้ำ และจ่าย BBL | participants, ลำดับ request/reply, error ที่กำหนด, Done/lock/email; ไม่ยก workflow ทุกแขนงมาใส่ scenario เดียว |
-| Activity | KU Registration: ฟอร์มว่าง, swimlanes, ตรวจที่นั่ง/กลับแก้, ทางเลือก KBank/BBL, ยืนยันและจบ | actions อยู่ lane ของผู้รับผิดชอบ, guards, decision/merge, loop และ start/end |
+| Activity | KU Registration: ฟอร์มว่าง, swimlanes, ตรวจที่นั่ง/กลับแก้, ทางเลือก KBank/BBL, ตรวจผลชำระ/กลับเลือกวิธีใหม่, ยืนยันและจบ | actions อยู่ lane ของผู้รับผิดชอบ, guards, decision/merge, loop และ start/end |
 | UI | Course Offering List และ Student Registration Form | fields ตาม R5-R7, profile ห้าช่อง, required/editable/read-only/LoV, controls และ state; Complete ต่างจาก Design |
 | Use Case | Grades Submission: login, courses/sections, students, edit/print sheet, submit, transcript และ email | human/external actors นอก boundary, goals ในกรอบ, association ไม่มีหัว, include ชี้ขั้นบังคับ; extend/generalization ตาม notation หน้าแรก |
 | State | Ticket: Requested, Approved, In Progress, Closed by CCE, Closed by Programmer | object เดียว, event/actor/guard/effect, initial/final, self-loop, closed ห้ามเพิ่ม action; ไม่ย้าย Done ของ Registration ไป Grades |
@@ -218,7 +218,7 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 - DormFix ตาม Lecture 10 pp. 18-21: เริ่ม 4 Jan 2027 ทำ จ.-ศ.; buffer หลัง B/F/H อย่างละวัน, project buffer 28-29 Jan; milestones 8/15/29 Jan ใช้เวลา 0; WBS 1.4 ว่าง
 - ShuttleNow ตาม p. 26: points 8,3,5,3,5,2; เลือก 1/3/4 รวม 16 ไม่เลือก QR fare เพราะไม่ตรง sprint goal
 - **คำอธิบายเสริม:** Negative tests, score-boundary cases, attack flows, UI wireframes และ Use Case ของ Grades เป็นการประยุกต์ การปฏิเสธไม่ควรเปลี่ยน business data แต่ audit log ยังเกิดได้ตาม contract
-- **คำอธิบายเสริม:** KU Sequence/Activity วาดย่อจากโจทย์ ไม่ใช่เฉลยภาพของอาจารย์ Sequence แสดง Student จ่าย BBL และ email PDF ถึง Student; Activity ในโพยย่อเส้นทางชำระสำเร็จ ส่วน Samples หน้า 16 และเฉลย Mock Exam แสดงผลชำระไม่สำเร็จแล้วกลับไปเลือกวิธีชำระด้วย จึงควรดูภาพเต็มเมื่อฝึกโจทย์ที่ขอทุกแขนง
+- **คำอธิบายเสริม:** KU Sequence/Activity วาดย่อจากโจทย์ ไม่ใช่เฉลยภาพของอาจารย์ Sequence แสดง Student จ่าย BBL และ email PDF ถึง Student; Activity รวมทางเลือก KBank/BBL, ที่นั่งเต็มกลับแก้ และชำระไม่ผ่านกลับเลือกวิธีใหม่ตาม Samples หน้า 16 แล้วจึง Done/lock/email เมื่อสำเร็จ ไม่เพิ่มการยกเลิกหรือคืนเงินที่โจทย์ไม่ได้ระบุ
 - **คำอธิบายเสริม:** UI ไม่ถือ Registration No./Total Credits เป็นข้อบังคับจาก R5-R11 จึงไม่ใส่ แม้ภาพเฉลยตัวอย่างมีช่องเสริม รายละเอียด R7 แสดงผ่านตาราง/พื้นที่รายละเอียดได้
 - **คำอธิบายเสริม:** ภาพ Git ใน PDF ย่อเฉพาะส่วนที่ใช้เทียบ fast-forward กับ three-way merge; รายละเอียดของแต่ละกรณีอยู่ในตาราง A-I และแต่ละกรณีเริ่มจากกราฟของตน ไม่ย้ายชื่อ commit หรือ remote-tracking refs ข้ามตัวอย่าง
 
@@ -298,7 +298,7 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 
 คงขนาดเนื้อหา 8 pt / leading 7.35 pt และตาราง 7.1 pt / 7.2 pt; คำสั่งเป็น Sarabun ตัวหนา 8 pt / 7.35 pt จึงมีสเกลเดียวกับข้อความรอบข้างแทนการเทียบขนาด pt กับ Menlo โดยตรง ป้ายภาพส่วนใหญ่ 7.1 pt; กรอบชื่อ 44.77 × 5.05 mm ตัวอักษร 11.55 pt สูตรใช้ `Scale=MatchUppercase` ให้ความสูงเข้ากับ Sarabun
 
-ขอบ 3 mm ความสูงคอลัมน์ 289.5 mm; คอลัมน์ขวาสุดกันชื่อ 8 mm เหลือ 281.5 mm ภาพเป็นเวกเตอร์: flow/call ใช้หัวทึบ reply เส้นประหัวเปิด email delivery เส้นทึบหัวเปิด ส่วน actor association/Git ancestry ไม่มีหัว
+ขอบ 3 mm ความสูงคอลัมน์ 289.6 mm; คอลัมน์ขวาสุดกันชื่อ 8 mm เหลือ 281.6 mm ภาพเป็นเวกเตอร์: flow/call ใช้หัวทึบ reply เส้นประหัวเปิด email delivery เส้นทึบหัวเปิด ส่วน actor association/Git ancestry ไม่มีหัว
 
 จาก `preparation/cheat-sheet/midterm/`:
 
@@ -338,5 +338,20 @@ trash "$sheet_build_dir"
 - รอบคำอธิบาย Git: PDF มีความหมายของ 12 รายการ ได้แก่ status, diff, diff --cached, add, commit -m, branch, switch, merge, merge --ff-only, fetch, push และ log พร้อม flags --oneline/--graph/--decorate/--all แยกผลต่อ working tree/index/HEAD/local refs/remote และมีคำอธิบายฉบับเต็มด้านบน
 - หลังเพิ่มคำอธิบายยังเป็น PDF สองหน้าและไม่มีคำเตือน build หรือข้อความนอกขอบ เปรียบเทียบที่ 144 dpi แล้ว Parts 1-2, ตัวอย่าง UML/UI ทั้งห้า และคอลัมน์ทฤษฎี 2-4 ของหน้าแรกเหมือนก่อนรอบ Git ทุกพิกเซล ขนาดฟอนต์หลัก/ตาราง/คำสั่งยังเดิม สรุปกรณี Git A-I ใช้ชื่อย่อ s/f/os ที่อธิบายไว้ครบ
 - ตรวจขอบเขตโจทย์กับ Lecture 10 อีกครั้ง: Part 1 มี requirement analysis, proposal, RBAC และ security; Part 2 มี DormFix WBS/RACI/Gantt, Badminton backlog grooming และ ShuttleNow sprint planning; Part 3 มี UML/UI ห้าแบบกับ Git สามรูปแบบ และกรณี Git A-I ครบตาม Samples 2.1-2.9
-- เติม checklist Class Diagram ตามโจทย์ตัวอย่าง: ชื่อคลาส/attributes, ไม่ใส่ methods, associations/multiplicity, inheritance, composition, aggregation, external calls และจำกัด links ของ Header/Line Item ไว้ชั้นแรก โพยเก็บส่วนนี้ในสรุป Lecture 4 ไม่เพิ่มเป็นแบบที่ 6 ของกลางภาค เพราะ blueprint ให้เลือก 3 จาก 5 และ Sample ระบุ Class ว่าเป็น Final
-- PDF build ล่าสุดยังเป็น A4 สองหน้า; T2 สูง 816.67 pt จาก budget 823.99 pt ไม่มีคำเตือนคอลัมน์เกินหน้า/อักขระหาย ตรวจภาพเรนเดอร์ทั้งสองหน้าแล้ว ไม่ได้ทดสอบกับเครื่องพิมพ์จริง
+- Class Diagram แยกกฎทั่วไปออกจากคำสั่งเฉพาะตัวอย่าง: methods ใส่ตามโจทย์ ส่วนตัวอย่าง Header/Line Item กำหนด links ชั้นแรก, external calls และห้ามใส่ methods โพยเก็บส่วนนี้ใน Lecture 4 ไม่เพิ่มเป็นแบบที่ 6 ของกลางภาค เพราะ blueprint ให้เลือก 3 จาก 5 และ Samples ระบุ Class ว่าเป็น Final
+- รอบตรวจก่อนสอบเพิ่มวงรอบ payment failure ใน Activity, เติม HEAD เริ่มต้นของ Git กรณี F และปรับการตรวจรับ proposal ให้ทดสอบ browse/register ตามขอบเขตที่เขียนไว้ ส่วน cancellation ยังคงอยู่ใน requirement-analysis ข้อที่กำหนดไว้โดยตรง
+- คำนวณซ้ำ PERT ได้ E=35.6667 h, SD=3.2318 h; ROI=58.7302%; ตรวจวันทำงาน DormFix, buffers และ milestones 8/15/29 Jan 2027; ShuttleNow เลือก 1/3/4 รวม 16 points คะแนน mock 12 ข้อรวม 100 แยก 25/25/50 และวันสอบบนหน้าปกเป็น 27 October 2026 / 27 ตุลาคม 2569 เวลา 13.00-16.00
+- PDF ยังเป็น A4 สองหน้า คงขนาดฟอนต์เดิม ทุกคอลัมน์อยู่ใน budget ไม่มี Overfull/Missing character; ตรวจภาพเรนเดอร์ทั้งสองหน้าและซูมวงรอบ Activity แล้ว การตรวจนี้ยังไม่ใช่การทดสอบเครื่องพิมพ์จริง
+
+### ตรวจว่าต้องฝึกไฟล์ใดให้ครบขอบเขตกลางภาค
+
+| ขอบเขตตาม Lecture 10 | ตำแหน่งในโพย | แบบฝึกและเฉลย |
+| --- | --- | --- |
+| Part 1 (25): requirement analysis, proposal 8 ด้าน, RBAC และ security | หน้า 2 คอลัมน์ 1 พร้อมทฤษฎีหน้า 1 | Mock ข้อ 1-4 |
+| Part 2 (25): WBS/RACI/Gantt, backlog grooming และ sprint planning | หน้า 2 คอลัมน์ 2 | Mock ข้อ 5-7; ฝึก bug variant ใน Lecture 10 p. 24 เพิ่ม |
+| UML/UI (30): Sequence, Activity, List/Form UI, Use Case, State เลือกสอบ 3 จาก 5 | หน้า 2 คอลัมน์ 3-4 และตารางห้าแบบ | Mock ข้อ 8-10 และแบบฝึกเสริม S1-S2 |
+| Git (20): predict graph, explain graph, commands + redraw เลือกสอบ 2 จาก 3 | หน้า 2 คอลัมน์ 4; ผลตัวอย่าง A-I ตรงกับ Samples 2.1-2.9 | Mock ข้อ 11-12 และ S3; ทำ Samples 2.1-2.9 เพื่อฝึก variants ทั้งเก้าข้อ |
+| POS / Hotel / Ticket / Grades: requirements อังกฤษที่อาจนำมาใช้ในโจทย์ | หน้า 2 คอลัมน์ 1 มี actors/workflow/constraints ย่อ | อ่าน requirements อังกฤษใน Lecture 4 ควบคู่; โพยไม่ได้คัด features ทุกบรรทัด |
+| Class Diagram ใน Samples p. 6 ระบุ Final | หน้า 1 มี notation/checklist ที่แยกเงื่อนไขเฉพาะโจทย์ | ไม่รวมเป็นหนึ่งในห้าแบบกลางภาค และยังไม่มีเฉลย Class model เต็มใน mock |
+
+ใช้ฉบับ **With Supplements** พร้อมเฉลยฉบับเดียวกันเมื่อต้องการฝึกให้ครบประเภท ฉบับ Core ตั้งใจเลือก UML/UI เพียงสามแบบและ Git สองรูปแบบสำหรับจำลองสอบ 100 คะแนน/3 ชั่วโมง จึงไม่แทน S1-S3 ทั้งหมด การตรวจจำนวนหน้าและข้อความพบ Core ไทย/อังกฤษ 17 หน้า, ฉบับเสริม 21 หน้า, เฉลยไทย 15/18 หน้า ไม่มีหน้าว่าง และไม่มี S1-S3 หลุดเข้า Core

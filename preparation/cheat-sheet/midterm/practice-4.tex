@@ -58,7 +58,7 @@ B & HEAD=s=G, os=F; G ยังไม่ push; f=E แยกสาย → 3-way;
 C & s:C→E (FF)→F; HEAD=s=F, f=E, os=C\\\hline
 D & s:D→E (FF)→F; HEAD=s=F, f=E, os=D\\\hline
 E & merge F/E→G (parents F/E); s=G, f=E, os=F; switch ท้าย → HEAD/main=B\\\hline
-F & main=B, origin/main=v1.0=H; switch ยัง B; FF→H; refs อื่นเดิม\\\hline
+F & HEAD=f=E; main=B, origin/main=v1.0=H; switch main→B; FF→main/HEAD=H; refs อื่นเดิม\\\hline
 G & HEAD=s=H (E/G), os=E; push f ที่ G ไม่ส่ง H; push s → os=H\\\hline
 H & s:C→E; สร้าง/switch f ใหม่→F; s=feature/pass\_rate=E, os=C\\\hline
 I & s:D→G (FF)→H (G/F); push→os=H; HEAD=s=H, f=F\\\hline

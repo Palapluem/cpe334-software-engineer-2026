@@ -25,7 +25,7 @@ Effort & “ก่อนภาคหน้า” เป็น deadline \r{ไม
 Evidence & ยังไม่มี AC/test/demo/sign-off\\\hline
 \end{tabularx}}
 \extra \g{ร่างปรับปรุง}: WorkshopHub แทนฟอร์มแยก ให้ Student สมัคร workshop ฟรีและ Coordinator จัดการรายชื่อ เพื่อลดข้อมูลซ้ำ/ยืนยันล่าช้า รุ่นแรกไม่รวม payment/certificates เสนอ metric/baseline, ป้องกันสมัครซ้ำ/ข้อมูลรั่ว, ประเมิน person-days ก่อนรับ deadline และรับงานด้วย AC/tests/demo/sign-off
-\k{ตรวจรับ}: Student ทดลองสมัคร/ยกเลิก; Coordinator ตรวจรายชื่อ/รับรองผล; \r{metric/risk/effort ที่เสนอเพิ่มยังต้องตกลง}
+\k{ตรวจรับ}: Student ทดลองดูรายการ/สมัคร; Coordinator ตรวจรายชื่อ/รับรองผล; \r{metric/risk/effort ที่เสนอเพิ่มยังต้องตกลง}
 \topic{3) RBAC: default deny / ไม่สืบทอดสิทธิ์}
 {\smalltable\begin{tabularx}{\linewidth}{|Y|C{7mm}|C{9mm}|}\hline
 \rowcolor{lightrow}Operation & Student & Coordinator\\\hline
@@ -57,5 +57,5 @@ Export participant list & Deny & Allow\\\hline
 POS & Cashier: items/discount/total; cancel ก่อนจบ; cash/card ผ่าน PSP; declined → retry/cash/cancel; สำเร็จพิมพ์ receipt/ลด stock; return บันทึกเหตุผล/refund/คืน stock; Manager ดู daily cash/card และดูแลสินค้า/ราคา\\\hline
 Hotel & Guest ค้นวันเข้า-ออก/เมือง/ประเทศ เลือกห้อง/ประเภท จ่าย card/KBank → เลขยืนยัน/ลดห้องว่าง/email ถึง Guest+Hotel; Maps แสดงที่ตั้ง; All-Inn Admin ดูแล users/hotels/types/report; Hotel Admin ดู supply/price/report ของโรงแรมตน; commission 10\%; SMTP/Outlook\\\hline
 Ticket & Customer เห็นเฉพาะบริษัทตน; list ตาม software/company เรียง due; ticket มีภาพ 1+ไฟล์ 1; save สร้าง Requested/action แรก; CCE อนุมัติ/ปิด แต่แก้ ticket ไม่ได้; Programmer เริ่ม/อัปเดต/ปิด; action แก้/ลบไม่ได้; IT Admin ดูแลข้อมูลหลัก ไม่ทำ workflow\\\hline
-Grades & Instructor เลือก semester/course/sections ดึง students กรอก/แก้/print sheet; ครบจึง Ready แล้ว submit → Submitted+transcript+email; SSO, Registration, Student Info, Transcript, Email เป็นระบบนอก\\\hline
+Grades & Instructor เลือกภาค/course/sections ในแผนก ดึง students กรอก/แก้/print sheet; ครบจึง Ready แล้ว submit → Submitted+transcript+email; SSO, Registration, Student Info, Transcript, Email เป็นระบบนอก\\\hline
 \end{tabularx}}

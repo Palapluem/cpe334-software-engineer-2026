@@ -52,13 +52,14 @@ University Admin & R4 สร้าง semester และกำหนด active s
 \node[act,text width=5mm](check)at(17.142,-29){Check seats};
 \node[decision](seat)at(17.142,-38){Seats?};
 \node[act,text width=5mm,inner xsep=.7pt](warn)at(3.428,-38){Warn\\edit};
-\node[decision](method)at(3.428,-48){Mode?};
+\node[decision,aspect=1.1,inner sep=.1pt](method)at(3.428,-48){Mode?};
 \node[act,text width=5mm](kb)at(30.856,-48){Card};
 \node[act,text width=6mm,inner xsep=.6pt](bbl)at(37.713,-57){Transfer};
-\node[diamond,draw,inner sep=0pt,minimum size=1.2mm](paidmerge)at(17.142,-64){};
-\node[act,text width=5mm](done)at(17.142,-70){Done\\lock};
-\node[act,text width=5mm](mail)at(44.57,-70){Send PDF};
-\node[act,text width=6mm,inner xsep=.6pt](confirm)at(3.428,-78){Confirm};
+\node[diamond,draw,inner sep=0pt,minimum size=1.2mm](paidmerge)at(17.142,-62){};
+\node[decision](paid)at(17.142,-66.5){Paid?};
+\node[act,text width=5mm](done)at(17.142,-73){Done\\lock};
+\node[act,text width=5mm](mail)at(44.57,-73){Send PDF};
+\node[act,text width=6mm,inner xsep=.6pt](confirm)at(3.428,-79){Confirm};
 \node[circle,draw,inner sep=1.3pt](end)at(3.428,-82){};\fill(3.428,-82)circle(.55mm);
 \draw[flow](s)--(a);\draw[flow](a)--(b);\draw[flow](b)--(c);\draw[flow](c)--(d);\draw[flow](d)|-(e);
 \draw[flow](e.west)--(10.285,-21)--(10.285,-16)--(editmerge.east);\draw[flow](editmerge.south)--(f.north);
@@ -66,11 +67,14 @@ University Admin & R4 สร้าง semester และกำหนด active s
 \draw[flow](seat)--node[above]{[full]}(warn);\draw[flow,line width=.32pt](warn.west)--(.25,-38)--(.25,-16)--(editmerge.west);
 \draw[flow](seat.south)--(17.142,-43)--node[below,inner sep=.3pt]{[all available]}(3.428,-43)--(method.north);
 \draw[flow](method)--node[above]{[card]}(kb);\draw[flow](method.south)--(3.428,-57)--node[above]{[transfer]}(bbl);
-\draw[flow](kb.south)--(30.856,-62)--(17.142,-62)--(paidmerge.north);
-\draw[flow](bbl.south)--(37.713,-64)--(paidmerge.east);
-\draw[flow](paidmerge)--(done);\draw[flow](done)--(mail);\draw[flow](mail.south)--(44.57,-78)--(confirm);\draw[flow](confirm)--(end);
+\draw[flow](kb.south)--(30.856,-60)--(17.142,-60)--(paidmerge.north);
+\draw[flow](bbl.south)--(37.713,-62)--(paidmerge.east);
+\draw[flow](paidmerge)--(paid);
+\draw[flow](paid.west)--node[above,fill=white,inner sep=.2pt]{[no]}(.3,-66.5)--(.3,-48)--(method.west);
+\draw[flow](paid)--node[right,yshift=.4mm,inner sep=.2pt,font=\fontsize{5.7}{6}\selectfont]{[yes]}(done);
+\draw[flow](done)--(mail);\draw[flow](mail.south)--(44.57,-79)--(confirm);\draw[flow](confirm)--(end);
 \end{tikzpicture}\end{center}
-Stu = Student; Reg = KU Registration; SSO = KUSSO; Info = KU Student Info; Mail = KUEmail; KB = KBank; BBL = Bangkok Bank; จ่ายสำเร็จตามโจทย์ วนเฉพาะแก้ section เต็ม
+Stu = Student; Reg = KU Registration; SSO = KUSSO; Info = KU Student Info; Mail = KUEmail; KB = KBank; BBL = Bangkok Bank; เต็ม→แก้/ส่งซ้ำ; จ่ายไม่ผ่าน→เลือกวิธีใหม่; ผ่านจึง Done/lock/email
 \topic{3. UI: List + Form จากข้อกำหนด}
 \k{คำสั่ง}: Complete เติมข้อมูลในโครงที่กำหนด; Design ออกแบบจากข้อกำหนด; Invoice ใช้ฝึกสัญลักษณ์ UI; KU เป็นตัวอย่างประยุกต์
 \begin{center}\begin{tikzpicture}[x=1mm,y=.9mm,font=\fontsize{7.1}{7.4}\selectfont]

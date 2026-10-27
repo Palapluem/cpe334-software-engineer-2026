@@ -50,7 +50,7 @@ Special & load/performance, security, compatibility, recovery\\\hline
 \node[state](a)at(6,0){Draft};\node[state](b)at(25,0){Ready};\node[state](c)at(44,0){Submitted};
 \draw[flow](a)--node[above]{complete}(b);\draw[flow](b)--node[above]{submit}(c);
 \end{tikzpicture}\end{center}
-\k{Class Diagram}: กล่องคลาสมีชื่อและ attributes:type; ไม่แสดง methods. แสดง association พร้อม multiplicity, inheritance (child→parent), composition (◆ ที่ whole), aggregation (◇) และ external calls; จำกัดความสัมพันธ์ที่ Header/Line Item ไว้เฉพาะชั้นแรก
+\k{Class Diagram}: ชื่อ/attributes:type/methods ตามโจทย์; association + multiplicity; inheritance child→parent; composition ◆ ที่ whole; aggregation ◇. \k{โจทย์ Header/Line Item}: links ชั้นแรก, external calls, ไม่ใส่ methods
 \k{Scenario}: basic = ปกติ; alternative = ทางเลือกที่ถูกต้อง; exception = ผิดพลาด; Activity ≠ Sequence; Use Case ≠ flowchart
 \topic{Generic UI: List / Form / LoV}
 \k{List}: title/role, search/filter/sort, columns, select/open/create, pagination, empty/loading/error; \k{Form}: header/lines/total/status/actions
