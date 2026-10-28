@@ -4,6 +4,7 @@
 \input{\MockAssetRoot/exam-info.tex}
 \usepackage[unicode,hidelinks]{hyperref}
 \usepackage{pdflscape}
+\usepackage{longtable}
 \hypersetup{pdftitle={CPE334 Software Engineering - Bilingual Midterm Practice},pdfauthor={Wisit Suwannao},pdfsubject={Three-part practice paper, 100 marks, 3 hours}}
 \newfontfamily\coverfont[Path=\MockAssetRoot/fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
@@ -11,15 +12,25 @@
 \renewcommand{\code}[1]{{\bfseries #1}}
 \setlength{\tabcolsep}{6pt}
 \renewcommand{\arraystretch}{1.12}
-% Bilingual prose is stacked in the exam's reading order: English, then Thai.
+% Questions and instructions are prose: English first, then Thai.
 \newcommand{\pair}[2]{%
   \par\smallskip\begingroup\setlength{\parskip}{0pt}%
   \noindent #2\par\nopagebreak[3]\noindent #1\par
   \endgroup\smallskip}
-\newenvironment{prompttable}{\par\smallskip}{\par\smallskip}
-\newcommand{\prow}[2]{%
-  \par\begingroup\setlength{\parskip}{0pt}%
-  \noindent #2\par\nopagebreak[3]\noindent #1\par\endgroup}
+% Given facts are paired by row: English on the left, Thai on the right.
+% Match the sample's borderless table and keep each bilingual row together.
+\newlength{\contentcolwidth}
+\newenvironment{contenttable}{%
+  \par\smallskip\begingroup
+  \setlength{\parskip}{0pt}%
+  \linespread{1.05}\selectfont
+  \setlength{\LTpre}{0pt}\setlength{\LTpost}{4pt}%
+  \setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}%
+  \setlength{\contentcolwidth}{\dimexpr(\linewidth-6mm)/2\relax}%
+  \begin{longtable}{@{}>{\raggedright\arraybackslash}p{\contentcolwidth}@{\hspace{6mm}}>{\raggedright\arraybackslash}p{\contentcolwidth}@{}}%
+}{%
+  \end{longtable}\endgroup\smallskip}
+\newcommand{\crow}[2]{#2 & #1\\[2pt]}
 \newcommand{\bpart}[3]{\pair{\textbf{\large ส่วนที่ #1\quad #2}}{\textbf{\large Part #1\quad #3}}}
 \newcommand{\bq}[4]{\pair{\textbf{ข้อ #1\quad (#4 คะแนน): #2}}{\textbf{Question #1\quad (#4 \ifstrequal{#4}{1}{mark}{marks}): #3}}}
 \newcommand{\bsub}[4]{\pair{\textbf{#1 (#4 คะแนน) #2}}{\textbf{#1 (#4 \ifstrequal{#4}{1}{mark}{marks}) #3}}}

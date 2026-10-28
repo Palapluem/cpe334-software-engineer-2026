@@ -6,7 +6,7 @@ These student-created materials are for study and timed practice. They are not a
 
 | File | Format | Contents |
 | --- | --- | --- |
-| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **33 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English question text followed by Thai; 3 parts, 12 questions, 100 marks, 3 hours |
+| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **33 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; full question prose in English followed by Thai; given content in English-left/Thai-right tables; 3 parts, 12 questions, 100 marks, 3 hours |
 | [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 16 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
 | [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 19 pages | The same core answers followed by S1-S3 |
 
@@ -16,7 +16,7 @@ These student-created materials are for study and timed practice. They are not a
 
 - หน้าปกยึดฉบับแรกที่เก็บไว้ในประวัติ 24 October 2026: คืนถ้อยคำคำชี้แจงฉบับเต็ม ชื่อส่วน Requirements/Security, Project Planning/Execution และ UML/UI/Git Workflow พร้อมกริด ฟอนต์ ตัวหนา เส้นใต้และระยะบรรทัดเดิม คำชี้แจงเป็นภาษาไทยและใช้ศัพท์เนื้อหารายวิชาตามต้นแบบ ช่องชุดข้อสอบคงความหมาย optional ด้วยคำไทย “ถ้ามี” และกลุ่มนานาชาติใช้ป้ายภาษาไทย
 - เงื่อนไขกระดาษสรุปแก้ตามที่นักศึกษายืนยันหลังสอบ: อนุญาต A4 1 แผ่นและ **ไม่ต้องส่งพร้อมข้อสอบ** นำข้อบังคับให้ส่ง ข้อหัก 5 คะแนน และข้อบังคับเขียนชื่อบนกระดาษสรุปที่ยกมาจากเรฟ CPE241 ออก ไม่ใช้กติกาของวิชาอื่นแทนข้อสอบ CPE334
-- คำถามและคำสั่งแสดง **English ก่อน แล้วตามด้วยภาษาไทยบรรทัดถัดไป** ไม่มีตารางสองคอลัมน์สำหรับข้อความคู่ภาษา ตารางงานและตารางคำตอบที่จำเป็นยังคงรูปแบบตาราง โดยวางคำแปลไทยใต้ข้อความอังกฤษในเซลล์เดียวกัน
+- คำถามและคำสั่งเขียนเป็นย่อหน้าเต็ม **อังกฤษก่อน แล้วตามด้วยภาษาไทยบรรทัดถัดไป** ส่วนข้อมูลที่โจทย์ให้ เช่น สถานการณ์ ข้อความความต้องการ ข้อเสนอ บันทึกประชุม และเงื่อนไข ใช้ตารางสองคอลัมน์ **อังกฤษฝั่งซ้าย ไทยฝั่งขวา** จับคู่เนื้อหาในแถวเดียวกัน ตารางข้อความไม่มีเส้นกรอบตามตัวอย่างอาจารย์ ส่วนตารางงาน สิทธิ์ และ backlog แยกคอลัมน์ข้อความอังกฤษกับไทยให้ตรงกัน
 - คง Sarabun และขนาดโจทย์ประมาณ 14 pt; หัว/ท้ายกระดาษเล็กกว่าโจทย์ ไม่ลดฟอนต์เพื่อบีบจำนวนหน้า พื้นที่ตอบใช้ร่วมกันเต็มความกว้าง ไม่แบ่งคำตอบเป็นสองภาษา
 - หน้า Gantt เป็นแนวนอนเพียงหน้าเดียว ครบ 20 วันทำงาน มี 14 แถวสำหรับ tasks/milestones/buffer และคอลัมน์ No., Task, Owner, Start, Due; หน้าถัดไปกลับเป็นแนวตั้ง
 - ข้อ 8 ให้ actors, use cases และ boundary มาแล้ว ผู้ทำเติมเส้น association, include, extend และ generalization; ข้อ 9 ให้ states มาแล้ว ผู้ทำเติม transitions/events/guards; ข้อ 10 ให้กรอบ List/Form พร้อมตัวอย่าง notation แล้วเติมข้อมูลและ controls
@@ -89,6 +89,6 @@ python3 preparation/mock-exam/midterm/build.py
 
 ## ตรวจฉบับ 28 October 2026
 
-ตรวจ PDF ทั้ง 33 หน้าและเฉลยที่ปรับ รวมถึงเลขหน้า การจับคู่ภาษา เนื้อหาข้อ 1-12, R1-R12, คะแนนรวม 25+25+50 และตำแหน่ง Git refs ไม่พบหน้าว่างหรือกล่องคำตอบที่หลุดไปอีกหน้า หน้า 14 เป็นแนวนอนเพียงหน้าเดียว แผนภาพเป็น vector และไม่มีเส้นเฉลยในโจทย์ ตรวจทิศ include/extend/generalization และ state transitions เทียบกับเฉลยแล้ว สำหรับข้อ 11 ตรวจว่า C อยู่บน `main` และ D อยู่บน `sprint_1` ซึ่งแยกจาก B ส่วน feature branch และเหตุการณ์หลังจากนั้นระบุไว้ชัดว่าเป็นรายละเอียดสำหรับโจทย์ฝึก
+ตรวจ PDF ทั้ง 33 หน้า รวมถึงเลขหน้า เนื้อหาข้อ 1-12, R1-R12, คะแนนรวม 25+25+50 และตำแหน่ง Git refs ข้อมูลโจทย์จับคู่ในตารางอังกฤษซ้าย-ไทยขวา ส่วนคำถามและคำสั่งยังเป็นย่อหน้าเต็ม ตรวจเทียบข้อความก่อนและหลังจัดตารางแล้วไม่มีคำถามหรือข้อมูลถูกตัดออก ไม่พบหน้าว่าง แถวคู่ภาษาถูกแยกข้ามหน้า หรือกล่องคำตอบหลุดไปอีกหน้า หน้า 14 เป็นแนวนอนเพียงหน้าเดียว แผนภาพเป็น vector และไม่มีเส้นเฉลยในโจทย์ ตรวจทิศ include/extend/generalization และ state transitions เทียบกับเฉลยแล้ว สำหรับข้อ 11 ตรวจว่า C อยู่บน `main` และ D อยู่บน `sprint_1` ซึ่งแยกจาก B ส่วน feature branch และเหตุการณ์หลังจากนั้นระบุไว้ชัดว่าเป็นรายละเอียดสำหรับโจทย์ฝึก
 
 ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน

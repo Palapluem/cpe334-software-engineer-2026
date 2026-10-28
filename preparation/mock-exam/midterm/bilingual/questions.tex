@@ -1,40 +1,64 @@
-% English appears first; Thai follows directly below. All original marks are retained.
+% Questions are stacked English/Thai prose; given content uses English-left/Thai-right tables. All marks are retained.
 \bpart{1}{(25 คะแนน) ข้อกำหนดและความมั่นคงปลอดภัย}{(25 marks) Requirements and Security}
 \bq{1}{วิเคราะห์ความต้องการของผู้มีส่วนได้ส่วนเสีย}{Analyse stakeholder requirements}{8}
-\begin{prompttable}
-\prow{มหาวิทยาลัยกำลังเตรียมระบบลงทะเบียน workshop ผู้ประสานงานส่งข้อความความต้องการสี่ข้อให้ทีมพัฒนา แต่ทีมยังไม่ได้ยืนยันรายละเอียดอื่นนอกเหนือจากข้อความที่ให้ ให้วิเคราะห์แต่ละข้อแยกกัน โดยใช้หัวข้อต่อไปนี้}
-{A university is preparing a workshop registration system. Its coordinator gives the development team four requirement statements. No additional details have yet been agreed beyond those stated. Analyse each statement independently using the following criteria.}
-\prow{จำแนกประเภทเป็น functional requirement, non-functional requirement หรือ business/domain rule พร้อมเหตุผล อธิบายจุดประสงค์ ประเมินคุณภาพและจุดที่ยังไม่ชัด เสนอวิธีทดสอบหรือวัดพร้อมผลที่คาดหวัง แล้วปรับข้อความหรืออธิบายเหตุผลที่ควรคงไว้ ตัวเลขหรือเงื่อนไขที่เสนอเพิ่มต้องระบุว่ารอยืนยันกับผู้เกี่ยวข้อง}
+\begin{contenttable}
+\crow{มหาวิทยาลัยกำลังเตรียมระบบลงทะเบียน workshop ผู้ประสานงานส่งข้อความความต้องการสี่ข้อให้ทีมพัฒนา แต่ทีมยังไม่ได้ยืนยันรายละเอียดอื่นนอกเหนือจากข้อความที่ให้}
+{A university is preparing a workshop registration system. Its coordinator gives the development team four requirement statements. No additional details have yet been agreed beyond those stated.}
+\end{contenttable}
+\pair{ให้วิเคราะห์แต่ละข้อแยกกัน โดยใช้หัวข้อต่อไปนี้}
+{Analyse each statement independently using the following criteria.}
+\pair{จำแนกประเภทเป็น functional requirement, non-functional requirement หรือ business/domain rule พร้อมเหตุผล อธิบายจุดประสงค์ ประเมินคุณภาพและจุดที่ยังไม่ชัด เสนอวิธีทดสอบหรือวัดพร้อมผลที่คาดหวัง แล้วปรับข้อความหรืออธิบายเหตุผลที่ควรคงไว้ ตัวเลขหรือเงื่อนไขที่เสนอเพิ่มต้องระบุว่ารอยืนยันกับผู้เกี่ยวข้อง}
 {Classify it as a functional requirement, non-functional requirement, or business/domain rule and justify the classification. Explain its purpose, assess its quality and ambiguities, propose a test or measurement with the expected result, then revise the statement or justify retaining it. Identify any additional conditions or numerical targets as proposals requiring stakeholder confirmation.}
-\end{prompttable}
+
 \bsub{1.1}{ดู workshop ที่เปิดรับลงทะเบียน}{View workshops open for registration}{2}
-\pair{“ระบบต้องให้นักศึกษาที่เข้าสู่ระบบแล้วดู workshop ทั้งหมดที่เปิดรับลงทะเบียนได้” วิเคราะห์ข้อความนี้ตามหัวข้อของข้อ 1 ให้ครบ}
-{“The system shall let a signed-in student view all workshops that are open for registration.” Analyse this statement using all the criteria in Question 1.}
+\begin{contenttable}
+\crow{“ระบบต้องให้นักศึกษาที่เข้าสู่ระบบแล้วดู workshop ทั้งหมดที่เปิดรับลงทะเบียนได้”}
+{“The system shall let a signed-in student view all workshops that are open for registration.”}
+\end{contenttable}
+\pair{วิเคราะห์ข้อความนี้ตามหัวข้อของข้อ 1 ให้ครบ}
+{Analyse this statement using all the criteria in Question 1.}
+
 \answerlabel\answerfill
 \newpage
 \continued{ข้อ 1 (ต่อ): ใช้หัวข้อวิเคราะห์เดียวกับหน้าแรกของข้อ 1}{Question 1 (continued): Apply the same analysis criteria}
 \bsub{1.2}{ความเร็วในการลงทะเบียน}{Registration speed}{2}
-\pair{“กระบวนการลงทะเบียนควรรวดเร็ว” อธิบายว่าข้อความนี้บอกอะไรและยังขาดข้อมูลใด เสนอวิธีตรวจและผลที่คาดหวังซึ่งสอดคล้องกับการตีความของคุณ หากเพิ่มเกณฑ์ขึ้นเอง ให้ระบุว่าเป็นข้อเสนอที่ยังต้องยืนยัน}
-{“The registration process should be quick.” Explain what this statement expresses and what information is missing. Propose a check and expected result consistent with your interpretation. Mark any criteria you introduce as recommendations that still require confirmation.}
+\begin{contenttable}
+\crow{“กระบวนการลงทะเบียนควรรวดเร็ว”}
+{“The registration process should be quick.”}
+\end{contenttable}
+\pair{อธิบายว่าข้อความนี้บอกอะไรและยังขาดข้อมูลใด เสนอวิธีตรวจและผลที่คาดหวังซึ่งสอดคล้องกับการตีความของคุณ หากเพิ่มเกณฑ์ขึ้นเอง ให้ระบุว่าเป็นข้อเสนอที่ยังต้องยืนยัน}
+{Explain what this statement expresses and what information is missing. Propose a check and expected result consistent with your interpretation. Mark any criteria you introduce as recommendations that still require confirmation.}
+
 \answerlabel\blankbox{6.6cm}
 \bsub{1.3}{ข้อจำกัดตามนโยบายมหาวิทยาลัย}{University policy limit}{2}
-\pair{“ตามนโยบายมหาวิทยาลัย นักศึกษาแต่ละคนลงทะเบียน workshop ได้ไม่เกิน 3 รายการต่อภาคการศึกษา” วิเคราะห์ตามหัวข้อเดิม โดยไม่เปลี่ยนนโยบายที่ให้ และระบุข้อมูลที่ควรถามเพิ่มก่อนนำไปพัฒนาหรือทดสอบ}
-{“University policy limits each student to three workshop registrations per semester.” Apply the same analysis criteria without changing the stated policy. Identify any details that should be clarified before implementation or testing.}
+\begin{contenttable}
+\crow{“ตามนโยบายมหาวิทยาลัย นักศึกษาแต่ละคนลงทะเบียน workshop ได้ไม่เกิน 3 รายการต่อภาคการศึกษา”}
+{“University policy limits each student to three workshop registrations per semester.”}
+\end{contenttable}
+\pair{วิเคราะห์ตามหัวข้อเดิม โดยไม่เปลี่ยนนโยบายที่ให้ และระบุข้อมูลที่ควรถามเพิ่มก่อนนำไปพัฒนาหรือทดสอบ}
+{Apply the same analysis criteria without changing the stated policy. Identify any details that should be clarified before implementation or testing.}
+
 \answerlabel\answerfill
 \newpage
 \continued{ข้อ 1 (ต่อ): วิเคราะห์ข้อความข้อสุดท้าย}{Question 1 (continued): Analyse the final statement}
 \bsub{1.4}{ยกเลิกการลงทะเบียนและดูรายชื่อ}{Cancel registrations and view participant lists}{2}
-\pair{“ระบบต้องให้นักศึกษายกเลิกการลงทะเบียน และให้ผู้ประสานงานดูรายชื่อผู้เข้าร่วมได้” วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ และสิ่งที่ควรปรับ โดยให้เหตุผลจากข้อความที่ได้รับ หากแยกเป็นหลายข้อ ต้องรักษาความต้องการเดิมให้ครบ และไม่เพิ่มสิทธิ์หรือเงื่อนไขใหม่โดยถือว่าเป็นข้อเท็จจริง}
-{“The system shall let students cancel a registration and let coordinators see participant lists.” Analyse its type, purpose, quality, verification and possible revision, using evidence from the statement. If you split it into multiple requirements, preserve all the original intent. Do not treat newly introduced permissions or conditions as given facts.}
+\begin{contenttable}
+\crow{“ระบบต้องให้นักศึกษายกเลิกการลงทะเบียน และให้ผู้ประสานงานดูรายชื่อผู้เข้าร่วมได้”}
+{“The system shall let students cancel a registration and let coordinators see participant lists.”}
+\end{contenttable}
+\pair{วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ และสิ่งที่ควรปรับ โดยให้เหตุผลจากข้อความที่ได้รับ หากแยกเป็นหลายข้อ ต้องรักษาความต้องการเดิมให้ครบ และไม่เพิ่มสิทธิ์หรือเงื่อนไขใหม่โดยถือว่าเป็นข้อเท็จจริง}
+{Analyse its type, purpose, quality, verification and possible revision, using evidence from the statement. If you split it into multiple requirements, preserve all the original intent. Do not treat newly introduced permissions or conditions as given facts.}
+
 \answerlabel\answerfill
 \newpage
 \bq{2}{ประเมินข้อเสนอโครงการ WorkshopHub}{Evaluate the WorkshopHub proposal}{7}
-\begin{prompttable}
-\prow{ปัจจุบันนักศึกษาสมัคร workshop ของมหาวิทยาลัยผ่านแบบฟอร์มออนไลน์ที่แยกจากกัน ผู้ประสานงานรวบรวมคำตอบด้วยมือ บางครั้งจึงเกิดการลงทะเบียนซ้ำและยืนยันล่าช้า}
+\begin{contenttable}
+\crow{ปัจจุบันนักศึกษาสมัคร workshop ของมหาวิทยาลัยผ่านแบบฟอร์มออนไลน์ที่แยกจากกัน ผู้ประสานงานรวบรวมคำตอบด้วยมือ บางครั้งจึงเกิดการลงทะเบียนซ้ำและยืนยันล่าช้า}
 {Students currently register for campus workshops through separate online forms. Coordinators combine the responses manually, sometimes causing duplicate registrations and delayed confirmations.}
-\prow{ทีมเสนอ WorkshopHub ซึ่งเป็นเว็บไซต์สำหรับนักศึกษาและผู้ประสานงาน นักศึกษาค้นหา workshop และลงทะเบียนได้ ส่วนผู้ประสานงานจัดการรายชื่อผู้เข้าร่วม ทีมคาดว่าจะลดข้อผิดพลาดและงานจัดการ รุ่นแรกครอบคลุม workshop ฟรีเท่านั้น การชำระเงินและใบรับรองจะทำภายหลัง ทีมวางแผนให้เสร็จก่อนภาคการศึกษาถัดไป}
+\crow{ทีมเสนอ WorkshopHub ซึ่งเป็นเว็บไซต์สำหรับนักศึกษาและผู้ประสานงาน นักศึกษาค้นหา workshop และลงทะเบียนได้ ส่วนผู้ประสานงานจัดการรายชื่อผู้เข้าร่วม ทีมคาดว่าจะลดข้อผิดพลาดและงานจัดการ รุ่นแรกครอบคลุม workshop ฟรีเท่านั้น การชำระเงินและใบรับรองจะทำภายหลัง ทีมวางแผนให้เสร็จก่อนภาคการศึกษาถัดไป}
 {The team proposes WorkshopHub, a website for students and workshop coordinators. Students can browse and register for workshops, while coordinators manage participant lists. The team expects fewer errors and less administrative work. The first release supports free workshops only; payment and attendance certificates will come later. The team plans to finish before the next semester.}
-\end{prompttable}
+\end{contenttable}
+
 \bsub{2.1}{ประเมินองค์ประกอบของข้อเสนอ}{Evaluate the proposal elements}{4}
 \pair{ประเมินข้อเสนอตามที่เขียนจริงให้ครบ 8 องค์ประกอบ ระบุว่าแต่ละส่วนมีแล้ว มีเพียงบางส่วน หรือยังไม่มี พร้อมยกข้อความหรือเหตุผลประกอบ อย่านำข้อเสนอที่คุณคิดเพิ่มไปนับว่ามีอยู่ในต้นฉบับ}
 {Assess all eight elements in the proposal as written. Mark each as present, incomplete, or missing, and support your judgment with a phrase or reason from the proposal. Do not count your own recommendations as information already provided.}
@@ -58,35 +82,44 @@ Evidence of completion & \rule{0pt}{.95cm}\\\hline
 \answerlabel\answerfill
 \newpage
 \bq{3}{สิทธิ์การใช้งานตามบทบาท}{Role-Based Access Control}{4}
-\begin{prompttable}
-\prow{WorkshopHub กำหนดหนึ่ง role ต่อหนึ่งบัญชี ไม่มีการสืบทอดสิทธิ์ระหว่าง roles และปฏิเสธ operation ที่นโยบายไม่ได้อนุญาต Student ดู workshop ที่เผยแพร่และส่งคำขอลงทะเบียนของตนเองได้}
+\begin{contenttable}
+\crow{WorkshopHub กำหนดหนึ่ง role ต่อหนึ่งบัญชี ไม่มีการสืบทอดสิทธิ์ระหว่าง roles และปฏิเสธ operation ที่นโยบายไม่ได้อนุญาต Student ดู workshop ที่เผยแพร่และส่งคำขอลงทะเบียนของตนเองได้}
 {WorkshopHub assigns exactly one role to each account. Roles do not inherit permissions, and any operation not granted by the policy is denied. A Student may view published workshops and submit their own registrations.}
-\prow{Coordinator ดู workshop ที่เผยแพร่ สร้าง workshop แก้รายละเอียด workshop และส่งออกรายชื่อผู้เข้าร่วมได้ โจทย์ไม่ได้กำหนดข้อจำกัดตามเจ้าของ workshop เพิ่มเติม}
+\crow{Coordinator ดู workshop ที่เผยแพร่ สร้าง workshop แก้รายละเอียด workshop และส่งออกรายชื่อผู้เข้าร่วมได้ โจทย์ไม่ได้กำหนดข้อจำกัดตามเจ้าของ workshop เพิ่มเติม}
 {A Coordinator may view published workshops, create workshops, edit workshop details, and export participant lists. No additional workshop-ownership restriction is specified.}
-\end{prompttable}
+\end{contenttable}
+
 \bsub{3.1}{เติมตารางสิทธิ์ให้ครบทุกช่อง}{Complete every permission cell}{2.5}
 \pair{ใส่ Allow หรือ Deny ตามนโยบายข้างต้น ไม่สมมติว่าบทบาทหนึ่งได้รับสิทธิ์ของอีกบทบาทโดยอัตโนมัติ}
 {Enter Allow or Deny according to the stated policy. Do not assume that one role automatically receives the permissions of another.}
-\begin{tabularx}{\linewidth}{|P|M{2.5cm}|M{2.5cm}|}\hline
-Operation & Student & Coordinator\\\hline
-\bilingualcell{View published workshops}{ดู workshop ที่เผยแพร่} &\rule{0pt}{.85cm}&\\\hline
-\bilingualcell{Submit own registration}{ส่งคำขอลงทะเบียนของตน} &\rule{0pt}{.85cm}&\\\hline
-\bilingualcell{Create a workshop}{สร้าง workshop} &\rule{0pt}{.85cm}&\\\hline
-\bilingualcell{Edit workshop details}{แก้ workshop} &\rule{0pt}{.85cm}&\\\hline
-\bilingualcell{Export participant lists}{ส่งออกรายชื่อ} &\rule{0pt}{.85cm}&\\\hline
+\begin{tabularx}{\linewidth}{|P|P|M{2.1cm}|M{2.1cm}|}\hline
+Operation (English) & รายการดำเนินการ & Student & Coordinator\\\hline
+View published workshops & ดู workshop ที่เผยแพร่ &\rule{0pt}{.85cm}&\\\hline
+Submit own registration & ส่งคำขอลงทะเบียนของตน &\rule{0pt}{.85cm}&\\\hline
+Create a workshop & สร้าง workshop &\rule{0pt}{.85cm}&\\\hline
+Edit workshop details & แก้ workshop &\rule{0pt}{.85cm}&\\\hline
+Export participant lists & ส่งออกรายชื่อ &\rule{0pt}{.85cm}&\\\hline
 \end{tabularx}
 \bsub{3.2}{การซ่อนปุ่มเพียงพอหรือไม่}{Is hiding the button sufficient?}{1.5}
-\pair{ทีมซ่อนปุ่มส่งออกรายชื่อจาก Student แล้ว การทำเช่นนี้เพียงพอหรือไม่? อธิบายสิ่งที่ backend ต้องตรวจ และเสนอ direct-request test หนึ่งกรณีพร้อมผลที่คาดหวัง}
-{The team hides the export button from Students. Is this sufficient? Explain what the backend must check, and propose one direct-request test with its expected result.}
+\begin{contenttable}
+\crow{ทีมซ่อนปุ่มส่งออกรายชื่อจาก Student แล้ว}
+{The team hides the export button from Students.}
+\end{contenttable}
+\pair{การทำเช่นนี้เพียงพอหรือไม่? อธิบายสิ่งที่ backend ต้องตรวจ และเสนอ direct-request test หนึ่งกรณีพร้อมผลที่คาดหวัง}
+{Is this sufficient? Explain what the backend must check, and propose one direct-request test with its expected result.}
+
 \answerlabel\answerfill
 \newpage
 \bq{4}{วิเคราะห์ช่องโหว่ระบบส่งรายงาน}{Analyse a report-upload vulnerability}{6}
-\begin{prompttable}
-\prow{ระบบส่งงานของมหาวิทยาลัยให้นักศึกษาอัปโหลดรายงาน PDF แต่ตรวจชนิดไฟล์เฉพาะใน browser นักศึกษาคนหนึ่งข้ามการตรวจดังกล่าว แล้วส่ง script ที่ปลอมเป็น PDF เข้าสู่ server}
+\begin{contenttable}
+\crow{ระบบส่งงานของมหาวิทยาลัยให้นักศึกษาอัปโหลดรายงาน PDF แต่ตรวจชนิดไฟล์เฉพาะใน browser นักศึกษาคนหนึ่งข้ามการตรวจดังกล่าว แล้วส่ง script ที่ปลอมเป็น PDF เข้าสู่ server}
 {A university assignment system allows students to upload PDF reports but checks the file type only in the browser. A student bypasses this check and sends a script disguised as a PDF to the server.}
-\prow{Server เก็บไฟล์นั้นไว้ในโฟลเดอร์ที่อนุญาตให้รัน script เมื่อมีผู้เปิด URL ของไฟล์ server จึงรัน script และ script อ่านรายงานของนักศึกษาคนอื่นได้ ใช้เหตุการณ์ที่ระบุนี้ในการตอบ และแยกผลที่เกิดแล้วออกจากผลที่เพียงอาจเกิดขึ้น}
-{The server stores the file in a folder that permits script execution. Opening its URL causes the server to execute the script, which reads other students' reports. Base your answer on this incident. Distinguish effects that have occurred from those that might merely be possible.}
-\end{prompttable}
+\crow{Server เก็บไฟล์นั้นไว้ในโฟลเดอร์ที่อนุญาตให้รัน script เมื่อมีผู้เปิด URL ของไฟล์ server จึงรัน script และ script อ่านรายงานของนักศึกษาคนอื่นได้}
+{The server stores the file in a folder that permits script execution. Opening its URL causes the server to execute the script, which reads other students' reports.}
+\end{contenttable}
+\pair{ใช้เหตุการณ์ที่ระบุนี้ในการตอบ และแยกผลที่เกิดแล้วออกจากผลที่เพียงอาจเกิดขึ้น}
+{Base your answer on this incident. Distinguish effects that have occurred from those that might merely be possible.}
+
 \bsub{4.1}{วิเคราะห์เหตุการณ์และขอบเขตความเชื่อถือ}{Analyse the incident and trust boundaries}{3}
 \pair{ระบุผู้โจมตี สิ่งที่ต้องปกป้อง (assets) จุดที่ผู้โจมตีเข้าถึงระบบ (attack surface) และ trust boundary ที่ถูกข้าม อธิบาย security objective ที่เสียหายพร้อมเชื่อมกับข้อเท็จจริงในเหตุการณ์ อย่าตอบเพียงชื่อคำศัพท์โดยไม่มีเหตุผล}
 {Identify the attacker, protected assets, attack surface and crossed trust boundaries. Explain which security objective is harmed and connect your reasoning to the incident. Naming terms without explaining their relevance is not sufficient.}
@@ -101,33 +134,37 @@ Operation & Student & Coordinator\\\hline
 \newpage
 \bpart{2}{(25 คะแนน) การวางแผนและดำเนินโครงการ}{(25 marks) Project Planning and Execution}
 \bq{5}{วางแผนโครงการ DormFix}{Plan the DormFix project}{10}
-\pair{คุณเป็นผู้จัดการโครงการ DormFix ซึ่งใช้ Waterfall เพื่อสร้างเว็บแจ้งซ่อมหอพัก ทีมมี Aom (BA), Bank (UX/UI), Chai (Developer), Dao (Developer/Tester) ผู้จัดการหอพักเป็น Sponsor และหัวหน้าช่างเป็นตัวแทน User งานในตารางไม่ได้เรียงตามลำดับ ให้ใช้ข้อมูลนี้ทำข้อ 5.1-5.3}
-{You are the project manager of DormFix, a Waterfall web application for dormitory repairs. Your team is Aom (BA), Bank (UX/UI), Chai (Developer) and Dao (Developer/Tester). The dormitory manager is the Sponsor, and the maintenance head represents the User. Tasks below are not in execution order. Use them for Questions 5.1-5.3.}
+\begin{contenttable}
+\crow{คุณเป็นผู้จัดการโครงการ DormFix ซึ่งใช้ Waterfall เพื่อสร้างเว็บแจ้งซ่อมหอพัก ทีมมี Aom (BA), Bank (UX/UI), Chai (Developer), Dao (Developer/Tester) ผู้จัดการหอพักเป็น Sponsor และหัวหน้าช่างเป็นตัวแทน User งานในตารางไม่ได้เรียงตามลำดับ}
+{You are the project manager of DormFix, a Waterfall web application for dormitory repairs. Your team is Aom (BA), Bank (UX/UI), Chai (Developer) and Dao (Developer/Tester). The dormitory manager is the Sponsor, and the maintenance head represents the User. Tasks below are not in execution order.}
+\end{contenttable}
+\pair{ให้ใช้ข้อมูลนี้ทำข้อ 5.1-5.3}
+{Use them for Questions 5.1-5.3.}
+
 \begingroup\fontsize{9.5}{12.5}\selectfont
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
-\begin{tabularx}{\linewidth}{|M{.55cm}|P|M{1.1cm}|M{.75cm}|}\hline
-ID & \bilingualcell{Task}{งาน} & Owner & Days\\\hline
-A & \bilingualcell{Code the request form from the approved designs}{เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ} & Chai & 4\\\hline
-B & \bilingualcell{Submit the requirements for approval by the dormitory manager}{ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ} & PM & 1\\\hline
-C & \bilingualcell{Design the screens from the approved requirements}{ออกแบบหน้าจอจาก requirements ที่อนุมัติ} & Bank & 3\\\hline
-D & \bilingualcell{Test the two coded parts together}{ทดสอบโปรแกรมสองส่วนร่วมกัน} & Dao & 2\\\hline
-E & \bilingualcell{Write the requirements; this is the first task}{เขียน requirements เป็นงานแรก} & Aom & 3\\\hline
-F & \bilingualcell{Submit both designs for approval by the maintenance head}{ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ} & PM & 1\\\hline
-G & \bilingualcell{Design the database from the approved requirements}{ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ} & Chai & 2\\\hline
-H & \bilingualcell{Submit the tested system for acceptance by the dormitory manager}{ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ} & PM & 1\\\hline
-I & \bilingualcell{Code the technician dashboard from the approved designs}{เขียน dashboard ช่างจากแบบที่อนุมัติ} & Dao & 3\\\hline
+\begin{tabularx}{\linewidth}{|M{.5cm}|P|P|M{1.05cm}|M{.7cm}|}\hline
+ID & Task (English) & งาน (ภาษาไทย) & Owner & Days\\\hline
+A & Code the request form from the approved designs & เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ & Chai & 4\\\hline
+B & Submit the requirements for approval by the dormitory manager & ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ & PM & 1\\\hline
+C & Design the screens from the approved requirements & ออกแบบหน้าจอจาก requirements ที่อนุมัติ & Bank & 3\\\hline
+D & Test the two coded parts together & ทดสอบโปรแกรมสองส่วนร่วมกัน & Dao & 2\\\hline
+E & Write the requirements; this is the first task & เขียน requirements เป็นงานแรก & Aom & 3\\\hline
+F & Submit both designs for approval by the maintenance head & ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ & PM & 1\\\hline
+G & Design the database from the approved requirements & ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ & Chai & 2\\\hline
+H & Submit the tested system for acceptance by the dormitory manager & ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ & PM & 1\\\hline
+I & Code the technician dashboard from the approved designs & เขียน dashboard ช่างจากแบบที่อนุมัติ & Dao & 3\\\hline
 \end{tabularx}\endgroup
 \pair{ใช้ชื่อผู้ทำและจำนวนวันตามตารางในการวางแผน รายละเอียดการอนุมัติและคำว่า “จากแบบที่อนุมัติ” หรือ “ระบบที่ทดสอบแล้ว” เป็นข้อมูลที่ต้องใช้กำหนดความสัมพันธ์ของงาน ไม่จำเป็นต้องใช้ทุกช่องของแบบฟอร์มคำตอบ}
 {Use the stated owner and duration for scheduling. Approval steps and phrases such as “from the approved designs” and “the tested system” determine task relationships. You do not need to fill every available answer box.}
 \newpage
 \continued{ข้อ 5 (ต่อ): ใช้รายการงาน A-I}{Question 5 (continued): Use Tasks A-I}
 \bsub{5.1}{จัด WBS ตาม milestone ที่บรรลุ}{Organize a milestone-based WBS}{3}
-\begin{prompttable}
-\prow{เติมชื่อ milestone ระดับแรกในช่อง 1.1-1.4 เรียงจากซ้ายไปขวาตามลำดับที่บรรลุ แล้วใส่ตัวอักษรงาน A-I ลงในช่องงานระดับถัดไปตามลำดับที่ต้องทำเพื่อให้บรรลุ milestone นั้น}
+\pair{เติมชื่อ milestone ระดับแรกในช่อง 1.1-1.4 เรียงจากซ้ายไปขวาตามลำดับที่บรรลุ แล้วใส่ตัวอักษรงาน A-I ลงในช่องงานระดับถัดไปตามลำดับที่ต้องทำเพื่อให้บรรลุ milestone นั้น}
 {Fill the first-level boxes 1.1-1.4 with milestone names, ordered from left to right as they are reached. Put task letters A-I in the second-level boxes, ordered by the work needed to reach each milestone.}
-\prow{ใช้ทุกงานครั้งเดียว งานที่ทำขนานกันเรียงก่อนหลังในกลุ่มเดียวกันได้ ไม่เพิ่มงานหรือ milestone เพียงเพื่อเติมช่องให้เต็ม และเว้นช่องที่ไม่ใช้}
+\pair{ใช้ทุกงานครั้งเดียว งานที่ทำขนานกันเรียงก่อนหลังในกลุ่มเดียวกันได้ ไม่เพิ่มงานหรือ milestone เพียงเพื่อเติมช่องให้เต็ม และเว้นช่องที่ไม่ใช้}
 {Use every task exactly once. Parallel tasks may appear in either order within their group. Do not invent tasks or milestones merely to fill the template. Leave unused boxes empty.}
-\end{prompttable}
+
 \examwbs
 \pair{พื้นที่ด้านล่างใช้ร่างหรืออธิบาย WBS ได้ คำตอบหลักต้องอยู่ในต้นไม้ข้างบน}
 {You may use the space below for working or a brief explanation. Record the main answer in the tree above.}
@@ -137,16 +174,17 @@ I & \bilingualcell{Code the technician dashboard from the approved designs}{เ�
 \bsub{5.2}{เติม RACI ตามบทบาทที่ได้รับมอบหมาย}{Complete the RACI chart}{2}
 \pair{พิจารณาบทบาทของแต่ละคนในแต่ละงานจากบันทึกประชุมด้านล่าง กรอก R, A, C, I หรือ “-” เมื่อไม่มีบทบาทให้ครบทุกช่อง ไม่อนุมานบทบาทเพิ่มจากตำแหน่งงานเพียงอย่างเดียว}
 {Use the meeting notes below to determine each person's part in each task. Enter R, A, C, I, or “-” for no part in every cell. Do not infer additional responsibilities solely from a person's job title.}
-\begin{prompttable}
-\prow{\textbf{E:} Aom ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท}
+\begin{contenttable}
+\crow{\textbf{E:} Aom ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท}
 {\textbf{E:} Aom performs the work; PM is accountable for the outcome; Bank is consulted beforehand; Chai is informed afterward; Dao has no part.}
-\prow{\textbf{C:} Bank ลงมือทำ PM รับผิดชอบผลสำเร็จ Aom ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท}
+\crow{\textbf{C:} Bank ลงมือทำ PM รับผิดชอบผลสำเร็จ Aom ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท}
 {\textbf{C:} Bank performs the work; PM is accountable for the outcome; Aom is consulted beforehand; Chai is informed afterward; Dao has no part.}
-\prow{\textbf{G:} Chai ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Dao รับแจ้งหลังทำ Aom ไม่มีบทบาท}
+\crow{\textbf{G:} Chai ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Dao รับแจ้งหลังทำ Aom ไม่มีบทบาท}
 {\textbf{G:} Chai performs the work; PM is accountable for the outcome; Bank is consulted beforehand; Dao is informed afterward; Aom has no part.}
-\prow{\textbf{D:} Dao ลงมือทำ PM รับผิดชอบผลสำเร็จ Chai ให้ความเห็นก่อนทำ Aom รับแจ้งหลังทำ Bank ไม่มีบทบาท}
+\crow{\textbf{D:} Dao ลงมือทำ PM รับผิดชอบผลสำเร็จ Chai ให้ความเห็นก่อนทำ Aom รับแจ้งหลังทำ Bank ไม่มีบทบาท}
 {\textbf{D:} Dao performs the work; PM is accountable for the outcome; Chai is consulted beforehand; Aom is informed afterward; Bank has no part.}
-\end{prompttable}
+\end{contenttable}
+
 \begingroup\renewcommand{\tabularxcolumn}[1]{m{#1}}
 \begin{tabularx}{\linewidth}{|M{1.1cm}|*{5}{>{\centering\arraybackslash}X|}}\hline
 Task & PM & Aom & Bank & Chai & Dao\\\hline
@@ -160,16 +198,17 @@ D &\rule{0pt}{1.25cm}&&&&\\\hline
 \bsub{5.3}{วางกำหนดการเป็น Gantt chart}{Build the Gantt chart}{5}
 \pair{\textbf{1 คะแนน (รวมอยู่ในข้อ 5.3):} อธิบายว่าคุณใส่ buffer ตรงใดและเพราะเหตุใด รวมทั้งเหตุผลที่ milestone ไม่ใช้เวลาทำงาน คำอธิบายต้องตรงกับตารางที่คุณวาด}
 {\textbf{1 mark (included in Question 5.3):} Explain where you placed buffers and why, and why milestones take no working time. Your explanation must match your chart.}
-\begin{prompttable}
-\prow{โครงการเริ่มวันจันทร์ที่ 4 มกราคม 2027 ทำงานวันจันทร์ถึงศุกร์และไม่มีวันหยุดอื่น ใช้ owner และจำนวนวันของแต่ละงานตามตาราง A-I งานหนึ่งเริ่มได้ในวันทำงานถัดจากวันที่ predecessors และ buffers ของงานเหล่านั้นเสร็จครบ}
+\begin{contenttable}
+\crow{โครงการเริ่มวันจันทร์ที่ 4 มกราคม 2027 ทำงานวันจันทร์ถึงศุกร์และไม่มีวันหยุดอื่น ใช้ owner และจำนวนวันของแต่ละงานตามตาราง A-I งานหนึ่งเริ่มได้ในวันทำงานถัดจากวันที่ predecessors และ buffers ของงานเหล่านั้นเสร็จครบ}
 {The project starts on Monday 4 January 2027. Work is Monday to Friday with no other holidays. Use the owner and duration in the A-I task table. A task starts on the working day after all its predecessors and their buffers have finished.}
-\prow{คุณและสมาชิกทีมทั้งสี่ทำ DormFix เต็มเวลา ส่วนผู้เกี่ยวข้องนอกทีมมีงานอื่นด้วย ใส่ task buffer 1 วันและ project buffer 2 วันเฉพาะจุดที่จำเป็น}
+\crow{คุณและสมาชิกทีมทั้งสี่ทำ DormFix เต็มเวลา ส่วนผู้เกี่ยวข้องนอกทีมมีงานอื่นด้วย ใส่ task buffer 1 วันและ project buffer 2 วันเฉพาะจุดที่จำเป็น}
 {You and all four team members work full-time on DormFix. External stakeholders also have other duties. Add a 1-day task buffer and a 2-day project buffer only where necessary.}
-\prow{Milestone อยู่วันสุดท้ายที่ทำเครื่องหมายของงานสุดท้ายในกลุ่ม ส่วน milestone สุดท้ายอยู่วันสุดท้ายของ project buffer และไม่เพิ่มวันทำงานเพื่อทำ milestone}
+\crow{Milestone อยู่วันสุดท้ายที่ทำเครื่องหมายของงานสุดท้ายในกลุ่ม ส่วน milestone สุดท้ายอยู่วันสุดท้ายของ project buffer และไม่เพิ่มวันทำงานเพื่อทำ milestone}
 {A milestone is reached on the last marked day of its group's final task. The final milestone is reached on the last day of the project buffer. A milestone does not add a working day.}
-\prow{ใช้ตารางหน้าถัดไป กรอก No. ตาม WBS, Task, Owner, Start และ Due โดย Start/Due เป็นวันแรก/สุดท้ายที่ทำเครื่องหมาย รวม buffer ใช้ X แทนวันทำงาน, - แทน buffer, * แทน milestone และแสดง dependency arrows เว้นแถวที่ไม่ใช้}
+\end{contenttable}
+\pair{ใช้ตารางหน้าถัดไป กรอก No. ตาม WBS, Task, Owner, Start และ Due โดย Start/Due เป็นวันแรก/สุดท้ายที่ทำเครื่องหมาย รวม buffer ใช้ X แทนวันทำงาน, - แทน buffer, * แทน milestone และแสดง dependency arrows เว้นแถวที่ไม่ใช้}
 {Use the chart on the next page. Fill No. from the WBS, Task, Owner, Start and Due. Start/Due are the first/last marked days, including buffers. Use X for work, - for a buffer, and * for a milestone. Draw dependency arrows and leave unused rows empty.}
-\end{prompttable}
+
 \answerlabel\answerfill
 \newpage
 % The only landscape sheet in the question booklet.
@@ -187,14 +226,17 @@ D &\rule{0pt}{1.25cm}&&&&\\\hline
 \restoregeometry
 \linespread{1.1}\fontsize{10.5}{14}\selectfont\setlength{\parskip}{4pt}
 \bq{6}{Backlog grooming: จองสนามแบดมินตัน}{Backlog grooming: Book a badminton court}{10}
-\begin{prompttable}
-\prow{คุณทำหน้าที่ Product Owner ระหว่าง grooming ของ Issue \#12 “Book a badminton court” ฝ่ายกีฬาซึ่งเป็น client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมง เพื่อไม่ต้องต่อคิวที่เคาน์เตอร์}
+\begin{contenttable}
+\crow{คุณทำหน้าที่ Product Owner ระหว่าง grooming ของ Issue \#12 “Book a badminton court” ฝ่ายกีฬาซึ่งเป็น client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมง เพื่อไม่ต้องต่อคิวที่เคาน์เตอร์}
 {You act as Product Owner while grooming Issue \#12, “Book a badminton court.” The sports office, your client, wants students to book a court for one hour so they do not have to queue at the counter.}
-\prow{ระบบมีข้อมูลสนามและเวลาเปิดให้บริการแล้ว นักศึกษาแต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน ตัวอย่าง: สนาม 2 ว่างเวลา 17:00 วันนี้ หลังนักศึกษาจองสำเร็จ สนาม 2 เวลา 17:00 ต้องแสดง “Booked”}
+\crow{ระบบมีข้อมูลสนามและเวลาเปิดให้บริการแล้ว นักศึกษาแต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน ตัวอย่าง: สนาม 2 ว่างเวลา 17:00 วันนี้ หลังนักศึกษาจองสำเร็จ สนาม 2 เวลา 17:00 ต้องแสดง “Booked”}
 {Courts and opening hours are already stored in the system. A student may hold only one booking per day. Example: Court 2 is free at 17:00 today. After a student books it, Court 2 at 17:00 must be shown as “Booked.”}
-\prow{ทีมยังไม่ได้ตกลงผู้รับผิดชอบ milestone หรือ estimate ให้คงข้อมูลที่ได้รับ แยกข้อที่ต้องถามเพิ่มเติม และอย่าสมมติว่าทีมได้ตัดสินใจแล้ว}
-{The team has not agreed an assignee, milestone or estimate. Preserve the given facts and distinguish follow-up questions from decisions that have actually been made.}
-\end{prompttable}
+\crow{ทีมยังไม่ได้ตกลงผู้รับผิดชอบ milestone หรือ estimate}
+{The team has not agreed an assignee, milestone or estimate.}
+\end{contenttable}
+\pair{ให้คงข้อมูลที่ได้รับ แยกข้อที่ต้องถามเพิ่มเติม และอย่าสมมติว่าทีมได้ตัดสินใจแล้ว}
+{Preserve the given facts and distinguish follow-up questions from decisions that have actually been made.}
+
 \bsub{6.1}{เขียน user story}{Write the user story}{2}
 \pair{เขียน role, function และ value ให้เชื่อมกันตามความต้องการ client}
 {Write a user story connecting the role, requested function and value stated by the client.}
@@ -219,25 +261,26 @@ Assignees & Labels & Milestone & Estimate\\\hline
 \end{tabularx}
 \newpage
 \bq{7}{Sprint planning: ShuttleNow}{Sprint planning: ShuttleNow}{5}
-\begin{prompttable}
-\prow{คุณเป็น Scrum Master ของ ShuttleNow แอปติดตามรถรับส่งในมหาวิทยาลัย Product Owner ระบุเป้าหมาย Sprint 6 ว่า “นักศึกษาติดตามรถรับส่งและทราบเวลาที่รถจะมาถึงได้”}
+\begin{contenttable}
+\crow{คุณเป็น Scrum Master ของ ShuttleNow แอปติดตามรถรับส่งในมหาวิทยาลัย Product Owner ระบุเป้าหมาย Sprint 6 ว่า “นักศึกษาติดตามรถรับส่งและทราบเวลาที่รถจะมาถึงได้”}
 {You are Scrum Master of ShuttleNow, a campus shuttle tracking app. For Sprint 6, the Product Owner states the goal: “A student can track a shuttle and know when it arrives.”}
-\prow{ทีมทำได้ 16 story points ใน Sprint ก่อน และใช้ velocity เดิม Backlog เรียงตามความสำคัญ Anchor คือ “ดูรายการเส้นทางรถรับส่ง” = 3 points ใช้ scale 1, 2, 3, 5, 8, 13, 21 การใหญ่ขึ้นหรือเล็กลงหนึ่งขั้นหมายถึงเลขถัดไปบน scale}
+\crow{ทีมทำได้ 16 story points ใน Sprint ก่อน และใช้ velocity เดิม Backlog เรียงตามความสำคัญ Anchor คือ “ดูรายการเส้นทางรถรับส่ง” = 3 points ใช้ scale 1, 2, 3, 5, 8, 13, 21 การใหญ่ขึ้นหรือเล็กลงหนึ่งขั้นหมายถึงเลขถัดไปบน scale}
 {The team completed 16 story points last sprint and retains that velocity. The backlog is ranked by priority. The anchor, “View the list of shuttle routes,” is 3 points. Use the scale 1, 2, 3, 5, 8, 13, 21; a step larger or smaller means the next number on that scale.}
-\end{prompttable}
+\end{contenttable}
+
 \bsub{7.1}{ประเมิน points และเลือกงาน}{Estimate points and select work}{3}
 \pair{เติม points และ Yes/No ทุกแถว โดยใช้เป้าหมาย Sprint ข้อมูล capacity และลำดับความสำคัญที่ให้}
 {Complete Points and Yes/No in every row, using the stated sprint goal, capacity and priority order.}
 \begingroup\fontsize{9.5}{12.5}\selectfont
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
-\begin{tabularx}{\linewidth}{|M{.55cm}|>{\raggedright\arraybackslash}X|M{1.35cm}|M{.8cm}|M{.9cm}|}\hline
-No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เทียบ anchor & Points & Yes/No\\\hline
-1 & \bilingualcell{See a shuttle's live position}{ดูตำแหน่งรถสด} & +2 steps &\rule{0pt}{.9cm}&\\\hline
-2 & \bilingualcell{Pay the fare by QR code}{จ่ายค่าโดยสาร QR} & Same &\rule{0pt}{.9cm}&\\\hline
-3 & \bilingualcell{See the arrival time at my stop}{เวลาถึงป้ายฉัน} & +1 step &\rule{0pt}{.9cm}&\\\hline
-4 & \bilingualcell{Receive an alert before arrival}{เตือนก่อนรถถึง} & Same &\rule{0pt}{.9cm}&\\\hline
-5 & \bilingualcell{See arrival times for all route stops}{เวลาถึงทุกป้าย} & +1 step &\rule{0pt}{.9cm}&\\\hline
-6 & \bilingualcell{Fix the route list being cut off on small phones}{แก้รายการเส้นทางถูกตัดบนมือถือ} & -1 step &\rule{0pt}{.9cm}&\\\hline
+\begin{tabularx}{\linewidth}{|M{.55cm}|P|P|M{1.35cm}|M{.8cm}|M{.9cm}|}\hline
+No. & User story & เรื่องผู้ใช้ & เทียบ anchor & Points & Yes/No\\\hline
+1 & See a shuttle's live position & ดูตำแหน่งรถสด & +2 steps &\rule{0pt}{.9cm}&\\\hline
+2 & Pay the fare by QR code & จ่ายค่าโดยสาร QR & Same &\rule{0pt}{.9cm}&\\\hline
+3 & See the arrival time at my stop & เวลาถึงป้ายฉัน & +1 step &\rule{0pt}{.9cm}&\\\hline
+4 & Receive an alert before arrival & เตือนก่อนรถถึง & Same &\rule{0pt}{.9cm}&\\\hline
+5 & See arrival times for all route stops & เวลาถึงทุกป้าย & +1 step &\rule{0pt}{.9cm}&\\\hline
+6 & Fix the route list being cut off on small phones & แก้รายการเส้นทางถูกตัดบนมือถือ & -1 step &\rule{0pt}{.9cm}&\\\hline
 \end{tabularx}\endgroup
 \bsub{7.2}{รวม points ของงานที่เลือก}{Total the selected story points}{1}
 \blankbox{.7cm}
@@ -253,48 +296,44 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \continued{ข้อกำหนดร่วมสำหรับข้อ 8-10: ระบบแจ้งปัญหา TokTickIT}{Shared requirements for Questions 8-10: TokTickIT Service Tickets}
 \pair{ใช้ข้อกำหนด R1-R12 ของ TokTickIT ด้านล่างตอบข้อ 8-10 โดยยึดเฉพาะกฎที่ให้ ไม่ต้องเพิ่มทุกฟังก์ชันจากแลปจริง}
 {Answer Questions 8-10 using the self-contained TokTickIT specification R1-R12 below. Model only the stated behaviour; do not import other laboratory features.}
-\begin{prompttable}
-\prow{\textbf{R1. บัญชีและหน้าแรกตามบทบาท} หลังเข้าสู่ระบบ ให้ Requester ไป Requester Dashboard, IT Staff ไป Staff Dashboard และ Administrator ไป Admin Dashboard ใน Use Case Diagram, User เป็น actor ทั่วไป; Requester และ IT Staff เป็นชนิดย่อยของ User ส่วน Administrator เป็นชนิดย่อยของ IT Staff เฉพาะในแบบจำลองนี้ Requester เห็นเฉพาะ Ticket ของตน Ticket Owner คือ IT Staff ที่ได้รับมอบหมาย ไม่ใช่ role แยก Administrator ใช้ metrics ของ Staff และอาจแสดงจำนวนบัญชีเพิ่ม Server ต้องตรวจสิทธิ์แม้ซ่อน control แล้ว}
+\begin{contenttable}
+\crow{\textbf{R1. บัญชีและหน้าแรกตามบทบาท} หลังเข้าสู่ระบบ ให้ Requester ไป Requester Dashboard, IT Staff ไป Staff Dashboard และ Administrator ไป Admin Dashboard ใน Use Case Diagram, User เป็น actor ทั่วไป; Requester และ IT Staff เป็นชนิดย่อยของ User ส่วน Administrator เป็นชนิดย่อยของ IT Staff เฉพาะในแบบจำลองนี้ Requester เห็นเฉพาะ Ticket ของตน Ticket Owner คือ IT Staff ที่ได้รับมอบหมาย ไม่ใช่ role แยก Administrator ใช้ metrics ของ Staff และอาจแสดงจำนวนบัญชีเพิ่ม Server ต้องตรวจสิทธิ์แม้ซ่อน control แล้ว}
 {\textbf{R1. Accounts and role-based home pages.} After sign-in, route Requesters to the Requester Dashboard, IT Staff to the Staff Dashboard and Administrators to the Admin Dashboard. In the Use Case Diagram, User is the general actor; Requester and IT Staff specialize User, while Administrator specializes IT Staff for this model only. Requesters see only their own Tickets. Ticket Owner is the assigned IT Staff member, not a separate role. Administrators share Staff metrics and may add an account count. Enforce authorization on the server, even when controls are hidden.}
-\prow{\textbf{R2. สร้างและติดตาม Ticket} Requester สร้าง Ticket โดยกรอก title, description และ requested priority ซึ่งเลือกได้เป็น LOW, MEDIUM หรือ HIGH เมื่อสร้างสำเร็จ ระบบกำหนด ticket number, เวลา และสถานะ NEW ให้อัตโนมัติ พร้อมเรียก Send Email ผ่าน Email Gateway ทุกครั้ง Requester ดูรายการ My Tickets และรายละเอียดได้เฉพาะ Ticket ของตนเอง}
+\crow{\textbf{R2. สร้างและติดตาม Ticket} Requester สร้าง Ticket โดยกรอก title, description และ requested priority ซึ่งเลือกได้เป็น LOW, MEDIUM หรือ HIGH เมื่อสร้างสำเร็จ ระบบกำหนด ticket number, เวลา และสถานะ NEW ให้อัตโนมัติ พร้อมเรียก Send Email ผ่าน Email Gateway ทุกครั้ง Requester ดูรายการ My Tickets และรายละเอียดได้เฉพาะ Ticket ของตนเอง}
 {\textbf{R2. Create and track a Ticket.} A Requester creates a Ticket by entering its title, description and requested priority: LOW, MEDIUM or HIGH. On successful creation, the system assigns a ticket number, timestamps and the NEW status, then invokes Send Email through the Email Gateway. The Requester can view My Tickets and open details only for their own Tickets.}
-\prow{\textbf{R3. ข้อมูลและผู้รับผิดชอบ Ticket} หน้ารายละเอียดแสดง ticket number, title, description, ชื่อและอีเมล requester, requested priority, IT priority, Owner, status และ created/updated time ข้อมูลบัญชี หมายเลข วันเวลา และข้อความต้นฉบับของ Requester แก้ไขไม่ได้ Ticket อาจไม่มี Owner หรือมี IT Staff ที่ยัง active เป็นผู้รับผิดชอบได้หนึ่งคน IT Staff แก้ IT priority, Owner และ status ได้ตามสิทธิ์}
+\crow{\textbf{R3. ข้อมูลและผู้รับผิดชอบ Ticket} หน้ารายละเอียดแสดง ticket number, title, description, ชื่อและอีเมล requester, requested priority, IT priority, Owner, status และ created/updated time ข้อมูลบัญชี หมายเลข วันเวลา และข้อความต้นฉบับของ Requester แก้ไขไม่ได้ Ticket อาจไม่มี Owner หรือมี IT Staff ที่ยัง active เป็นผู้รับผิดชอบได้หนึ่งคน IT Staff แก้ IT priority, Owner และ status ได้ตามสิทธิ์}
 {\textbf{R3. Ticket details and ownership.} Show the ticket number, title, description, requester name and email, both priorities, Owner, status and created/updated times. Account data, identifiers, timestamps and the Requester's original text are read-only. A Ticket may be unassigned or have one active IT Staff member as Owner. IT Staff may edit IT priority, Owner and status as permitted.}
-\prow{\textbf{R4. Staff Dashboard และ Ticket Queue} Staff Dashboard แสดง Ticket ที่ไม่มี Owner, Ticket ของผู้ใช้ปัจจุบัน, จำนวนแยกตาม status/IT priority และรายการล่าสุด แต่ละ metric เปิด Queue ที่เกี่ยวข้องได้ Queue ค้น title, กรอง status/IT priority/Owner และเปลี่ยนหน้าได้ แถวแสดง ticket number, title, requester, status, requested/IT priority, Owner และ updated time; เลือกแล้วเปิด Form View ต้องแยก empty state จากกรณีค้นหาไม่พบ}
+\crow{\textbf{R4. Staff Dashboard และ Ticket Queue} Staff Dashboard แสดง Ticket ที่ไม่มี Owner, Ticket ของผู้ใช้ปัจจุบัน, จำนวนแยกตาม status/IT priority และรายการล่าสุด แต่ละ metric เปิด Queue ที่เกี่ยวข้องได้ Queue ค้น title, กรอง status/IT priority/Owner และเปลี่ยนหน้าได้ แถวแสดง ticket number, title, requester, status, requested/IT priority, Owner และ updated time; เลือกแล้วเปิด Form View ต้องแยก empty state จากกรณีค้นหาไม่พบ}
 {\textbf{R4. Staff Dashboard and Ticket Queue.} Show unassigned Tickets, the current user's Tickets, counts by status and IT priority, and recent updates. Each metric opens its Queue. Search by title, filter by status, IT priority or Owner, and paginate. Rows show the ticket number, title, requester, status, both priorities, Owner and updated time; selecting one opens Form View. Distinguish an empty system from no matches.}
-\prow{\textbf{R5. การปรับ Ticket} Update Ticket ใช้เปลี่ยน IT priority หรือ status ที่มีสิทธิ์แก้ ส่วน Reassign Ticket เป็นพฤติกรรมเสริมเมื่อ IT Staff เลือก Owner คนใหม่ที่ยัง active; การอัปเดตอื่นไม่ต้องเปลี่ยน Owner}
+\crow{\textbf{R5. การปรับ Ticket} Update Ticket ใช้เปลี่ยน IT priority หรือ status ที่มีสิทธิ์แก้ ส่วน Reassign Ticket เป็นพฤติกรรมเสริมเมื่อ IT Staff เลือก Owner คนใหม่ที่ยัง active; การอัปเดตอื่นไม่ต้องเปลี่ยน Owner}
 {\textbf{R5. Updates.} Update Ticket changes an editable IT priority or status. Reassign Ticket is optional and occurs only when IT Staff choose another active Owner. Other updates do not change ownership.}
-\end{prompttable}
-\newpage
-\continued{ข้อกำหนดร่วมสำหรับข้อ 8-10 (ต่อ)}{Shared requirements for Questions 8-10 (continued)}
-\begin{prompttable}
-\prow{\textbf{R6. Action และไฟล์} IT Staff ใช้ Record Action บันทึกข้อความและผล OPEN หรือ COMPLETED โดยต้อง Send Email ทุกครั้งที่บันทึกสำเร็จ Attach File เป็นพฤติกรรมเสริมเฉพาะเมื่อเลือกไฟล์ และต้อง Validate Attachment เพื่อตรวจชนิด/ขนาดเสมอ บันทึก Action โดยไม่แนบไฟล์ได้}
+\crow{\textbf{R6. Action และไฟล์} IT Staff ใช้ Record Action บันทึกข้อความและผล OPEN หรือ COMPLETED โดยต้อง Send Email ทุกครั้งที่บันทึกสำเร็จ Attach File เป็นพฤติกรรมเสริมเฉพาะเมื่อเลือกไฟล์ และต้อง Validate Attachment เพื่อตรวจชนิด/ขนาดเสมอ บันทึก Action โดยไม่แนบไฟล์ได้}
 {\textbf{R6. Actions and files.} Record Action stores work text and an OPEN or COMPLETED result, always invoking Send Email on success. Attach File optionally extends it when a file is selected, and always invokes Validate Attachment for type/size checks. An Action need not have a file.}
-\prow{\textbf{R7. การสื่อสาร} Public Comments ให้ Requester ของ Ticket และ IT Staff อ่าน/เขียนได้ ส่วน Internal Notes ให้เฉพาะ IT Staff และ Administrator อ่าน/เขียน ผู้รับ Email ต้องมีสิทธิ์เห็นข้อความนั้นเสมอ Requester ไม่เห็น Internal Notes หรือจำนวนรายการภายใน}
+\crow{\textbf{R7. การสื่อสาร} Public Comments ให้ Requester ของ Ticket และ IT Staff อ่าน/เขียนได้ ส่วน Internal Notes ให้เฉพาะ IT Staff และ Administrator อ่าน/เขียน ผู้รับ Email ต้องมีสิทธิ์เห็นข้อความนั้นเสมอ Requester ไม่เห็น Internal Notes หรือจำนวนรายการภายใน}
 {\textbf{R7. Communication.} A Ticket's Requester and IT Staff can read/write Public Comments. Only IT Staff and Administrators can read/write Internal Notes. Email recipients must be authorized to see its contents. A Requester sees neither Internal Notes nor their count.}
-\prow{\textbf{R8. การแก้เสร็จ} Resolve Ticket ต้องเรียก Check Resolution Gate ทุกครั้ง เงื่อนไขคือมี owner มี Action ที่ COMPLETED อย่างน้อยหนึ่งรายการ และไม่มี Action ที่ยัง OPEN ถ้าขาดข้อใดให้ปฏิเสธ แสดงเหตุผล และคงสถานะเดิม}
+\crow{\textbf{R8. การแก้เสร็จ} Resolve Ticket ต้องเรียก Check Resolution Gate ทุกครั้ง เงื่อนไขคือมี owner มี Action ที่ COMPLETED อย่างน้อยหนึ่งรายการ และไม่มี Action ที่ยัง OPEN ถ้าขาดข้อใดให้ปฏิเสธ แสดงเหตุผล และคงสถานะเดิม}
 {\textbf{R8. Resolution.} Resolve Ticket always invokes Check Resolution Gate. An owner, at least one COMPLETED Action, and no OPEN Actions are required. If any condition fails, refuse the operation, explain why, and retain the current status.}
-\prow{\textbf{R9. เริ่มและพักงาน} Ticket ใหม่เป็น NEW; IT Staff claim แล้วเป็น OPEN; เริ่มทำงานจาก OPEN เป็น IN\_PROGRESS; ขอข้อมูลจาก IN\_PROGRESS เป็น WAITING\_FOR\_REQUESTER; เมื่อได้รับข้อมูลแล้ว IT Staff resume กลับเป็น IN\_PROGRESS การเขียน Comment อย่างเดียวไม่เปลี่ยนสถานะ}
+\crow{\textbf{R9. เริ่มและพักงาน} Ticket ใหม่เป็น NEW; IT Staff claim แล้วเป็น OPEN; เริ่มทำงานจาก OPEN เป็น IN\_PROGRESS; ขอข้อมูลจาก IN\_PROGRESS เป็น WAITING\_FOR\_REQUESTER; เมื่อได้รับข้อมูลแล้ว IT Staff resume กลับเป็น IN\_PROGRESS การเขียน Comment อย่างเดียวไม่เปลี่ยนสถานะ}
 {\textbf{R9. Start and pause work.} A created Ticket is NEW. Staff claim it to OPEN, start it to IN\_PROGRESS, request information to WAITING\_FOR\_REQUESTER, and resume it to IN\_PROGRESS after receiving the information. Posting a Comment alone does not change status.}
-\prow{\textbf{R10. จบและยกเลิก} IT Staff resolve จาก IN\_PROGRESS เป็น RESOLVED เมื่อผ่าน R8; Requester ยอมรับผลเป็น CLOSED หรือ reopen เป็น IN\_PROGRESS ได้ Requester ยกเลิก Ticket ของตนจาก NEW หรือ OPEN เป็น CANCELLED เท่านั้น CLOSED และ CANCELLED เป็น terminal states ไม่อนุญาต transition อื่นนอกเหนือจากที่ระบุ}
+\crow{\textbf{R10. จบและยกเลิก} IT Staff resolve จาก IN\_PROGRESS เป็น RESOLVED เมื่อผ่าน R8; Requester ยอมรับผลเป็น CLOSED หรือ reopen เป็น IN\_PROGRESS ได้ Requester ยกเลิก Ticket ของตนจาก NEW หรือ OPEN เป็น CANCELLED เท่านั้น CLOSED และ CANCELLED เป็น terminal states ไม่อนุญาต transition อื่นนอกเหนือจากที่ระบุ}
 {\textbf{R10. Finish or cancel.} IT Staff resolve IN\_PROGRESS to RESOLVED only after R8 passes. The Requester either accepts to CLOSED or reopens to IN\_PROGRESS. They can cancel their own NEW or OPEN Ticket to CANCELLED only. CLOSED and CANCELLED are terminal. No other transitions are permitted.}
-\prow{\textbf{R11. Validation และ stale data} ข้อความว่างบันทึกไม่ได้ หาก version ที่ส่งเก่าให้คงค่าที่ผู้ใช้พิมพ์ แสดงสถานะล่าสุดและให้ Refresh โดยไม่ส่งซ้ำอัตโนมัติ แสดง field errors หรือเหตุผลที่บันทึกไม่ได้ใกล้ control ที่เกี่ยวข้อง}
+\crow{\textbf{R11. Validation และ stale data} ข้อความว่างบันทึกไม่ได้ หาก version ที่ส่งเก่าให้คงค่าที่ผู้ใช้พิมพ์ แสดงสถานะล่าสุดและให้ Refresh โดยไม่ส่งซ้ำอัตโนมัติ แสดง field errors หรือเหตุผลที่บันทึกไม่ได้ใกล้ control ที่เกี่ยวข้อง}
 {\textbf{R11. Validation and stale data.} Blank text cannot be saved. If the submitted version is stale, preserve the user's input, show the current record and offer Refresh without automatic resubmission. Show field errors or refusal reasons near the relevant control.}
-\prow{\textbf{R12. ขอบเขตภาพ} ข้อ 8 เติม relationships ของ actors/use cases ที่ให้ รวม Sign In, หน้า Dashboard ตาม role และ inheritance ที่ระบุ ข้อ 9 เติม transitions ของ states ที่ให้ ข้อ 10 เติม Dashboard ของทั้งสาม role และหน้าจอ Queue/Detail ในกรอบ ไม่ต้องสร้างบัญชีใหม่ ระบบชำระเงิน หรือบริการภายนอกอื่น}
+\crow{\textbf{R12. ขอบเขตภาพ} ข้อ 8 เติม relationships ของ actors/use cases ที่ให้ รวม Sign In, หน้า Dashboard ตาม role และ inheritance ที่ระบุ ข้อ 9 เติม transitions ของ states ที่ให้ ข้อ 10 เติม Dashboard ของทั้งสาม role และหน้าจอ Queue/Detail ในกรอบ ไม่ต้องสร้างบัญชีใหม่ ระบบชำระเงิน หรือบริการภายนอกอื่น}
 {\textbf{R12. Diagram scope.} In Question 8 add relationships among the supplied actors and use cases, including Sign In, role-specific Dashboards and the stated inheritance. In Question 9 connect the supplied states. In Question 10 complete the three role dashboards and the Queue/Detail screens in the provided frames. Do not add account registration, payment or other external services.}
-\end{prompttable}
+\end{contenttable}
+
 \newpage
 \bq{8}{เติมความสัมพันธ์ใน Use Case Diagram}{Complete the Use Case Diagram relationships}{10}
 \pair{\textbf{เกณฑ์คะแนน:} associations, การกำหนด Dashboard ตาม role และขอบเขต 3 คะแนน; include 3 คะแนน; extend พร้อมเงื่อนไข 2 คะแนน; generalization และทิศทาง 2 คะแนน รวม 10 คะแนน}
 {\textbf{Marks:} associations, role-to-dashboard routing and scope: 3 marks; include: 3; extend with conditions: 2; generalization and direction: 2. Total: 10 marks.}
 \pair{ใช้ข้อกำหนด R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป ซึ่งมี actors, use cases และ system boundary ให้แล้ว ห้ามเพิ่ม node ใช้เส้นทึบแทน association และเส้นประพร้อมป้าย \textless\textless include\textgreater\textgreater\ หรือ\ \textless\textless extend\textgreater\textgreater\ สำหรับ dependency ส่วน generalization ใช้เส้นทึบหัวสามเหลี่ยมโปร่ง โดยให้หัวชี้ไปยัง actor ทั่วไป}
 {Use requirements R1-R8 and R12 to complete the relationships in the scaffold on the next page. The actors, use cases and system boundary are already shown; do not add nodes. Use solid lines for associations, dashed arrows labelled \textless\textless include\textgreater\textgreater\ or\ \textless\textless extend\textgreater\textgreater\ for dependencies, and solid lines with hollow triangular arrowheads for generalization. Point each generalization arrow to the more general actor.}
-\begin{prompttable}
-\prow{เชื่อม User กับ Sign In; Requester กับ Requester Dashboard, Create Ticket และ View My Tickets; IT Staff กับ Staff Dashboard, View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; Administrator กับ Admin Dashboard และ Maintain Accounts ไม่ต้องวาด association ซ้ำสำหรับความสามารถที่สืบทอดมา เชื่อม Email Gateway กับ use case ที่เรียกใช้บริการนี้}
+\pair{เชื่อม User กับ Sign In; Requester กับ Requester Dashboard, Create Ticket และ View My Tickets; IT Staff กับ Staff Dashboard, View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; Administrator กับ Admin Dashboard และ Maintain Accounts ไม่ต้องวาด association ซ้ำสำหรับความสามารถที่สืบทอดมา เชื่อม Email Gateway กับ use case ที่เรียกใช้บริการนี้}
 {Connect User to Sign In; Requester to Requester Dashboard, Create Ticket and View My Tickets; IT Staff to Staff Dashboard, View Ticket Queue, Update Ticket, Record Action and Resolve Ticket; and Administrator to Admin Dashboard and Maintain Accounts. Do not repeat inherited associations. Connect Email Gateway to the use case that invokes it.}
-\prow{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเมื่อเลือกแนบไฟล์หรือเปลี่ยน Owner พร้อมระบุทิศลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับการทำงานหรือการเปลี่ยน status}
+\pair{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเมื่อเลือกแนบไฟล์หรือเปลี่ยน Owner พร้อมระบุทิศลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับการทำงานหรือการเปลี่ยน status}
 {Distinguish behaviour that always occurs from behaviour triggered by attaching a file or changing the Owner. Show arrow direction, stereotypes and extension conditions correctly. The diagram shows capabilities and scope, not execution order or status transitions.}
-\end{prompttable}
+
 \pair{\textbf{คำอธิบายหรือสมมติฐาน}}{\textbf{Explanation or assumptions}}\blankbox{4cm}
 \newpage
 \continued{ข้อ 8 (ต่อ): เติมเส้นและป้ายความสัมพันธ์ในโครงที่ให้}{Question 8 (continued): Add relationship edges and labels}
@@ -330,34 +369,41 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \examTicketForm
 \newpage
 \continued{บริบทร่วมสำหรับข้อ 11-12: Git Workflow}{Shared context for Questions 11-12: Git Workflow}
-\begin{prompttable}
-\prow{ExamScore เป็นโปรแกรม command-line ที่อาจารย์ใช้หลังสอบเพื่ออ่านรายชื่อและคะแนนจากไฟล์ CSV ตรวจว่าคะแนนอยู่ระหว่าง 0-100 คำนวณสถิติ และจัดทำรายงานอัตราผ่าน โจทย์ใช้ Python เพื่อให้ตัวอย่างโค้ดและการจัดการ CSV เข้าใจง่าย โดยเน้นการฝึก Git}
+\begin{contenttable}
+\crow{ExamScore เป็นโปรแกรม command-line ที่อาจารย์ใช้หลังสอบเพื่ออ่านรายชื่อและคะแนนจากไฟล์ CSV ตรวจว่าคะแนนอยู่ระหว่าง 0-100 คำนวณสถิติ และจัดทำรายงานอัตราผ่าน โจทย์ใช้ Python เพื่อให้ตัวอย่างโค้ดและการจัดการ CSV เข้าใจง่าย โดยเน้นการฝึก Git}
 {ExamScore is a command-line program instructors use after an examination. It reads names and marks from a CSV file, checks that each mark is between 0 and 100, calculates summary statistics and produces a pass-rate report. Python keeps the code and CSV example straightforward so the exercise can focus on Git.}
-\prow{ในโจทย์นี้ main แทนรุ่นที่นำขึ้นใช้งานแล้ว ส่วน sprint branches ใช้รวบรวมงานเพื่อทดสอบ และ feature branches ใช้แยกงานแต่ละส่วนก่อนนำไปรวม}
+\crow{ในโจทย์นี้ main แทนรุ่นที่นำขึ้นใช้งานแล้ว ส่วน sprint branches ใช้รวบรวมงานเพื่อทดสอบ และ feature branches ใช้แยกงานแต่ละส่วนก่อนนำไปรวม}
 {In this exercise, main represents the deployed release. Sprint branches collect work for testing, while feature branches isolate individual changes before integration.}
-\end{prompttable}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|}\hline
-File & \bilingualcell{Purpose}{หน้าที่}\\\hline
-\code{score\_data.py} & \bilingualcell{Loads and validates exam scores}{โหลดและตรวจสอบคะแนนสอบ}\\\hline
-\code{scores.csv} & \bilingualcell{Sample student names and scores}{รายชื่อและคะแนนตัวอย่าง}\\\hline
-\code{validation\_notes.txt} & \bilingualcell{New file documenting validation cases}{ไฟล์ใหม่บันทึกกรณีทดสอบ}\\\hline
+\end{contenttable}
+
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|P|}\hline
+File & Purpose (English) & หน้าที่ (ภาษาไทย)\\\hline
+\code{score\_data.py} & Loads and validates exam scores & โหลดและตรวจสอบคะแนนสอบ\\\hline
+\code{scores.csv} & Sample student names and scores & รายชื่อและคะแนนตัวอย่าง\\\hline
+\code{validation\_notes.txt} & New file documenting validation cases & ไฟล์ใหม่บันทึกกรณีทดสอบ\\\hline
 \end{tabularx}
-\begin{prompttable}
-\prow{HEAD ชี้ไปยัง branch ที่กำลัง checkout. origin/* เป็น remote-tracking references ซึ่งบันทึกสถานะล่าสุดของ remote ที่เครื่องนี้ทราบ. การ switch เปลี่ยน HEAD แต่ไม่ย้าย branch อื่น}
+\begin{contenttable}
+\crow{HEAD ชี้ไปยัง branch ที่กำลัง checkout. origin/* เป็น remote-tracking references ซึ่งบันทึกสถานะล่าสุดของ remote ที่เครื่องนี้ทราบ. การ switch เปลี่ยน HEAD แต่ไม่ย้าย branch อื่น}
 {HEAD points to the checked-out branch. The origin/* names are remote-tracking references that record the latest remote state known to this machine. Switching changes HEAD but does not move other branches.}
-\prow{ให้ถือว่า working tree สะอาด คำสั่งทำงานสำเร็จ และไม่มี conflict เว้นแต่โจทย์จะระบุไว้ หากไม่มีคำสั่ง fetch, push หรือคำสั่ง remote อื่น ให้ถือว่าไม่ได้ติดต่อ GitHub แต่ละข้อเริ่มจาก graph ของตนเอง}
+\crow{ให้ถือว่า working tree สะอาด คำสั่งทำงานสำเร็จ และไม่มี conflict เว้นแต่โจทย์จะระบุไว้ หากไม่มีคำสั่ง fetch, push หรือคำสั่ง remote อื่น ให้ถือว่าไม่ได้ติดต่อ GitHub แต่ละข้อเริ่มจาก graph ของตนเอง}
 {Assume a clean working tree, successful commands and no conflicts unless stated otherwise. If no fetch, push or other remote command appears, assume GitHub is not contacted. Each question starts from its own graph.}
-\prow{\textbf{ใช้ชื่อไฟล์เมื่อ stage ห้ามใช้ \code{git add .}} แสดง local branches, origin/* และ HEAD ตามคำสั่งของแต่ละขั้น อย่านำ graph สุดท้ายของข้อ 11 ไปเริ่มข้อ 12}
-{\textbf{Stage explicit file names; \code{git add .} is not permitted.} Show local branches, origin/* and HEAD as requested at each step. Do not use Question 11's final graph as Question 12's starting state.}
-\prow{ในกราฟ A---B หมายถึง commit B มี parent คือ A. ชื่อในวงเล็บเหลี่ยมหรือรูปแบบ ref -> commit ใช้ระบุตำแหน่งของ ref; HEAD -> branch ระบุ branch ปัจจุบัน. เครื่องหมาย / และ \textbackslash{} แสดงเส้นทาง ancestry ส่วน > ใช้นำหน้าคำสั่ง ผู้สอบตอบด้วยกราฟตัวอักษรหรือวาดแผนภาพได้}
+\crow{ในกราฟ A---B หมายถึง commit B มี parent คือ A. ชื่อในวงเล็บเหลี่ยมหรือรูปแบบ ref -> commit ใช้ระบุตำแหน่งของ ref; HEAD -> branch ระบุ branch ปัจจุบัน. เครื่องหมาย / และ \textbackslash{} แสดงเส้นทาง ancestry ส่วน > ใช้นำหน้าคำสั่ง ผู้สอบตอบด้วยกราฟตัวอักษรหรือวาดแผนภาพได้}
 {In a graph, A---B means commit B has A as its parent. Bracketed names and ref -> commit identify reference locations; HEAD -> branch marks the current branch. The / and \textbackslash{} lines show ancestry. A leading > marks a command. Answers may use ASCII or a drawn graph.}
-\end{prompttable}
+\end{contenttable}
+\pair{\textbf{ใช้ชื่อไฟล์เมื่อ stage ห้ามใช้ \code{git add .}} แสดง local branches, origin/* และ HEAD ตามคำสั่งของแต่ละขั้น อย่านำ graph สุดท้ายของข้อ 11 ไปเริ่มข้อ 12}
+{\textbf{Stage explicit file names; \code{git add .} is not permitted.} Show local branches, origin/* and HEAD as requested at each step. Do not use Question 11's final graph as Question 12's starting state.}
+
 \newpage
 \bq{11}{แก้ข้อผิดพลาดและรวมงานตรวจคะแนนเข้า sprint\_1}{Fix a defect and merge score validation into sprint\_1}{10}
-\pair{ทีมกำลังเตรียมรุ่นทดสอบของ ExamScore โปรแกรมที่ใช้ตรวจคะแนนจาก CSV และจัดทำรายงาน รุ่นที่นำขึ้นใช้งานแล้วอยู่ที่ commit C บน \code{main} ทีม Sprint แยก \code{sprint\_1} จาก B และสร้าง D เพื่อปรับรูปแบบรายงาน ส่วนอีกทีมแยก \code{feature/load\_scores} จาก B และสร้าง E เพื่อปรับการอ่านคะแนน ทั้งสองงานต้องอยู่ในรุ่นทดสอบ}
+\begin{contenttable}
+\crow{ทีมกำลังเตรียมรุ่นทดสอบของ ExamScore โปรแกรมที่ใช้ตรวจคะแนนจาก CSV และจัดทำรายงาน รุ่นที่นำขึ้นใช้งานแล้วอยู่ที่ commit C บน \code{main} ทีม Sprint แยก \code{sprint\_1} จาก B และสร้าง D เพื่อปรับรูปแบบรายงาน ส่วนอีกทีมแยก \code{feature/load\_scores} จาก B และสร้าง E เพื่อปรับการอ่านคะแนน ทั้งสองงานต้องอยู่ในรุ่นทดสอบ}
 {The team is preparing an ExamScore test release. The program validates marks from CSV files and produces reports. The deployed version is at C on \code{main}. The Sprint team branched \code{sprint\_1} from B and created D to revise the report. Another team branched \code{feature/load\_scores} from B and created E to improve score loading. Both changes are needed in the test release.}
-\pair{ระหว่างตรวจรุ่นทดสอบ พบว่า \code{score\_data.py} ยังรับคะแนนต่ำกว่า 0 หรือสูงกว่า 100 ได้ ผู้พัฒนาแก้ข้อผิดพลาดบน \code{feature/load\_scores} แล้ว แต่ยังไม่ได้ stage หรือ commit และไฟล์นี้เป็นรายการเดียวที่แก้ใน working tree ส่วน \code{scores.csv} ไม่เปลี่ยน ให้ทำตามคำสั่งด้านล่างเพื่อบันทึก F รวม feature เข้า \code{sprint\_1} โดยเก็บ D ไว้ แล้วสลับกลับ \code{main} โดยไม่ push}
-{During review, the team finds that \code{score\_data.py} still accepts scores below 0 or above 100. A developer has fixed it on \code{feature/load\_scores}, but has not staged or committed the change. This is the only modified file; \code{scores.csv} is unchanged. Follow the commands below to record F, merge the feature into \code{sprint\_1} while keeping D, and return to \code{main}. Do not push.}
+\crow{ระหว่างตรวจรุ่นทดสอบ พบว่า \code{score\_data.py} ยังรับคะแนนต่ำกว่า 0 หรือสูงกว่า 100 ได้ ผู้พัฒนาแก้ข้อผิดพลาดบน \code{feature/load\_scores} แล้ว แต่ยังไม่ได้ stage หรือ commit และไฟล์นี้เป็นรายการเดียวที่แก้ใน working tree ส่วน \code{scores.csv} ไม่เปลี่ยน}
+{During review, the team finds that \code{score\_data.py} still accepts scores below 0 or above 100. A developer has fixed it on \code{feature/load\_scores}, but has not staged or committed the change. This is the only modified file; \code{scores.csv} is unchanged.}
+\end{contenttable}
+\pair{ให้ทำตามคำสั่งด้านล่างเพื่อบันทึก F รวม feature เข้า \code{sprint\_1} โดยเก็บ D ไว้ แล้วสลับกลับ \code{main} โดยไม่ push}
+{Follow the commands below to record F, merge the feature into \code{sprint\_1} while keeping D, and return to \code{main}. Do not push.}
+
 \begin{gitpanel}
 A---B---C [main, origin/main]
      |\
@@ -390,8 +436,13 @@ sprint_1, origin/sprint_1 -> D
 \blankbox{3cm}
 \newpage
 \bq{12}{เขียนคำสั่งและวาด graph ทีละขั้น}{Write commands and redraw after each step}{10}
-\pair{ข้อ 12 เริ่มใหม่ตามกราฟนี้: feature แยกจาก C และได้ทำ commit D กับ E ต่อกันไว้แล้ว ขณะนี้ HEAD อยู่ feature/load\_scores ทำ 12.1-12.3 ต่อเนื่องโดยคง refs ที่ไม่มีคำสั่งเปลี่ยน ไม่ใช้ผลจากข้อ 11}
-{Question 12 starts afresh: the feature was branched at C and has since added D and E in sequence. HEAD is on feature/load\_scores. Complete 12.1-12.3 continuously, retaining unchanged refs. Do not carry over Question 11's result.}
+\begin{contenttable}
+\crow{ข้อ 12 เริ่มใหม่ตามกราฟนี้: feature แยกจาก C และได้ทำ commit D กับ E ต่อกันไว้แล้ว ขณะนี้ HEAD อยู่ feature/load\_scores}
+{Question 12 starts afresh: the feature was branched at C and has since added D and E in sequence. HEAD is on feature/load\_scores.}
+\end{contenttable}
+\pair{ทำ 12.1-12.3 ต่อเนื่องโดยคง refs ที่ไม่มีคำสั่งเปลี่ยน ไม่ใช้ผลจากข้อ 11}
+{Complete 12.1-12.3 continuously, retaining unchanged refs. Do not carry over Question 11's result.}
+
 \begin{gitpanel}
 A---B [main, origin/main]
      \
@@ -414,11 +465,14 @@ A---B [main, origin/main]
 \newpage
 \continued{ข้อ 12 (ต่อ): เริ่มจากผลของข้อ 12.2}{Question 12 (continued): Start from the result of 12.2}
 \bsub{12.3}{ตรวจการเปลี่ยนแปลง stage และ commit}{Inspect, stage and commit the file changes}{5}
-\begin{prompttable}
-\prow{หลังข้อ 12.2 ผู้พัฒนาใช้ editor แก้ \code{score\_data.py} และ \code{scores.csv} และสร้างไฟล์ใหม่ \code{validation\_notes.txt} การแก้เนื้อหาเกิดขึ้นแล้ว คุณไม่ต้องเขียนโค้ด Python หรือคำสั่ง editor}
-{After 12.2, the developer uses an editor to modify \code{score\_data.py} and \code{scores.csv} and create \code{validation\_notes.txt}. The edits are already made; you do not need to write Python code or editor commands.}
-\prow{เขียนคำสั่ง Git เพื่อตรวจการเปลี่ยนแปลง stage เฉพาะสามไฟล์นี้ และสร้าง commit F ด้วยข้อความ \code{Document score validation cases} จากนั้นวาด graph โดยแสดง F, HEAD และ references ทุกตัว ไม่มีคำสั่ง push ในขั้นนี้}
+\begin{contenttable}
+\crow{หลังข้อ 12.2 ผู้พัฒนาใช้ editor แก้ \code{score\_data.py} และ \code{scores.csv} และสร้างไฟล์ใหม่ \code{validation\_notes.txt}}
+{After 12.2, the developer uses an editor to modify \code{score\_data.py} and \code{scores.csv} and create \code{validation\_notes.txt}.}
+\end{contenttable}
+\pair{การแก้เนื้อหาเกิดขึ้นแล้ว คุณไม่ต้องเขียนโค้ด Python หรือคำสั่ง editor}
+{The edits are already made; you do not need to write Python code or editor commands.}
+\pair{เขียนคำสั่ง Git เพื่อตรวจการเปลี่ยนแปลง stage เฉพาะสามไฟล์นี้ และสร้าง commit F ด้วยข้อความ \code{Document score validation cases} จากนั้นวาด graph โดยแสดง F, HEAD และ references ทุกตัว ไม่มีคำสั่ง push ในขั้นนี้}
 {Write Git commands to inspect the changes, stage only these three files, and create commit F with message \code{Document score validation cases}. Then draw the graph with F, HEAD and every reference. No push is performed in this step.}
-\end{prompttable}
+
 \pair{\textbf{คำสั่ง}}{\textbf{Commands}}\blankbox{5cm}
 \pair{\textbf{Graph หลังสร้าง F}}{\textbf{Graph after creating F}}\answerfill
