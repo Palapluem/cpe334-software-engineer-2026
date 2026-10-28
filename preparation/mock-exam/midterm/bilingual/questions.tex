@@ -115,16 +115,16 @@ Operation & Student & Coordinator\\\hline
 \begingroup\fontsize{9.5}{12.5}\selectfont
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 \begin{tabularx}{\linewidth}{|M{.55cm}|P|P|M{1.1cm}|M{.75cm}|}\hline
-ID & งาน & Task & Owner & Days\\\hline
-A & เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ & Code the request form from the approved designs & Chai & 4\\\hline
-B & ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ & Submit the requirements for approval by the dormitory manager & PM & 1\\\hline
-C & ออกแบบหน้าจอจาก requirements ที่อนุมัติ & Design the screens from the approved requirements & Bank & 3\\\hline
-D & ทดสอบโปรแกรมสองส่วนร่วมกัน & Test the two coded parts together & Dao & 2\\\hline
-E & เขียน requirements เป็นงานแรก & Write the requirements; this is the first task & Aom & 3\\\hline
-F & ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ & Submit both designs for approval by the maintenance head & PM & 1\\\hline
-G & ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ & Design the database from the approved requirements & Chai & 2\\\hline
-H & ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ & Submit the tested system for acceptance by the dormitory manager & PM & 1\\\hline
-I & เขียน dashboard ช่างจากแบบที่อนุมัติ & Code the technician dashboard from the approved designs & Dao & 3\\\hline
+ID & Task & งาน & Owner & Days\\\hline
+A & Code the request form from the approved designs & เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ & Chai & 4\\\hline
+B & Submit the requirements for approval by the dormitory manager & ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ & PM & 1\\\hline
+C & Design the screens from the approved requirements & ออกแบบหน้าจอจาก requirements ที่อนุมัติ & Bank & 3\\\hline
+D & Test the two coded parts together & ทดสอบโปรแกรมสองส่วนร่วมกัน & Dao & 2\\\hline
+E & Write the requirements; this is the first task & เขียน requirements เป็นงานแรก & Aom & 3\\\hline
+F & Submit both designs for approval by the maintenance head & ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ & PM & 1\\\hline
+G & Design the database from the approved requirements & ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ & Chai & 2\\\hline
+H & Submit the tested system for acceptance by the dormitory manager & ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ & PM & 1\\\hline
+I & Code the technician dashboard from the approved designs & เขียน dashboard ช่างจากแบบที่อนุมัติ & Dao & 3\\\hline
 \end{tabularx}\endgroup
 \pair{ใช้ชื่อผู้ทำและจำนวนวันตามตารางในการวางแผน รายละเอียดการอนุมัติและคำว่า “จากแบบที่อนุมัติ” หรือ “ระบบที่ทดสอบแล้ว” เป็นข้อมูลที่ต้องใช้กำหนดความสัมพันธ์ของงาน ไม่จำเป็นต้องใช้ทุกช่องของแบบฟอร์มคำตอบ}
 {Use the stated owner and duration for scheduling. Approval steps and phrases such as “from the approved designs” and “the tested system” determine task relationships. You do not need to fill every available answer box.}
@@ -184,12 +184,20 @@ D &\rule{0pt}{1.25cm}&&&&\\\hline
 {\textbf{Explanation: 1 mark within Question 5.3.} Explain where you placed buffers and why, and why milestones take no working time. Your explanation must match your chart.}
 \answerlabel\answerfill
 \newpage
-% Page 14.
+% The only landscape sheet in the question booklet.
+\begin{landscape}
+\thispagestyle{empty}
+\linespread{1}\fontsize{9.5}{12}\selectfont\setlength{\parskip}{2pt}
+\noindent\makebox[\linewidth][l]{{\fontsize{9}{11}\selectfont ชื่อ-นามสกุล \hrulefill\quad รหัสนักศึกษา \makebox[1.9in]{\hrulefill}}}\par
 \continued{ข้อ 5.3 (ต่อ): ตารางคำตอบ เดือนมกราคม 2027}{Question 5.3 (continued): January 2027 answer chart}
-\pair{No. = รหัส WBS; Task = ชื่อ milestone หรือตัวอักษรงาน; Owner = ผู้ทำตามโจทย์ (milestone ไม่มี owner); Start/Due = วันที่เริ่ม/สิ้นสุดรวม buffer ใช้แถวว่างตามต้องการ}
-{No. = WBS identifier; Task = milestone name or task letter; Owner = stated owner (none for a milestone); Start/Due = first/last dates including buffers. Use only the rows needed.}
+\pair{No. = รหัส WBS; Task = milestone หรือตัวอักษรงาน; Owner = ผู้ทำ (milestone ไม่มี owner); Start/Due รวม buffer; X = วันทำงาน, - = buffer, * = milestone; แสดงลูกศร dependency}
+{No. = WBS identifier; Task = milestone or task letter; Owner = stated owner (none for a milestone); Start/Due include buffers; X = work, - = buffer, * = milestone. Draw dependency arrows.}
 \examgantt
-\newpage
+\vfill
+\noindent{\fontsize{9}{11}\selectfont\textit{ข้อสอบรายวิชา CPE334 Software Engineering กลางภาคการศึกษาที่ \Semester}\hfill\textit{หน้าที่ \thepage/\pageref{LastPage}}}\par
+\end{landscape}
+\restoregeometry
+\linespread{1.1}\fontsize{10.5}{14}\selectfont\setlength{\parskip}{4pt}
 % Page 15.
 \bq{6}{Backlog grooming: จองสนามแบดมินตัน}{Backlog grooming: Book a badminton court}{10}
 \begin{prompttable}
@@ -238,13 +246,13 @@ Assignees & Labels & Milestone & Estimate\\\hline
 \begingroup\fontsize{9.5}{12.5}\selectfont
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
 \begin{tabularx}{\linewidth}{|M{.55cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|M{1.35cm}|M{.8cm}|M{.9cm}|}\hline
-No. & User story (ไทย) & User story (English) & เทียบ anchor & Points & Yes/No\\\hline
-1 & ดูตำแหน่งรถสด & See a shuttle's live position & +2 steps &\rule{0pt}{.9cm}&\\\hline
-2 & จ่ายค่าโดยสาร QR & Pay the fare by QR code & Same &\rule{0pt}{.9cm}&\\\hline
-3 & เวลาถึงป้ายฉัน & See the arrival time at my stop & +1 step &\rule{0pt}{.9cm}&\\\hline
-4 & เตือนก่อนรถถึง & Receive an alert before arrival & Same &\rule{0pt}{.9cm}&\\\hline
-5 & เวลาถึงทุกป้าย & See arrival times for all route stops & +1 step &\rule{0pt}{.9cm}&\\\hline
-6 & แก้รายการเส้นทางถูกตัดบนมือถือ & Fix the route list being cut off on small phones & -1 step &\rule{0pt}{.9cm}&\\\hline
+No. & User story (English) & User story (ไทย) & เทียบ anchor & Points & Yes/No\\\hline
+1 & See a shuttle's live position & ดูตำแหน่งรถสด & +2 steps &\rule{0pt}{.9cm}&\\\hline
+2 & Pay the fare by QR code & จ่ายค่าโดยสาร QR & Same &\rule{0pt}{.9cm}&\\\hline
+3 & See the arrival time at my stop & เวลาถึงป้ายฉัน & +1 step &\rule{0pt}{.9cm}&\\\hline
+4 & Receive an alert before arrival & เตือนก่อนรถถึง & Same &\rule{0pt}{.9cm}&\\\hline
+5 & See arrival times for all route stops & เวลาถึงทุกป้าย & +1 step &\rule{0pt}{.9cm}&\\\hline
+6 & Fix the route list being cut off on small phones & แก้รายการเส้นทางถูกตัดบนมือถือ & -1 step &\rule{0pt}{.9cm}&\\\hline
 \end{tabularx}\endgroup
 \bsub{7.2}{รวม points ของงานที่เลือก}{Total the selected story points}{1}
 \blankbox{.7cm}
@@ -256,94 +264,80 @@ No. & User story (ไทย) & User story (English) & เทียบ anchor & P
 {Relate your reasoning to the sprint goal, velocity and order. Explain both selected and excluded work.}
 \answerfill
 \newpage
-% Page 19.
+% Shared miniature specification. This exercise is self-contained.
 \bpart{3}{แผนภาพ การออกแบบหน้าจอ และ Git (50 คะแนน)}{UML/UI and Git Workflow (50 marks)}
-\continued{ข้อกำหนดร่วมสำหรับข้อ 8-10: ระบบลงทะเบียนเรียน KU}{Shared requirements for Questions 8-10: KU Course Registration}
-\pair{อ่านข้อกำหนด R1-R11 ทั้งสองหน้าก่อนทำข้อ 8-10 ทุกข้อใช้ระบบเดียวกัน แต่ Sequence และ Activity มีสถานการณ์ตั้งต้นต่างกันตามคำสั่งของแต่ละข้อ}
-{Read R1-R11 across both pages before answering Questions 8-10. All three questions use the same system, but the Sequence and Activity questions specify different starting scenarios.}
+\continued{ข้อกำหนดร่วมสำหรับข้อ 8-10: ระบบแจ้งปัญหา TokTickIT}{Shared requirements for Questions 8-10: TokTickIT Service Tickets}
+\pair{ใช้ข้อกำหนด R1-R12 ของ TokTickIT ด้านล่างตอบข้อ 8-10 โดยยึดเฉพาะกฎที่ให้ ไม่ต้องเพิ่มทุกฟังก์ชันจากแลปจริง}
+{Answer Questions 8-10 using the self-contained TokTickIT specification R1-R12 below. Model only the stated behaviour; do not import other laboratory features.}
 \begin{prompttable}
-\prow{\textbf{R1.} ผู้ใช้ทุกคนต้อง log in ด้วย KU account ผ่าน KU Single Sign-On (KUSSO) ระบบนี้ให้ข้อมูล role เช่น Student, University Admin และ Instructor}
-{\textbf{R1.} All users log in with their KU account through KU Single Sign-On (KUSSO). This system supplies roles such as Student, University Admin and Instructor.}
-\prow{\textbf{R2.} Department Admin สร้าง course ใหม่ได้ โดยระบุ course code, course name, description, credits และ fee}
-{\textbf{R2.} Department Admins can create a course with its course code, course name, description, credits and fee.}
-\prow{\textbf{R3.} Department Admin กำหนด course offerings โดยเลือก semester และ course code แล้วกรอก sections list ซึ่งมี section number, room, class time, display notes และ maximum students เช่น วิชาหนึ่งเปิด 4 sections จะสร้าง course offerings 4 รายการ}
-{\textbf{R3.} Department Admins set course offerings by selecting a semester and course code, then entering a sections list with section number, room, class time, display notes and maximum students. A course with four sections creates four offerings.}
-\prow{\textbf{R4.} University Admin สร้าง semester และกำหนด semester ที่เป็น currently active ได้}
-{\textbf{R4.} University Admins create semesters and set the currently active semester.}
-\prow{\textbf{R5.} Student เปิด Registration Form ของ active semester ได้ เริ่มแรกยังไม่มี offering ระบบใช้ logged-in username ดึง student ID, name, degree program, email และ login username จาก KU Student Info System มาแสดง}
-{\textbf{R5.} A Student opens a Registration Form for the active semester, initially with no offerings. Using the logged-in username, the form loads student ID, name, degree program, email and login username from the KU Student Info System.}
+\prow{\textbf{R1. บัญชีและบทบาท} Requester แจ้งและติดตามปัญหาของตน IT Staff จัดการ Ticket ของทุกคน ในแบบจำลองนี้ Administrator เป็นชนิดย่อยของ IT Staff ใช้ความสามารถเดิมได้ทั้งหมดและเพิ่มการดูแลบัญชี ทุกคนเข้าสู่ระบบแล้วเป็น precondition ไม่ต้องวาด Login}
+{\textbf{R1. Accounts and roles.} Requesters report and track their own issues; IT Staff manage everyone's Tickets. In this model, an Administrator specializes IT Staff, inheriting all its capabilities and adding account maintenance. Sign-in is a precondition; do not draw Login.}
+\prow{\textbf{R2. สร้างและติดตาม Ticket} Requester สร้าง Ticket โดยกรอก title, description และ requested priority (LOW, MEDIUM หรือ HIGH) ต้องกรอกครบ ระบบสร้าง ticket number, เวลา และสถานะ NEW อัตโนมัติ เมื่อสร้างสำเร็จต้องเรียก Send Email ผ่าน Email Gateway ทุกครั้ง Requester ดู My Tickets และรายละเอียดได้เฉพาะของตน}
+{\textbf{R2. Create and track a Ticket.} A Requester supplies the required title, description and requested priority (LOW, MEDIUM or HIGH). The system generates the ticket number, timestamps and NEW status. Every successful creation invokes Send Email through the Email Gateway. My Tickets and its detail view expose only that Requester's Tickets.}
+\prow{\textbf{R3. ข้อมูล Ticket} รายละเอียดมี ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff, status, created time และ updated time ข้อมูลที่มาจากบัญชี เวลา หมายเลข และข้อความเดิมของ Requester อ่านได้อย่างเดียว IT Staff เปลี่ยน IT priority, owner และสถานะได้ตามกฎของแต่ละรายการ}
+{\textbf{R3. Ticket data.} Details show the ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff, status, created time and updated time. Account-derived data, timestamps, identifiers and the Requester's original text are read-only. IT Staff may change IT priority, owner and status only as permitted for that Ticket.}
+\prow{\textbf{R4. Queue} IT Staff เปิด Ticket Queue เพื่อค้นหา title และกรอง status, IT priority หรือ owner รายการแสดง ticket number, title, requester, status, requested priority, IT priority, assigned staff และ updated time เลือกหนึ่งรายการเพื่อเปิด Form View ได้ มี pagination และต้องแยก “ไม่มี Ticket” ออกจาก “ไม่พบตามตัวกรอง”}
+{\textbf{R4. Queue.} IT Staff search titles and filter by status, IT priority or owner. The list shows ticket number, title, requester, status, requested priority, IT priority, assigned staff and updated time. Selecting a row opens its Form View. Provide pagination and distinguish an empty system from a filter with no matches.}
+\prow{\textbf{R5. การปรับ Ticket} Update Ticket ใช้เปลี่ยน IT priority หรือสถานะตามสิทธิ์ การย้าย owner เป็นพฤติกรรมเสริม Reassign Ticket ซึ่งเกิดเฉพาะเมื่อ IT Staff เลือกย้ายให้บุคลากรที่ยัง active การอัปเดตแบบอื่นทำได้โดยไม่ต้อง Reassign}
+{\textbf{R5. Updates.} Update Ticket changes IT priority or an allowed status. Reassign Ticket is an optional extension performed only when IT Staff choose another active staff member as owner. Other updates do not require reassignment.}
 \end{prompttable}
 \newpage
-% Page 20.
 \continued{ข้อกำหนดร่วมสำหรับข้อ 8-10 (ต่อ)}{Shared requirements for Questions 8-10 (continued)}
 \begin{prompttable}
-\prow{\textbf{R6.} Student เพิ่ม offerings หลายรายการลงในฟอร์มผ่าน Course Offering List View ได้ total registration fee อัปเดตตามรายวิชาที่เพิ่ม}
-{\textbf{R6.} A Student can add multiple offerings through the Course Offering List View. The total registration fee updates as courses are added.}
-\prow{\textbf{R7.} Course Offering List View แสดง course ID, course code, course name, credits, fee, semester, section, room, class time, display notes, maximum students, number registered และ seats remaining นักศึกษากรองและเลือก offerings เพื่อเพิ่มในฟอร์มได้}
-{\textbf{R7.} The Course Offering List View shows course ID, course code, course name, credits, fee, semester, section, room, class time, display notes, maximum students, number registered and seats remaining. Students can filter and select offerings to add to the form.}
-\prow{\textbf{R8.} ฟอร์มเริ่มในสถานะ Draft นักศึกษา save และกลับมาแก้ไข draft ได้ก่อน final submission}
-{\textbf{R8.} A form starts in Draft. Students may save and return to edit a draft before final submission.}
-\prow{\textbf{R9.} เมื่อ submit ระบบตรวจที่นั่งของทุก offering หาก section ใดเต็ม submission ล้มเหลวและแจ้งเตือนให้นักศึกษาแก้ไขแล้ว submit ใหม่ หากทุกรายการมีที่นั่งจึงดำเนินการชำระเงิน}
-{\textbf{R9.} On submission, the system checks every offering's seat availability. If a section is full, submission fails and a warning tells the Student to correct and resubmit. If all sections have seats, proceed to payment.}
-\prow{\textbf{R10.} เลือกชำระด้วย credit card ผ่าน KBank Payment Gateway หรือ bank transfer ผ่าน Bangkok Bank Payment Gateway (BBLPaymentGateway)}
-{\textbf{R10.} Payment is by credit card through KBank Payment Gateway or bank transfer through Bangkok Bank Payment Gateway (BBLPaymentGateway).}
-\prow{\textbf{R11.} เมื่อชำระสำเร็จ ฟอร์มเปลี่ยนเป็น Done และแก้ไขออนไลน์ไม่ได้ นักศึกษาได้รับ PDF copy ของ registration ทาง email ผ่าน KU Email (Google Workspace)}
-{\textbf{R11.} After successful payment, the form becomes Done and cannot be edited online. The Student receives a PDF copy of the registration by email through KU Email (Google Workspace).}
+\prow{\textbf{R6. Action และไฟล์} IT Staff ใช้ Record Action บันทึกข้อความและผล OPEN หรือ COMPLETED โดยต้อง Send Email ทุกครั้งที่บันทึกสำเร็จ Attach File เป็นพฤติกรรมเสริมเฉพาะเมื่อเลือกไฟล์ และต้อง Validate Attachment เพื่อตรวจชนิด/ขนาดเสมอ บันทึก Action โดยไม่แนบไฟล์ได้}
+{\textbf{R6. Actions and files.} Record Action stores work text and an OPEN or COMPLETED result, always invoking Send Email on success. Attach File optionally extends it when a file is selected, and always invokes Validate Attachment for type/size checks. An Action need not have a file.}
+\prow{\textbf{R7. การสื่อสาร} Public Comments ให้ Requester ของ Ticket และ IT Staff อ่าน/เขียนได้ ส่วน Internal Notes ให้เฉพาะ IT Staff และ Administrator อ่าน/เขียน ผู้รับ Email ต้องมีสิทธิ์เห็นข้อความนั้นเสมอ Requester ไม่เห็น Internal Notes หรือจำนวนรายการภายใน}
+{\textbf{R7. Communication.} A Ticket's Requester and IT Staff can read/write Public Comments. Only IT Staff and Administrators can read/write Internal Notes. Email recipients must be authorized to see its contents. A Requester sees neither Internal Notes nor their count.}
+\prow{\textbf{R8. การแก้เสร็จ} Resolve Ticket ต้องเรียก Check Resolution Gate ทุกครั้ง เงื่อนไขคือมี owner มี Action ที่ COMPLETED อย่างน้อยหนึ่งรายการ และไม่มี Action ที่ยัง OPEN ถ้าขาดข้อใดให้ปฏิเสธ แสดงเหตุผล และคงสถานะเดิม}
+{\textbf{R8. Resolution.} Resolve Ticket always invokes Check Resolution Gate. An owner, at least one COMPLETED Action, and no OPEN Actions are required. If any condition fails, refuse the operation, explain why, and retain the current status.}
+\prow{\textbf{R9. เริ่มและพักงาน} Ticket ใหม่เป็น NEW; IT Staff claim แล้วเป็น OPEN; เริ่มทำงานจาก OPEN เป็น IN\_PROGRESS; ขอข้อมูลจาก IN\_PROGRESS เป็น WAITING\_FOR\_REQUESTER; เมื่อได้รับข้อมูลแล้ว IT Staff resume กลับเป็น IN\_PROGRESS การเขียน Comment อย่างเดียวไม่เปลี่ยนสถานะ}
+{\textbf{R9. Start and pause work.} A created Ticket is NEW. Staff claim it to OPEN, start it to IN\_PROGRESS, request information to WAITING\_FOR\_REQUESTER, and resume it to IN\_PROGRESS after receiving the information. Posting a Comment alone does not change status.}
+\prow{\textbf{R10. จบและยกเลิก} IT Staff resolve จาก IN\_PROGRESS เป็น RESOLVED เมื่อผ่าน R8; Requester ยอมรับผลเป็น CLOSED หรือ reopen เป็น IN\_PROGRESS ได้ Requester ยกเลิก Ticket ของตนจาก NEW หรือ OPEN เป็น CANCELLED เท่านั้น CLOSED และ CANCELLED เป็น terminal states ไม่อนุญาต transition อื่นนอกเหนือจากที่ระบุ}
+{\textbf{R10. Finish or cancel.} IT Staff resolve IN\_PROGRESS to RESOLVED only after R8 passes. The Requester either accepts to CLOSED or reopens to IN\_PROGRESS. They can cancel their own NEW or OPEN Ticket to CANCELLED only. CLOSED and CANCELLED are terminal. No other transitions are permitted.}
+\prow{\textbf{R11. Validation และ stale data} ข้อความว่างบันทึกไม่ได้ หาก version ที่ส่งเก่าให้คงค่าที่ผู้ใช้พิมพ์ แสดงสถานะล่าสุดและให้ Refresh โดยไม่ส่งซ้ำอัตโนมัติ แสดง field errors หรือเหตุผลที่บันทึกไม่ได้ใกล้ control ที่เกี่ยวข้อง}
+{\textbf{R11. Validation and stale data.} Blank text cannot be saved. If the submitted version is stale, preserve the user's input, show the current record and offer Refresh without automatic resubmission. Show field errors or refusal reasons near the relevant control.}
+\prow{\textbf{R12. ขอบเขตภาพ} ข้อ 8 ให้เติมเฉพาะ relationships ของ actors และ use cases ที่มีอยู่ ข้อ 9 เติม transitions ของ states ที่ให้มา ข้อ 10 เติม fields และ controls ในกรอบหน้าจอ ไม่ต้องสร้างบัญชีใหม่ ระบบชำระเงิน หรือบริการภายนอกอื่น}
+{\textbf{R12. Diagram scope.} In Question 8 add relationships only between the supplied actors/use cases. In Question 9 connect the supplied states. In Question 10 complete the screen frames. Do not add account registration, payment or other external services.}
 \end{prompttable}
 \newpage
-% Page 21.
-\bq{8}{เติม Sequence Diagram}{Complete the Sequence Diagram}{10}
-\pair{ใช้ R1-R11 เติม messages ลงในโครงแผนภาพหน้าถัดไปให้ครอบคลุมสถานการณ์แบบ end-to-end ด้านล่าง แสดงผู้ส่ง ผู้รับ ทิศทางและลำดับข้อความ รวมผลตอบกลับที่จำเป็นให้เข้าใจผลการทำงานของระบบ สถานการณ์ข้อนี้เริ่มจาก Draft ที่บันทึกไว้แล้ว ไม่ใช่ฟอร์มว่าง}
-{Using R1-R11, complete the skeleton on the next page for the end-to-end scenario below. Show senders, receivers, message direction and order, with the replies needed to make system outcomes clear. This question resumes a saved Draft; it does not start with a blank form.}
+\bq{8}{เติมความสัมพันธ์ใน Use Case Diagram}{Complete the Use Case Diagram relationships}{10}
+\pair{ใช้ R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป Actors, use cases และ system boundary มีให้แล้ว ไม่ต้องวาดกล่องใหม่ ให้ใช้ association เส้นทึบ, dependency เส้นประพร้อม \textless\textless include\textgreater\textgreater หรือ \textless\textless extend\textgreater\textgreater และ generalization เส้นทึบหัวสามเหลี่ยมโปร่งตามความหมายของแต่ละคู่}
+{Using R1-R8 and R12, complete the skeleton on the next page. Actors, use cases and the system boundary are supplied. Do not add nodes. Use solid associations, dashed dependencies labelled \textless\textless include\textgreater\textgreater or \textless\textless extend\textgreater\textgreater, and solid generalizations with hollow triangular arrowheads as appropriate.}
 \begin{prompttable}
-\prow{\textbf{1.} Student เข้าสู่ระบบ}
-{\textbf{1.} A Student logs in.}
-\prow{\textbf{2.} ระบบพบ Draft Registration Form ของภาคปัจจุบันที่มี 2 offerings แล้ว จึงเปิดฟอร์มนั้นให้ทำต่อ}
-{\textbf{2.} The system finds a Draft Registration Form for the current semester containing two offerings and opens it for continuation.}
-\prow{\textbf{3.} Student เพิ่มอีก 1 offering}
-{\textbf{3.} The Student adds one more offering.}
-\prow{\textbf{4.} Student submit แต่หนึ่งใน 3 offerings เต็ม ทำให้ submission ล้มเหลว}
-{\textbf{4.} The Student submits, but one of the three offerings is full, so submission fails.}
-\prow{\textbf{5.} ระบบแจ้ง Student ถึงปัญหานี้}
-{\textbf{5.} The system notifies the Student of the problem.}
-\prow{\textbf{6.} Student เปลี่ยน offering ที่เต็มเป็น section อื่น แล้ว submit อีกครั้ง}
-{\textbf{6.} The Student replaces the full offering with another section and resubmits.}
-\prow{\textbf{7.} ครั้งนี้ submission สำเร็จ}
-{\textbf{7.} This submission succeeds.}
-\prow{\textbf{8.} Student ชำระผ่าน bank transfer}
-{\textbf{8.} The Student pays by bank transfer.}
-\prow{\textbf{9.} การลงทะเบียนเสร็จสมบูรณ์}
-{\textbf{9.} Registration is completed successfully.}
+\prow{แสดงผู้ใช้ที่ติดต่อ Create Ticket, View My Tickets, View Ticket Queue, Update Ticket, Record Action, Resolve Ticket และ Maintain Accounts ให้ครบ การรับความสามารถผ่าน generalization ไม่ต้องลาก association ซ้ำทุกเส้น แสดง Email Gateway เชื่อมกับ use case ที่ติดต่อบริการนี้}
+{Connect the actors to Create Ticket, View My Tickets, View Ticket Queue, Update Ticket, Record Action, Resolve Ticket and Maintain Accounts. Inherited associations need not be duplicated. Connect the Email Gateway to the use case that interacts with it.}
+\prow{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเฉพาะเมื่อเลือกแนบไฟล์หรือย้าย owner แสดงทิศหัวลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับงานหรือ transition ของ status}
+{Distinguish mandatory reused behaviour from behaviour performed only when a file or reassignment is selected. Show arrow direction, stereotypes and extension conditions correctly. This diagram models capabilities and scope, not an execution sequence or status transitions.}
 \end{prompttable}
-\pair{ใช้ lifelines ที่ให้ในหน้าถัดไป ไม่ต้องเปลี่ยนเป็น Activity Diagram หากต้องเพิ่มสมมติฐานเพื่อให้ messages ชัดเจน ให้เขียนกำกับโดยไม่เปลี่ยนเหตุการณ์ทั้งเก้า}
-{Use the supplied lifelines on the next page; do not replace them with an Activity Diagram. If a clarification assumption is needed, state it without changing the nine events.}
+\pair{\textbf{เกณฑ์คะแนน:} actor associations และขอบเขต 3; include 3; extend พร้อมเงื่อนไข 2; generalization และทิศทาง 2 รวม 10 คะแนน}
+{\textbf{Marks:} actor associations and scope 3; include 3; extend with conditions 2; generalization and direction 2. Total: 10 marks.}
+\textbf{คำอธิบายหรือสมมติฐาน / Explanation or assumptions}\par\blankbox{4cm}
 \newpage
-% Page 22.
-\continued{ข้อ 8 (ต่อ): พื้นที่เติม messages ใน Sequence Diagram}{Question 8 (continued): Sequence Diagram message workspace}
-\examsequence
+\continued{ข้อ 8 (ต่อ): เติมเส้นและป้ายความสัมพันธ์ในโครงที่ให้}{Question 8 (continued): Add relationship edges and labels}
+\examTicketUseCase
 \newpage
-% Page 23.
-\bq{9}{เติม Activity Diagram}{Complete the Activity Diagram}{10}
-\pair{ใช้ R1-R11 ต่อโครง Activity ด้านล่างให้ครบ session ที่ Student เข้าระบบครั้งแรกของภาค ได้ฟอร์มว่างพร้อมข้อมูลตนเอง เลือกวิชา ชำระสำเร็จและรับยืนยัน แสดง decision branches, guards และ loops ที่จำเป็น เช่น เลือกวิธีชำระหรือแก้ไขแล้ว submit ใหม่จนสำเร็จ วางแต่ละกิจกรรมใน swimlane ของผู้รับผิดชอบ}
-{Using R1-R11, complete one session in which a Student first logs in this semester, receives a blank form with their details, selects courses, pays successfully and receives confirmation. Include the required decision branches, guards and loops, such as payment-method selection or correction and resubmission until successful. Put each activity in its responsible swimlane.}
-\examactivity
+\bq{9}{เติม State Diagram ของ Ticket}{Complete the Ticket State Diagram}{10}
+\pair{ใช้ R8-R10 เชื่อม states ที่ให้ด้วยลูกศรแบบมีทิศทาง ระบุ event, ผู้กระทำ และ guard ที่จำเป็น แสดงจุดเริ่มและทางออกของ terminal states อย่าลากเส้น include, extend หรือ actor generalization ในภาพนี้ เพราะเป็น State Diagram}
+{Using R8-R10, connect the supplied states with directed transitions. Label events, actors and required guards. Show the initial path and terminal-state exits. Do not use include, extend or actor generalization here: this is a State Diagram.}
+\pair{ต้องแยก claim, start, request information, resume, resolve, accept, reopen และ cancel ให้ครบ เขียนเงื่อนไข Resolve ของ R8 กำกับลูกศรหรือใช้ชื่อ guard แล้วขยายความด้านล่าง การกระทำที่ไม่ผ่าน guard คงสถานะเดิม ไม่ต้องเพิ่มสถานะ Error}
+{Cover claim, start, request information, resume, resolve, accept, reopen and cancel. Put R8's resolution conditions on the transition, or name the guard and define it below. A refused operation retains its state; do not add an Error state.}
+\examTicketState
+\textbf{นิยาม guard / Guard definition}\par\blankbox{1.2cm}
 \newpage
-% Page 24.
-\bq{10}{ออกแบบ List View และ Form View}{Design the List View and Form View}{10}
-\pair{ออกแบบ generic UI สำหรับ Student ตาม R5-R11 ใช้ * นำหน้า required fields, textbox สำหรับ editable fields และขีดเส้นเฉียงในช่อง non-editable หรือ calculated ตัวอย่าง Invoice แสดง notation เท่านั้น ให้ออกแบบข้อมูลและ controls ของระบบ Registration เอง}
-{Design generic Student interfaces for R5-R11. Use a leading * for required fields, textboxes for editable fields, and diagonal hatching for non-editable or calculated fields. The Invoice example illustrates notation only; design the Registration data and controls yourself.}
-\uiReferenceExample
-\bsub{10.1}{Course Offering List View}{Course Offering List View}{4}
-\pair{แสดงข้อมูลที่กำหนดไว้ใน R7 พร้อมวิธีกรองและเลือก offerings กลับไปเพิ่มในฟอร์ม ใช้ตาราง หรือการ์ดที่มีส่วนรายละเอียดครบได้}
-{Show the data required by R7, with filtering and selection of offerings to add to the form. You may use a table or cards with complete details.}
-\answerfill
+\bq{10}{เติม List View และ Form View}{Complete the List View and Form View}{10}
+\pair{ใช้ R2-R4 และ R7-R11 ออกแบบหน้าจอ IT Staff ในกรอบที่ให้ เติมชื่อ fields, ค่าตัวอย่าง, controls และ feedback ใช้ * นำหน้า required fields, textbox สำหรับข้อมูลแก้ได้ และเส้นเฉียงสำหรับ read-only/calculated ห้ามเติมข้อมูลบัญชีหรือสถานะที่ไม่เกี่ยวข้องเพียงเพื่อให้เต็มกรอบ}
+{Using R2-R4 and R7-R11, complete the IT Staff screens with field labels, sample values, controls and feedback. Mark required fields with *, editable values with textboxes, and read-only/calculated values with hatching. Do not add unrelated account data or states merely to fill the frame.}
+\ticketNotationReference
+\bsub{10.1}{Ticket Queue: รายการและการค้นหา}{Ticket Queue: list and search}{4}
+\pair{แสดงข้อมูล Queue ทุกช่องตาม R4 พร้อมการค้นหา ตัวกรอง การเลือกเปิด Ticket และ pagination ระบุว่าจะแสดงอะไรเมื่อระบบไม่มี Ticket กับเมื่อกรองแล้วไม่พบ วาดตารางหรือแบ่งแถวเป็น card/detail ที่อ่านง่ายได้}
+{Show every Queue field in R4, with search, filters, Ticket selection and pagination. Distinguish the true empty state from no matching results. You may use table rows or readable cards with details.}
+\examTicketQueue
 \newpage
-% Page 25.
-\continued{ข้อ 10 (ต่อ): ใช้ notation เดียวกับตัวอย่าง Invoice}{Question 10 (continued): Use the Invoice example's notation}
-\bsub{10.2}{Student Registration Form View}{Student Registration Form View}{6}
-\pair{กำหนด semester เป็นภาคปัจจุบันและดึงข้อมูล Student จากผู้ใช้ที่เข้าสู่ระบบ แสดง header, line items, fees และ controls ให้สอดคล้องกับ R5-R11 แสดงหรืออธิบายพฤติกรรมของ UI เมื่อเป็น Draft เมื่อมี section เต็ม และเมื่อเป็น Done ไม่ต้องวาดระบบ Invoice}
-{Fix the semester to the current semester and load Student details from the signed-in user. Show the header, line items, fees and controls required by R5-R11. Show or explain how the UI behaves in Draft, when a section is full, and in Done. Do not design an Invoice system.}
-\answerfill
+\continued{ข้อ 10 (ต่อ): ใช้ notation เดียวกับหน้า List}{Question 10 (continued): Use the same notation as the List View}
+\bsub{10.2}{Staff Ticket Detail: ข้อมูลและการทำงาน}{Staff Ticket Detail: data and actions}{6}
+\pair{เติมข้อมูลตาม R3 แยก read-only ออกจาก IT priority, owner และ status ที่แก้ได้ แสดง Public Comments และ Internal Notes ให้แยกกัน พร้อมพื้นที่เพิ่ม Action/แนบไฟล์ และแสดงหรือเขียนกำกับกรณี Resolve ถูกปฏิเสธ กับกรณี STALE\_UPDATE โดยต้องคง input ตาม R11 ไม่ต้องวาดทุกสถานะแยกหลายหน้า}
+{Complete R3's data, separating read-only values from editable IT priority, owner and status. Distinguish Public Comments and Internal Notes, provide Action/file entry, and show or annotate a blocked Resolve and a STALE\_UPDATE while retaining the input required by R11. You need not draw a separate page for every state.}
+\examTicketForm
 \newpage
 % Page 26.
 \continued{บริบทร่วมสำหรับข้อ 11-12: Git Workflow}{Shared context for Questions 11-12: Git Workflow}
@@ -354,10 +348,10 @@ No. & User story (ไทย) & User story (English) & เทียบ anchor & P
 {main represents the deployed release. Sprint staging branches collect completed work for integration and testing. Feature branches isolate individual changes until they are ready to merge.}
 \end{prompttable}
 \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|P|}\hline
-File & หน้าที่ & Purpose\\\hline
-\code{score\_data.py} & โหลดและตรวจสอบคะแนนสอบ & Loads and validates exam scores\\\hline
-\code{scores.csv} & รายชื่อและคะแนนตัวอย่าง & Sample student names and scores\\\hline
-\code{validation\_notes.txt} & ไฟล์ใหม่บันทึกกรณีทดสอบ & New file documenting validation cases\\\hline
+File & Purpose & หน้าที่\\\hline
+\code{score\_data.py} & Loads and validates exam scores & โหลดและตรวจสอบคะแนนสอบ\\\hline
+\code{scores.csv} & Sample student names and scores & รายชื่อและคะแนนตัวอย่าง\\\hline
+\code{validation\_notes.txt} & New file documenting validation cases & ไฟล์ใหม่บันทึกกรณีทดสอบ\\\hline
 \end{tabularx}
 \begin{prompttable}
 \prow{HEAD ระบุ local branch ที่ checkout ส่วน origin/* เป็น local remote-tracking reference ซึ่งบันทึกสถานะ GitHub ล่าสุดที่เครื่องนี้ทราบ การ switch ย้าย HEAD แต่ไม่ย้าย branch pointers}

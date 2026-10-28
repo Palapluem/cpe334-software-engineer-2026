@@ -349,9 +349,9 @@ trash "$sheet_build_dir"
 | --- | --- | --- |
 | Part 1 (25): requirement analysis, proposal 8 ด้าน, RBAC และ security | หน้า 2 คอลัมน์ 1 พร้อมทฤษฎีหน้า 1 | Mock ข้อ 1-4 |
 | Part 2 (25): WBS/RACI/Gantt, backlog grooming และ sprint planning | หน้า 2 คอลัมน์ 2 | Mock ข้อ 5-7; ฝึก bug variant ใน Lecture 10 p. 24 เพิ่ม |
-| UML/UI (30): Sequence, Activity, List/Form UI, Use Case, State เลือกสอบ 3 จาก 5 | หน้า 2 คอลัมน์ 3-4 และตารางห้าแบบ | Mock ข้อ 8-10 และแบบฝึกเสริม S1-S2 |
+| UML/UI (30): Sequence, Activity, List/Form UI, Use Case, State เลือกสอบ 3 จาก 5 | หน้า 2 คอลัมน์ 3-4 และตารางห้าแบบ | Mock ฉบับ 28 Oct ข้อ 8-10 ใช้ TokTickIT: Use Case/State/UI; Sequence/Activity ฝึก Samples pp. 3-4; S1-S2 เป็นโจทย์อีกบริบท |
 | Git (20): predict graph, explain graph, commands + redraw เลือกสอบ 2 จาก 3 | หน้า 2 คอลัมน์ 4; ผลตัวอย่าง A-I ตรงกับ Samples 2.1-2.9 | Mock ข้อ 11-12 และ S3; ทำ Samples 2.1-2.9 เพื่อฝึก variants ทั้งเก้าข้อ |
 | POS / Hotel / Ticket / Grades: requirements อังกฤษที่อาจนำมาใช้ในโจทย์ | หน้า 2 คอลัมน์ 1 มี actors/workflow/constraints ย่อ | อ่าน requirements อังกฤษใน Lecture 4 ควบคู่; โพยไม่ได้คัด features ทุกบรรทัด |
 | Class Diagram ใน Samples p. 6 ระบุ Final | หน้า 1 มี notation/checklist ที่แยกเงื่อนไขเฉพาะโจทย์ | ไม่รวมเป็นหนึ่งในห้าแบบกลางภาค และยังไม่มีเฉลย Class model เต็มใน mock |
 
-ใช้ฉบับ **With Supplements** พร้อมเฉลยฉบับเดียวกันเมื่อต้องการฝึกให้ครบประเภท ฉบับ Core ตั้งใจเลือก UML/UI เพียงสามแบบและ Git สองรูปแบบสำหรับจำลองสอบ 100 คะแนน/3 ชั่วโมง จึงไม่แทน S1-S3 ทั้งหมด การตรวจจำนวนหน้าและข้อความพบ Core ไทย/อังกฤษ 17 หน้า, ฉบับเสริม 21 หน้า, เฉลยไทย 15/18 หน้า ไม่มีหน้าว่าง และไม่มี S1-S3 หลุดเข้า Core
+ฉบับปัจจุบันหลังปรับ 28 October 2026 เป็น [ข้อสอบคู่ภาษา 30 หน้า](../mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) ไฟล์เดียว อังกฤษซ้าย/ไทยขวา มี Gantt แนวนอนหน้า 14; เฉลยไทย 15 หน้า หรือ 18 หน้าพร้อมคำตอบเสริม ข้อ 8-10 เปลี่ยนเป็น TokTickIT Use Case/State/UI จึงต้องฝึก Sequence/Activity จาก Samples เพิ่มเพื่อให้ครบทั้งห้าประเภท ส่วน S1-S3 เก็บเป็น source โจทย์ฝึกแยก ไม่ได้แนบในข้อสอบหลัก 100 คะแนน/3 ชั่วโมง ดูขอบเขตและลิงก์ปัจจุบันใน [Mock exam README](../mock-exam/README.md)

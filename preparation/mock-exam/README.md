@@ -1,108 +1,90 @@
 # CPE334 Midterm Practice Set
 
-These student-created materials are for study and timed practice. They are not actual or officially approved examinations, and do not predict the questions on the real exam. The cover reproduces institutional exam-form fields; its publication checkbox and committee/signature lines are layout examples, not records of official permission or approval.
+These student-created materials are for study and timed practice. They are not actual or officially approved examinations and do not predict the real questions. Publication, committee and signature fields reproduce an exam-form layout; they do not record official permission or approval.
 
-## Midterm editions
+## Published files
 
 | File | Format | Contents |
 | --- | --- | --- |
-| [TH_EN.pdf](midterm/output/pdf/TH_EN.pdf) | **30 pages, portrait A4** | Thai cover; Thai on the left and English on the right for Questions 1-12; 3 parts, 100 marks, 3 hours |
-| [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 15 pages | Answers and marking guide for Questions 1-12 |
-| [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 18 pages | Core answers followed by answers to S1-S3 |
+| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **30 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English on the left and Thai on the right; 3 parts, 12 questions, 100 marks, 3 hours |
+| [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 15 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
+| [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 18 pages | The same core answers followed by S1-S3 |
 
-ข้อสอบหลักเหลือไฟล์เดียวตามที่ผู้จัดทำยืนยันเมื่อ 28 October 2026 ไม่แยกฉบับไทย อังกฤษ หรือฉบับแนบแบบฝึกเสริมอีก ส่วน S1-S3 เก็บเป็น [โจทย์ภาษาไทย](midterm/supplements/questions-th.tex) และ [โจทย์ภาษาอังกฤษ](midterm/supplements/questions-en.tex) ใน source เพื่อใช้ฝึกแยก และมีเฉลยไทยอยู่ในไฟล์ 18 หน้า S1-S3 ไม่อยู่ใน TH_EN.pdf และไม่รวมใน 100 คะแนนหรือเวลา 3 ชั่วโมง
+ข้อสอบหลักมีไฟล์เดียว ไม่แยกฉบับไทย อังกฤษ หรือฉบับแนบแบบฝึกเสริม ส่วน S1-S3 ยังเก็บเป็น [source ไทย](midterm/supplements/questions-th.tex) และ [source อังกฤษ](midterm/supplements/questions-en.tex) พร้อมเฉลยไทยเพื่อใช้ฝึกแยก ไม่อยู่ในข้อสอบหลักและไม่นับรวม 100 คะแนนหรือเวลา 3 ชั่วโมง
 
-### รูปแบบของฉบับคู่ภาษา
+## รูปแบบ
 
-- หน้าปกใช้คำชี้แจงและเงื่อนไขภาษาไทย คงชื่อรายวิชาภาษาอังกฤษซึ่งเป็นชื่อเฉพาะ และกริดตำแหน่งเดิม กลุ่มนักศึกษาใช้คำว่า “ปกติ” และ “นานาชาติ”
-- โจทย์ทุกข้อใช้ตารางคู่ภาษา **ไทยซ้าย อังกฤษขวา** จับคู่เป็นย่อหน้าหรือข้อกำหนดเดียวกัน ไม่แยกประโยคที่สัมพันธ์กันไว้คนละหน้า
-- ขยายบริบท คำชี้แจง สิ่งที่ต้องตอบ และเงื่อนไขให้ครบกว่าฉบับย่อเดิม โดยคงโจทย์ ตัวเลข ขอบเขต และคะแนนเดิม การแปลไม่ได้เพิ่มข้อสอบอีกชุดหรือเพิ่มคะแนน
-- พื้นที่เขียนและวาดใช้เต็มความกว้างหน้าร่วมกัน ไม่แบ่งคำตอบออกเป็นสองภาษา แผนภาพและชื่อระบบใช้ภาษาอังกฤษ
-- ใช้ TH Sarabun New ประมาณ 14 pt ในโจทย์ ตารางข้อมูลใช้ประมาณ 12.6 pt หัว/ท้ายกระดาษเล็กกว่าโจทย์ คำสั่ง Git ที่พิมพ์ให้รันใช้ฟอนต์ monospace ส่วนชื่อไฟล์ในตารางใช้ Sarabun ตัวหนา
-- Sequence ให้ lifelines และพื้นที่เติม messages; Activity ให้ swimlanes และ prefix ตั้งต้น; UI ให้ Invoice สำหรับดู notation แล้วออกแบบ Registration เอง ไม่เติมคำตอบลงในโครงข้อสอบ
-- Gantt อยู่ในหน้าแนวตั้งเดียว ครบ 20 วันทำงานในเดือนมกราคม 2027 มีช่องคำตอบ 14 แถว คอลัมน์ Task กว้างพอสำหรับชื่อ milestone และจัดข้อความในตารางคำตอบให้อยู่กลางแนวตั้งตามชนิดช่อง
+- คืนกริดตำแหน่งและระยะบรรทัดหน้าปกก่อนการปรับฉบับคู่ภาษาเมื่อ 28 October 2026: กรอบเผยแพร่ โลโก้ ข้อมูลสอบ ช่องชื่อ คำชี้แจง เงื่อนไขและช่องลงนามใช้ตำแหน่งเดิม คำชี้แจงเป็นไทย คงชื่อรายวิชา Software Engineering ซึ่งเป็นชื่อเฉพาะ
+- ตารางโจทย์ใช้ **English ซ้าย / ไทยขวา** ทุกข้อ รวมตารางงาน A-I และ sprint backlog จับคู่ย่อหน้าที่มีความหมายเดียวกัน คะแนนของสองฝั่งเป็นคะแนนเดียวกัน
+- คง Sarabun และขนาดโจทย์ประมาณ 14 pt; หัว/ท้ายกระดาษเล็กกว่าโจทย์ ไม่ลดฟอนต์เพื่อบีบจำนวนหน้า พื้นที่ตอบใช้ร่วมกันเต็มความกว้าง ไม่แบ่งคำตอบเป็นสองภาษา
+- หน้า Gantt เป็นแนวนอนเพียงหน้าเดียว ครบ 20 วันทำงาน มี 14 แถวสำหรับ tasks/milestones/buffer และคอลัมน์ No., Task, Owner, Start, Due; หน้าถัดไปกลับเป็นแนวตั้ง
+- ข้อ 8 ให้ actors, use cases และ boundary มาแล้ว ผู้ทำเติมเส้น association, include, extend และ generalization; ข้อ 9 ให้ states มาแล้ว ผู้ทำเติม transitions/events/guards; ข้อ 10 ให้กรอบ List/Form พร้อมตัวอย่าง notation แล้วเติมข้อมูลและ controls
+- ภาพคนกับวงรีงานและเส้น include/extend/generalization เป็น **Use Case Diagram** ส่วน **State Diagram** แสดง states กับ transitions แยกเป็นคนละข้อ เพื่อไม่ใช้สัญลักษณ์ผิดประเภท
 
-จำนวนหน้าเพิ่มจากการแสดงโจทย์สองภาษา การคืนรายละเอียดโจทย์ และการเพิ่มพื้นที่ตอบ ไม่ใช่ข้อมูลยืนยันจำนวนหน้าหรือเนื้อหาข้อสอบจริงของมหาวิทยาลัย
+## แผนหน้าและคะแนน
 
-### แผนหน้าและคะแนน
-
-| ส่วน | หน้าของ TH_EN.pdf | ข้อและคะแนน |
+| ส่วน | หน้า | ข้อและคะแนน |
 | --- | --- | --- |
 | หน้าปก | 1 | 27 ตุลาคม 2569, 13.00-16.00, 3 ชั่วโมง, ภาค 1/2569 |
-| Requirements / Security | 2-9 | ข้อ 1: 8; ข้อ 2: 7; ข้อ 3: 4; ข้อ 4: 6 รวม **25** |
-| Planning / Execution | 10-18 | ข้อ 5: 10; ข้อ 6: 10; ข้อ 7: 5 รวม **25** |
-| ข้อกำหนดร่วม KU Registration | 19-20 | R1-R11 สำหรับข้อ 8-10 |
-| Sequence Diagram | 21-22 | ข้อ 8: **10** |
-| Activity Diagram | 23 | ข้อ 9: **10** |
-| List / Form UI | 24-25 | ข้อ 10: **10** |
-| บริบทและข้อสมมติ Git | 26 | ใช้ร่วมกันในข้อ 11-12 แต่แต่ละข้อเริ่มจาก graph ของตนเอง |
-| Git: ทำนาย graph | 27 | ข้อ 11: **10** |
-| Git: commands และ redraw | 28-30 | ข้อ 12: **10** |
-| **รวม** | **30 หน้า** | **100 คะแนน** |
+| Requirements / Security | 2-9 | 1: 8; 2: 7; 3: 4; 4: 6 รวม **25** |
+| Planning / Execution | 10-18 | 5: 10; 6: 10; 7: 5 รวม **25**; Gantt หน้า 14 แนวนอน |
+| TokTickIT shared requirements | 19-20 | R1-R12 ใช้ร่วมกันในข้อ 8-10 |
+| Use Case Diagram | 21-22 | 8: **10** |
+| State Diagram | 23 | 9: **10** |
+| List / Form UI | 24-25 | 10: **10** |
+| Git context | 26 | ข้อสมมติร่วม แต่ข้อ 11/12 เริ่มจาก graph ของตนเอง |
+| Git: predict graph | 27 | 11: **10** |
+| Git: commands and redraw | 28-30 | 12: **10** |
+| **รวม** | **30** | **100 คะแนน** |
 
-ข้อ 1 วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ ผลคาดหวัง และการปรับข้อความ ข้อ 2 ใช้องค์ประกอบข้อเสนอทั้ง 8 ด้าน ข้อ 3 ยึด default deny และไม่มี role inheritance ข้อ 4 ยึดเหตุการณ์ script รันบน server ไม่เปลี่ยนเป็น XSS ฝั่ง browser
+ข้อ 1 วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ ผลคาดหวังและการปรับข้อความ ข้อ 2 ครบองค์ประกอบข้อเสนอ 8 ด้าน ข้อ 3 ใช้ default deny และไม่มี role inheritance ในระบบ WorkshopHub ข้อ 4 ยึดเหตุการณ์ script รันบน server ไม่เปลี่ยนเป็น XSS ฝั่ง browser
 
-ข้อ 5 คงงาน A-I, owners, durations และเงื่อนไข buffer เดิม ข้อ 6 คงกฎ “ถือการจองได้ไม่เกินหนึ่งรายการต่อวัน” ไม่เปลี่ยนเป็นจำนวนครั้งที่กดจอง ข้อ 7 คง velocity 16, anchor 3 และ Fibonacci scale เดิม ข้อ 8 กลับมาใช้ Draft ที่มีสอง offerings ส่วนข้อ 9 เข้าระบบครั้งแรกและเริ่มจากฟอร์มว่าง
+ข้อ 5 คงงาน A-I, owners, durations, วันที่และ buffers ตามแนวเดิม ข้อ 6 คงกฎถือการจองได้ไม่เกินหนึ่งรายการต่อวัน ข้อ 7 คง velocity 16, anchor 3 และ Fibonacci scale
 
-ข้อ 11 คงสามทาง merge ที่สร้าง G แล้ว switch กลับ main ส่วนข้อ 12 คงการ switch, fast-forward และสร้าง F หลัง stage สามไฟล์พร้อมข้อความ commit เดิม ไม่มี fetch หรือ push ที่โจทย์ไม่ได้ระบุ และห้ามใช้ git add .
+พาร์ท 50 คะแนนใช้เรื่อง TokTickIT แบบย่อสำหรับข้อ 8-10 และ Git แบบเดิมสำหรับข้อ 11-12 เรื่อง TokTickIT เป็นโจทย์ฝึกที่แต่งตามบริบทที่นักศึกษาเล่า ไม่ใช่การถอดข้อสอบจริงหรือคัดกฎแลปทั้งหมด R1 ระบุ Administrator เป็นชนิดย่อยของ IT Staff **เฉพาะแบบจำลองนี้** เพื่อฝึก generalization; ไม่ใช่กฎสากลของ RBAC ข้อ 8 ใช้เฉพาะ nodes ที่ให้ ส่วนข้อ 9 ใช้ state paths ที่เขียนใน R8-R10 ไม่เติม transition จากความจำของแลป
 
-## ขอบเขตสอบและแบบฝึกเสริม
+ข้อ 11 คง three-way merge ที่สร้าง G แล้ว switch กลับ main ข้อ 12 คงการ switch, fast-forward และสร้าง F หลัง stage สามไฟล์ด้วย commit message เดิม ไม่มี fetch/push ที่โจทย์ไม่ได้สั่ง และห้ามใช้ `git add .`
 
-ชุดนี้เลือกโจทย์ตาม blueprint ของ Lecture 10 ไม่ใช่คลังทุกข้อที่อาจออก
+## ความครอบคลุมและแหล่งข้อมูล
 
-| กลุ่ม | ชุดหลัก | ส่วนที่ควรฝึกเพิ่มเติม |
+Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Activity, Sequence, State, List/Form) และเลือกรูปแบบ Git สองจากสาม ชุดหลักนี้เลือก Use Case, State, List/Form และ Git Predict/Commands; **Activity และ Sequence ยังเป็นขอบเขตที่ต้องทบทวน** ไม่ได้ตัดออกจากเนื้อหาวิชาเพราะไม่อยู่ในชุดฝึกฉบับนี้ Class ใน Samples p. 6 ระบุว่าเป็น Final
+
+| ข้อ | แหล่งหลัก | การดัดแปลง |
 | --- | --- | --- |
-| Requirements / Security, 25 marks | requirement analysis, proposal, RBAC, upload security | ทบทวนโจทย์ประยุกต์และหัวข้อ security ใน Lectures 1-7 |
-| Planning / Execution, 25 marks | WBS 3, RACI 2, Gantt 5, grooming 10, sprint planning 5 | Bug-grooming Issue #15 ต่างจาก enhancement Issue #12 ที่ใช้ในชุดนี้ |
-| UML/UI, เลือก 3 จาก 5 ประเภท | Sequence, Activity, List/Form รวม 30 marks | S1 Use Case และ S2 State อยู่ใน source/เฉลยเสริม; Class ใน Samples p. 6 ระบุว่าเป็น Final |
-| Git, เลือก 2 จาก 3 รูปแบบ | Predict และ Commands + redraw รวม 20 marks | S3 Explain graph; ยังควรฝึก Samples 2.1-2.9 เพราะ ancestry และ refs เปลี่ยนได้ |
-| ระบบตัวอย่าง | KU Registration ในชุดหลัก; Grades/Ticket ใน source เสริม | Lecture 10 p. 31 ให้เตรียม POS และ All-in Hotel ด้วย |
+| 1-4 | [Lecture 10](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) pp. 4-11 | WorkshopHub, proposal, RBAC และ upload incident; เพิ่มคำชี้แจง/พื้นที่ตอบและคะแนนย่อยของชุดฝึก |
+| 5 | Lecture 10 pp. 14-21 | คง tasks, owners, durations, วันที่และ buffers; meeting notes ของ RACI เพิ่มเพื่อให้กรอกครบ |
+| 6-7 | Lecture 10 pp. 22-26 | คง client facts, sprint goal, anchor และ velocity |
+| 8-10 | [Lecture 4](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) pp. 5-8, 45-46, 111-117; บริบท TokTickIT จากคำบอกเล่านักศึกษา | แต่ง R1-R12 ให้ตอบได้ในตัวเอง; ไม่ใช่ R1-R11 ของ KU Registration ใน Samples |
+| 11-12 | [Midterm Samples](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 6, 10-12, 20-21 | ใช้ 2.5 และ 2.3 คง ancestry, refs, filenames และ commit message; วาด vector ใหม่ |
+| S1 | Lecture 4 pp. 5-8, 64-65 | Grades Submission Use Case; ฝึกแยกจาก TokTickIT |
+| S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
+| S3 | Samples pp. 8-9, 19 | Explain graph ตาม 2.2 ครบหกคำถาม |
 
-เฉลยคงเป็นภาษาไทย ไม่มีฉบับเฉลยอังกฤษ คำตอบยอมรับรูปแบบอื่นที่ตรงโจทย์และมีเหตุผล ข้อ 1 ใช้คำตอบกระชับที่ครบประเด็น ข้อ 2.1 ครบ 8 องค์ประกอบ ตัวเลข NFR, HTTP status และแนว UI ที่เพิ่มเติมระบุว่าเป็นข้อเสนอ ไม่ใช่ข้อเท็จจริงที่ผู้สอนยืนยัน การขยายโจทย์คู่ภาษาไม่เปลี่ยนผลคำตอบ ตัวเลข หรือเกณฑ์คะแนนของเฉลยเดิม
+รูปแบบอังกฤษซ้าย/ไทยขวาเทียบกับ Samples pp. 1-2 ส่วนโครงปกเทียบ PDF ที่ commit ก่อนการแก้ของวันที่ 28 October 2026 เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
 
-## แหล่งและการดัดแปลง
-
-เลขหน้าด้านล่างนับจากหน้าแรกของ PDF ไม่ใช่เลขสไลด์
-
-| ข้อ | แหล่งหลัก | การนำมาใช้ |
-| --- | --- | --- |
-| 1-4 | [Lecture 10](<../../lectures/Week 10/CPE334_Lecture10 - Midterm Exam Prep_Group Work Project.pdf>) pp. 4-11 | ข้อความ WorkshopHub, RBAC และเหตุการณ์ upload; ขยายคำชี้แจงและพื้นที่ตอบ คะแนนย่อยเป็นของชุดฝึก |
-| 5 | Lecture 10 pp. 14-21 | คง tasks, owners, durations, วันที่และ buffers; meeting notes ของ RACI เป็นข้อมูลที่ชุดฝึกเพิ่มเพื่อให้กรอกตารางได้ครบ |
-| 6-7 | Lecture 10 pp. 22-26 | คง client facts, sprint goal, anchor และ velocity; แยกงานตอบ/คะแนนตามชุดฝึก |
-| 8-10 | [Midterm Samples by Suthep](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 1-5 | R1-R11, Sequence scenario, Activity workflow และ UI notation; เพิ่ม List ตาม blueprint |
-| 11-12 | Samples pp. 6, 10-12, 20-21 | ใช้โจทย์ 2.5 และ 2.3 คง commits, refs, filenames และข้อความ commit วาด graph ใหม่เป็น vector |
-| S1 | [Lecture 4](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) pp. 5-8, 64-65 | Use Case: Grades Submission; ไม่อ้างว่าเป็นโจทย์จาก Midterm Samples |
-| S2 | Lecture 4 pp. 45-46, 61-62 | State: Service Ticket ยึดเส้นทางเริ่มงานก่อนปิดตามตัวอย่าง p. 62 |
-| S3 | Samples pp. 8-9, 19 | Explain graph ตามข้อ 2.2 คง ancestry และคำถามหกประเด็น |
-
-หลักการที่ใช้ตรวจเฉลย: [Lecture 2](<../../lectures/Week 2/CPE334_Lecture02 Requirement Engineering.pdf>) pp. 14-29 สำหรับ requirements/proposal; [Lecture 5](<../../lectures/Week 5/CPE334_Lecture05 - Security in SE.pdf>) pp. 5-8, 19-23, 28-38 สำหรับ security; [Lecture 6](<../../lectures/Week 6/CPE334_Lecture06 - Project Management.pdf>) pp. 71-96 สำหรับ WBS/Gantt/RACI; [Lecture 7](<../../lectures/Week 7/CPE334_Lecture07 - Project Execution.pdf>) pp. 60-72, 94-104, 114-118 สำหรับ grooming และ sprint planning; Lecture 4 pp. 13, 16, 111-117 สำหรับ UML/UI
-
-ข้อจำกัดของต้นฉบับที่ยังต้องแยกบริบท: blueprint ให้เลือก UML/UI 3 จาก 5 ประเภท; Class ใน Samples p. 6 ระบุว่าเป็น Final; หมายเลข Solution 1.2/1.3 ใน Samples ไม่ตรงชนิดโจทย์ จึงจับคู่ตามเนื้อหา; ไม่คัดข้อความเรื่องกรอกเกรดที่ปนในตัวอย่าง UI มาใช้กับ Registration; Lecture 10 p. 31 ระบุว่าระบบตัวอย่างสี่ระบบอาจให้ requirements อังกฤษเท่านั้น ฉบับคู่ภาษานี้จัดตามความต้องการฝึกของนักศึกษา ไม่เปลี่ยนประกาศขอบเขตสอบ
+หลักการตรวจเฉลยยังอิง Lecture 2 pp. 14-29 (requirements/proposal), Lecture 5 pp. 5-8, 19-23, 28-38 (security), Lecture 6 pp. 71-96 (WBS/Gantt/RACI) และ Lecture 7 pp. 60-72, 94-104, 114-118 (grooming/planning) รับคำตอบอื่นที่ตรงข้อกำหนดและมีเหตุผล เกณฑ์คะแนนและตัวอย่างคำตอบเป็นของชุดฝึก ไม่ใช่เฉลยทางการ
 
 ## แก้ไขและคอมไพล์
 
-แหล่งที่แก้ไขสำหรับข้อสอบที่เผยแพร่มีชุดเดียว:
+- `midterm/main.tex`: จุดเริ่มต้นข้อสอบ
+- `midterm/bilingual/questions.tex`: ข้อความคู่ภาษา โดย source รับ argument ไทยก่อน/อังกฤษหลัง แต่ macro แสดงอังกฤษซ้าย
+- `midterm/bilingual/exam.tex`: layout, table macros, answer spaces และ Gantt
+- `midterm/bilingual/ticket-diagrams.tex`: actors/use cases/states และ blank UI scaffolds; ภาพโจทย์ไม่มีเส้นคำตอบ
+- `midterm/bilingual/cover.tex`, `frontmatter/cover-layout.tex`, `exam-info.tex`: ข้อความปก กริดและข้อมูลสอบ
+- `midterm/solutions/answers.tex`: เฉลยไทยและเกณฑ์ตรวจ
 
-- `midterm/main.tex`: จุดเริ่มต้นของข้อสอบคู่ภาษา
-- `midterm/bilingual/questions.tex`: โจทย์ไทย-อังกฤษคู่กันทั้ง 12 ข้อ
-- `midterm/bilingual/exam.tex`: ตารางคู่ภาษา หัว/ท้ายกระดาษ พื้นที่ตอบ และ diagram skeletons
-- `midterm/bilingual/cover.tex` กับ `midterm/frontmatter/cover-layout.tex`: ข้อความปกและกริดตำแหน่ง
-- `midterm/exam-info.tex`: วัน เวลา และภาคการศึกษา
-- `midterm/supplements/questions-th.tex`, `questions-en.tex`: S1-S3 สำหรับฝึกแยก ไม่ถูก include ใน main
-- `midterm/solutions/answers.tex`: เฉลยไทยทั้งชุดหลักและส่วนเสริม
-
-คอมไพล์ข้อสอบจาก root ของ repository:
+จาก root ของ repository:
 
 ```bash
 python3 preparation/mock-exam/midterm/build.py
 ```
 
-สคริปต์ใช้ XeLaTeX สองรอบกับฟอนต์ TH Sarabun New ที่แนบมา ไม่ดาวน์โหลดฟอนต์ ไม่ใช้ shell escape และไม่ต้องสร้าง component PDFs ไว้ใน source สคริปต์จะปฏิเสธ build ที่มีข้อความล้นหรืออักษรหาย เก็บ aux/log ใน temporary directory ที่สร้างเฉพาะรอบนั้นและลบให้อัตโนมัติเมื่อจบ ต้องตรวจ render ด้วยตาก่อนแทนฉบับเผยแพร่ ตัวเลือก `--output-dir <folder>` ใช้สร้าง candidate สำหรับตรวจแยกได้
+ใช้ XeLaTeX สองรอบกับฟอนต์ที่แนบมา ไม่ดาวน์โหลดฟอนต์และไม่ใช้ shell escape สคริปต์ปฏิเสธข้อความล้น อักษรหายและ references ที่ยังไม่ resolve แล้วลบ aux/log ของรอบนั้นอัตโนมัติ ใช้ `--output-dir <folder>` สร้าง candidate เพื่อตรวจ render ก่อนแทนไฟล์เผยแพร่
 
-ถ้าต้องแก้และคอมไพล์เฉลย ให้ใช้ `midterm/solutions/solutions.tex` จากโฟลเดอร์ `solutions` และส่ง `-output-directory` ไปยัง build directory ชั่วคราว คอมไพล์สองรอบ: ปกติรวม S1-S3; นิยาม `MockExamCoreOnly` ก่อน input เพื่อสร้างเฉพาะข้อ 1-12 อย่านำคำตอบเสริมไปนับใน 100 คะแนน
+เฉลยคอมไพล์ `midterm/solutions/solutions.tex` สองรอบจากโฟลเดอร์ `solutions` โดยส่ง `-output-directory` ไป build directory ชั่วคราว ปกติรวม S1-S3; นิยาม `MockExamCoreOnly` ก่อน input เพื่อสร้างเฉพาะข้อ 1-12 ไม่สร้าง component PDFs ค้างใน source
 
-ไฟล์ข้อสอบแยกภาษาเก่าและ component PDFs ถูกเลิกใช้และนำออก เหลือเฉพาะ TH_EN.pdf เป็นข้อสอบหลักและเฉลยไทยสองไฟล์ พิมพ์ที่ 100% เพื่อรักษาขนาดตัวอักษรและพื้นที่ตอบ
+## ตรวจฉบับ 28 October 2026
 
-## การตรวจรอบ 28 October 2026
+ตรวจ render ของโจทย์ทั้ง 30 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือหน้า guard แยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference
 
-ฉบับคู่ภาษา 30 หน้าเป็น A4 แนวตั้ง ตรวจคำถาม 1-12, ข้อย่อย, R1-R11, งาน A-I, story points, ตัวเลขวัน/เวลา, filenames และ commit message เทียบกับโจทย์/เฉลยเดิม ตรวจคะแนน 25+25+50 = 100 และตรวจว่าไม่มี S1-S3 หรือคำตอบแทรกในข้อสอบหลัก ตรวจเลขหน้าทั้งเล่มและจำนวนหน้าบนปก ไม่พบหน้าว่าง ข้อความล้น หรืออักษรหายจาก build ตรวจภาพเรนเดอร์ทุกหน้า โดยเน้นการจับคู่ภาษา ขอบตาราง พื้นที่เขียน และ diagram skeletons ผลนี้เป็นการตรวจชุดฝึก ไม่ใช่การรับรองข้อสอบจริง
+ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน

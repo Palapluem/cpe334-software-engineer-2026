@@ -24,7 +24,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory(prefix="cpe334-mock-", dir=scratch) as work:
         command = [
             "xelatex", "-interaction=nonstopmode", "-halt-on-error",
-            "-jobname=TH_EN", f"-output-directory={work}", "main.tex",
+            "-jobname=CPE334_Midterm_Mock_TH_EN", f"-output-directory={work}", "main.tex",
         ]
         for _ in range(2):
             result = subprocess.run(
@@ -33,7 +33,7 @@ def main() -> None:
             )
             if result.returncode:
                 raise SystemExit(result.stdout)
-        log = (Path(work) / "TH_EN.log").read_text(errors="replace")
+        log = (Path(work) / "CPE334_Midterm_Mock_TH_EN.log").read_text(errors="replace")
         bad = re.findall(
             r"^.*(?:Overfull \\[hv]box|Missing character|undefined references).*$",
             log, flags=re.MULTILINE,
@@ -41,8 +41,8 @@ def main() -> None:
         if bad:
             raise SystemExit("\n".join(bad))
         destination.mkdir(parents=True, exist_ok=True)
-        output = destination / "TH_EN.pdf"
-        shutil.copyfile(Path(work) / "TH_EN.pdf", output)
+        output = destination / "CPE334_Midterm_Mock_TH_EN.pdf"
+        shutil.copyfile(Path(work) / output.name, output)
     print(output)
 
 
