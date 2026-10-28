@@ -6,7 +6,7 @@ These student-created materials are for study and timed practice. They are not a
 
 | File | Format | Contents |
 | --- | --- | --- |
-| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **30 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English question text followed by Thai; 3 parts, 12 questions, 100 marks, 3 hours |
+| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **33 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English question text followed by Thai; 3 parts, 12 questions, 100 marks, 3 hours |
 | [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 15 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
 | [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 18 pages | The same core answers followed by S1-S3 |
 
@@ -33,11 +33,11 @@ These student-created materials are for study and timed practice. They are not a
 | TokTickIT shared requirements | 19-20 | R1-R12 ใช้ร่วมกันในข้อ 8-10 |
 | Use Case Diagram | 21-22 | 8: **10** |
 | State Diagram | 23 | 9: **10** |
-| List / Form UI | 24-25 | 10: **10** |
-| Git context | 26 | ข้อสมมติร่วม แต่ข้อ 11/12 เริ่มจาก graph ของตนเอง |
-| Git: predict graph | 27 | 11: **10** |
-| Git: commands and redraw | 28-30 | 12: **10** |
-| **รวม** | **30** | **100 คะแนน** |
+| Role dashboards, Queue and Detail | 24-27 | 10: **10**; dashboard frames are on p.25 |
+| Git context | 28 | ข้อสมมติร่วม แต่ข้อ 11/12 เริ่มจาก graph ของตนเอง |
+| Git: integrate a feature into `sprint_1` | 29-30 | 11: **10** |
+| Git: commands and redraw | 31-33 | 12: **10** |
+| **รวม** | **33** | **100 คะแนน** |
 
 ข้อ 1 วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ ผลคาดหวังและการปรับข้อความ ข้อ 2 ครบองค์ประกอบข้อเสนอ 8 ด้าน ข้อ 3 ใช้ default deny และไม่มี role inheritance ในระบบ WorkshopHub ข้อ 4 ยึดเหตุการณ์ script รันบน server ไม่เปลี่ยนเป็น XSS ฝั่ง browser
 
@@ -45,7 +45,7 @@ These student-created materials are for study and timed practice. They are not a
 
 พาร์ท 50 คะแนนใช้เรื่อง TokTickIT แบบย่อสำหรับข้อ 8-10 และสถานการณ์ Git สำหรับข้อ 11-12 เรื่อง TokTickIT เป็นโจทย์ฝึกที่แต่งตามบริบทที่นักศึกษาเล่า ไม่ใช่การถอดข้อสอบจริงหรือคัดกฎแลปทั้งหมด R1 ระบุ Administrator เป็นชนิดย่อยของ IT Staff **เฉพาะแบบจำลองนี้** เพื่อฝึก generalization; ไม่ใช่กฎสากลของ RBAC ข้อ 8 ใช้เฉพาะ nodes ที่ให้ ส่วนข้อ 9 ใช้ state paths ที่เขียนใน R8-R10 ไม่เติม transition จากความจำของแลป
 
-ข้อ 11 เริ่ม `A--B` โดยทุก branch/ref ที่ให้ชี้ B และ HEAD อยู่ main; switch ไป feature แล้ว commit C, switch ไป staging แล้ว commit D จึงแยกจาก B คนละสาย ก่อน merge เป็น E ที่มี parents D/C ให้เติมกราฟก่อนและหลัง พร้อมเหตุผล ไม่มี switch กลับ main หลัง merge ข้อ 12 เริ่มคนละ snapshot: D/E ต่ออยู่บน feature สายเดียว จึงยังฝึก fast-forward และการสร้าง F หลัง stage สามไฟล์ด้วยข้อความ commit เดิม ไม่มี fetch/push ที่โจทย์ไม่ได้สั่ง และห้ามใช้ `git add .`
+ข้อ 11 ใช้ graph ตั้งต้นตามที่นักศึกษาจำได้จากข้อสอบจริง: `A---B---C [main, origin/main]` และ `D [sprint_1, origin/sprint_1]` แยกจาก B; โจทย์ฝึกเพิ่ม feature branch `feature/load_scores` ที่ E จาก B เพื่อให้ได้สถานการณ์สามปลายสาย จุดเริ่มและชื่อ `sprint_1` สะท้อนความทรงจำของนักศึกษา ส่วนรายละเอียด ExamScore, F/G, คำสั่งและคำถามย่อยเป็นโจทย์ฝึกที่สร้างต่อ ไม่ได้อ้างว่าเป็นข้อความหรือคำตอบตรงจากข้อสอบจริง ผู้ทำ stage เฉพาะ `score_data.py`, commit F, merge เข้า `sprint_1` ให้เป็น G และกลับไป `main`; ไม่มี push ข้อ 12 เริ่มคนละ snapshot: D/E ต่ออยู่บน feature สายเดียว จึงฝึก fast-forward และสร้าง F หลัง stage สามไฟล์ด้วยข้อความ commit ที่กำหนด ไม่มี fetch/push ที่โจทย์ไม่ได้สั่ง และห้ามใช้ `git add .`
 
 ## ความครอบคลุมและแหล่งข้อมูล
 
@@ -57,7 +57,7 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 | 5 | Lecture 10 pp. 14-21 | คง tasks, owners, durations, วันที่และ buffers; meeting notes ของ RACI เพิ่มเพื่อให้กรอกครบ |
 | 6-7 | Lecture 10 pp. 22-26 | คง client facts, sprint goal, anchor และ velocity |
 | 8-10 | [Lecture 4](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) pp. 5-8, 45-46, 111-117; บริบท TokTickIT จากคำบอกเล่านักศึกษา | แต่ง R1-R12 ให้ตอบได้ในตัวเอง; ไม่ใช่ R1-R11 ของ KU Registration ใน Samples |
-| 11 | [Midterm Samples](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 6, 12, 21; ลักษณะสถานการณ์ที่นักศึกษาเล่าหลังสอบ | ดัดแปลงเป็น switch/commit C และ D คนละ branch แล้ว merge E; ไม่ใช่การคัด graph ของ 2.5 เดิม |
+| 11 | [Midterm Samples](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 6, 12, 21; ความทรงจำหลังสอบของนักศึกษา | คงจุดเริ่มที่จำได้ว่า main อยู่ C และ `sprint_1` อยู่ D จาก B; เพิ่ม feature branch และส่วนที่เหลือเป็นโจทย์ฝึก ไม่ใช่การคัด graph หรือเนื้อหาข้อสอบจริง |
 | 12 | Samples pp. 6, 10-11, 20-21 | คง 2.3: ancestry, refs, filenames และ commit message; ใช้กราฟเรียงบรรทัด/วงเล็บและแผงคำสั่งตามรูปแบบต้นฉบับ |
 | S1 | Lecture 4 pp. 5-8, 64-65 | Grades Submission Use Case; ฝึกแยกจาก TokTickIT |
 | S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
@@ -89,6 +89,6 @@ python3 preparation/mock-exam/midterm/build.py
 
 ## ตรวจฉบับ 28 October 2026
 
-ตรวจ render ของโจทย์ทั้ง 30 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือหน้า guard แยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference รอบแก้ notation อ่านส่วน Git ใน Samples pp. 6-14 และคำตอบ pp. 18-26 พร้อมเทียบภาพหน้า 7, 13, 20-21; ปรับกราฟโจทย์/เฉลยทุกขั้นและ S3 เป็นรูปแบบเดียวกันโดยไม่เปลี่ยน ancestry หรือคะแนน ลบตาราง refs ที่ซ้ำกับกราฟเต็มในเฉลยข้อ 11 ผลตรวจสถานการณ์ด้วย Git จริงใน repository ชั่วคราวแยกจากรอบก่อนยังใช้ได้: C และ D มี parent B; E มี parents D/C; source/main/origin refs ไม่เลื่อน และ HEAD ยังอยู่ staging จากนั้นลบ repository ทดสอบ
+ตรวจ render ของโจทย์ทั้ง 33 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือกล่องคำตอบแยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference ตรวจ graph ข้อ 11 จากความทรงจำที่นักศึกษาระบุ: C อยู่บน `main`, D อยู่บน `sprint_1` ซึ่งแยกจาก B; feature branch และเหตุการณ์หลังจากนั้นระบุชัดว่าเป็นส่วนที่แต่งเพิ่มสำหรับฝึก ไม่ยืนยันว่าเป็นโจทย์จริง
 
 ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน

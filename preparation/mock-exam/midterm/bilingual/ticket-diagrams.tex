@@ -8,26 +8,31 @@
  \draw (#2,{#3-.08})--({#2+.27},{#3-.43});
  \node[align=center,text width=2.25cm] at (#2,{#3-.77}) {#4};}
 \newcommand{\ticketUseCaseNodes}{%
- \path[use as bounding box](0,.5)rectangle(16.8,-18.3);
- \draw(2.7,.1)rectangle(14.05,-18.1);
+ \path[use as bounding box](0,.55)rectangle(16.8,-19.1);
+ \draw(2.55,.1)rectangle(14.05,-18.7);
  \node[anchor=north,font=\bfseries]at(8.375,-.1){TokTickIT};
- \tikzset{ticketuc/.style={ellipse,draw,align=center,text width=2.7cm,minimum height=1.2cm,inner sep=3pt}}
- \node[ticketuc](create)at(6,-1.9){Create Ticket};
- \node[ticketuc](own)at(11,-1.9){View My Tickets};
- \node[ticketuc](queue)at(6,-4.7){View Ticket Queue};
- \node[ticketuc](update)at(11,-4.7){Update Ticket};
- \node[ticketuc](action)at(6,-7.5){Record Action};
- \node[ticketuc](notify)at(11,-7.5){Send Email};
- \node[ticketuc](attach)at(6,-10.3){Attach File};
- \node[ticketuc](validate)at(11,-10.3){Validate Attachment};
- \node[ticketuc](reassign)at(6,-13.1){Reassign Ticket};
- \node[ticketuc](resolve)at(11,-13.1){Resolve Ticket};
- \node[ticketuc](accounts)at(6,-15.9){Maintain Accounts};
- \node[ticketuc](gate)at(11,-15.9){Check Resolution Gate};
- \ticketActor{requester}{1.15}{-2.6}{Requester}
- \ticketActor{staff}{1.15}{-9.4}{IT Staff}
- \ticketActor{admin}{1.15}{-15.4}{Administrator}
- \node[draw,align=center,text width=2.1cm,minimum height=1.2cm](mail)at(15.55,-7.5){\textless\textless actor\textgreater\textgreater\\Email Gateway};}
+ \tikzset{ticketuc/.style={ellipse,draw,align=center,text width=2.55cm,minimum height=1.15cm,inner sep=3pt}}
+ \node[ticketuc](signin)at(5.45,-1.75){Sign In};
+ \node[ticketuc](requesterdash)at(10.95,-1.75){View Requester Dashboard};
+ \node[ticketuc](own)at(5.45,-4){View My Tickets};
+ \node[ticketuc](create)at(10.95,-4){Create Ticket};
+ \node[ticketuc](staffdash)at(5.45,-6.25){View Staff Dashboard};
+ \node[ticketuc](admindash)at(10.95,-6.25){View Admin Dashboard};
+ \node[ticketuc](queue)at(5.45,-8.5){View Ticket Queue};
+ \node[ticketuc](update)at(10.95,-8.5){Update Ticket};
+ \node[ticketuc](action)at(5.45,-10.75){Record Action};
+ \node[ticketuc](notify)at(10.95,-10.75){Send Email};
+ \node[ticketuc](attach)at(5.45,-13){Attach File};
+ \node[ticketuc](validate)at(10.95,-13){Validate Attachment};
+ \node[ticketuc](reassign)at(5.45,-15.25){Reassign Ticket};
+ \node[ticketuc](resolve)at(10.95,-15.25){Resolve Ticket};
+ \node[ticketuc](accounts)at(5.45,-17.5){Maintain Accounts};
+ \node[ticketuc](gate)at(10.95,-17.5){Check Resolution Gate};
+ \ticketActor{user}{1.15}{-1.25}{User}
+ \ticketActor{requester}{1.15}{-5}{Requester}
+ \ticketActor{staff}{1.15}{-10.75}{IT Staff}
+ \ticketActor{admin}{1.15}{-17.1}{Administrator}
+ \node[draw,align=center,text width=2.1cm,minimum height=1.2cm](mail)at(15.55,-10.75){\textless\textless actor\textgreater\textgreater\\Email Gateway};}
 \newcommand{\examTicketUseCase}{%
  \begin{center}\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{11}\selectfont]
  \ticketUseCaseNodes
@@ -46,7 +51,7 @@
  \node[circle,draw,minimum size=4.5mm,inner sep=0pt](final)at(7.6,-15.7){};
  \fill(7.6,-15.7)circle(1.3mm);}
 \newcommand{\examTicketState}{%
- \begin{center}\begin{tikzpicture}[x=1cm,y=.84cm,font=\fontsize{10}{12}\selectfont]
+ \begin{center}\begin{tikzpicture}[x=1cm,y=.72cm,font=\fontsize{10}{12}\selectfont]
  \ticketStateNodes
  \end{tikzpicture}\end{center}}
 \newcommand{\ticketNotationReference}{%
@@ -83,4 +88,20 @@
  \node[anchor=north west,text=gray]at(.35,-7.8){Actions / Threads};
  \draw(.2,-13.1)rectangle(16.6,-16.55);
  \node[anchor=north west,text=gray]at(.35,-13.25){Messages / Allowed actions};
+ \end{tikzpicture}\end{center}}
+\newcommand{\dashboardFrame}[1]{%
+ \draw(0,0)rectangle(16.8,-5.55);
+ \node[anchor=west,font=\bfseries]at(.25,-.38){#1};
+ \node[anchor=west,text=gray]at(.3,-.76){Summary cards / metrics};
+ \foreach\x/\n in{.3/1,5.78/2,11.26/3}{%
+  \draw(\x,-.95)rectangle({\x+5.22},-2.78);
+  \node[text=gray]at({\x+2.61},-1.86){Metric \n};}
+ \draw(.3,-3.02)rectangle(16.5,-5.28);
+ \node[anchor=north west,text=gray]at(.48,-3.22){Recent / needs-attention items, navigation and drill-down};}
+\newcommand{\examRoleDashboards}{%
+ \begin{center}\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{10.5}\selectfont]
+ \path[use as bounding box](0,.15)rectangle(16.8,-17.35);
+ \dashboardFrame{Requester Dashboard}
+ \begin{scope}[yshift=-5.8cm]\dashboardFrame{IT Staff Dashboard}\end{scope}
+ \begin{scope}[yshift=-11.6cm]\dashboardFrame{Administrator Dashboard}\end{scope}
  \end{tikzpicture}\end{center}}

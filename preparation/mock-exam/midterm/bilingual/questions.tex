@@ -254,14 +254,14 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \pair{ใช้ข้อกำหนด R1-R12 ของ TokTickIT ด้านล่างตอบข้อ 8-10 โดยยึดเฉพาะกฎที่ให้ ไม่ต้องเพิ่มทุกฟังก์ชันจากแลปจริง}
 {Answer Questions 8-10 using the self-contained TokTickIT specification R1-R12 below. Model only the stated behaviour; do not import other laboratory features.}
 \begin{prompttable}
-\prow{\textbf{R1. บัญชีและบทบาท} Requester แจ้งและติดตามปัญหาของตน IT Staff จัดการ Ticket ของทุกคน ในแบบจำลองนี้ Administrator เป็นชนิดย่อยของ IT Staff ใช้ความสามารถเดิมได้ทั้งหมดและเพิ่มการดูแลบัญชี ทุกคนเข้าสู่ระบบแล้วเป็น precondition ไม่ต้องวาด Login}
-{\textbf{R1. Accounts and roles.} Requesters report and track their own issues; IT Staff manage everyone's Tickets. In this model, an Administrator specializes IT Staff, inheriting all its capabilities and adding account maintenance. Sign-in is a precondition; do not draw Login.}
+\prow{\textbf{R1. บัญชีและหน้าแรกตาม role} หลัง sign in ให้ Requester, IT Staff และ Administrator ไป Dashboard ตาม role; Admin ใช้ metrics ของ Staff และอาจเพิ่มจำนวนบัญชี Requester เห็นเฉพาะ Ticket ของตน User เป็น actor ทั่วไป; Requester/IT Staff สืบทอดจาก User และ Administrator สืบทอดจาก IT Staff Ticket Owner คือ IT Staff ที่ได้รับมอบหมาย ไม่ใช่ role แยก Server ต้องตรวจสิทธิ์แม้ซ่อน control}
+{\textbf{R1. Accounts and role-based home pages.} After sign-in, route Requesters, IT Staff and Administrators to their role-specific Dashboards; Admin may add account counts to Staff metrics. Requesters see only their own Tickets. User is the general actor; Requester and IT Staff specialize User, and Administrator specializes IT Staff. Ticket Owner means assigned IT Staff, not a role. Enforce server-side authorization even when controls are hidden.}
 \prow{\textbf{R2. สร้างและติดตาม Ticket} Requester สร้าง Ticket โดยกรอก title, description และ requested priority (LOW, MEDIUM หรือ HIGH) ต้องกรอกครบ ระบบสร้าง ticket number, เวลา และสถานะ NEW อัตโนมัติ เมื่อสร้างสำเร็จต้องเรียก Send Email ผ่าน Email Gateway ทุกครั้ง Requester ดู My Tickets และรายละเอียดได้เฉพาะของตน}
 {\textbf{R2. Create and track a Ticket.} A Requester supplies the required title, description and requested priority (LOW, MEDIUM or HIGH). The system generates the ticket number, timestamps and NEW status. Every successful creation invokes Send Email through the Email Gateway. My Tickets and its detail view expose only that Requester's Tickets.}
-\prow{\textbf{R3. ข้อมูล Ticket} รายละเอียดมี ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff, status, created time และ updated time ข้อมูลที่มาจากบัญชี เวลา หมายเลข และข้อความเดิมของ Requester อ่านได้อย่างเดียว IT Staff เปลี่ยน IT priority, owner และสถานะได้ตามกฎของแต่ละรายการ}
-{\textbf{R3. Ticket data.} Details show the ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff, status, created time and updated time. Account-derived data, timestamps, identifiers and the Requester's original text are read-only. IT Staff may change IT priority, owner and status only as permitted for that Ticket.}
-\prow{\textbf{R4. Queue} IT Staff เปิด Ticket Queue เพื่อค้นหา title และกรอง status, IT priority หรือ owner รายการแสดง ticket number, title, requester, status, requested priority, IT priority, assigned staff และ updated time เลือกหนึ่งรายการเพื่อเปิด Form View ได้ มี pagination และต้องแยก “ไม่มี Ticket” ออกจาก “ไม่พบตามตัวกรอง”}
-{\textbf{R4. Queue.} IT Staff search titles and filter by status, IT priority or owner. The list shows ticket number, title, requester, status, requested priority, IT priority, assigned staff and updated time. Selecting a row opens its Form View. Provide pagination and distinguish an empty system from a filter with no matches.}
+\prow{\textbf{R3. ข้อมูลและผู้รับผิดชอบ Ticket} รายละเอียดมี ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff (Ticket Owner), status, created time และ updated time ข้อมูลจากบัญชี เวลา หมายเลข และข้อความเดิมของ Requester อ่านได้อย่างเดียว Owner อาจยังไม่ถูกกำหนดหรือเป็น IT Staff ที่ยัง active ได้หนึ่งคน IT Staff เปลี่ยน IT priority, owner และสถานะได้ตามกฎของแต่ละรายการ}
+{\textbf{R3. Ticket data and ownership.} Details show the ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff (the Ticket Owner), status, created time and updated time. Account-derived data, timestamps, identifiers and the Requester's original text are read-only. A Ticket may be unassigned or have one active IT Staff member as its Owner. IT Staff may change IT priority, owner and status only as permitted for that Ticket.}
+\prow{\textbf{R4. Dashboard และ Queue ของ IT Staff} Staff Dashboard สรุป Ticket ที่ไม่มี Owner, ที่ตนเป็น Owner, จำนวนตาม status/IT priority และรายการล่าสุด แต่ละ metric เปิด Queue ที่ตรงกัน Queue ค้น title และกรอง status/IT priority/Owner; แสดง ticket number, title, requester, status, requested/IT priority, Owner และ updated time เลือกแถวเปิด Form View ได้ ต้องมี pagination และแยก “ไม่มี Ticket” จาก “ไม่พบผลลัพธ์”}
+{\textbf{R4. Staff Dashboard and Queue.} The Staff Dashboard shows unassigned and my-owned Tickets, counts by status/IT priority and recent updates; each metric opens a matching Queue. The Queue searches titles, filters by status/IT priority/Owner, and lists ticket number, title, requester, status, both priorities, Owner and updated time. Rows open Form View. Include pagination and distinguish no Tickets from no matches.}
 \prow{\textbf{R5. การปรับ Ticket} Update Ticket ใช้เปลี่ยน IT priority หรือสถานะตามสิทธิ์ การย้าย owner เป็นพฤติกรรมเสริม Reassign Ticket ซึ่งเกิดเฉพาะเมื่อ IT Staff เลือกย้ายให้บุคลากรที่ยัง active การอัปเดตแบบอื่นทำได้โดยไม่ต้อง Reassign}
 {\textbf{R5. Updates.} Update Ticket changes IT priority or an allowed status. Reassign Ticket is an optional extension performed only when IT Staff choose another active staff member as owner. Other updates do not require reassignment.}
 \end{prompttable}
@@ -280,18 +280,18 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 {\textbf{R10. Finish or cancel.} IT Staff resolve IN\_PROGRESS to RESOLVED only after R8 passes. The Requester either accepts to CLOSED or reopens to IN\_PROGRESS. They can cancel their own NEW or OPEN Ticket to CANCELLED only. CLOSED and CANCELLED are terminal. No other transitions are permitted.}
 \prow{\textbf{R11. Validation และ stale data} ข้อความว่างบันทึกไม่ได้ หาก version ที่ส่งเก่าให้คงค่าที่ผู้ใช้พิมพ์ แสดงสถานะล่าสุดและให้ Refresh โดยไม่ส่งซ้ำอัตโนมัติ แสดง field errors หรือเหตุผลที่บันทึกไม่ได้ใกล้ control ที่เกี่ยวข้อง}
 {\textbf{R11. Validation and stale data.} Blank text cannot be saved. If the submitted version is stale, preserve the user's input, show the current record and offer Refresh without automatic resubmission. Show field errors or refusal reasons near the relevant control.}
-\prow{\textbf{R12. ขอบเขตภาพ} ข้อ 8 ให้เติมเฉพาะ relationships ของ actors และ use cases ที่มีอยู่ ข้อ 9 เติม transitions ของ states ที่ให้มา ข้อ 10 เติม fields และ controls ในกรอบหน้าจอ ไม่ต้องสร้างบัญชีใหม่ ระบบชำระเงิน หรือบริการภายนอกอื่น}
-{\textbf{R12. Diagram scope.} In Question 8 add relationships only between the supplied actors/use cases. In Question 9 connect the supplied states. In Question 10 complete the screen frames. Do not add account registration, payment or other external services.}
+\prow{\textbf{R12. ขอบเขตภาพ} ข้อ 8 เติม relationships ของ actors/use cases ที่ให้ รวม Sign In, หน้า Dashboard ตาม role และ inheritance ที่ระบุ ข้อ 9 เติม transitions ของ states ที่ให้ ข้อ 10 เติม Dashboard ของทั้งสาม role และหน้าจอ Queue/Detail ในกรอบ ไม่ต้องสร้างบัญชีใหม่ ระบบชำระเงิน หรือบริการภายนอกอื่น}
+{\textbf{R12. Diagram scope.} In Question 8 add relationships among the supplied actors and use cases, including Sign In, role-specific Dashboards and the stated inheritance. In Question 9 connect the supplied states. In Question 10 complete the three role dashboards and the Queue/Detail screens in the provided frames. Do not add account registration, payment or other external services.}
 \end{prompttable}
 \newpage
 \bq{8}{เติมความสัมพันธ์ใน Use Case Diagram}{Complete the Use Case Diagram relationships}{10}
-\pair{\textbf{เกณฑ์คะแนน:} actor associations และขอบเขต 3; include 3; extend พร้อมเงื่อนไข 2; generalization และทิศทาง 2 รวม 10 คะแนน}
-{\textbf{Marks:} actor associations and scope 3; include 3; extend with conditions 2; generalization and direction 2. Total: 10 marks.}
-\pair{ใช้ R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป Actors, use cases และ system boundary มีให้แล้ว ไม่ต้องวาดกล่องใหม่ ให้ใช้ association เส้นทึบ, dependency เส้นประพร้อม \textless\textless include\textgreater\textgreater หรือ \textless\textless extend\textgreater\textgreater และ generalization เส้นทึบหัวสามเหลี่ยมโปร่งตามความหมายของแต่ละคู่}
-{Using R1-R8 and R12, complete the skeleton on the next page. Actors, use cases and the system boundary are supplied. Do not add nodes. Use solid associations, dashed dependencies labelled \textless\textless include\textgreater\textgreater or \textless\textless extend\textgreater\textgreater, and solid generalizations with hollow triangular arrowheads as appropriate.}
+\pair{\textbf{เกณฑ์คะแนน:} associations, routing ไป Dashboard ตาม role และขอบเขต 3; include 3; extend พร้อมเงื่อนไข 2; generalization และทิศทาง 2 รวม 10 คะแนน}
+{\textbf{Marks:} associations, role-to-dashboard routing and scope 3; include 3; extend with conditions 2; generalization and direction 2. Total: 10 marks.}
+\pair{ใช้ R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป Actors, use cases และ system boundary มีให้แล้ว ไม่ต้องวาด node เพิ่ม ให้ใช้ association เส้นทึบ, dependency เส้นประพร้อม \textless\textless include\textgreater\textgreater หรือ \textless\textless extend\textgreater\textgreater และ generalization เส้นทึบหัวสามเหลี่ยมโปร่งชี้ไป actor ทั่วไป}
+{Using R1-R8 and R12, complete the skeleton on the next page. Actors, use cases and the system boundary are supplied; do not add nodes. Use solid associations, dashed dependencies labelled \textless\textless include\textgreater\textgreater or \textless\textless extend\textgreater\textgreater, and solid generalizations with hollow triangular arrowheads pointing to the more general actor.}
 \begin{prompttable}
-\prow{แสดงผู้ใช้ที่ติดต่อ Create Ticket, View My Tickets, View Ticket Queue, Update Ticket, Record Action, Resolve Ticket และ Maintain Accounts ให้ครบ การรับความสามารถผ่าน generalization ไม่ต้องลาก association ซ้ำทุกเส้น แสดง Email Gateway เชื่อมกับ use case ที่ติดต่อบริการนี้}
-{Connect the actors to Create Ticket, View My Tickets, View Ticket Queue, Update Ticket, Record Action, Resolve Ticket and Maintain Accounts. Inherited associations need not be duplicated. Connect the Email Gateway to the use case that interacts with it.}
+\prow{เชื่อม User กับ Sign In; เชื่อม Requester กับ Requester Dashboard, Create Ticket และ View My Tickets; เชื่อม IT Staff กับ Staff Dashboard, View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; เชื่อม Administrator กับ Admin Dashboard และ Maintain Accounts โดยไม่ต้องลากความสามารถที่สืบทอดซ้ำ เชื่อม Email Gateway กับ use case ที่ติดต่อบริการนี้}
+{Connect User to Sign In; Requester to the Requester Dashboard, Create Ticket and View My Tickets; IT Staff to the Staff Dashboard, View Ticket Queue, Update Ticket, Record Action and Resolve Ticket; and Administrator to the Admin Dashboard and Maintain Accounts. Do not duplicate inherited associations. Connect Email Gateway to the use case that calls it.}
 \prow{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเฉพาะเมื่อเลือกแนบไฟล์หรือย้าย owner แสดงทิศหัวลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับงานหรือ transition ของ status}
 {Distinguish mandatory reused behaviour from behaviour performed only when a file or reassignment is selected. Show arrow direction, stereotypes and extension conditions correctly. This diagram models capabilities and scope, not an execution sequence or status transitions.}
 \end{prompttable}
@@ -303,24 +303,30 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \bq{9}{เติม State Diagram ของ Ticket}{Complete the Ticket State Diagram}{10}
 \pair{ใช้ R8-R10 เชื่อม states ที่ให้ด้วยลูกศรแบบมีทิศทาง ระบุ event, ผู้กระทำ และ guard ที่จำเป็น แสดงจุดเริ่มและทางออกของ terminal states อย่าลากเส้น include, extend หรือ actor generalization ในภาพนี้ เพราะเป็น State Diagram}
 {Using R8-R10, connect the supplied states with directed transitions. Label events, actors and required guards. Show the initial path and terminal-state exits. Do not use include, extend or actor generalization here: this is a State Diagram.}
-\pair{ต้องแยก claim, start, request information, resume, resolve, accept, reopen และ cancel ให้ครบ เขียนเงื่อนไข Resolve ของ R8 กำกับลูกศรหรือใช้ชื่อ guard แล้วขยายความด้านล่าง การกระทำที่ไม่ผ่าน guard คงสถานะเดิม ไม่ต้องเพิ่มสถานะ Error}
-{Cover claim, start, request information, resume, resolve, accept, reopen and cancel. Put R8's resolution conditions on the transition, or name the guard and define it below. A refused operation retains its state; do not add an Error state.}
+\pair{Ticket Owner คือ IT Staff ที่ถูกกำหนดให้ Ticket นั้น ไม่ใช่ role ใหม่ ต้องแยก claim, start, request information, resume, resolve, accept, reopen และ cancel ให้ครบ claim กำหนด Owner; ใส่เงื่อนไข Resolve ของ R8 บนลูกศรหรือใช้ชื่อ guard แล้วอธิบายด้านล่าง การกระทำที่ไม่ผ่าน guard คงสถานะเดิม ไม่ต้องเพิ่มสถานะ Error}
+{The Ticket Owner is the IT Staff member assigned to that Ticket, not a new role. Cover claim, start, request information, resume, resolve, accept, reopen and cancel. Claim assigns the Owner. Put R8's resolution conditions on the transition, or name the guard and define it below. A refused operation retains its state; do not add an Error state.}
 \examTicketState
 \pair{\textbf{นิยาม guard}}{\textbf{Guard definition}}\blankbox{1.2cm}
 \newpage
-\bq{10}{เติม List View และ Form View}{Complete the List View and Form View}{10}
-\pair{ใช้ R2-R4 และ R7-R11 ออกแบบหน้าจอ IT Staff ในกรอบที่ให้ เติมชื่อ fields, ค่าตัวอย่าง, controls และ feedback ใช้ * นำหน้า required fields, textbox สำหรับข้อมูลแก้ได้ และเส้นเฉียงสำหรับ read-only/calculated ห้ามเติมข้อมูลบัญชีหรือสถานะที่ไม่เกี่ยวข้องเพียงเพื่อให้เต็มกรอบ}
-{Using R2-R4 and R7-R11, complete the IT Staff screens with field labels, sample values, controls and feedback. Mark required fields with *, editable values with textboxes, and read-only/calculated values with hatching. Do not add unrelated account data or states merely to fill the frame.}
+\bq{10}{เติม Dashboard ตาม role และหน้าจอ Ticket}{Complete role dashboards and Ticket screens}{10}
+\pair{ใช้ R1-R4 และ R7-R12 เติม Dashboard ของ Requester, IT Staff และ Administrator ในกรอบที่ให้ โดยหน้าแรกต้องตรงกับ role หลัง sign in ไม่ต้องวาดหน้า Login เติมข้อมูลลงกรอบ Queue/Detail ด้วย ใช้ * นำหน้า required fields, textbox สำหรับข้อมูลแก้ได้ และเส้นเฉียงสำหรับ read-only/calculated}
+{Using R1-R4 and R7-R12, complete the Requester, IT Staff and Administrator Dashboards in the supplied frames. Each signed-in role must land on its own appropriate home; do not draw a Login screen. Complete the Queue/Detail frames as well. Mark required fields with *, editable values with textboxes, and read-only/calculated values with hatching.}
 \ticketNotationReference
-\bsub{10.1}{Ticket Queue: รายการและการค้นหา}{Ticket Queue: list and search}{4}
-\pair{แสดงข้อมูล Queue ทุกช่องตาม R4 พร้อมการค้นหา ตัวกรอง การเลือกเปิด Ticket และ pagination ระบุว่าจะแสดงอะไรเมื่อระบบไม่มี Ticket กับเมื่อกรองแล้วไม่พบ วาดตารางหรือแบ่งแถวเป็น card/detail ที่อ่านง่ายได้}
-{Show every Queue field in R4, with search, filters, Ticket selection and pagination. Distinguish the true empty state from no matching results. You may use table rows or readable cards with details.}
+\bsub{10.1}{หน้าแรกและ Dashboard ตาม role}{Role-specific home dashboards}{3}
+\pair{เติมองค์ประกอบและทางไปหน้ารายละเอียดให้ครบทั้งสามกรอบ Requester แสดง Ticket ของตนที่ยังเปิด รอข้อมูล เพิ่งอัปเดต และเพิ่งแก้เสร็จ; IT Staff แสดง Ticket ที่ยังไม่มี Owner, Ticket ที่ตนเป็น Owner, สรุปตาม status หรือ IT priority และรายการที่เพิ่งอัปเดต; Administrator ใช้สรุปของ Staff และอาจเพิ่มจำนวนบัญชี ทุก metric ที่กดได้ต้องพาไปยังรายการที่ตรงกัน}
+{Complete all three frames with suitable content and drill-downs. The Requester view summarizes only their open, waiting, recently updated and recently resolved Tickets. IT Staff see unassigned Tickets, Tickets they own, counts by status or IT priority, and recently updated Tickets. The Administrator may reuse Staff metrics and add account counts. Each actionable metric must open the corresponding list.}
+\examRoleDashboards
+\newpage
+\continued{ข้อ 10 (ต่อ): Ticket Queue ของ IT Staff}{Question 10 (continued): IT Staff Ticket Queue}
+\bsub{10.2}{ค้นหาและกรอง Ticket ตาม Owner}{Search and filter Tickets by Owner}{3}
+\pair{แสดงข้อมูล Queue ทุกช่องตาม R4 พร้อมค้นหา title, ตัวกรอง status/IT priority/Owner, การเลือกเปิด Ticket และ pagination แยก empty state จาก no-results และทำให้ล้างตัวกรองได้}
+{Show every Queue field in R4, title search, status/IT priority/Owner filters, Ticket selection and pagination. Distinguish the empty state from no results and provide a way to clear filters.}
 \examTicketQueue
 \newpage
-\continued{ข้อ 10 (ต่อ): ใช้ notation เดียวกับหน้า List}{Question 10 (continued): Use the same notation as the List View}
-\bsub{10.2}{Staff Ticket Detail: ข้อมูลและการทำงาน}{Staff Ticket Detail: data and actions}{6}
-\pair{เติมข้อมูลตาม R3 แยก read-only ออกจาก IT priority, owner และ status ที่แก้ได้ แสดง Public Comments และ Internal Notes ให้แยกกัน พร้อมพื้นที่เพิ่ม Action/แนบไฟล์ และแสดงหรือเขียนกำกับกรณี Resolve ถูกปฏิเสธ กับกรณี STALE\_UPDATE โดยต้องคง input ตาม R11 ไม่ต้องวาดทุกสถานะแยกหลายหน้า}
-{Complete R3's data, separating read-only values from editable IT priority, owner and status. Distinguish Public Comments and Internal Notes, provide Action/file entry, and show or annotate a blocked Resolve and a STALE\_UPDATE while retaining the input required by R11. You need not draw a separate page for every state.}
+\continued{ข้อ 10 (ต่อ): Staff Ticket Detail}{Question 10 (continued): Staff Ticket Detail}
+\bsub{10.3}{ข้อมูล เจ้าของ Ticket และการทำงาน}{Ticket data, Owner and actions}{4}
+\pair{เติมข้อมูลตาม R3 แยก read-only จาก IT priority, Owner และ status ที่แก้ได้ Owner เลือกได้เฉพาะ IT Staff ที่ active แยก Public Comments กับ Internal Notes พร้อม Action และไฟล์แนบที่เลือกได้ แสดง feedback เมื่อ Resolve ไม่ผ่าน gate, ข้อความว่าง หรือ STALE\_UPDATE โดยคง input เดิมและไม่ส่งซ้ำอัตโนมัติ}
+{Complete R3's data, separating read-only fields from editable IT priority, Owner and status. Owner selection must include only active IT Staff. Distinguish Public Comments from Internal Notes; provide Action and optional attachment entry. Show feedback for a blocked Resolve, blank text or STALE\_UPDATE, preserving unsaved input without automatic resubmission.}
 \examTicketForm
 \newpage
 \continued{บริบทร่วมสำหรับข้อ 11-12: Git Workflow}{Shared context for Questions 11-12: Git Workflow}
@@ -347,33 +353,41 @@ File & \bilingualcell{Purpose}{หน้าที่}\\\hline
 {In A---B, B has parent A. Names in [ ] and ref -> commit locate references; HEAD -> branch marks the current branch. / and \textbackslash{} connect ancestry. A leading > is a command prompt. Answers may use a text graph or a drawn diagram.}
 \end{prompttable}
 \newpage
-\bq{11}{Switch ทำ commit แยกสาย แล้ว merge}{Switch, commit on separate branches, then merge}{10}
-\pair{เริ่มที่ main ตามกราฟ ทุก branch ในภาพมีอยู่แล้วและชี้ B ใช้ข้อสมมติร่วมของข้อ 11-12}
-{Start on main as shown. All named branches already exist and point to B. Apply the shared assumptions for Questions 11-12.}
+\bq{11}{แก้ defect แล้วรวมงานตรวจคะแนนเข้า sprint\_1}{Fix a defect and integrate score validation into sprint\_1}{10}
+\pair{ExamScore เป็นเครื่องมือที่อาจารย์ใช้ตรวจคะแนนหลังสอบและจัดทำรายงานอัตราผ่าน รุ่นที่ deploy แล้วอยู่บน \code{main} ซึ่งชี้ไป commit C ส่วนทีม Sprint แยก \code{sprint\_1} จาก B และเพิ่ม D เพื่อปรับรูปแบบรายงาน ขณะเดียวกันทีมตรวจสอบคะแนนแยก \code{feature/load\_scores} จาก B และทำ parser refactor ไว้ที่ E ทั้งสองงานต้องอยู่ในประวัติเมื่อรวมรุ่นทดสอบ}
+{ExamScore is a tool instructors use to validate marks and prepare a pass-rate report after an examination. The deployed release is on \code{main} at C. The Sprint team branched \code{sprint\_1} from B and added D for a report-format change. Separately, the score-validation team branched \code{feature/load\_scores} from B and committed a parser refactor as E. Both changes must remain in the test release.}
+\pair{ก่อนปล่อยรุ่นทดสอบ ผู้ตรวจพบว่า \code{score\_data.py} ยังรับคะแนนต่ำกว่า 0 หรือสูงกว่า 100 ได้ ผู้พัฒนาแก้ validation บน feature branch แล้ว แต่การแก้ยังไม่ stage หรือ commit และ working tree มีการเปลี่ยนแปลงนี้เพียงไฟล์เดียว \code{scores.csv} ไม่ได้แก้ ต้องบันทึก patch นี้เป็น F แล้วรวม feature เข้า \code{sprint\_1} โดยเก็บงาน D ไว้ จากนั้นกลับไป \code{main} เพื่อตรวจรุ่นที่ deploy อยู่ ไม่มีการ push ในโจทย์นี้}
+{Before preparing the test release, a reviewer finds that \code{score\_data.py} still accepts values below 0 or above 100. The developer has corrected validation on the feature branch, but the edit is not staged or committed; it is the only working-tree change. \code{scores.csv} is unchanged. Record the patch as F, integrate the feature into \code{sprint\_1} without losing D, then return to \code{main} to inspect the deployed release. Do not push.}
 \begin{gitpanel}
-A---B [HEAD -> main, origin/main]
-
-sprint_1_staging, origin/sprint_1_staging -> B
-feature/load_scores, origin/feature/load_scores -> B
+A---B---C [main, origin/main]
+     |\
+     D E [HEAD -> feature/load_scores, origin/feature/load_scores]
+sprint_1, origin/sprint_1 -> D
 \end{gitpanel}
-\pair{รันตามลำดับด้านล่าง ก่อน add ครั้งแรกให้ถือว่าแก้ score\_data.py แล้ว และก่อน add ครั้งที่สองให้ถือว่าแก้ scores.csv แล้ว commit สองครั้งสร้าง C และ D ตามลำดับ จากนั้น merge สำเร็จเป็น E โดยไม่มี conflict}
-{Run the commands below. Immediately before the first add, score\_data.py has been edited; before the second add, scores.csv has been edited. The two commits create C and D respectively. The final merge succeeds as E without conflicts.}
+\pair{สมมติ working tree มีเฉพาะการแก้ \code{score\_data.py} ดังกล่าว ให้รันคำสั่งตามลำดับ ไม่มี conflict และ merge สร้าง commit เมื่อ branch แยกสายกัน}
+{Assume the working tree contains only the stated edit to \code{score\_data.py}. Run the commands in order. There are no file conflicts, and a merge commit is created when the branches have diverged.}
 \begin{gitpanel}
-> git switch feature/load_scores
-> git add score_data.py
-> git commit -m "Validate score range"
-> git switch sprint_1_staging
-> git add scores.csv
-> git commit -m "Add regression score cases"
+> git status
+> git diff -- score_data.py
+> git add -- score_data.py
+> git commit -m "Reject out-of-range scores"
+> git switch sprint_1
 > git merge feature/load_scores
+> git switch main
 \end{gitpanel}
-\pair{วาดกราฟก่อน merge และหลัง merge พร้อม local branches, origin/* และ HEAD ทุกตัว แล้วอธิบายประเภท merge และผลของ switch ต่อการสร้าง commit โดยย่อ}
-{Draw the graphs before and after the merge, with every local branch, origin/* and HEAD. Briefly explain the merge type and whether switch itself creates a commit.}
-\begin{tabularx}{\linewidth}{|P|P|}\hline
-\bilingualcell{Before merge}{ก่อน merge} & \bilingualcell{After merge}{หลัง merge}\\\hline
-\rule{0pt}{3.4cm} & \\\hline
-\end{tabularx}
-\pair{\textbf{คำอธิบาย}}{\textbf{Explanation}}\blankbox{1cm}
+\bsub{11.1}{แสดง graph หลัง commit F}{Draw the graph after commit F}{2}
+\pair{แสดง local branches, origin/* และ HEAD โดยไม่ย้าย refs ที่คำสั่งยังไม่เปลี่ยน}{Show all local branches, origin/* and HEAD; keep every reference that these commands have not moved.}
+\blankbox{3.4cm}
+\newpage
+\continued{ข้อ 11 (ต่อ): รวม feature เข้า sprint\_1 และสลับกลับ main}{Question 11 (continued): Merge the feature into sprint\_1 and switch back to main}
+\bsub{11.2}{แสดง graph หลัง merge เข้า sprint\_1}{Draw the graph after merging into sprint\_1}{5}
+\pair{แสดง commit graph และ refs ทุกตัว ระบุชนิด merge, common ancestor และ parents ของ merge commit G อธิบายว่า local branch ใดขยับ และ origin/* ใดคงเดิม}
+{Show the commit graph and every reference. Identify the merge type, common ancestor and both parents of merge commit G. Explain which local branch moves and which origin/* references stay unchanged.}
+\blankbox{5.4cm}
+\bsub{11.3}{แสดง graph หลัง switch ไป main}{Draw the graph after switching to main}{3}
+\pair{ระบุ HEAD และตำแหน่ง branch/ref หลังคำสั่งสุดท้าย พร้อมอธิบายว่า switch สร้าง commit หรือไม่}
+{State HEAD and every branch/reference after the final command. Explain whether switching creates a commit.}
+\blankbox{3cm}
 \newpage
 \bq{12}{เขียนคำสั่งและวาด graph ทีละขั้น}{Write commands and redraw after each step}{10}
 \pair{ข้อ 12 เริ่มใหม่ตามกราฟนี้: feature แยกจาก C และได้ทำ commit D กับ E ต่อกันไว้แล้ว ขณะนี้ HEAD อยู่ feature/load\_scores ทำ 12.1-12.3 ต่อเนื่องโดยคง refs ที่ไม่มีคำสั่งเปลี่ยน ไม่ใช้ผลจากข้อ 11}

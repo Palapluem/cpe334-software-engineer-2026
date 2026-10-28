@@ -210,41 +210,17 @@ Assignees: -; Labels: enhancement; Milestone: -; Estimate: -\par
 \newpage
 \qtitle{8}{ความสัมพันธ์ใน Use Case Diagram}{10}
 \solsource{ข้อกำหนด R1-R8 และ R12 ในชุดฝึกนี้; Lecture 4 หน้า 5-8 เรื่อง actor/association และ include/extend/generalization}
-\textbf{คำตอบย่อ:} เชื่อม actor กับความสามารถที่ใช้โดยตรง ใช้ include กับงานย่อยที่ต้องทำเสมอ ใช้ extend กับการแนบไฟล์/ย้าย owner ที่เกิดเฉพาะเงื่อนไข และให้ Administrator เป็นชนิดย่อยของ IT Staff ตาม R1 ไม่ลากลูกศรให้เป็นลำดับการทำงาน
+\textbf{คำตอบย่อ:} แยก User, Requester, IT Staff และ Administrator ให้เห็น inheritance และเชื่อมแต่ละ role กับหน้า Dashboard ที่ถูกต้อง ใช้ include กับงานย่อยที่ต้องเกิดเสมอ ใช้ extend กับการแนบไฟล์/ย้าย Owner ที่เกิดเฉพาะเงื่อนไข Ticket Owner คือ IT Staff ที่ดูแล Ticket หนึ่งรายการ ไม่ใช่ account role เพิ่ม
 \begin{tabularx}{\linewidth}{|p{3.5cm}|Y|}\hline
 ชนิด & คู่ความสัมพันธ์ที่ต้องมี\\\hline
-Association (เส้นทึบ) & Requester -- Create Ticket; Requester -- View My Tickets; IT Staff -- View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; Administrator -- Maintain Accounts; Email Gateway -- Send Email\\\hline
+Association (เส้นทึบ) & User -- Sign In; Requester -- View Requester Dashboard, Create Ticket และ View My Tickets; IT Staff -- View Staff Dashboard, View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; Administrator -- View Admin Dashboard และ Maintain Accounts; Email Gateway -- Send Email\\\hline
 Include (เส้นประ) & Create Ticket $\rightarrow$ Send Email; Record Action $\rightarrow$ Send Email; Attach File $\rightarrow$ Validate Attachment; Resolve Ticket $\rightarrow$ Check Resolution Gate\\\hline
-Extend (เส้นประ) & Attach File $\rightarrow$ Record Action [เลือกไฟล์]; Reassign Ticket $\rightarrow$ Update Ticket [เลือกย้าย owner]\\\hline
-Generalization & Administrator $\rightarrow$ IT Staff ใช้เส้นทึบหัวสามเหลี่ยมโปร่งชี้ไปชนิดทั่วไป\\\hline
+Extend (เส้นประ) & Attach File $\rightarrow$ Record Action [เลือกไฟล์]; Reassign Ticket $\rightarrow$ Update Ticket [เลือกย้าย Owner]\\\hline
+Generalization & Requester $\rightarrow$ User; IT Staff $\rightarrow$ User; Administrator $\rightarrow$ IT Staff ใช้เส้นทึบหัวสามเหลี่ยมโปร่งชี้ไป actor ทั่วไป\\\hline
 \end{tabularx}
-\textbf{เหตุผล:} Include ชี้จาก use case หลักไปงานที่ต้องเรียก ส่วน extend ชี้จากพฤติกรรมเสริมกลับไปยังฐานที่ยังทำงานได้โดยไม่มีส่วนเสริม ไม่สลับทิศเพราะอ่านตามลำดับข้อความในโจทย์\par
-\textbf{เกณฑ์ตรวจ:} associations/ขอบเขตครบ 3; include สี่คู่ คู่ละ 0.75 รวม 3; extend สองคู่พร้อมเงื่อนไข คู่ละ 1 รวม 2; generalization ถูกคู่และทิศทาง 2 รวม 10 ให้บางส่วนเมื่อสื่อความหมายถูกแต่ขาดป้ายหรือทิศทาง\par
-\textbf{ขอบเขต:} ไม่เพิ่ม Login เพราะโจทย์กำหนดเป็น precondition และไม่เพิ่ม Public Comment/Internal Note เป็น nodes ใหม่ เนื่องจาก R12 ให้เติมเฉพาะโครง ความสัมพันธ์ของ Administrator ในข้อนี้เป็นกฎของโจทย์ฝึก ไม่ใช่ข้อสรุปว่า RBAC ทุกระบบต้องมี role inheritance
-\newpage
-\textbf{ข้อ 8: แผนภาพตัวอย่าง}\par
-\begin{center}\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{11}\selectfont,
- inc/.style={dashed,-{Straight Barb[length=1.5mm,width=1.1mm]},line width=.45pt},
- gen/.style={-{Triangle[open,length=2mm,width=1.7mm]},line width=.55pt},
- ulab/.style={font=\fontsize{7}{8}\selectfont,fill=white,inner sep=1pt,align=center}]
-\ticketUseCaseNodes
-\draw(requester)--(create.west);
-\draw(requester.east)--(2.25,-2.6)--(2.25,-.75)--(11,-.75)--(own.north);
-\draw(staff)--(2.1,-9.4)--(2.1,-4.7)--(queue.west);
-\draw(staff)--(2.25,-9.4)--(2.25,-6.15)--(11,-6.15)--(update.south);
-\draw(staff)--(action.west);
-\draw(staff)--(2.1,-9.4)--(2.1,-14.45)--(11,-14.45)--(resolve.south);
-\draw(admin)--(accounts.west);
-\draw(mail)--(notify.east);
-\draw[gen](admin)--node[ulab,left]{specializes}(1.15,-10.6);
-\draw[inc](create.east)--(8.4,-1.9)--node[ulab,sloped,above]{\textless\textless include\textgreater\textgreater}(8.4,-7.5)--(notify.west);
-\draw[inc](action.south)--(6,-8.85)--node[ulab,above]{\textless\textless include\textgreater\textgreater}(11,-8.85)--(notify.south);
-\draw[inc](attach.south)--(6,-11.55)--node[ulab,above]{\textless\textless include\textgreater\textgreater}(11,-11.55)--(validate.south);
-\draw[inc](resolve)--node[ulab,right]{\textless\textless include\textgreater\textgreater}(gate);
-\draw[inc](attach)--node[ulab,left]{\textless\textless extend\textgreater\textgreater\\{[file selected]}}(action);
-\draw[inc](reassign.north)--(6,-11.95)--(13.75,-11.95)--node[ulab,sloped,above]{\textless\textless extend\textgreater\textgreater\ [reassign selected]}(13.75,-4.7)--(update.east);
-\end{tikzpicture}\end{center}
-\textbf{อ่านภาพ:} เส้น association ไม่มีหัวลูกศร ไม่ตีความว่า actor เป็นข้อมูลที่ไหลผ่านระบบ เส้นที่ตัดกันไม่ใช่ junction; ปรับเส้นทางวาดได้หากคู่และชนิดความสัมพันธ์ยังตรงตาราง
+\textbf{หน้าแรกหลัง sign in:} Requester ไป Requester Dashboard; IT Staff ไป Staff Dashboard; Administrator ไป Admin Dashboard และสืบทอดความสามารถของ IT Staff ตาม R1 Owner เป็นบุคลากรที่ได้รับมอบหมายให้ Ticket ไม่ใช่ role เพิ่ม\par
+\textbf{ทิศลูกศร:} include ชี้จาก use case หลักไป use case ที่ต้องทำทุกครั้ง; extend ชี้จากพฤติกรรมเสริมไป use case ฐาน; generalization ชี้จากชนิดเฉพาะไปชนิดทั่วไป เส้น association ไม่มีหัวลูกศรและไม่ใช้แทนลำดับงาน\par
+\textbf{เกณฑ์ตรวจ:} associations, dashboard routing และขอบเขตครบ 3; include สี่คู่ คู่ละ 0.75 รวม 3; extend สองคู่พร้อมเงื่อนไข คู่ละ 1 รวม 2; generalization สามคู่และทิศทางถูก 2 รวม 10
 \newpage
 \qtitle{9}{State Diagram ของ Ticket}{10}
 \solsource{R8-R10 ในชุดฝึกนี้; Lecture 4 หน้า 45-46 เรื่อง event/guard/state transition}
@@ -285,10 +261,20 @@ CLOSED และ CANCELLED $\rightarrow$ Final & จบวงจร & ไม่�
 \textbf{canResolve =} owner exists AND completedActions $\geq 1$ AND openActions $=0$.\par
 \textbf{จุดที่ห้ามเติมเอง:} ไม่ยกเลิกจาก IN\_PROGRESS/RESOLVED ไม่เปิด CLOSED/CANCELLED กลับมา และไม่ใช้เส้น include/extend ใน State Diagram
 \newpage
-\qtitle{10}{Ticket Queue และ Staff Ticket Detail}{10}
-\solsource{R2-R4 และ R7-R11 ในชุดฝึกนี้; Lecture 4 หน้า 111-117 เรื่อง List/Form UI notation}
-\anshead{10.1 List View}{4}
-\textbf{คำตอบย่อ:} มีช่องค้นหา title และกรอง status, IT priority, owner; แสดงครบทั้งแปด fields ใน R4 เลือกเปิดรายการและเปลี่ยนหน้าได้ แยก empty กับ no-results โดยคงตัวกรองให้แก้ได้
+\qtitle{10}{Dashboard ตาม role, Ticket Queue และ Staff Ticket Detail}{10}
+\solsource{R1-R4 และ R7-R12 ในชุดฝึกนี้; Lab 4 Labsheet หน้า 3, 5-6; Lecture 4 หน้า 111-117 เรื่อง List/Form UI notation}
+\anshead{10.1 Role dashboards}{3}
+\textbf{คำตอบย่อ:} Requester เห็นสรุปเฉพาะ Ticket ของตน; IT Staff เห็นงานที่ยังไม่มี Owner, งานที่ตนรับผิดชอบ และภาพรวมตามสถานะ/priority; Administrator ใช้ภาพรวมของ Staff และอาจเพิ่มจำนวนบัญชี แต่ละ metric เปิดรายการที่ตรงกันได้
+\begin{tabularx}{\linewidth}{|p{2.7cm}|Y|Y|}\hline
+Role / หน้าแรก & เนื้อหาที่ควรแสดง & การเปิดดูต่อ\\\hline
+Requester Dashboard & Ticket ของตนที่ยังเปิด, รอข้อมูล, เพิ่งอัปเดต และเพิ่งแก้เสร็จ & My Tickets ที่กรองตามสถานะ; Create Ticket\\\hline
+IT Staff Dashboard & Unassigned; Ticket ที่ตนเป็น Owner; สรุปตาม status หรือ IT priority; รายการที่เพิ่งอัปเดต & Queue ที่กรองตาม Owner, status หรือ IT priority\\\hline
+Administrator Dashboard & ใช้ metric ของ Staff และอาจเพิ่มจำนวนบัญชีผู้ใช้ & Staff Queue และ Maintain Accounts\\\hline
+\end{tabularx}
+\textbf{เกณฑ์ตรวจ:} Requester จำกัดข้อมูลเฉพาะตนและ metric ที่กำหนด 1; Staff แสดง unassigned/owned และสรุป operational 1; Admin มีหน้าเหมาะกับ role และ drill-down โดยเพิ่ม account count ได้ 1 รวม 3\par
+\newpage
+\anshead{10.2 Ticket Queue}{3}
+\textbf{คำตอบย่อ:} มีครบ 8 fields ใน R4, ค้น title และกรอง status/IT priority/Owner, เปิดรายละเอียดและเปลี่ยนหน้าได้ แยก empty state จาก no-results และล้างตัวกรองได้
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{8}{10}\selectfont]
 \draw(0,0)rectangle(168,-108);
 \node[anchor=west,font=\bfseries]at(3,-5){TokTickIT / Ticket Queue};
@@ -304,11 +290,11 @@ CLOSED และ CANCELLED $\rightarrow$ Final & จบวงจร & ไม่�
 \draw(3,-77)rectangle(165,-103);
 \node[anchor=north west,align=left]at(5,-79){State messages (display only the applicable one):\\Empty: No Tickets have been created.\\No results: No Tickets match these filters. [Clear filters]};
 \end{tikzpicture}\end{center}
-\textbf{เกณฑ์ตรวจ:} fields ครบแปดช่อง 2; ค้นหาและตัวกรองครบ 1; เลือกเปิด/pagination 0.5; empty กับ no-results แยกกัน 0.5 รวม 4 ยอมรับ card/detail หากข้อมูลครบ ไม่จำเป็นต้องวางทุก field ในแถวแคบเดียว\par
-\textbf{Notation:} ผลลัพธ์ในตารางอ่านอย่างเดียว ช่องกรองแก้ได้; ใน Form ใช้เส้นเฉียงสำหรับค่าจากระบบและเก็บ * ไว้เฉพาะ input ที่ต้องกรอกจริง ไม่เติม * ให้ปุ่มหรือทุกคอลัมน์
+\textbf{เกณฑ์ตรวจ:} fields ครบ 1; search/filter รวม Owner และ pagination 1; เลือกเปิดรายการพร้อม empty/no-results แยกกันและล้างตัวกรองได้ 1 รวม 3 รับรูปแบบ card หากอ่านข้อมูลได้ครบ\par
+\textbf{Notation:} แถวผลลัพธ์เป็น read-only; controls สำหรับค้นหา/กรองแก้ได้ ไม่เติม * ให้ปุ่มหรือทุกคอลัมน์
 \newpage
-\anshead{10.2 Form View}{6}
-\textbf{คำตอบย่อ:} แยกข้อมูลเดิม/ข้อมูลระบบเป็น read-only จาก controls ของ IT Staff แยก public/internal ชัดเจน และเก็บข้อความที่กำลังกรอกเมื่อ stale
+\anshead{10.3 Staff Ticket Detail}{4}
+\textbf{คำตอบย่อ:} แยกค่าจากระบบออกจาก controls ของ IT Staff; Owner เลือกได้เฉพาะ active staff; Public Comments กับ Internal Notes คนละส่วน; Action มีผล OPEN/COMPLETED และไฟล์เป็น optional; ปฏิเสธ/validation/stale แสดงใกล้ control และไม่ทิ้ง input
 \begin{center}\begin{tikzpicture}[x=1mm,y=1mm,font=\fontsize{8}{10}\selectfont]
 \draw(0,0)rectangle(168,-183);
 \node[anchor=west,font=\bfseries]at(3,-5){TokTickIT / Staff Ticket Detail};
@@ -335,34 +321,54 @@ CLOSED และ CANCELLED $\rightarrow$ Final & จบวงจร & ไม่�
 \draw(3,-155)rectangle(165,-180);
 \node[anchor=north west,align=left]at(5,-157){Feedback (shown for the relevant attempt):\\Resolve blocked: No COMPLETED Action. Current status is unchanged.\\STALE\_UPDATE: New version available. Your unsaved input is retained. [Refresh]\\Validation: Action text is required. / Attachment type or size is not allowed.};
 \end{tikzpicture}\end{center}
-\textbf{เกณฑ์ตรวจ:} data/read-only และ controls ตาม R3 ครบ 2; แยก Public Comments/Internal Notes 1; Action/optional file พร้อม validation 1; Resolve gate/refusal 1; stale แล้วคง input/Refresh ไม่ส่งเอง 1 รวม 6\par
-\textbf{เงื่อนไข:} แสดง panel ข้อผิดพลาดตามเหตุการณ์จริง ไม่บังคับให้หลาย error เกิดพร้อมกัน; Requester ไม่เห็น Internal Notes หรือจำนวนรายการ และ role/state ที่ไม่มีสิทธิ์ต้องไม่เกิดการเปลี่ยนแปลง
+\textbf{เกณฑ์ตรวจ:} read-only/editable fields และ Owner ตามเงื่อนไข 1; แยก Public Comments/Internal Notes 1; Action/optional file และ validation 1; Resolve gate, blank text และ STALE\_UPDATE พร้อมคง input/ไม่ส่งซ้ำอัตโนมัติ 1 รวม 4\par
+\textbf{เงื่อนไข:} ไม่แสดง Internal Notes หรือจำนวนรายการให้ Requester และไม่ทำให้ role/state ที่ไม่มีสิทธิ์เปลี่ยนแปลง
 \newpage
-\qtitle{11}{Switch ทำ commit แยกสาย แล้ว merge}{10}
-\solsource{โจทย์สถานการณ์ดัดแปลงในชุดฝึก; หลัก three-way merge และ refs: Samples หน้า 6, 12, 21}
-\textbf{ก่อน merge:} C และ D ต่างมี parent เป็น B เพราะทำงานต่อจาก B คนละ branch ไม่ใช่ C ตามด้วย D ในเส้นเดียว HEAD อยู่ sprint\_1\_staging ที่ D หลัง switch ครั้งที่สอง
+\qtitle{11}{แก้ defect แล้วรวมงานตรวจคะแนนเข้า sprint\_1}{10}
+\solsource{โจทย์ Git ฉบับฝึกที่ดัดแปลงจากรูปแบบ Samples หน้า 6, 12, 21 และเรื่องเล่าของนักศึกษา; หลัก three-way merge และ refs}
+คำสั่งที่รักษาการแก้เฉพาะไฟล์ที่ระบุและรวมเข้า branch เป้าหมาย:
 \begin{gitpanel}
-A---B---D [HEAD -> sprint_1_staging]
-     \
-      C [feature/load_scores]
-
-main, origin/main, origin/sprint_1_staging -> B
-origin/feature/load_scores -> B
+> git status
+> git diff -- score_data.py
+> git add -- score_data.py
+> git commit -m "Reject out-of-range scores"
+> git switch sprint_1
+> git merge feature/load_scores
+> git switch main
 \end{gitpanel}
-\textbf{หลัง merge:} E เป็น merge commit ที่มี first parent D และ second parent C; เลื่อนเฉพาะ sprint\_1\_staging ไป E โดย HEAD ยังชี้ branch เดิม
+\textbf{หลัง commit F:}
 \begin{gitpanel}
-A---B---D---------E [HEAD -> sprint_1_staging]
-     \           /
-      C---------/
-
-main, origin/main, origin/sprint_1_staging -> B
-feature/load_scores -> C
-origin/feature/load_scores -> B
+A---B---C [main, origin/main]
+     |\
+     D E---F [HEAD -> feature/load_scores]
+sprint_1, origin/sprint_1 -> D
+origin/feature/load_scores -> E
 \end{gitpanel}
-
-\textbf{เหตุผล:} เป็น three-way merge เพราะ C กับ D แยกจาก common ancestor B ไม่มีปลายใดเป็น ancestor ของอีกปลาย จึง fast-forward ไม่ได้ source branch คงที่ C และ origin/* คงที่ B เพราะไม่มี fetch หรือ push การ switch เปลี่ยน current branch/working tree แต่ไม่สร้าง commit; C และ D เกิดจาก commit สองคำสั่ง ส่วน E เกิดจาก merge\par
-\textbf{เกณฑ์ตรวจ 10 คะแนน:} C และ D มี parent B ครบ 2; local branches/HEAD ก่อน merge ถูก 2; E มี parents D และ C ครบ 2; current branch/HEAD หลัง merge ถูก 1; คง main, source branch และ remote refs ถูก 2; อธิบาย three-way และ switch ไม่สร้าง commit 1\par
-\textbf{รูปแบบคำตอบ:} รับภาพวงกลมกับเส้นเชื่อมหรือ ASCII ที่สื่อ ancestry เดียวกัน อย่าเติม commit ใหม่เพียงเพราะมี switch และอย่าเลื่อน origin/* ตาม local branch โดยไม่มีการติดต่อ remote
+F มี parent E; local feature ขยับจาก E เป็น F ส่วน origin/feature ยังคง E, main/origin-main อยู่ C และ local/remote \code{sprint\_1} อยู่ D ก่อน merge\par\smallskip\noindent
+\textbf{หลัง merge G:}\par\smallskip\noindent
+\begin{gitpanel}
+A---B---C [main, origin/main]
+     |\
+     D E---F [feature/load_scores]
+      \     /
+       \---G [HEAD -> sprint_1]
+origin/sprint_1 -> D
+origin/feature/load_scores -> E
+\end{gitpanel}
+G มี parents D และ F; เป็น three-way merge เพราะ D กับ F แยกจาก common ancestor B และไม่มีปลายใดเป็น ancestor ของอีกปลาย เมื่อ merge เสร็จ HEAD ยังอยู่บน \code{sprint\_1} ที่ G และ origin refs ไม่ขยับ\par\smallskip\noindent
+\textbf{หลังคำสั่งสุดท้าย \code{git switch main}:}\par\smallskip\noindent
+\begin{gitpanel}
+A---B---C [HEAD -> main, origin/main]
+     |\
+     D E---F [feature/load_scores]
+      \     /
+       \---G [sprint_1]
+origin/sprint_1 -> D
+origin/feature/load_scores -> E
+\end{gitpanel}
+HEAD เปลี่ยนกลับไป C; local \code{sprint\_1} ยังคง G และ local feature ยังคง F
+\textbf{คะแนน:} 11.1 F ต่อจาก E และ refs ถูก (2); 11.2 three-way merge, common ancestor B, parents D/F และ refs หลัง G ถูก (5); 11.3 HEAD กลับ main ที่ C, refs คงเดิม และ switch ไม่สร้าง commit (3). รวม 10 คะแนน.\par
+\textbf{ตรวจ:} commit ขยับ feature; merge ขยับ \code{sprint\_1}; switch เปลี่ยน HEAD เท่านั้น ไม่มี push จึง origin refs คงเดิม.
 \newpage
 \qtitle{12}{คำสั่งและ graph แบบต่อเนื่อง}{10}
 \solsource{Samples ข้อ 2.3 หน้า 10-11 และเฉลยหน้า 20-21; สมมติฐาน Git หน้า 6}
