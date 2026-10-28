@@ -1,0 +1,414 @@
+% Paired questions preserve all twelve questions and the original marks.
+% Page 2.
+\bpart{1}{ข้อกำหนดและความมั่นคงปลอดภัย (25 คะแนน)}{Requirements and Security (25 marks)}
+\bq{1}{วิเคราะห์ความต้องการของผู้มีส่วนได้ส่วนเสีย}{Analyse stakeholder requirements}{8}
+\begin{prompttable}
+\prow{มหาวิทยาลัยกำลังเตรียมระบบลงทะเบียน workshop ผู้ประสานงานส่งข้อความความต้องการสี่ข้อให้ทีมพัฒนา แต่ทีมยังไม่ได้ยืนยันรายละเอียดอื่นนอกเหนือจากข้อความที่ให้ ให้วิเคราะห์แต่ละข้อแยกกัน โดยใช้หัวข้อต่อไปนี้}
+{A university is preparing a workshop registration system. Its coordinator gives the development team four requirement statements. No additional details have yet been agreed beyond those stated. Analyse each statement independently using the following criteria.}
+\prow{จำแนกประเภทเป็น functional requirement, non-functional requirement หรือ business/domain rule พร้อมเหตุผล อธิบายจุดประสงค์ ประเมินคุณภาพและจุดที่ยังไม่ชัด เสนอวิธีทดสอบหรือวัดพร้อมผลที่คาดหวัง แล้วปรับข้อความหรืออธิบายเหตุผลที่ควรคงไว้ ตัวเลขหรือเงื่อนไขที่เสนอเพิ่มต้องระบุว่ารอยืนยันกับผู้เกี่ยวข้อง}
+{Classify it as a functional requirement, non-functional requirement, or business/domain rule and justify the classification. Explain its purpose, assess its quality and ambiguities, propose a test or measurement with the expected result, then revise the statement or justify retaining it. Identify any additional conditions or numerical targets as proposals requiring stakeholder confirmation.}
+\end{prompttable}
+\bsub{1.1}{ดู workshop ที่เปิดรับลงทะเบียน}{View workshops open for registration}{2}
+\pair{“ระบบต้องให้นักศึกษาที่เข้าสู่ระบบแล้วดู workshop ทั้งหมดที่เปิดรับลงทะเบียนได้” วิเคราะห์ข้อความนี้ตามหัวข้อของข้อ 1 ให้ครบ}
+{“The system shall let a signed-in student view all workshops that are open for registration.” Analyse this statement using all the criteria in Question 1.}
+\answerlabel\answerfill
+\newpage
+% Page 3.
+\continued{ข้อ 1 (ต่อ): ใช้หัวข้อวิเคราะห์เดียวกับหน้าแรกของข้อ 1}{Question 1 (continued): Apply the same analysis criteria}
+\bsub{1.2}{ความเร็วในการลงทะเบียน}{Registration speed}{2}
+\pair{“กระบวนการลงทะเบียนควรรวดเร็ว” อธิบายว่าข้อความนี้บอกอะไรและยังขาดข้อมูลใด เสนอวิธีตรวจและผลที่คาดหวังซึ่งสอดคล้องกับการตีความของคุณ หากเพิ่มเกณฑ์ขึ้นเอง ให้ระบุว่าเป็นข้อเสนอที่ยังต้องยืนยัน}
+{“The registration process should be quick.” Explain what this statement expresses and what information is missing. Propose a check and expected result consistent with your interpretation. Mark any criteria you introduce as recommendations that still require confirmation.}
+\answerlabel\blankbox{6.6cm}
+\bsub{1.3}{ข้อจำกัดตามนโยบายมหาวิทยาลัย}{University policy limit}{2}
+\pair{“ตามนโยบายมหาวิทยาลัย นักศึกษาแต่ละคนลงทะเบียน workshop ได้ไม่เกิน 3 รายการต่อภาคการศึกษา” วิเคราะห์ตามหัวข้อเดิม โดยไม่เปลี่ยนนโยบายที่ให้ และระบุข้อมูลที่ควรถามเพิ่มก่อนนำไปพัฒนาหรือทดสอบ}
+{“University policy limits each student to three workshop registrations per semester.” Apply the same analysis criteria without changing the stated policy. Identify any details that should be clarified before implementation or testing.}
+\answerlabel\answerfill
+\newpage
+% Page 4.
+\continued{ข้อ 1 (ต่อ): วิเคราะห์ข้อความข้อสุดท้าย}{Question 1 (continued): Analyse the final statement}
+\bsub{1.4}{ยกเลิกการลงทะเบียนและดูรายชื่อ}{Cancel registrations and view participant lists}{2}
+\pair{“ระบบต้องให้นักศึกษายกเลิกการลงทะเบียน และให้ผู้ประสานงานดูรายชื่อผู้เข้าร่วมได้” วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ และสิ่งที่ควรปรับ โดยให้เหตุผลจากข้อความที่ได้รับ หากแยกเป็นหลายข้อ ต้องรักษาความต้องการเดิมให้ครบ และไม่เพิ่มสิทธิ์หรือเงื่อนไขใหม่โดยถือว่าเป็นข้อเท็จจริง}
+{“The system shall let students cancel a registration and let coordinators see participant lists.” Analyse its type, purpose, quality, verification and possible revision, using evidence from the statement. If you split it into multiple requirements, preserve all the original intent. Do not treat newly introduced permissions or conditions as given facts.}
+\answerlabel\answerfill
+\newpage
+% Page 5.
+\bq{2}{ประเมินข้อเสนอโครงการ WorkshopHub}{Evaluate the WorkshopHub proposal}{7}
+\begin{prompttable}
+\prow{ปัจจุบันนักศึกษาสมัคร workshop ของมหาวิทยาลัยผ่านแบบฟอร์มออนไลน์ที่แยกจากกัน ผู้ประสานงานรวบรวมคำตอบด้วยมือ บางครั้งจึงเกิดการลงทะเบียนซ้ำและยืนยันล่าช้า}
+{Students currently register for campus workshops through separate online forms. Coordinators combine the responses manually, sometimes causing duplicate registrations and delayed confirmations.}
+\prow{ทีมเสนอ WorkshopHub ซึ่งเป็นเว็บไซต์สำหรับนักศึกษาและผู้ประสานงาน นักศึกษาค้นหา workshop และลงทะเบียนได้ ส่วนผู้ประสานงานจัดการรายชื่อผู้เข้าร่วม ทีมคาดว่าจะลดข้อผิดพลาดและงานจัดการ รุ่นแรกครอบคลุม workshop ฟรีเท่านั้น การชำระเงินและใบรับรองจะทำภายหลัง ทีมวางแผนให้เสร็จก่อนภาคการศึกษาถัดไป}
+{The team proposes WorkshopHub, a website for students and workshop coordinators. Students can browse and register for workshops, while coordinators manage participant lists. The team expects fewer errors and less administrative work. The first release supports free workshops only; payment and attendance certificates will come later. The team plans to finish before the next semester.}
+\end{prompttable}
+\bsub{2.1}{ประเมินองค์ประกอบของข้อเสนอ}{Evaluate the proposal elements}{4}
+\pair{ประเมินข้อเสนอตามที่เขียนจริงให้ครบ 8 องค์ประกอบ ระบุว่าแต่ละส่วนมีแล้ว มีเพียงบางส่วน หรือยังไม่มี พร้อมยกข้อความหรือเหตุผลประกอบ อย่านำข้อเสนอที่คุณคิดเพิ่มไปนับว่ามีอยู่ในต้นฉบับ}
+{Assess all eight elements in the proposal as written. Mark each as present, incomplete, or missing, and support your judgment with a phrase or reason from the proposal. Do not count your own recommendations as information already provided.}
+\begingroup\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|}\hline
+องค์ประกอบ / Element & สถานะและหลักฐาน / Status and evidence\\\hline
+Problem & \rule{0pt}{.95cm}\\\hline
+Users & \rule{0pt}{.95cm}\\\hline
+Solution & \rule{0pt}{.95cm}\\\hline
+Expected value & \rule{0pt}{.95cm}\\\hline
+Scope & \rule{0pt}{.95cm}\\\hline
+Risk & \rule{0pt}{.95cm}\\\hline
+Effort & \rule{0pt}{.95cm}\\\hline
+Evidence of completion & \rule{0pt}{.95cm}\\\hline
+\end{tabularx}\endgroup
+\newpage
+% Page 6.
+\continued{ข้อ 2 (ต่อ): ใช้ข้อเสนอ WorkshopHub จากหน้าก่อน}{Question 2 (continued): Use the preceding WorkshopHub proposal}
+\bsub{2.2}{เขียนข้อเสนอฉบับปรับปรุง}{Write an improved proposal}{3}
+\pair{เขียนข้อเสนอที่ช่วยให้ทีมตัดสินใจได้ว่าจะสร้างอะไร และช่วยให้ผู้ตรวจรับทราบว่างานเสร็จเมื่อใด คงปัญหา ผู้ใช้ และขอบเขตรุ่นแรกตามโจทย์ เติมหรือเสนอวิธียืนยันส่วนที่ยังขาด แยกข้อมูลเดิมออกจากคำแนะนำของคุณให้ชัด โดยไม่แต่งตัวเลขประมาณการขึ้นเป็นข้อเท็จจริง ตอบเป็นย่อหน้าต่อเนื่องหรือหัวข้อที่เชื่อมโยงกันได้}
+{Revise the proposal so that a team can decide what to build and a reviewer can determine when it is complete. Preserve the original problem, users and first-release scope. Fill the gaps or propose how to establish the missing information. Distinguish the original facts from your recommendations; do not present invented estimates as agreed facts. You may write connected paragraphs or clearly related points.}
+\answerlabel\answerfill
+\newpage
+% Page 7.
+\bq{3}{สิทธิ์การใช้งานตามบทบาท}{Role-Based Access Control}{4}
+\begin{prompttable}
+\prow{WorkshopHub กำหนดหนึ่ง role ต่อหนึ่งบัญชี ไม่มีการสืบทอดสิทธิ์ระหว่าง roles และปฏิเสธ operation ที่นโยบายไม่ได้อนุญาต Student ดู workshop ที่เผยแพร่และส่งคำขอลงทะเบียนของตนเองได้}
+{WorkshopHub assigns exactly one role to each account. Roles do not inherit permissions, and any operation not granted by the policy is denied. A Student may view published workshops and submit their own registrations.}
+\prow{Coordinator ดู workshop ที่เผยแพร่ สร้าง workshop แก้รายละเอียด workshop และส่งออกรายชื่อผู้เข้าร่วมได้ โจทย์ไม่ได้กำหนดข้อจำกัดตามเจ้าของ workshop เพิ่มเติม}
+{A Coordinator may view published workshops, create workshops, edit workshop details, and export participant lists. No additional workshop-ownership restriction is specified.}
+\end{prompttable}
+\bsub{3.1}{เติมตารางสิทธิ์ให้ครบทุกช่อง}{Complete every permission cell}{2.5}
+\pair{ใส่ Allow หรือ Deny ตามนโยบายข้างต้น ไม่สมมติว่าบทบาทหนึ่งได้รับสิทธิ์ของอีกบทบาทโดยอัตโนมัติ}
+{Enter Allow or Deny according to the stated policy. Do not assume that one role automatically receives the permissions of another.}
+\begin{tabularx}{\linewidth}{|P|M{2.5cm}|M{2.5cm}|}\hline
+Operation & Student & Coordinator\\\hline
+ดู workshop ที่เผยแพร่ / View published workshops &\rule{0pt}{.85cm}&\\\hline
+ส่งคำขอลงทะเบียนของตน / Submit own registration &\rule{0pt}{.85cm}&\\\hline
+สร้าง workshop / Create a workshop &\rule{0pt}{.85cm}&\\\hline
+แก้ workshop / Edit workshop details &\rule{0pt}{.85cm}&\\\hline
+ส่งออกรายชื่อ / Export participant lists &\rule{0pt}{.85cm}&\\\hline
+\end{tabularx}
+\bsub{3.2}{การซ่อนปุ่มเพียงพอหรือไม่}{Is hiding the button sufficient?}{1.5}
+\pair{ทีมซ่อนปุ่มส่งออกรายชื่อจาก Student แล้ว การทำเช่นนี้เพียงพอหรือไม่? อธิบายสิ่งที่ backend ต้องตรวจ และเสนอ direct-request test หนึ่งกรณีพร้อมผลที่คาดหวัง}
+{The team hides the export button from Students. Is this sufficient? Explain what the backend must check, and propose one direct-request test with its expected result.}
+\answerlabel\answerfill
+\newpage
+% Page 8.
+\bq{4}{วิเคราะห์ช่องโหว่ระบบส่งรายงาน}{Analyse a report-upload vulnerability}{6}
+\begin{prompttable}
+\prow{ระบบส่งงานของมหาวิทยาลัยให้นักศึกษาอัปโหลดรายงาน PDF แต่ตรวจชนิดไฟล์เฉพาะใน browser นักศึกษาคนหนึ่งข้ามการตรวจดังกล่าว แล้วส่ง script ที่ปลอมเป็น PDF เข้าสู่ server}
+{A university assignment system allows students to upload PDF reports but checks the file type only in the browser. A student bypasses this check and sends a script disguised as a PDF to the server.}
+\prow{Server เก็บไฟล์นั้นไว้ในโฟลเดอร์ที่อนุญาตให้รัน script เมื่อมีผู้เปิด URL ของไฟล์ server จึงรัน script และ script อ่านรายงานของนักศึกษาคนอื่นได้ ใช้เหตุการณ์ที่ระบุนี้ในการตอบ และแยกผลที่เกิดแล้วออกจากผลที่เพียงอาจเกิดขึ้น}
+{The server stores the file in a folder that permits script execution. Opening its URL causes the server to execute the script, which reads other students' reports. Base your answer on this incident. Distinguish effects that have occurred from those that might merely be possible.}
+\end{prompttable}
+\bsub{4.1}{วิเคราะห์เหตุการณ์และขอบเขตความเชื่อถือ}{Analyse the incident and trust boundaries}{3}
+\pair{ระบุผู้โจมตี สิ่งที่ต้องปกป้อง (assets) จุดที่ผู้โจมตีเข้าถึงระบบ (attack surface) และ trust boundary ที่ถูกข้าม อธิบาย security objective ที่เสียหายพร้อมเชื่อมกับข้อเท็จจริงในเหตุการณ์ อย่าตอบเพียงชื่อคำศัพท์โดยไม่มีเหตุผล}
+{Identify the attacker, protected assets, attack surface and crossed trust boundaries. Explain which security objective is harmed and connect your reasoning to the incident. Naming terms without explaining their relevance is not sufficient.}
+\answerlabel\answerfill
+\newpage
+% Page 9.
+\continued{ข้อ 4 (ต่อ): ใช้เหตุการณ์อัปโหลดจากหน้าก่อน}{Question 4 (continued): Use the preceding upload incident}
+\bsub{4.2}{มาตรการป้องกันและการทดสอบเชิงลบ}{Controls and negative tests}{3}
+\pair{เสนอ control และ negative test จำนวน 2 คู่ แต่ละคู่ต้องระบุว่าจะป้องกันปัญหาตรงใด วิธีทดสอบที่พยายามข้ามการป้องกัน และผลที่ควรได้ เลือกมาตรการที่แก้ความเสี่ยงในเหตุการณ์จริง ไม่ใช้การตรวจใน browser เพียงอย่างเดียวเป็นมาตรการทั้งหมด}
+{Propose two control-and-negative-test pairs. For each pair, identify the weakness it addresses, describe a test that attempts to bypass the protection, and state the expected result. Choose controls relevant to the incident; browser-only validation must not be your entire defense.}
+\textbf{คู่ที่ 1 / Pair 1}\par\blankbox{7.7cm}
+\textbf{คู่ที่ 2 / Pair 2}\par\answerfill
+\newpage
+% Page 10.
+\bpart{2}{การวางแผนและดำเนินโครงการ (25 คะแนน)}{Project Planning and Execution (25 marks)}
+\bq{5}{วางแผนโครงการ DormFix}{Plan the DormFix project}{10}
+\pair{คุณเป็นผู้จัดการโครงการ DormFix ซึ่งใช้ Waterfall เพื่อสร้างเว็บแจ้งซ่อมหอพัก ทีมมี Aom (BA), Bank (UX/UI), Chai (Developer), Dao (Developer/Tester) ผู้จัดการหอพักเป็น Sponsor และหัวหน้าช่างเป็นตัวแทน User งานในตารางไม่ได้เรียงตามลำดับ ให้ใช้ข้อมูลนี้ทำข้อ 5.1-5.3}
+{You are the project manager of DormFix, a Waterfall web application for dormitory repairs. Your team is Aom (BA), Bank (UX/UI), Chai (Developer) and Dao (Developer/Tester). The dormitory manager is the Sponsor, and the maintenance head represents the User. Tasks below are not in execution order. Use them for Questions 5.1-5.3.}
+\begingroup\fontsize{9.5}{12.5}\selectfont
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{|M{.55cm}|P|P|M{1.1cm}|M{.75cm}|}\hline
+ID & งาน & Task & Owner & Days\\\hline
+A & เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ & Code the request form from the approved designs & Chai & 4\\\hline
+B & ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ & Submit the requirements for approval by the dormitory manager & PM & 1\\\hline
+C & ออกแบบหน้าจอจาก requirements ที่อนุมัติ & Design the screens from the approved requirements & Bank & 3\\\hline
+D & ทดสอบโปรแกรมสองส่วนร่วมกัน & Test the two coded parts together & Dao & 2\\\hline
+E & เขียน requirements เป็นงานแรก & Write the requirements; this is the first task & Aom & 3\\\hline
+F & ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ & Submit both designs for approval by the maintenance head & PM & 1\\\hline
+G & ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ & Design the database from the approved requirements & Chai & 2\\\hline
+H & ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ & Submit the tested system for acceptance by the dormitory manager & PM & 1\\\hline
+I & เขียน dashboard ช่างจากแบบที่อนุมัติ & Code the technician dashboard from the approved designs & Dao & 3\\\hline
+\end{tabularx}\endgroup
+\pair{ใช้ชื่อผู้ทำและจำนวนวันตามตารางในการวางแผน รายละเอียดการอนุมัติและคำว่า “จากแบบที่อนุมัติ” หรือ “ระบบที่ทดสอบแล้ว” เป็นข้อมูลที่ต้องใช้กำหนดความสัมพันธ์ของงาน ไม่จำเป็นต้องใช้ทุกช่องของแบบฟอร์มคำตอบ}
+{Use the stated owner and duration for scheduling. Approval steps and phrases such as “from the approved designs” and “the tested system” determine task relationships. You do not need to fill every available answer box.}
+\newpage
+% Page 11.
+\continued{ข้อ 5 (ต่อ): ใช้รายการงาน A-I}{Question 5 (continued): Use Tasks A-I}
+\bsub{5.1}{จัด WBS ตาม milestone ที่บรรลุ}{Organize a milestone-based WBS}{3}
+\begin{prompttable}
+\prow{เติมชื่อ milestone ระดับแรกในช่อง 1.1-1.4 เรียงจากซ้ายไปขวาตามลำดับที่บรรลุ แล้วใส่ตัวอักษรงาน A-I ลงในช่องงานระดับถัดไปตามลำดับที่ต้องทำเพื่อให้บรรลุ milestone นั้น}
+{Fill the first-level boxes 1.1-1.4 with milestone names, ordered from left to right as they are reached. Put task letters A-I in the second-level boxes, ordered by the work needed to reach each milestone.}
+\prow{ใช้ทุกงานครั้งเดียว งานที่ทำขนานกันเรียงก่อนหลังในกลุ่มเดียวกันได้ ไม่เพิ่มงานหรือ milestone เพียงเพื่อเติมช่องให้เต็ม และเว้นช่องที่ไม่ใช้}
+{Use every task exactly once. Parallel tasks may appear in either order within their group. Do not invent tasks or milestones merely to fill the template. Leave unused boxes empty.}
+\end{prompttable}
+\examwbs
+\pair{พื้นที่ด้านล่างใช้ร่างหรืออธิบาย WBS ได้ คำตอบหลักต้องอยู่ในต้นไม้ข้างบน}
+{You may use the space below for working or a brief explanation. Record the main answer in the tree above.}
+\answerfill
+\newpage
+% Page 12.
+\continued{ข้อ 5 (ต่อ): บันทึกประชุมสำหรับ RACI}{Question 5 (continued): Meeting notes for RACI}
+\bsub{5.2}{เติม RACI ตามบทบาทที่ได้รับมอบหมาย}{Complete the RACI chart}{2}
+\pair{พิจารณาบทบาทของแต่ละคนในแต่ละงานจากบันทึกประชุมด้านล่าง กรอก R, A, C, I หรือ “-” เมื่อไม่มีบทบาทให้ครบทุกช่อง ไม่อนุมานบทบาทเพิ่มจากตำแหน่งงานเพียงอย่างเดียว}
+{Use the meeting notes below to determine each person's part in each task. Enter R, A, C, I, or “-” for no part in every cell. Do not infer additional responsibilities solely from a person's job title.}
+\begin{prompttable}
+\prow{\textbf{E:} Aom ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท}
+{\textbf{E:} Aom performs the work; PM is accountable for the outcome; Bank is consulted beforehand; Chai is informed afterward; Dao has no part.}
+\prow{\textbf{C:} Bank ลงมือทำ PM รับผิดชอบผลสำเร็จ Aom ให้ความเห็นก่อนทำ Chai รับแจ้งหลังทำ Dao ไม่มีบทบาท}
+{\textbf{C:} Bank performs the work; PM is accountable for the outcome; Aom is consulted beforehand; Chai is informed afterward; Dao has no part.}
+\prow{\textbf{G:} Chai ลงมือทำ PM รับผิดชอบผลสำเร็จ Bank ให้ความเห็นก่อนทำ Dao รับแจ้งหลังทำ Aom ไม่มีบทบาท}
+{\textbf{G:} Chai performs the work; PM is accountable for the outcome; Bank is consulted beforehand; Dao is informed afterward; Aom has no part.}
+\prow{\textbf{D:} Dao ลงมือทำ PM รับผิดชอบผลสำเร็จ Chai ให้ความเห็นก่อนทำ Aom รับแจ้งหลังทำ Bank ไม่มีบทบาท}
+{\textbf{D:} Dao performs the work; PM is accountable for the outcome; Chai is consulted beforehand; Aom is informed afterward; Bank has no part.}
+\end{prompttable}
+\begingroup\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{|M{1.1cm}|*{5}{>{\centering\arraybackslash}X|}}\hline
+Task & PM & Aom & Bank & Chai & Dao\\\hline
+E &\rule{0pt}{1.25cm}&&&&\\\hline
+C &\rule{0pt}{1.25cm}&&&&\\\hline
+G &\rule{0pt}{1.25cm}&&&&\\\hline
+D &\rule{0pt}{1.25cm}&&&&\\\hline
+\end{tabularx}\endgroup
+\newpage
+% Page 13.
+\continued{ข้อ 5 (ต่อ): เงื่อนไขการจัดตาราง}{Question 5 (continued): Scheduling conditions}
+\bsub{5.3}{วางกำหนดการเป็น Gantt chart}{Build the Gantt chart}{5}
+\begin{prompttable}
+\prow{โครงการเริ่มวันจันทร์ที่ 4 มกราคม 2027 ทำงานวันจันทร์ถึงศุกร์และไม่มีวันหยุดอื่น ใช้ owner และจำนวนวันของแต่ละงานตามตาราง A-I งานหนึ่งเริ่มได้ในวันทำงานถัดจากวันที่ predecessors และ buffers ของงานเหล่านั้นเสร็จครบ}
+{The project starts on Monday 4 January 2027. Work is Monday to Friday with no other holidays. Use the owner and duration in the A-I task table. A task starts on the working day after all its predecessors and their buffers have finished.}
+\prow{คุณและสมาชิกทีมทั้งสี่ทำ DormFix เต็มเวลา ส่วนผู้เกี่ยวข้องนอกทีมมีงานอื่นด้วย ใส่ task buffer 1 วันและ project buffer 2 วันเฉพาะจุดที่จำเป็น}
+{You and all four team members work full-time on DormFix. External stakeholders also have other duties. Add a 1-day task buffer and a 2-day project buffer only where necessary.}
+\prow{Milestone อยู่วันสุดท้ายที่ทำเครื่องหมายของงานสุดท้ายในกลุ่ม ส่วน milestone สุดท้ายอยู่วันสุดท้ายของ project buffer และไม่เพิ่มวันทำงานเพื่อทำ milestone}
+{A milestone is reached on the last marked day of its group's final task. The final milestone is reached on the last day of the project buffer. A milestone does not add a working day.}
+\prow{ใช้ตารางหน้าถัดไป กรอก No. ตาม WBS, Task, Owner, Start และ Due โดย Start/Due เป็นวันแรก/สุดท้ายที่ทำเครื่องหมาย รวม buffer ใช้ X แทนวันทำงาน, - แทน buffer, * แทน milestone และแสดง dependency arrows เว้นแถวที่ไม่ใช้}
+{Use the chart on the next page. Fill No. from the WBS, Task, Owner, Start and Due. Start/Due are the first/last marked days, including buffers. Use X for work, - for a buffer, and * for a milestone. Draw dependency arrows and leave unused rows empty.}
+\end{prompttable}
+\pair{\textbf{คำอธิบาย 1 คะแนน รวมอยู่ในข้อ 5.3:} อธิบายว่าคุณใส่ buffer ตรงใดและเพราะเหตุใด รวมทั้งเหตุผลที่ milestone ไม่ใช้เวลาทำงาน คำอธิบายต้องตรงกับตารางที่คุณวาด}
+{\textbf{Explanation: 1 mark within Question 5.3.} Explain where you placed buffers and why, and why milestones take no working time. Your explanation must match your chart.}
+\answerlabel\answerfill
+\newpage
+% Page 14.
+\continued{ข้อ 5.3 (ต่อ): ตารางคำตอบ เดือนมกราคม 2027}{Question 5.3 (continued): January 2027 answer chart}
+\pair{No. = รหัส WBS; Task = ชื่อ milestone หรือตัวอักษรงาน; Owner = ผู้ทำตามโจทย์ (milestone ไม่มี owner); Start/Due = วันที่เริ่ม/สิ้นสุดรวม buffer ใช้แถวว่างตามต้องการ}
+{No. = WBS identifier; Task = milestone name or task letter; Owner = stated owner (none for a milestone); Start/Due = first/last dates including buffers. Use only the rows needed.}
+\examgantt
+\newpage
+% Page 15.
+\bq{6}{Backlog grooming: จองสนามแบดมินตัน}{Backlog grooming: Book a badminton court}{10}
+\begin{prompttable}
+\prow{คุณทำหน้าที่ Product Owner ระหว่าง grooming ของ Issue \#12 “Book a badminton court” ฝ่ายกีฬาซึ่งเป็น client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมง เพื่อไม่ต้องต่อคิวที่เคาน์เตอร์}
+{You act as Product Owner while grooming Issue \#12, “Book a badminton court.” The sports office, your client, wants students to book a court for one hour so they do not have to queue at the counter.}
+\prow{ระบบมีข้อมูลสนามและเวลาเปิดให้บริการแล้ว นักศึกษาแต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน ตัวอย่าง: สนาม 2 ว่างเวลา 17:00 วันนี้ หลังนักศึกษาจองสำเร็จ สนาม 2 เวลา 17:00 ต้องแสดง “Booked”}
+{Courts and opening hours are already stored in the system. A student may hold only one booking per day. Example: Court 2 is free at 17:00 today. After a student books it, Court 2 at 17:00 must be shown as “Booked.”}
+\prow{ทีมยังไม่ได้ตกลงผู้รับผิดชอบ milestone หรือ estimate ให้คงข้อมูลที่ได้รับ แยกข้อที่ต้องถามเพิ่มเติม และอย่าสมมติว่าทีมได้ตัดสินใจแล้ว}
+{The team has not agreed an assignee, milestone or estimate. Preserve the given facts and distinguish follow-up questions from decisions that have actually been made.}
+\end{prompttable}
+\bsub{6.1}{เขียน user story}{Write the user story}{2}
+\pair{เขียน role, function และ value ให้เชื่อมกันตามความต้องการ client}
+{Write a user story connecting the role, requested function and value stated by the client.}
+\blankbox{3cm}
+\bsub{6.2}{ระบุ assumptions และ details}{Record assumptions and details}{2}
+\pair{บันทึกสิ่งที่ทีมทราบแล้วจาก client แยกประเด็นที่ยังต้องถามออกจากข้อเท็จจริง และไม่เปลี่ยนความหมายของข้อจำกัดหนึ่งการจองต่อวัน}
+{Record the facts already known from the client. Separate unresolved questions from facts, and retain the meaning of the one-booking-per-day limit.}
+\answerfill
+\newpage
+% Page 16.
+\continued{ข้อ 6 (ต่อ): เกณฑ์ยอมรับและ metadata ของ Issue \#12}{Question 6 (continued): Acceptance criteria and Issue \#12 metadata}
+\bsub{6.3}{เขียน Acceptance Criteria แบบ Gherkin}{Write Gherkin acceptance criteria}{4}
+\pair{เขียน 2 สถานการณ์พร้อม Given, When และ Then: (1) จองสำเร็จตามตัวอย่างสนาม 2 เวลา 17:00 วันนี้ และ (2) ขอจองเพิ่มเมื่อมีการจองในวันนั้นอยู่แล้ว แต่ละสถานการณ์ต้องมีเงื่อนไขตั้งต้น การกระทำ และผลที่ตรวจได้สอดคล้องกัน}
+{Write two scenarios using Given, When and Then: (1) successful booking of Court 2 at 17:00 today, and (2) requesting another booking while already holding a booking that day. Each scenario must connect its precondition, action and observable outcome.}
+\textbf{สถานการณ์ที่ 1 / Scenario 1}\par\blankbox{5cm}
+\textbf{สถานการณ์ที่ 2 / Scenario 2}\par\blankbox{5cm}
+\bsub{6.4}{กำหนด metadata หลัง grooming}{Set the post-grooming metadata}{2}
+\pair{กรอกทั้งสี่ช่องตามสิ่งที่ตกลงแล้ว เลือก label ให้สอดคล้องกับประเภทงาน และใส่ “-” ในช่องที่ยังไม่มีค่า}
+{Complete all four fields using agreed information. Choose a label consistent with the type of work, and enter “-” where no value is available.}
+\begin{tabularx}{\linewidth}{|P|P|P|P|}\hline
+Assignees & Labels & Milestone & Estimate\\\hline
+\rule{0pt}{1.7cm}&&&\\\hline
+\end{tabularx}
+\newpage
+% Page 17.
+\bq{7}{Sprint planning: ShuttleNow}{Sprint planning: ShuttleNow}{5}
+\begin{prompttable}
+\prow{คุณเป็น Scrum Master ของ ShuttleNow แอปติดตามรถรับส่งในมหาวิทยาลัย Product Owner ระบุเป้าหมาย Sprint 6 ว่า “นักศึกษาติดตามรถรับส่งและทราบเวลาที่รถจะมาถึงได้”}
+{You are Scrum Master of ShuttleNow, a campus shuttle tracking app. For Sprint 6, the Product Owner states the goal: “A student can track a shuttle and know when it arrives.”}
+\prow{ทีมทำได้ 16 story points ใน Sprint ก่อน และใช้ velocity เดิม Backlog เรียงตามความสำคัญ Anchor คือ “ดูรายการเส้นทางรถรับส่ง” = 3 points ใช้ scale 1, 2, 3, 5, 8, 13, 21 การใหญ่ขึ้นหรือเล็กลงหนึ่งขั้นหมายถึงเลขถัดไปบน scale}
+{The team completed 16 story points last sprint and retains that velocity. The backlog is ranked by priority. The anchor, “View the list of shuttle routes,” is 3 points. Use the scale 1, 2, 3, 5, 8, 13, 21; a step larger or smaller means the next number on that scale.}
+\end{prompttable}
+\bsub{7.1}{ประเมิน points และเลือกงาน}{Estimate points and select work}{3}
+\pair{เติม points และ Yes/No ทุกแถว โดยใช้เป้าหมาย Sprint ข้อมูล capacity และลำดับความสำคัญที่ให้}
+{Complete Points and Yes/No in every row, using the stated sprint goal, capacity and priority order.}
+\begingroup\fontsize{9.5}{12.5}\selectfont
+\renewcommand{\tabularxcolumn}[1]{m{#1}}
+\begin{tabularx}{\linewidth}{|M{.55cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|M{1.35cm}|M{.8cm}|M{.9cm}|}\hline
+No. & User story (ไทย) & User story (English) & เทียบ anchor & Points & Yes/No\\\hline
+1 & ดูตำแหน่งรถสด & See a shuttle's live position & +2 steps &\rule{0pt}{.9cm}&\\\hline
+2 & จ่ายค่าโดยสาร QR & Pay the fare by QR code & Same &\rule{0pt}{.9cm}&\\\hline
+3 & เวลาถึงป้ายฉัน & See the arrival time at my stop & +1 step &\rule{0pt}{.9cm}&\\\hline
+4 & เตือนก่อนรถถึง & Receive an alert before arrival & Same &\rule{0pt}{.9cm}&\\\hline
+5 & เวลาถึงทุกป้าย & See arrival times for all route stops & +1 step &\rule{0pt}{.9cm}&\\\hline
+6 & แก้รายการเส้นทางถูกตัดบนมือถือ & Fix the route list being cut off on small phones & -1 step &\rule{0pt}{.9cm}&\\\hline
+\end{tabularx}\endgroup
+\bsub{7.2}{รวม points ของงานที่เลือก}{Total the selected story points}{1}
+\blankbox{.7cm}
+% Page 18.
+\newpage
+\continued{ข้อ 7 (ต่อ): อธิบาย Sprint backlog ที่เลือก}{Question 7 (continued): Explain the selected sprint backlog}
+\bsub{7.3}{อธิบายเหตุผลที่เลือกและไม่เลือก}{Explain your selection and exclusions}{1}
+\pair{เชื่อมเหตุผลกับเป้าหมาย Sprint, velocity และลำดับงาน อธิบายให้ครบทั้งงานที่เลือกและไม่เลือก}
+{Relate your reasoning to the sprint goal, velocity and order. Explain both selected and excluded work.}
+\answerfill
+\newpage
+% Page 19.
+\bpart{3}{แผนภาพ การออกแบบหน้าจอ และ Git (50 คะแนน)}{UML/UI and Git Workflow (50 marks)}
+\continued{ข้อกำหนดร่วมสำหรับข้อ 8-10: ระบบลงทะเบียนเรียน KU}{Shared requirements for Questions 8-10: KU Course Registration}
+\pair{อ่านข้อกำหนด R1-R11 ทั้งสองหน้าก่อนทำข้อ 8-10 ทุกข้อใช้ระบบเดียวกัน แต่ Sequence และ Activity มีสถานการณ์ตั้งต้นต่างกันตามคำสั่งของแต่ละข้อ}
+{Read R1-R11 across both pages before answering Questions 8-10. All three questions use the same system, but the Sequence and Activity questions specify different starting scenarios.}
+\begin{prompttable}
+\prow{\textbf{R1.} ผู้ใช้ทุกคนต้อง log in ด้วย KU account ผ่าน KU Single Sign-On (KUSSO) ระบบนี้ให้ข้อมูล role เช่น Student, University Admin และ Instructor}
+{\textbf{R1.} All users log in with their KU account through KU Single Sign-On (KUSSO). This system supplies roles such as Student, University Admin and Instructor.}
+\prow{\textbf{R2.} Department Admin สร้าง course ใหม่ได้ โดยระบุ course code, course name, description, credits และ fee}
+{\textbf{R2.} Department Admins can create a course with its course code, course name, description, credits and fee.}
+\prow{\textbf{R3.} Department Admin กำหนด course offerings โดยเลือก semester และ course code แล้วกรอก sections list ซึ่งมี section number, room, class time, display notes และ maximum students เช่น วิชาหนึ่งเปิด 4 sections จะสร้าง course offerings 4 รายการ}
+{\textbf{R3.} Department Admins set course offerings by selecting a semester and course code, then entering a sections list with section number, room, class time, display notes and maximum students. A course with four sections creates four offerings.}
+\prow{\textbf{R4.} University Admin สร้าง semester และกำหนด semester ที่เป็น currently active ได้}
+{\textbf{R4.} University Admins create semesters and set the currently active semester.}
+\prow{\textbf{R5.} Student เปิด Registration Form ของ active semester ได้ เริ่มแรกยังไม่มี offering ระบบใช้ logged-in username ดึง student ID, name, degree program, email และ login username จาก KU Student Info System มาแสดง}
+{\textbf{R5.} A Student opens a Registration Form for the active semester, initially with no offerings. Using the logged-in username, the form loads student ID, name, degree program, email and login username from the KU Student Info System.}
+\end{prompttable}
+\newpage
+% Page 20.
+\continued{ข้อกำหนดร่วมสำหรับข้อ 8-10 (ต่อ)}{Shared requirements for Questions 8-10 (continued)}
+\begin{prompttable}
+\prow{\textbf{R6.} Student เพิ่ม offerings หลายรายการลงในฟอร์มผ่าน Course Offering List View ได้ total registration fee อัปเดตตามรายวิชาที่เพิ่ม}
+{\textbf{R6.} A Student can add multiple offerings through the Course Offering List View. The total registration fee updates as courses are added.}
+\prow{\textbf{R7.} Course Offering List View แสดง course ID, course code, course name, credits, fee, semester, section, room, class time, display notes, maximum students, number registered และ seats remaining นักศึกษากรองและเลือก offerings เพื่อเพิ่มในฟอร์มได้}
+{\textbf{R7.} The Course Offering List View shows course ID, course code, course name, credits, fee, semester, section, room, class time, display notes, maximum students, number registered and seats remaining. Students can filter and select offerings to add to the form.}
+\prow{\textbf{R8.} ฟอร์มเริ่มในสถานะ Draft นักศึกษา save และกลับมาแก้ไข draft ได้ก่อน final submission}
+{\textbf{R8.} A form starts in Draft. Students may save and return to edit a draft before final submission.}
+\prow{\textbf{R9.} เมื่อ submit ระบบตรวจที่นั่งของทุก offering หาก section ใดเต็ม submission ล้มเหลวและแจ้งเตือนให้นักศึกษาแก้ไขแล้ว submit ใหม่ หากทุกรายการมีที่นั่งจึงดำเนินการชำระเงิน}
+{\textbf{R9.} On submission, the system checks every offering's seat availability. If a section is full, submission fails and a warning tells the Student to correct and resubmit. If all sections have seats, proceed to payment.}
+\prow{\textbf{R10.} เลือกชำระด้วย credit card ผ่าน KBank Payment Gateway หรือ bank transfer ผ่าน Bangkok Bank Payment Gateway (BBLPaymentGateway)}
+{\textbf{R10.} Payment is by credit card through KBank Payment Gateway or bank transfer through Bangkok Bank Payment Gateway (BBLPaymentGateway).}
+\prow{\textbf{R11.} เมื่อชำระสำเร็จ ฟอร์มเปลี่ยนเป็น Done และแก้ไขออนไลน์ไม่ได้ นักศึกษาได้รับ PDF copy ของ registration ทาง email ผ่าน KU Email (Google Workspace)}
+{\textbf{R11.} After successful payment, the form becomes Done and cannot be edited online. The Student receives a PDF copy of the registration by email through KU Email (Google Workspace).}
+\end{prompttable}
+\newpage
+% Page 21.
+\bq{8}{เติม Sequence Diagram}{Complete the Sequence Diagram}{10}
+\pair{ใช้ R1-R11 เติม messages ลงในโครงแผนภาพหน้าถัดไปให้ครอบคลุมสถานการณ์แบบ end-to-end ด้านล่าง แสดงผู้ส่ง ผู้รับ ทิศทางและลำดับข้อความ รวมผลตอบกลับที่จำเป็นให้เข้าใจผลการทำงานของระบบ สถานการณ์ข้อนี้เริ่มจาก Draft ที่บันทึกไว้แล้ว ไม่ใช่ฟอร์มว่าง}
+{Using R1-R11, complete the skeleton on the next page for the end-to-end scenario below. Show senders, receivers, message direction and order, with the replies needed to make system outcomes clear. This question resumes a saved Draft; it does not start with a blank form.}
+\begin{prompttable}
+\prow{\textbf{1.} Student เข้าสู่ระบบ}
+{\textbf{1.} A Student logs in.}
+\prow{\textbf{2.} ระบบพบ Draft Registration Form ของภาคปัจจุบันที่มี 2 offerings แล้ว จึงเปิดฟอร์มนั้นให้ทำต่อ}
+{\textbf{2.} The system finds a Draft Registration Form for the current semester containing two offerings and opens it for continuation.}
+\prow{\textbf{3.} Student เพิ่มอีก 1 offering}
+{\textbf{3.} The Student adds one more offering.}
+\prow{\textbf{4.} Student submit แต่หนึ่งใน 3 offerings เต็ม ทำให้ submission ล้มเหลว}
+{\textbf{4.} The Student submits, but one of the three offerings is full, so submission fails.}
+\prow{\textbf{5.} ระบบแจ้ง Student ถึงปัญหานี้}
+{\textbf{5.} The system notifies the Student of the problem.}
+\prow{\textbf{6.} Student เปลี่ยน offering ที่เต็มเป็น section อื่น แล้ว submit อีกครั้ง}
+{\textbf{6.} The Student replaces the full offering with another section and resubmits.}
+\prow{\textbf{7.} ครั้งนี้ submission สำเร็จ}
+{\textbf{7.} This submission succeeds.}
+\prow{\textbf{8.} Student ชำระผ่าน bank transfer}
+{\textbf{8.} The Student pays by bank transfer.}
+\prow{\textbf{9.} การลงทะเบียนเสร็จสมบูรณ์}
+{\textbf{9.} Registration is completed successfully.}
+\end{prompttable}
+\pair{ใช้ lifelines ที่ให้ในหน้าถัดไป ไม่ต้องเปลี่ยนเป็น Activity Diagram หากต้องเพิ่มสมมติฐานเพื่อให้ messages ชัดเจน ให้เขียนกำกับโดยไม่เปลี่ยนเหตุการณ์ทั้งเก้า}
+{Use the supplied lifelines on the next page; do not replace them with an Activity Diagram. If a clarification assumption is needed, state it without changing the nine events.}
+\newpage
+% Page 22.
+\continued{ข้อ 8 (ต่อ): พื้นที่เติม messages ใน Sequence Diagram}{Question 8 (continued): Sequence Diagram message workspace}
+\examsequence
+\newpage
+% Page 23.
+\bq{9}{เติม Activity Diagram}{Complete the Activity Diagram}{10}
+\pair{ใช้ R1-R11 ต่อโครง Activity ด้านล่างให้ครบ session ที่ Student เข้าระบบครั้งแรกของภาค ได้ฟอร์มว่างพร้อมข้อมูลตนเอง เลือกวิชา ชำระสำเร็จและรับยืนยัน แสดง decision branches, guards และ loops ที่จำเป็น เช่น เลือกวิธีชำระหรือแก้ไขแล้ว submit ใหม่จนสำเร็จ วางแต่ละกิจกรรมใน swimlane ของผู้รับผิดชอบ}
+{Using R1-R11, complete one session in which a Student first logs in this semester, receives a blank form with their details, selects courses, pays successfully and receives confirmation. Include the required decision branches, guards and loops, such as payment-method selection or correction and resubmission until successful. Put each activity in its responsible swimlane.}
+\examactivity
+\newpage
+% Page 24.
+\bq{10}{ออกแบบ List View และ Form View}{Design the List View and Form View}{10}
+\pair{ออกแบบ generic UI สำหรับ Student ตาม R5-R11 ใช้ * นำหน้า required fields, textbox สำหรับ editable fields และขีดเส้นเฉียงในช่อง non-editable หรือ calculated ตัวอย่าง Invoice แสดง notation เท่านั้น ให้ออกแบบข้อมูลและ controls ของระบบ Registration เอง}
+{Design generic Student interfaces for R5-R11. Use a leading * for required fields, textboxes for editable fields, and diagonal hatching for non-editable or calculated fields. The Invoice example illustrates notation only; design the Registration data and controls yourself.}
+\uiReferenceExample
+\bsub{10.1}{Course Offering List View}{Course Offering List View}{4}
+\pair{แสดงข้อมูลที่กำหนดไว้ใน R7 พร้อมวิธีกรองและเลือก offerings กลับไปเพิ่มในฟอร์ม ใช้ตาราง หรือการ์ดที่มีส่วนรายละเอียดครบได้}
+{Show the data required by R7, with filtering and selection of offerings to add to the form. You may use a table or cards with complete details.}
+\answerfill
+\newpage
+% Page 25.
+\continued{ข้อ 10 (ต่อ): ใช้ notation เดียวกับตัวอย่าง Invoice}{Question 10 (continued): Use the Invoice example's notation}
+\bsub{10.2}{Student Registration Form View}{Student Registration Form View}{6}
+\pair{กำหนด semester เป็นภาคปัจจุบันและดึงข้อมูล Student จากผู้ใช้ที่เข้าสู่ระบบ แสดง header, line items, fees และ controls ให้สอดคล้องกับ R5-R11 แสดงหรืออธิบายพฤติกรรมของ UI เมื่อเป็น Draft เมื่อมี section เต็ม และเมื่อเป็น Done ไม่ต้องวาดระบบ Invoice}
+{Fix the semester to the current semester and load Student details from the signed-in user. Show the header, line items, fees and controls required by R5-R11. Show or explain how the UI behaves in Draft, when a section is full, and in Done. Do not design an Invoice system.}
+\answerfill
+\newpage
+% Page 26.
+\continued{บริบทร่วมสำหรับข้อ 11-12: Git Workflow}{Shared context for Questions 11-12: Git Workflow}
+\begin{prompttable}
+\prow{ExamScore เป็นโปรแกรม Python แบบ command-line สำหรับอาจารย์ อ่านรายชื่อและคะแนนสอบจาก CSV ตรวจคะแนนช่วง 0-100 คำนวณสถิติและทำรายงานอัตราผ่าน เลือก Python เพื่อให้อ่านโค้ดและจัดการ CSV ได้โดยไม่รบกวนการฝึก Git}
+{ExamScore is a small Python command-line program for an instructor. It reads names and scores from CSV, validates scores from 0 to 100, computes statistics and prepares a pass-rate report. Python keeps the code and CSV processing readable while the exercise focuses on Git.}
+\prow{main แทน release ที่ deploy แล้ว sprint staging branches ใช้รวมและทดสอบงานที่เสร็จ ส่วน feature branches แยกการเปลี่ยนแปลงแต่ละงานจนพร้อมรวม}
+{main represents the deployed release. Sprint staging branches collect completed work for integration and testing. Feature branches isolate individual changes until they are ready to merge.}
+\end{prompttable}
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|P|}\hline
+File & หน้าที่ & Purpose\\\hline
+\code{score\_data.py} & โหลดและตรวจสอบคะแนนสอบ & Loads and validates exam scores\\\hline
+\code{scores.csv} & รายชื่อและคะแนนตัวอย่าง & Sample student names and scores\\\hline
+\code{validation\_notes.txt} & ไฟล์ใหม่บันทึกกรณีทดสอบ & New file documenting validation cases\\\hline
+\end{tabularx}
+\begin{prompttable}
+\prow{HEAD ระบุ local branch ที่ checkout ส่วน origin/* เป็น local remote-tracking reference ซึ่งบันทึกสถานะ GitHub ล่าสุดที่เครื่องนี้ทราบ การ switch ย้าย HEAD แต่ไม่ย้าย branch pointers}
+{HEAD identifies the checked-out local branch. Each origin/* is a local remote-tracking reference recording the latest GitHub state known to this PC. Switching moves HEAD without moving branch pointers.}
+\prow{สมมติ working directory สะอาด คำสั่งสำเร็จและไม่เกิด conflict เว้นแต่โจทย์ระบุเป็นอื่น ไม่มีการติดต่อ GitHub ถ้าไม่ได้แสดง fetch, push หรือ remote command แต่ละข้อเริ่มจาก graph ของตนเอง}
+{Assume a clean working directory, successful commands and no conflict unless stated otherwise. No command contacts GitHub unless fetch, push or another remote command is shown. Each question starts from its own graph.}
+\prow{\textbf{ใช้ชื่อไฟล์เมื่อ stage ห้ามใช้ \code{git add .}} แสดง local branches, origin/* และ HEAD ตามคำสั่งของแต่ละขั้น อย่านำ graph สุดท้ายของข้อ 11 ไปเริ่มข้อ 12}
+{\textbf{Stage explicit file names; \code{git add .} is not permitted.} Show local branches, origin/* and HEAD as requested at each step. Do not use Question 11's final graph as Question 12's starting state.}
+\end{prompttable}
+\newpage
+% Page 27.
+\bq{11}{ทำนาย repository graph หลังรันคำสั่ง}{Predict the repository graph after commands}{10}
+\pair{Developer 1 อยู่ใน local repository ตาม graph ด้านล่าง feature และ sprint แตกแขนงหลัง D ให้คำสั่ง merge สำเร็จโดยไม่มี file conflict และสร้าง merge commit G จากนั้นรัน switch ตามลำดับที่แสดง}
+{Developer 1 has the local repository below. The feature and sprint histories diverge after D. Assume the merge succeeds without a file conflict and creates merge commit G, then run switch in the stated order.}
+\begin{center}\startgitMerge\end{center}
+\begin{verbatim}
+git merge feature/basic_statistics
+git switch main
+\end{verbatim}
+\pair{วาด graph สุดท้าย โดยแสดง parents ทั้งสองของ G, local branches, remote-tracking references และ HEAD ให้ครบ จากนั้นระบุ merge type พร้อมเหตุผล และอธิบายว่าคำสั่ง switch สุดท้ายมีผลต่อ HEAD และ branch pointers อย่างไร}
+{Draw the final graph with both parents of G, all local branches, remote-tracking references and HEAD. Identify and justify the merge type, then explain how the final switch affects HEAD and branch pointers.}
+\textbf{Graph สุดท้าย / Final graph}\par\blankbox{5cm}
+\textbf{ประเภท merge และคำอธิบาย / Merge type and explanation}\par\answerfill
+\newpage
+% Page 28.
+\bq{12}{เขียนคำสั่งและวาด graph ทีละขั้น}{Write commands and redraw after each step}{10}
+\pair{Developer 1 เริ่มจาก graph ด้านล่าง ทำ 12.1-12.3 ตามลำดับ แต่ละขั้นเริ่มจากผลของขั้นก่อน ใช้ข้อสมมติในบริบทร่วมและคง references ที่ไม่มีคำสั่งเปลี่ยนแปลง}
+{Developer 1 starts from the graph below. Complete 12.1-12.3 in sequence, beginning each step from the preceding result. Apply the shared assumptions and retain references that no command changes.}
+\begin{center}\startgitFF\end{center}
+\bsub{12.1}{เปลี่ยนไป sprint staging branch}{Switch to the sprint staging branch}{2}
+\pair{เขียนคำสั่งเปลี่ยนจาก feature/load\_scores ไป sprint\_1\_staging แล้ววาด graph ใหม่ให้แสดงตำแหน่ง HEAD และ branch/remote-tracking references หลังคำสั่ง}
+{Write the command to switch from feature/load\_scores to sprint\_1\_staging. Redraw the graph to show HEAD and all branch/remote-tracking references after the command.}
+\textbf{คำสั่ง / Command}\par\blankbox{2cm}
+\textbf{Graph หลังข้อ 12.1 / Graph after 12.1}\par\answerfill
+\newpage
+% Page 29.
+\continued{ข้อ 12 (ต่อ): เริ่มจากผลของข้อ 12.1}{Question 12 (continued): Start from the result of 12.1}
+\bsub{12.2}{รวม feature branch เข้า staging}{Merge the feature branch into staging}{3}
+\pair{ขณะนี้อยู่ที่ sprint\_1\_staging ให้เขียนคำสั่งรวม feature/load\_scores เข้าสู่ branch ปัจจุบัน ระบุ merge type พร้อมเหตุผลจาก ancestry แล้ววาด graph หลัง merge โดยแสดง HEAD, local branches และ remote-tracking references ทุกตัว}
+{While on sprint\_1\_staging, write the command to merge feature/load\_scores into the current branch. Identify the merge type and justify it from the ancestry. Redraw the graph after the merge, showing HEAD, all local branches and all remote-tracking references.}
+\textbf{คำสั่งและประเภท merge / Command and merge type}\par\blankbox{4cm}
+\textbf{Graph หลังข้อ 12.2 / Graph after 12.2}\par\answerfill
+\newpage
+% Page 30.
+\continued{ข้อ 12 (ต่อ): เริ่มจากผลของข้อ 12.2}{Question 12 (continued): Start from the result of 12.2}
+\bsub{12.3}{ตรวจการเปลี่ยนแปลง stage และ commit}{Inspect, stage and commit the file changes}{5}
+\begin{prompttable}
+\prow{หลังข้อ 12.2 ผู้พัฒนาใช้ editor แก้ \code{score\_data.py} และ \code{scores.csv} และสร้างไฟล์ใหม่ \code{validation\_notes.txt} การแก้เนื้อหาเกิดขึ้นแล้ว คุณไม่ต้องเขียนโค้ด Python หรือคำสั่ง editor}
+{After 12.2, the developer uses an editor to modify \code{score\_data.py} and \code{scores.csv} and create \code{validation\_notes.txt}. The edits are already made; you do not need to write Python code or editor commands.}
+\prow{เขียนคำสั่ง Git เพื่อตรวจการเปลี่ยนแปลง stage เฉพาะสามไฟล์นี้ และสร้าง commit F ด้วยข้อความ \code{Document score validation cases} จากนั้นวาด graph โดยแสดง F, HEAD และ references ทุกตัว ไม่มีคำสั่ง push ในขั้นนี้}
+{Write Git commands to inspect the changes, stage only these three files, and create commit F with message \code{Document score validation cases}. Then draw the graph with F, HEAD and every reference. No push is performed in this step.}
+\end{prompttable}
+\textbf{คำสั่ง / Commands}\par\blankbox{5cm}
+\textbf{Graph หลังสร้าง F / Graph after creating F}\par\answerfill

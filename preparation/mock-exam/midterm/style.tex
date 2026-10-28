@@ -1,11 +1,12 @@
 % Shared chapter/solution style; class, font scale and margins match the template.
+\providecommand{\MockAssetRoot}{..}
 \usepackage{fontspec,polyglossia,graphicx,tikz,geometry,enumitem,array,lastpage,amssymb,amsmath,xcolor,tabularx}
 \usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,patterns}
 \setmainlanguage{thai}
 \XeTeXlinebreaklocale "th"
 \XeTeXlinebreakskip=0pt plus 1pt
-\setmainfont[Scale=1.33,Path=../fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
-\newfontfamily\thaifont[Scale=1.33,Script=Thai,Path=../fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
+\setmainfont[Scale=1.33,Path=\MockAssetRoot/fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
+\newfontfamily\thaifont[Scale=1.33,Script=Thai,Path=\MockAssetRoot/fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
 \newfontfamily\thaifonttt[Scale=1.0]{Menlo}
 \setmonofont[Scale=1.0]{Menlo}
 \linespread{1.25}
@@ -35,7 +36,7 @@
 \newcommand{\code}[1]{{\ttfamily #1}}
 \newcolumntype{Y}{>{\raggedright\arraybackslash}X}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-\input{../ui-reference.tex}
+\input{\MockAssetRoot/ui-reference.tex}
 % One hierarchy is shared by both question languages and the worked answer.
 \newcommand{\wbsgrid}[1][]{%
 \par\begin{center}\begin{tikzpicture}[x=1cm,y=1cm,font=\fontsize{9}{10.5}\selectfont]

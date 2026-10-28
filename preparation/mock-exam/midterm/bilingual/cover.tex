@@ -1,36 +1,19 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[top=.45cm,bottom=1cm,left=1cm,right=1cm]{geometry}
-\usepackage{fontspec,tikz,graphicx,array,amssymb}
-\usetikzlibrary{calc}
-\setmainfont[Path=../fonts/,Extension=.ttf,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]{THSarabunNew}
-\XeTeXlinebreaklocale "th"
-\XeTeXlinebreakskip=0pt plus 1pt
-\input{../exam-info.tex}
-\newcount\ExamPages
-\ifdefined\MockExamCoreOnly
-  \ExamPages=\XeTeXpdfpagecount "../chapters/exam-core.pdf"
-  \def\SupplementCoverInstruction{}
-\else
-  \ExamPages=\XeTeXpdfpagecount "../chapters/exam.pdf"
-  \def\SupplementCoverInstruction{\hspace{.35cm}-- ท้ายเล่ม: แบบฝึกเสริม S1-S3 ไม่รวมใน 100 คะแนนและเวลา 3 ชั่วโมง\par}
-\fi
-\advance\ExamPages by 1
+% Thai-only cover labels; proper names/course title retain their official form.
 \def\CoverPublication{การเผยแพร่ข้อสอบ}
 \def\CoverAllowed{อนุญาต}\def\CoverNotAllowed{ไม่อนุญาต}
 \def\CoverCourse{วิชา}\def\CoverSeat{เลขที่นั่งสอบ}
 \def\CoverDateLabel{วันที่สอบ}\def\CoverDate{\ExamDate}
 \def\CoverTimeLabel{เวลาสอบ}\def\CoverDuration{\ExamDuration}
 \def\CoverGroups{กลุ่มนักศึกษา}\def\CoverRegular{ปกติ}
-\def\CoverSet{ชุดข้อสอบ (Optional)}
+\def\CoverSet{ชุดข้อสอบ}
 \def\CoverName{ชื่อ-นามสกุล :}\def\CoverID{รหัสนักศึกษา :}
 \def\CoverDepartment{ภาควิชา/สาขาวิชา :}\def\CoverSection{กลุ่ม :}
 \def\CoverInstructionsLabel{คำชี้แจง}\def\CoverConditionsLabel{เงื่อนไขการสอบ}
 \def\CoverInstructions{%
-1. ข้อสอบมี \textbf{3 ส่วน 12 ข้อ คะแนนเต็ม 100 คะแนน} จำนวน \the\ExamPages\ หน้า (รวมหน้าปก)\par
-\hspace{.35cm}-- ส่วนที่ 1 Requirements และ Security ข้อ 1-4 รวม 25 คะแนน\par
-\hspace{.35cm}-- ส่วนที่ 2 Project Planning และ Execution ข้อ 5-7 รวม 25 คะแนน\par
-\hspace{.35cm}-- ส่วนที่ 3 UML/UI และ Git Workflow ข้อ 8-12 รวม 50 คะแนน\par
-\SupplementCoverInstruction
+1. ข้อสอบมี \textbf{3 ส่วน 12 ข้อ คะแนนเต็ม 100 คะแนน} จำนวน \pageref{LastPage}\ หน้า (รวมหน้าปก)\par
+\hspace{.35cm}-- ส่วนที่ 1 ข้อกำหนดและความมั่นคงปลอดภัย ข้อ 1-4 รวม 25 คะแนน\par
+\hspace{.35cm}-- ส่วนที่ 2 การวางแผนและดำเนินโครงการ ข้อ 5-7 รวม 25 คะแนน\par
+\hspace{.35cm}-- ส่วนที่ 3 แผนภาพ การออกแบบหน้าจอ และระบบควบคุมเวอร์ชัน ข้อ 8-12 รวม 50 คะแนน\par
 \hspace{.35cm}\textbf{\underline{ให้ทำคำตอบลงในข้อสอบ}}\par\vspace{.08cm}
 2. เขียนชื่อและรหัสนักศึกษาลงในข้อสอบทุกหน้า\par\vspace{.06cm}
 3. ใช้ปากกาหมึกสีน้ำเงินหรือสีดำ หากพื้นที่คำตอบไม่พอ ให้เขียนต่อด้านหลังของหน้าข้อสอบข้อเดียวกัน\par\vspace{.06cm}
@@ -41,7 +24,5 @@
 \def\CoverApproval{ข้อสอบได้ผ่านการพิจารณาจากคณะกรรมการประจำภาควิชาวิศวกรรมคอมพิวเตอร์แล้ว}
 \def\CoverHead{หัวหน้าภาควิชา}\def\CoverInstructor{อาจารย์ผู้สอน / ผู้ประสานงานรายวิชา}
 \def\CoverPhone{เบอร์โทรศัพท์ : ................................................}
-\begin{document}
-\pagestyle{empty}
-\input{cover-layout.tex}
-\end{document}
+\def\CoverInternational{นานาชาติ}
+\input{\MockAssetRoot/frontmatter/cover-layout.tex}

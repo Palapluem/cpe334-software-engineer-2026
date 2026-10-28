@@ -211,7 +211,7 @@ PO ดูคุณค่า/ลำดับ backlog; SM อำนวยควา
 
 - **คำอธิบายเสริม:** p95 ≤ 2 s ที่ 100 concurrent users เป็นค่าที่เสนอ ไม่ใช่ที่ coordinator ระบุ ต้องยืนยันจุดวัด เครือข่าย ชุดข้อมูลและกรณีผิดพลาด
 - **คำอธิบายเสริม:** Proposal revision เพิ่ม metric, risk/control, effort planning และ evidence/sign-off โดยคงปัญหา ผู้ใช้และขอบเขตจากโจทย์ ห้ามอ้างว่าข้อเสนอเพิ่มได้รับอนุมัติแล้ว
-- **คำอธิบายเสริม:** RACI สี่แถวตรงกับ meeting notes ใน [mock exam ข้อ 5.2](../mock-exam/midterm/chapters/questions.tex) ไม่ใช่เฉลย Lecture 10 p. 17
+- **คำอธิบายเสริม:** RACI สี่แถวตรงกับ meeting notes ใน [mock exam ข้อ 5.2](../mock-exam/midterm/bilingual/questions.tex) ไม่ใช่เฉลย Lecture 10 p. 17
 - **คำอธิบายเสริม:** กราฟ A=2, B=3, C=1, D=2 และตาราง ES/EF/LS/LF ใช้ finish-to-start ไม่มี lag/ข้อจำกัดคน เริ่ม 0 จบ 7; A-B-D=7 วัน, A-C-D=5 วัน, C float=2 ไม่ใช่กราฟ DormFix
 - **คำอธิบายเสริม:** สูตร forward/backward pass ขยาย Lecture 6 pp. 82-85 อย่าปนเวลาเริ่มศูนย์กับวันที่ inclusive ใน Gantt
 - **คำอธิบายเสริม:** SD รวมใช้รากของผลรวม variance เมื่อประมาณการอิสระ หกงาน Lecture 6 pp. 91-92 ให้ E=35.6667 h, SD=3.2318 h เป็น effort ไม่ใช่ duration เมื่อทำขนาน และหนึ่ง SD ไม่ใช่ช่วงรับประกัน

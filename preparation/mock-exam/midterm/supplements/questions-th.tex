@@ -1,0 +1,61 @@
+% Supplementary practice source only; outside the 100-mark core paper.
+% Requires the shared midterm style when included in another document.
+\newpage
+\textbf{\Large แบบฝึกเสริมนอกคะแนน}\par
+S1-S3 ใช้ฝึกประเภทที่ไม่ได้เลือกในชุดหลัก ไม่รวมใน 100 คะแนนหรือเวลา 3 ชั่วโมง ข้อ 1-12 ยังคงเป็นชุดจำลองสอบเดิม\par
+\medskip
+\textbf{S1\quad Use Case Diagram: University Grades Submission}\par
+\textbf{ข้อมูลสำหรับทำโจทย์} (เรียบเรียงจาก Lecture 4 หน้า 64-65)\par
+\begin{enumerate}[itemsep=3pt]
+\item Instructor เข้าระบบด้วย KU account ผ่าน KU Single Sign-On เฉพาะบัญชีที่ถูกต้องเท่านั้นที่เข้าใช้งานได้
+\item Instructor เลือก semester แล้วดู courses และ sections ที่เปิดใน department ของตนจาก KU Registration System
+\item เมื่อเลือก course และ section(s) ระบบดึงรายชื่อนักศึกษาที่ลงทะเบียนจาก KU Registration System มาใส่ grade sheet ได้
+\item Grade sheet มี header (Course, Semester) และรายชื่อนักศึกษา เริ่มใน Draft Instructor กรอกหรือแก้เกรด และเลือกพิมพ์สำเนาเก็บไว้ได้
+\item เมื่อกรอกเกรดครบ Instructor เปลี่ยน sheet เป็น Ready แล้วจึง submit ได้; ห้าม submit จาก Draft
+\item เมื่อ submit ระบบอัปเดต transcript ของนักศึกษาทุกคน แจ้งเกรดแต่ละคนทาง email ยืนยันผลสำเร็จ และเปลี่ยน sheet เป็น Submitted
+\end{enumerate}
+\textbf{ระบบภายนอกทั้งห้า}\par
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{5.3cm}|Y|}\hline
+KU Single Sign-On & ตรวจบัญชีและจัดการรหัสผ่าน\\\hline
+KU Registration System & ให้ข้อมูล courses/sections และผู้ลงทะเบียน\\\hline
+KU Transcript System & บันทึกเกรดอย่างเป็นทางการ\\\hline
+KU Student Information System & ให้ข้อมูลติดต่อ เช่น email ของนักศึกษา\\\hline
+KU Email Service (Google Workspace) & ส่ง email แจ้งเกรด\\\hline
+\end{tabularx}
+\par\medskip
+\textbf{คำสั่ง:} วาด Use Case Diagram ในหน้าถัดไปให้ครอบคลุมเป้าหมายของ Instructor และระบบภายนอก แสดง system boundary, actors และ associations ให้ถูก หากข้อกำหนดรองรับ ให้แสดง \code{<<include>>}, \code{<<extend>>} หรือ generalization ด้วยทิศทางและสัญลักษณ์ที่ถูกต้อง; ระบุเงื่อนไขของ \code{<<extend>>} และอย่าสร้างความสัมพันธ์ที่โจทย์ไม่ได้กำหนด\par
+\textbf{อธิบายสั้น ๆ:} อธิบายความสัมพันธ์ที่ใช้ว่าเป็นขั้นบังคับหรือทางเลือก เงื่อนไขใดทำให้ submit ได้ และมี generalization ที่ข้อกำหนดรองรับหรือไม่\par
+\blankbox{3.5cm}
+\newpage
+\textbf{\Large S1 (ต่อ): พื้นที่วาด Use Case Diagram}\par
+University Grades Submission\hfill แบบฝึกเสริม ไม่รวม 100 คะแนน\par
+\blankbox{21.5cm}
+\newpage
+\textbf{\Large S2\quad State Diagram: Service Ticket}\par
+แบบฝึกเสริม ไม่รวม 100 คะแนน ใช้เส้นทางทำงานของตัวอย่าง Lecture 4 หน้า 61-62 และข้อมูลจากหน้า 45-46\par
+\begin{enumerate}[itemsep=2pt]
+\item เมื่อบันทึก Ticket ใหม่ System สร้าง Action Record แรกโดยอัตโนมัติ กำหนด status เป็น Requested และ New Due Date เท่ากับ Initial Due Date
+\item CCE ทำ action ได้เฉพาะ Requested: อนุมัติเป็น Approved หรือปิดเป็น Closed by CCE พร้อม notes/วันนัดใหม่ได้ตามกรณี
+\item ตามเส้นทางตัวอย่าง Programmer เริ่มงานจาก Approved ให้เป็น In Progress แล้วเพิ่ม progress actions เพื่อบันทึก notes หรือวันนัดใหม่ได้โดยยังเป็น In Progress
+\item เมื่อทำงานเสร็จ Programmer ปิดเป็น Closed by Programmer และกำหนด New Due Date เป็น completion date
+\item หลังบันทึกทุก action ระบบอัปเดต Last Status และ Last Due Date ของ Ticket จาก action ล่าสุด; action ที่บันทึกแล้วแก้ไขหรือลบไม่ได้
+\item Ticket ที่ Closed by CCE หรือ Closed by Programmer เพิ่ม action ไม่ได้อีก Customer และ IT Admin ไม่ได้ทำ actions สำหรับเปลี่ยนสถานะเหล่านี้
+\end{enumerate}
+\textbf{คำสั่ง:} วาดเฉพาะวงจรสถานะของ Ticket หนึ่งใบ แสดง initial/final nodes, states, transitions และ self-loop ระบุชื่อ event และ actor ในวงเล็บเหลี่ยมตามแนว เช่น \code{approve [CCE]} ไม่ใช้ Customer/CCE/Programmer เป็นชื่อ state และไม่เติม state ที่โจทย์ไม่กำหนด\par
+\blankbox{13cm}
+\newpage
+\textbf{\Large S3\quad Git: อธิบาย repository graph}\par
+แบบฝึกเสริม ไม่รวม 100 คะแนน เรียบเรียงจาก Samples ข้อ 2.2 หน้า 8-9 ใช้ ExamScore และข้อสมมติ Git เดียวกับข้อ 11-12 ทุกคำถามอ่านจาก snapshot นี้แยกกัน เว้นแต่ระบุให้รันคำสั่ง\par
+\begin{center}\supplementgitgraph\end{center}
+\textbf{S3.1} local branch ใดถูก checkout และ HEAD ระบุ commit ใด?\par
+\blankbox{1.5cm}
+\textbf{S3.2} commit ใดบนปลายสาย local sprint ยังไม่อยู่ในประวัติที่ origin/sprint\_1\_staging อ้างถึง? อธิบายจากตัวชี้\par
+\blankbox{1.8cm}
+\textbf{S3.3} ไฟล์ใน working directory ตอนนี้มาจาก commit ใด?\par
+\blankbox{1.5cm}
+\textbf{S3.4} ถ้ารัน \code{git merge feature/load\_scores} ตอนนี้ fast-forward ได้หรือไม่? ต้องรวมแบบใดและเพราะอะไร?\par
+\blankbox{2cm}
+\textbf{S3.5} graph พิสูจน์ได้หรือไม่ว่า merge จะเกิด file conflict? เพราะอะไร?\par
+\blankbox{1.5cm}
+\textbf{S3.6} \code{git fetch origin} อาจอัปเดตอะไร และจะไม่เลื่อนอะไรให้โดยอัตโนมัติ?\par
+\blankbox{2cm}

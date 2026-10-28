@@ -1,11 +1,13 @@
 % One physical grid for both cover languages. Coordinates reproduce the Thai cover.
+\providecommand{\MockAssetRoot}{..}
+\providecommand{\CoverInternational}{International}
 \thispagestyle{empty}\null
 \begin{tikzpicture}[remember picture,overlay]
 \begin{scope}[shift={(current page.north west)},x=1mm,y=-1mm,
   every node/.style={inner sep=0pt}]
 \draw[line width=.8pt](10.136,13.946)rectangle(78.136,38.946);
 \node[anchor=base,font=\fontsize{18}{21}\selectfont\bfseries]at(44.136,21.727){\underline{\CoverPublication}};
-\node[anchor=north]at(105,13.946){\includegraphics[width=25mm]{../images/KMUTT_Logo.pdf}};
+\node[anchor=north]at(105,13.946){\includegraphics[width=25mm]{\MockAssetRoot/images/KMUTT_Logo.pdf}};
 \foreach \x in {18.2,46.4}{\draw[line width=.8pt](\x,28.5)rectangle++(6.2,6.2);}
 \draw[line width=.8pt](47.1,29.2)--(51.9,34)(47.1,34)--(51.9,29.2);
 \node[anchor=base west,font=\fontsize{16}{20}\selectfont]at(26.894,33.257){\CoverAllowed};
@@ -22,7 +24,7 @@
 \node at(135.251,65.538){13.00 - 16.00 (\CoverDuration)};
 \node at(135.251,77.91){\textbf{\underline{\CoverGroups}}};
 \node at(146.633,88.432){\CoverRegular};
-\node at(146.633,99.117){International};
+\node at(146.633,99.117){\CoverInternational};
 \node at(135.251,111.489){\textbf{\underline{\CoverSet}} : 1};
 \end{scope}
 \foreach \y in {82.1,92.785}{

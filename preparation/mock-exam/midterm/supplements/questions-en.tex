@@ -1,0 +1,61 @@
+% Supplementary practice source only; outside the 100-mark core paper.
+% Requires the shared midterm style when included in another document.
+\newpage
+\textbf{\Large Supplementary practice}\par
+S1-S3 cover question types not selected for the main paper. They are outside its 100 marks and 3-hour time limit. Questions 1-12 remain the timed mock examination.\par
+\medskip
+\textbf{S1\quad Use Case Diagram: University Grades Submission}\par
+\textbf{Requirements} (adapted from Lecture 4, pages 64-65)\par
+\begin{enumerate}[itemsep=3pt]
+\item Instructors log in with their KU account through KU Single Sign-On. Only valid accounts may access the system.
+\item Instructors choose a semester and view the courses and sections offered in their department, supplied by the KU Registration System.
+\item For a selected course and section(s), the system can load the registered students from the KU Registration System into a grade sheet.
+\item A grade sheet has a header (Course, Semester) and student rows. It starts in Draft. Instructors enter or update grades and may print a copy for their records.
+\item Once all grades are entered, the Instructor changes the sheet to Ready. Submission is allowed only in Ready, not Draft.
+\item On submission, the system updates every student's transcript, emails each student their grade, confirms success, and changes the sheet to Submitted.
+\end{enumerate}
+\textbf{The five external systems}\par
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{5.3cm}|Y|}\hline
+KU Single Sign-On & Verifies accounts and manages passwords\\\hline
+KU Registration System & Supplies courses, sections and registered students\\\hline
+KU Transcript System & Records official grades\\\hline
+KU Student Information System & Supplies contact details, such as student email addresses\\\hline
+KU Email Service (Google Workspace) & Sends grade notifications\\\hline
+\end{tabularx}
+\par\medskip
+\textbf{Task:} Draw a Use Case Diagram on the next page covering the Instructor's goals and the external systems. Show the system boundary, actors and associations. Where justified by the requirements, show \code{<<include>>}, \code{<<extend>>}, or generalization with the correct direction and notation. State the condition for any \code{<<extend>>}; do not invent relationships unsupported by the scenario or replace use cases with workflow arrows.\par
+\textbf{Brief explanation:} Explain whether each relationship shown is mandatory or optional, what permits submission, and whether the requirements support any generalization.\par
+\blankbox{3.5cm}
+\newpage
+\textbf{\Large S1 (continued): Use Case Diagram workspace}\par
+University Grades Submission\hfill Supplementary; outside the 100 marks\par
+\blankbox{21.5cm}
+\newpage
+\textbf{\Large S2\quad State Diagram: Service Ticket}\par
+Supplementary; outside the 100 marks. Use the worked path in Lecture 4, pages 61-62, with the supporting facts on pages 45-46.\par
+\begin{enumerate}[itemsep=2pt]
+\item When a new Ticket is saved, the System automatically creates its first Action Record, sets the status to Requested, and copies Initial Due Date to New Due Date.
+\item The CCE may act only on Requested tickets: approve to Approved or close to Closed by CCE, with notes or a new due date where applicable.
+\item In the worked path, a Programmer starts an Approved ticket, making it In Progress. Further progress actions may record notes or a new due date while keeping In Progress.
+\item When work is finished, the Programmer closes it to Closed by Programmer and sets New Due Date to the completion date.
+\item Every saved action updates the Ticket's Last Status and Last Due Date from that latest action. Saved actions cannot be edited or deleted.
+\item No new actions are allowed after Closed by CCE or Closed by Programmer. Customers and IT Admins do not perform these status-changing actions.
+\end{enumerate}
+\textbf{Task:} Draw only the status lifecycle of one Ticket. Show initial/final nodes, states, transitions and a self-loop. Label each transition with its event and the actor in brackets, following the sample notation, e.g. \code{approve [CCE]}. Customer, CCE and Programmer are not states. Do not invent additional states.\par
+\blankbox{13cm}
+\newpage
+\textbf{\Large S3\quad Git: Explain the repository graph}\par
+Supplementary; outside the 100 marks. Adapted from Samples Question 2.2, pages 8-9. Use ExamScore and the Git assumptions from Questions 11-12. Read each question independently from this snapshot unless a command is explicitly run.\par
+\begin{center}\supplementgitgraph\end{center}
+\textbf{S3.1} Which local branch is checked out, and which commit does HEAD identify?\par
+\blankbox{1.5cm}
+\textbf{S3.2} Which commit at the local sprint tip is not in the history referenced by origin/sprint\_1\_staging? Explain using the pointers.\par
+\blankbox{1.8cm}
+\textbf{S3.3} Which commit supplies the files in the current working directory?\par
+\blankbox{1.5cm}
+\textbf{S3.4} Can \code{git merge feature/load\_scores} fast-forward now? What merge would be needed, and why?\par
+\blankbox{2cm}
+\textbf{S3.5} Does the graph prove that this merge would cause a file conflict? Explain.\par
+\blankbox{1.5cm}
+\textbf{S3.6} What may \code{git fetch origin} update, and what will it not move automatically?\par
+\blankbox{2cm}

@@ -12,11 +12,8 @@ Course materials, lab work, and midterm preparation for CPE334 Software Engineer
 ## Midterm preparation
 
 - [Two-page cheat sheet](preparation/cheat-sheet/README.md) — a compact Thai review of Lectures 1–7 and Practice Midterm. The PDF is prepared as a clean handout; source mapping, glossary, and review questions with answers are kept in the companion README.
-- [Practice midterm editions and sources](preparation/mock-exam/README.md#midterm-editions) — separate 17-page core papers and 21-page versions with supplementary Use Case, State and Git graph exercises, in Thai and English.
-- [Core mock exam (Thai, 17 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam.pdf)
-- [Core mock exam (English, 17 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN.pdf)
-- [Mock exam with supplementary exercises (Thai, 21 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_With_Supplements.pdf)
-- [Mock exam with supplementary exercises (English, 21 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Exam_EN_With_Supplements.pdf)
+- [Practice midterm paper and sources](preparation/mock-exam/README.md#midterm-editions) — one 30-page A4 paper with a Thai cover and parallel Thai/English questions; supplementary exercises remain in source form.
+- [Bilingual core mock exam: TH_EN.pdf (30 pages)](preparation/mock-exam/midterm/output/pdf/TH_EN.pdf)
 - [Thai solutions and marking guide: core edition (15 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf)
 - [Thai solutions and marking guide: with supplementary answers (18 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf)
 - [Cheat sheet (PDF)](preparation/cheat-sheet/midterm/output/pdf/CPE334_Midterm_Cheat_Sheet.pdf)
@@ -30,7 +27,7 @@ lectures/                  Course slides, examples, and study notes
 labs/                      Lab sheets, reports, evidence, and project workflow
 preparation/
   cheat-sheet/             Editable LaTeX source and two-page PDF
-  mock-exam/               Editable Thai/English exam sources and solution PDFs
+  mock-exam/               Bilingual exam source, printable paper and Thai solutions
 ```
 
 LaTeX source files and their printable PDFs are kept together in `preparation/`. Build intermediates and operating-system metadata are excluded. When revising course content, keep the source and its generated deliverable in sync, and verify the rendered PDF before replacing the published copy.

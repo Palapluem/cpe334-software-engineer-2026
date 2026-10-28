@@ -1,11 +1,3 @@
-\documentclass[a4paper]{article}
-\usepackage{pdfpages,geometry,pgffor}
-\geometry{top=0cm,bottom=0cm,left=0cm,right=0cm}
-\newcount\ChapterPages
-\ChapterPages=\XeTeXpdfpagecount "chapters/exam-core.pdf"
-\begin{document}
-\includepdf[pages=-,fitpaper=true]{frontmatter/cover.pdf}
-% Fit each portrait component page without changing its typography.
-\foreach \p in {1,...,\number\ChapterPages}{%
-\includepdf[pages=\p,fitpaper=true]{chapters/exam-core.pdf}}
-\end{document}
+% Build from this directory with XeLaTeX; no precompiled component PDFs.
+\def\MockAssetRoot{.}
+\input{bilingual/exam.tex}
