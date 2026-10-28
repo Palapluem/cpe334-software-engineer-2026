@@ -12,13 +12,14 @@
 \renewcommand{\code}[1]{{\bfseries #1}}
 \setlength{\tabcolsep}{6pt}
 \renewcommand{\arraystretch}{1.12}
-% Questions and instructions are prose: English first, then Thai.
+% Questions, headings and instructions print in Thai; the English argument
+% remains in source for reference. Given content stays bilingual below.
 \newcommand{\pair}[2]{%
   \par\smallskip\begingroup\setlength{\parskip}{0pt}%
-  \noindent #2\par\nopagebreak[3]\noindent #1\par
+  \noindent #1\par
   \endgroup\smallskip}
 % Given facts are paired by row: English on the left, Thai on the right.
-% Match the sample's borderless table and keep each bilingual row together.
+% Draw the outside frame, language divider and row rules explicitly.
 \newlength{\contentcolwidth}
 \newenvironment{contenttable}{%
   \par\smallskip\begingroup
@@ -26,11 +27,15 @@
   \linespread{1.05}\selectfont
   \setlength{\LTpre}{0pt}\setlength{\LTpost}{4pt}%
   \setlength{\LTleft}{0pt}\setlength{\LTright}{0pt}%
-  \setlength{\contentcolwidth}{\dimexpr(\linewidth-6mm)/2\relax}%
-  \begin{longtable}{@{}>{\raggedright\arraybackslash}p{\contentcolwidth}@{\hspace{6mm}}>{\raggedright\arraybackslash}p{\contentcolwidth}@{}}%
+  \setlength{\extrarowheight}{2pt}%
+  \setlength{\contentcolwidth}{\dimexpr(\linewidth-4\tabcolsep-3\arrayrulewidth)/2\relax}%
+  \begin{longtable}{|>{\raggedright\arraybackslash}p{\contentcolwidth}|>{\raggedright\arraybackslash}p{\contentcolwidth}|}\hline
+  \endfirsthead
+  \hline
+  \endhead
 }{%
   \end{longtable}\endgroup\smallskip}
-\newcommand{\crow}[2]{#2 & #1\\[2pt]}
+\newcommand{\crow}[2]{#2 & #1\\[3pt]\hline}
 \newcommand{\bpart}[3]{\pair{\textbf{\large ส่วนที่ #1\quad #2}}{\textbf{\large Part #1\quad #3}}}
 \newcommand{\bq}[4]{\pair{\textbf{ข้อ #1\quad (#4 คะแนน): #2}}{\textbf{Question #1\quad (#4 \ifstrequal{#4}{1}{mark}{marks}): #3}}}
 \newcommand{\bsub}[4]{\pair{\textbf{#1 (#4 คะแนน) #2}}{\textbf{#1 (#4 \ifstrequal{#4}{1}{mark}{marks}) #3}}}

@@ -6,7 +6,7 @@ These student-created materials are for study and timed practice. They are not a
 
 | File | Format | Contents |
 | --- | --- | --- |
-| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **33 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; full question prose in English followed by Thai; given content in English-left/Thai-right tables; 3 parts, 12 questions, 100 marks, 3 hours |
+| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **32 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; question headings and instructions in Thai; bilingual given content in ruled English-left/Thai-right tables; 3 parts, 12 questions, 100 marks, 3 hours |
 | [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 16 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
 | [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 19 pages | The same core answers followed by S1-S3 |
 
@@ -16,7 +16,7 @@ These student-created materials are for study and timed practice. They are not a
 
 - หน้าปกยึดฉบับแรกที่เก็บไว้ในประวัติ 24 October 2026: คืนถ้อยคำคำชี้แจงฉบับเต็ม ชื่อส่วน Requirements/Security, Project Planning/Execution และ UML/UI/Git Workflow พร้อมกริด ฟอนต์ ตัวหนา เส้นใต้และระยะบรรทัดเดิม คำชี้แจงเป็นภาษาไทยและใช้ศัพท์เนื้อหารายวิชาตามต้นแบบ ช่องชุดข้อสอบคงความหมาย optional ด้วยคำไทย “ถ้ามี” และกลุ่มนานาชาติใช้ป้ายภาษาไทย
 - เงื่อนไขกระดาษสรุปแก้ตามที่นักศึกษายืนยันหลังสอบ: อนุญาต A4 1 แผ่นและ **ไม่ต้องส่งพร้อมข้อสอบ** นำข้อบังคับให้ส่ง ข้อหัก 5 คะแนน และข้อบังคับเขียนชื่อบนกระดาษสรุปที่ยกมาจากเรฟ CPE241 ออก ไม่ใช้กติกาของวิชาอื่นแทนข้อสอบ CPE334
-- คำถามและคำสั่งเขียนเป็นย่อหน้าเต็ม **อังกฤษก่อน แล้วตามด้วยภาษาไทยบรรทัดถัดไป** ส่วนข้อมูลที่โจทย์ให้ เช่น สถานการณ์ ข้อความความต้องการ ข้อเสนอ บันทึกประชุม และเงื่อนไข ใช้ตารางสองคอลัมน์ **อังกฤษฝั่งซ้าย ไทยฝั่งขวา** จับคู่เนื้อหาในแถวเดียวกัน ตารางข้อความไม่มีเส้นกรอบตามตัวอย่างอาจารย์ ส่วนตารางงาน สิทธิ์ และ backlog แยกคอลัมน์ข้อความอังกฤษกับไทยให้ตรงกัน
+- หัวข้อ คำถาม และคำสั่งเขียนเป็นย่อหน้าเต็ม **ภาษาไทยเท่านั้น** โดยคงศัพท์เทคนิคและคำสั่ง Git ที่จำเป็น ส่วนข้อมูลที่โจทย์ให้ เช่น สถานการณ์ ข้อความความต้องการ ข้อเสนอ บันทึกประชุม และเงื่อนไข ใช้ตารางสองคอลัมน์ **อังกฤษฝั่งซ้าย ไทยฝั่งขวา** มีเส้นกรอบ เส้นแบ่งภาษา และเส้นแบ่งแถวชัดเจน ส่วนตารางงาน สิทธิ์ และ backlog จับคู่ข้อความอังกฤษกับไทยให้ตรงกัน
 - คง Sarabun และขนาดโจทย์ประมาณ 14 pt; หัว/ท้ายกระดาษเล็กกว่าโจทย์ ไม่ลดฟอนต์เพื่อบีบจำนวนหน้า พื้นที่ตอบใช้ร่วมกันเต็มความกว้าง ไม่แบ่งคำตอบเป็นสองภาษา
 - หน้า Gantt เป็นแนวนอนเพียงหน้าเดียว ครบ 20 วันทำงาน มี 14 แถวสำหรับ tasks/milestones/buffer และคอลัมน์ No., Task, Owner, Start, Due; หน้าถัดไปกลับเป็นแนวตั้ง
 - ข้อ 8 ให้ actors, use cases และ boundary มาแล้ว ผู้ทำเติมเส้น association, include, extend และ generalization; ข้อ 9 ให้ states มาแล้ว ผู้ทำเติม transitions/events/guards; ข้อ 10 ให้กรอบ List/Form พร้อมตัวอย่าง notation แล้วเติมข้อมูลและ controls
@@ -33,11 +33,11 @@ These student-created materials are for study and timed practice. They are not a
 | TokTickIT shared requirements | 19-20 | R1-R12 ใช้ร่วมกันในข้อ 8-10 |
 | Use Case Diagram | 21-22 | 8: **10** |
 | State Diagram | 23 | 9: **10** |
-| Role dashboards, Queue and Detail | 24-27 | 10: **10**; dashboard frames are on p.25 |
-| Git context | 28 | ข้อสมมติร่วม แต่ข้อ 11/12 เริ่มจาก graph ของตนเอง |
-| Git: integrate a feature into `sprint_1` | 29-30 | 11: **10** |
-| Git: commands and redraw | 31-33 | 12: **10** |
-| **รวม** | **33** | **100 คะแนน** |
+| Role dashboards, Queue and Detail | 24-26 | 10: **10**; dashboard frames are on p.24 |
+| Git context | 27 | ข้อสมมติร่วม แต่ข้อ 11/12 เริ่มจาก graph ของตนเอง |
+| Git: integrate a feature into `sprint_1` | 28-29 | 11: **10** |
+| Git: commands and redraw | 30-32 | 12: **10** |
+| **รวม** | **32** | **100 คะแนน** |
 
 ข้อ 1 วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ ผลคาดหวังและการปรับข้อความ ข้อ 2 ครบองค์ประกอบข้อเสนอ 8 ด้าน ข้อ 3 ใช้ default deny และไม่มี role inheritance ในระบบ WorkshopHub ข้อ 4 ยึดเหตุการณ์ script รันบน server ไม่เปลี่ยนเป็น XSS ฝั่ง browser
 
@@ -63,14 +63,14 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 | S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
 | S3 | Samples pp. 8-9, 19 | Explain graph ตาม 2.2 ครบหกคำถาม |
 
-รูปแบบคำถามอังกฤษก่อนและภาษาไทยบรรทัดถัดไปเทียบกับ Samples pp. 1-2 ส่วนหน้าปกเทียบ source และ PDF ฉบับแรกใน commit `86647f0` โดยคงวันสอบเป็น 27 ตุลาคม 2569 ข้อสอบฉบับนี้มี 33 หน้า และปรับเฉพาะกติกากระดาษสรุปตามข้อมูลสอบจริงที่นักศึกษายืนยัน เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
+รูปแบบรายละเอียดโจทย์สองภาษาเทียบกับ Samples pp. 1-2 ส่วนหัวข้อคำถามและคำสั่งใช้ภาษาไทยตามที่นักศึกษายืนยัน ส่วนหน้าปกเทียบ source และ PDF ฉบับแรกใน commit `86647f0` โดยคงวันสอบเป็น 27 ตุลาคม 2569 ข้อสอบฉบับนี้มี 32 หน้า และปรับเฉพาะกติกากระดาษสรุปตามข้อมูลสอบจริงที่นักศึกษายืนยัน เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
 
 หลักการตรวจเฉลยยังอิง Lecture 2 pp. 14-29 (requirements/proposal), Lecture 5 pp. 5-8, 19-23, 28-38 (security), Lecture 6 pp. 71-96 (WBS/Gantt/RACI) และ Lecture 7 pp. 60-72, 94-104, 114-118 (grooming/planning) รับคำตอบอื่นที่ตรงข้อกำหนดและมีเหตุผล เกณฑ์คะแนนและตัวอย่างคำตอบเป็นของชุดฝึก ไม่ใช่เฉลยทางการ
 
 ## แก้ไขและคอมไพล์
 
 - `midterm/main.tex`: จุดเริ่มต้นข้อสอบ
-- `midterm/bilingual/questions.tex`: ข้อความคู่ภาษา โดย source รับ argument ไทยก่อน/อังกฤษหลัง แต่ macro แสดงอังกฤษก่อนและไทยบรรทัดถัดไป
+- `midterm/bilingual/questions.tex`: คำถามและคำสั่งพิมพ์เฉพาะภาษาไทย โดยเก็บคำแปลอังกฤษไว้ใน source สำหรับอ้างอิง; ข้อมูลโจทย์พิมพ์ทั้งสองภาษาในตารางอังกฤษซ้าย-ไทยขวา
 - `midterm/bilingual/exam.tex`: layout, table macros, answer spaces และ Gantt
 - `midterm/bilingual/ticket-diagrams.tex`: actors/use cases/states และ blank UI scaffolds; ภาพโจทย์ไม่มีเส้นคำตอบ
 - `midterm/bilingual/cover.tex`, `frontmatter/cover-layout.tex`, `exam-info.tex`: ข้อความปก กริดและข้อมูลสอบ
@@ -89,6 +89,6 @@ python3 preparation/mock-exam/midterm/build.py
 
 ## ตรวจฉบับ 28 October 2026
 
-ตรวจ PDF ทั้ง 33 หน้า รวมถึงเลขหน้า เนื้อหาข้อ 1-12, R1-R12, คะแนนรวม 25+25+50 และตำแหน่ง Git refs ข้อมูลโจทย์จับคู่ในตารางอังกฤษซ้าย-ไทยขวา ส่วนคำถามและคำสั่งยังเป็นย่อหน้าเต็ม ตรวจเทียบข้อความก่อนและหลังจัดตารางแล้วไม่มีคำถามหรือข้อมูลถูกตัดออก ไม่พบหน้าว่าง แถวคู่ภาษาถูกแยกข้ามหน้า หรือกล่องคำตอบหลุดไปอีกหน้า หน้า 14 เป็นแนวนอนเพียงหน้าเดียว แผนภาพเป็น vector และไม่มีเส้นเฉลยในโจทย์ ตรวจทิศ include/extend/generalization และ state transitions เทียบกับเฉลยแล้ว สำหรับข้อ 11 ตรวจว่า C อยู่บน `main` และ D อยู่บน `sprint_1` ซึ่งแยกจาก B ส่วน feature branch และเหตุการณ์หลังจากนั้นระบุไว้ชัดว่าเป็นรายละเอียดสำหรับโจทย์ฝึก
+ตรวจ PDF ทั้ง 32 หน้า รวมถึงเลขหน้า เนื้อหาข้อ 1-12, R1-R12, คะแนนรวม 25+25+50 และตำแหน่ง Git refs ข้อมูลโจทย์จับคู่ในตารางอังกฤษซ้าย-ไทยขวาพร้อมเส้นกรอบและเส้นแบ่งแถว ส่วนหัวข้อ คำถาม และคำสั่งพิมพ์เฉพาะภาษาไทย ตรวจข้อความภาษาไทย คะแนน และข้อมูลสองภาษาเทียบต้นฉบับแล้วครบถ้วน ไม่พบหน้าว่าง แถวคู่ภาษาถูกแยกข้ามหน้า หรือกล่องคำตอบหลุดไปอีกหน้า หน้า 14 เป็นแนวนอนเพียงหน้าเดียว แผนภาพเป็น vector และไม่มีเส้นเฉลยในโจทย์ ตรวจทิศ include/extend/generalization และ state transitions เทียบกับเฉลยแล้ว สำหรับข้อ 11 ตรวจว่า C อยู่บน `main` และ D อยู่บน `sprint_1` ซึ่งแยกจาก B ส่วน feature branch และเหตุการณ์หลังจากนั้นระบุไว้ชัดว่าเป็นรายละเอียดสำหรับโจทย์ฝึก
 
 ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน
