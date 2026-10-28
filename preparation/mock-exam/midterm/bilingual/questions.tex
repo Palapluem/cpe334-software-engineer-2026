@@ -249,21 +249,21 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \answerfill
 \newpage
 % Shared miniature specification. This exercise is self-contained.
-\bpart{3}{(50 คะแนน) แผนภาพ การออกแบบหน้าจอ และ Git}{(50 marks) UML/UI and Git Workflow}
+\bpart{3}{(50 คะแนน) แผนภาพ UML การออกแบบหน้าจอ และ Git}{(50 marks) UML Diagrams, UI Design and Git Workflow}
 \continued{ข้อกำหนดร่วมสำหรับข้อ 8-10: ระบบแจ้งปัญหา TokTickIT}{Shared requirements for Questions 8-10: TokTickIT Service Tickets}
 \pair{ใช้ข้อกำหนด R1-R12 ของ TokTickIT ด้านล่างตอบข้อ 8-10 โดยยึดเฉพาะกฎที่ให้ ไม่ต้องเพิ่มทุกฟังก์ชันจากแลปจริง}
 {Answer Questions 8-10 using the self-contained TokTickIT specification R1-R12 below. Model only the stated behaviour; do not import other laboratory features.}
 \begin{prompttable}
-\prow{\textbf{R1. บัญชีและหน้าแรกตาม role} หลัง sign in ให้ Requester, IT Staff และ Administrator ไป Dashboard ตาม role; Admin ใช้ metrics ของ Staff และอาจเพิ่มจำนวนบัญชี Requester เห็นเฉพาะ Ticket ของตน User เป็น actor ทั่วไป; Requester/IT Staff สืบทอดจาก User และ Administrator สืบทอดจาก IT Staff Ticket Owner คือ IT Staff ที่ได้รับมอบหมาย ไม่ใช่ role แยก Server ต้องตรวจสิทธิ์แม้ซ่อน control}
-{\textbf{R1. Accounts and role-based home pages.} After sign-in, route Requesters, IT Staff and Administrators to their role-specific Dashboards; Admin may add account counts to Staff metrics. Requesters see only their own Tickets. User is the general actor; Requester and IT Staff specialize User, and Administrator specializes IT Staff. Ticket Owner means assigned IT Staff, not a role. Enforce server-side authorization even when controls are hidden.}
-\prow{\textbf{R2. สร้างและติดตาม Ticket} Requester สร้าง Ticket โดยกรอก title, description และ requested priority (LOW, MEDIUM หรือ HIGH) ต้องกรอกครบ ระบบสร้าง ticket number, เวลา และสถานะ NEW อัตโนมัติ เมื่อสร้างสำเร็จต้องเรียก Send Email ผ่าน Email Gateway ทุกครั้ง Requester ดู My Tickets และรายละเอียดได้เฉพาะของตน}
-{\textbf{R2. Create and track a Ticket.} A Requester supplies the required title, description and requested priority (LOW, MEDIUM or HIGH). The system generates the ticket number, timestamps and NEW status. Every successful creation invokes Send Email through the Email Gateway. My Tickets and its detail view expose only that Requester's Tickets.}
-\prow{\textbf{R3. ข้อมูลและผู้รับผิดชอบ Ticket} รายละเอียดมี ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff (Ticket Owner), status, created time และ updated time ข้อมูลจากบัญชี เวลา หมายเลข และข้อความเดิมของ Requester อ่านได้อย่างเดียว Owner อาจยังไม่ถูกกำหนดหรือเป็น IT Staff ที่ยัง active ได้หนึ่งคน IT Staff เปลี่ยน IT priority, owner และสถานะได้ตามกฎของแต่ละรายการ}
-{\textbf{R3. Ticket data and ownership.} Details show the ticket number, title, description, requester name/email, requested priority, IT priority, assigned staff (the Ticket Owner), status, created time and updated time. Account-derived data, timestamps, identifiers and the Requester's original text are read-only. A Ticket may be unassigned or have one active IT Staff member as its Owner. IT Staff may change IT priority, owner and status only as permitted for that Ticket.}
-\prow{\textbf{R4. Dashboard และ Queue ของ IT Staff} Staff Dashboard สรุป Ticket ที่ไม่มี Owner, ที่ตนเป็น Owner, จำนวนตาม status/IT priority และรายการล่าสุด แต่ละ metric เปิด Queue ที่ตรงกัน Queue ค้น title และกรอง status/IT priority/Owner; แสดง ticket number, title, requester, status, requested/IT priority, Owner และ updated time เลือกแถวเปิด Form View ได้ ต้องมี pagination และแยก “ไม่มี Ticket” จาก “ไม่พบผลลัพธ์”}
-{\textbf{R4. Staff Dashboard and Queue.} The Staff Dashboard shows unassigned and my-owned Tickets, counts by status/IT priority and recent updates; each metric opens a matching Queue. The Queue searches titles, filters by status/IT priority/Owner, and lists ticket number, title, requester, status, both priorities, Owner and updated time. Rows open Form View. Include pagination and distinguish no Tickets from no matches.}
-\prow{\textbf{R5. การปรับ Ticket} Update Ticket ใช้เปลี่ยน IT priority หรือสถานะตามสิทธิ์ การย้าย owner เป็นพฤติกรรมเสริม Reassign Ticket ซึ่งเกิดเฉพาะเมื่อ IT Staff เลือกย้ายให้บุคลากรที่ยัง active การอัปเดตแบบอื่นทำได้โดยไม่ต้อง Reassign}
-{\textbf{R5. Updates.} Update Ticket changes IT priority or an allowed status. Reassign Ticket is an optional extension performed only when IT Staff choose another active staff member as owner. Other updates do not require reassignment.}
+\prow{\textbf{R1. บัญชีและหน้าแรกตามบทบาท} หลังเข้าสู่ระบบ ให้ Requester ไป Requester Dashboard, IT Staff ไป Staff Dashboard และ Administrator ไป Admin Dashboard ใน Use Case Diagram, User เป็น actor ทั่วไป; Requester และ IT Staff เป็นชนิดย่อยของ User ส่วน Administrator เป็นชนิดย่อยของ IT Staff เฉพาะในแบบจำลองนี้ Requester เห็นเฉพาะ Ticket ของตน Ticket Owner คือ IT Staff ที่ได้รับมอบหมาย ไม่ใช่ role แยก Administrator ใช้ metrics ของ Staff และอาจแสดงจำนวนบัญชีเพิ่ม Server ต้องตรวจสิทธิ์แม้ซ่อน control แล้ว}
+{\textbf{R1. Accounts and role-based home pages.} After sign-in, route Requesters to the Requester Dashboard, IT Staff to the Staff Dashboard and Administrators to the Admin Dashboard. In the Use Case Diagram, User is the general actor; Requester and IT Staff specialize User, while Administrator specializes IT Staff for this model only. Requesters see only their own Tickets. Ticket Owner is the assigned IT Staff member, not a separate role. Administrators share Staff metrics and may add an account count. Enforce authorization on the server, even when controls are hidden.}
+\prow{\textbf{R2. สร้างและติดตาม Ticket} Requester สร้าง Ticket โดยกรอก title, description และ requested priority ซึ่งเลือกได้เป็น LOW, MEDIUM หรือ HIGH เมื่อสร้างสำเร็จ ระบบกำหนด ticket number, เวลา และสถานะ NEW ให้อัตโนมัติ พร้อมเรียก Send Email ผ่าน Email Gateway ทุกครั้ง Requester ดูรายการ My Tickets และรายละเอียดได้เฉพาะ Ticket ของตนเอง}
+{\textbf{R2. Create and track a Ticket.} A Requester creates a Ticket by entering its title, description and requested priority: LOW, MEDIUM or HIGH. On successful creation, the system assigns a ticket number, timestamps and the NEW status, then invokes Send Email through the Email Gateway. The Requester can view My Tickets and open details only for their own Tickets.}
+\prow{\textbf{R3. ข้อมูลและผู้รับผิดชอบ Ticket} หน้ารายละเอียดแสดง ticket number, title, description, ชื่อและอีเมล requester, requested priority, IT priority, Owner, status และ created/updated time ข้อมูลบัญชี หมายเลข วันเวลา และข้อความต้นฉบับของ Requester แก้ไขไม่ได้ Ticket อาจไม่มี Owner หรือมี IT Staff ที่ยัง active เป็นผู้รับผิดชอบได้หนึ่งคน IT Staff แก้ IT priority, Owner และ status ได้ตามสิทธิ์}
+{\textbf{R3. Ticket details and ownership.} Show the ticket number, title, description, requester name and email, both priorities, Owner, status and created/updated times. Account data, identifiers, timestamps and the Requester's original text are read-only. A Ticket may be unassigned or have one active IT Staff member as Owner. IT Staff may edit IT priority, Owner and status as permitted.}
+\prow{\textbf{R4. Staff Dashboard และ Ticket Queue} Staff Dashboard แสดง Ticket ที่ไม่มี Owner, Ticket ของผู้ใช้ปัจจุบัน, จำนวนแยกตาม status/IT priority และรายการล่าสุด แต่ละ metric เปิด Queue ที่เกี่ยวข้องได้ Queue ค้น title, กรอง status/IT priority/Owner และเปลี่ยนหน้าได้ แถวแสดง ticket number, title, requester, status, requested/IT priority, Owner และ updated time; เลือกแล้วเปิด Form View ต้องแยก empty state จากกรณีค้นหาไม่พบ}
+{\textbf{R4. Staff Dashboard and Ticket Queue.} Show unassigned Tickets, the current user's Tickets, counts by status and IT priority, and recent updates. Each metric opens its Queue. Search by title, filter by status, IT priority or Owner, and paginate. Rows show the ticket number, title, requester, status, both priorities, Owner and updated time; selecting one opens Form View. Distinguish an empty system from no matches.}
+\prow{\textbf{R5. การปรับ Ticket} Update Ticket ใช้เปลี่ยน IT priority หรือ status ที่มีสิทธิ์แก้ ส่วน Reassign Ticket เป็นพฤติกรรมเสริมเมื่อ IT Staff เลือก Owner คนใหม่ที่ยัง active; การอัปเดตอื่นไม่ต้องเปลี่ยน Owner}
+{\textbf{R5. Updates.} Update Ticket changes an editable IT priority or status. Reassign Ticket is optional and occurs only when IT Staff choose another active Owner. Other updates do not change ownership.}
 \end{prompttable}
 \newpage
 \continued{ข้อกำหนดร่วมสำหรับข้อ 8-10 (ต่อ)}{Shared requirements for Questions 8-10 (continued)}
@@ -285,15 +285,15 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \end{prompttable}
 \newpage
 \bq{8}{เติมความสัมพันธ์ใน Use Case Diagram}{Complete the Use Case Diagram relationships}{10}
-\pair{\textbf{เกณฑ์คะแนน:} associations, routing ไป Dashboard ตาม role และขอบเขต 3; include 3; extend พร้อมเงื่อนไข 2; generalization และทิศทาง 2 รวม 10 คะแนน}
-{\textbf{Marks:} associations, role-to-dashboard routing and scope 3; include 3; extend with conditions 2; generalization and direction 2. Total: 10 marks.}
-\pair{ใช้ R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป Actors, use cases และ system boundary มีให้แล้ว ไม่ต้องวาด node เพิ่ม ให้ใช้ association เส้นทึบ, dependency เส้นประพร้อม \textless\textless include\textgreater\textgreater หรือ \textless\textless extend\textgreater\textgreater และ generalization เส้นทึบหัวสามเหลี่ยมโปร่งชี้ไป actor ทั่วไป}
-{Using R1-R8 and R12, complete the skeleton on the next page. Actors, use cases and the system boundary are supplied; do not add nodes. Use solid associations, dashed dependencies labelled \textless\textless include\textgreater\textgreater or \textless\textless extend\textgreater\textgreater, and solid generalizations with hollow triangular arrowheads pointing to the more general actor.}
+\pair{\textbf{เกณฑ์คะแนน:} associations, การกำหนด Dashboard ตาม role และขอบเขต 3 คะแนน; include 3 คะแนน; extend พร้อมเงื่อนไข 2 คะแนน; generalization และทิศทาง 2 คะแนน รวม 10 คะแนน}
+{\textbf{Marks:} associations, role-to-dashboard routing and scope: 3 marks; include: 3; extend with conditions: 2; generalization and direction: 2. Total: 10 marks.}
+\pair{ใช้ข้อกำหนด R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป ซึ่งมี actors, use cases และ system boundary ให้แล้ว ห้ามเพิ่ม node ใช้เส้นทึบแทน association และเส้นประพร้อมป้าย \textless\textless include\textgreater\textgreater\ หรือ\ \textless\textless extend\textgreater\textgreater\ สำหรับ dependency ส่วน generalization ใช้เส้นทึบหัวสามเหลี่ยมโปร่ง โดยให้หัวชี้ไปยัง actor ทั่วไป}
+{Use requirements R1-R8 and R12 to complete the relationships in the scaffold on the next page. The actors, use cases and system boundary are already shown; do not add nodes. Use solid lines for associations, dashed arrows labelled \textless\textless include\textgreater\textgreater\ or\ \textless\textless extend\textgreater\textgreater\ for dependencies, and solid lines with hollow triangular arrowheads for generalization. Point each generalization arrow to the more general actor.}
 \begin{prompttable}
-\prow{เชื่อม User กับ Sign In; เชื่อม Requester กับ Requester Dashboard, Create Ticket และ View My Tickets; เชื่อม IT Staff กับ Staff Dashboard, View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; เชื่อม Administrator กับ Admin Dashboard และ Maintain Accounts โดยไม่ต้องลากความสามารถที่สืบทอดซ้ำ เชื่อม Email Gateway กับ use case ที่ติดต่อบริการนี้}
-{Connect User to Sign In; Requester to the Requester Dashboard, Create Ticket and View My Tickets; IT Staff to the Staff Dashboard, View Ticket Queue, Update Ticket, Record Action and Resolve Ticket; and Administrator to the Admin Dashboard and Maintain Accounts. Do not duplicate inherited associations. Connect Email Gateway to the use case that calls it.}
-\prow{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเฉพาะเมื่อเลือกแนบไฟล์หรือย้าย owner แสดงทิศหัวลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับงานหรือ transition ของ status}
-{Distinguish mandatory reused behaviour from behaviour performed only when a file or reassignment is selected. Show arrow direction, stereotypes and extension conditions correctly. This diagram models capabilities and scope, not an execution sequence or status transitions.}
+\prow{เชื่อม User กับ Sign In; Requester กับ Requester Dashboard, Create Ticket และ View My Tickets; IT Staff กับ Staff Dashboard, View Ticket Queue, Update Ticket, Record Action และ Resolve Ticket; Administrator กับ Admin Dashboard และ Maintain Accounts ไม่ต้องวาด association ซ้ำสำหรับความสามารถที่สืบทอดมา เชื่อม Email Gateway กับ use case ที่เรียกใช้บริการนี้}
+{Connect User to Sign In; Requester to Requester Dashboard, Create Ticket and View My Tickets; IT Staff to Staff Dashboard, View Ticket Queue, Update Ticket, Record Action and Resolve Ticket; and Administrator to Admin Dashboard and Maintain Accounts. Do not repeat inherited associations. Connect Email Gateway to the use case that invokes it.}
+\prow{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเมื่อเลือกแนบไฟล์หรือเปลี่ยน Owner พร้อมระบุทิศลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับการทำงานหรือการเปลี่ยน status}
+{Distinguish behaviour that always occurs from behaviour triggered by attaching a file or changing the Owner. Show arrow direction, stereotypes and extension conditions correctly. The diagram shows capabilities and scope, not execution order or status transitions.}
 \end{prompttable}
 \pair{\textbf{คำอธิบายหรือสมมติฐาน}}{\textbf{Explanation or assumptions}}\blankbox{4cm}
 \newpage
@@ -309,32 +309,32 @@ No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เท�
 \pair{\textbf{นิยาม guard}}{\textbf{Guard definition}}\blankbox{1.2cm}
 \newpage
 \bq{10}{เติม Dashboard ตาม role และหน้าจอ Ticket}{Complete role dashboards and Ticket screens}{10}
-\pair{ใช้ R1-R4 และ R7-R12 เติม Dashboard ของ Requester, IT Staff และ Administrator ในกรอบที่ให้ โดยหน้าแรกต้องตรงกับ role หลัง sign in ไม่ต้องวาดหน้า Login เติมข้อมูลลงกรอบ Queue/Detail ด้วย ใช้ * นำหน้า required fields, textbox สำหรับข้อมูลแก้ได้ และเส้นเฉียงสำหรับ read-only/calculated}
-{Using R1-R4 and R7-R12, complete the Requester, IT Staff and Administrator Dashboards in the supplied frames. Each signed-in role must land on its own appropriate home; do not draw a Login screen. Complete the Queue/Detail frames as well. Mark required fields with *, editable values with textboxes, and read-only/calculated values with hatching.}
+\pair{ใช้ข้อกำหนด R1-R4 และ R7-R12 เติม Dashboard ของ Requester, IT Staff และ Administrator ลงในกรอบที่ให้ หลัง sign in ผู้ใช้แต่ละบทบาทต้องเข้าสู่หน้าแรกที่ตรงกับบทบาทของตน ไม่ต้องวาดหน้า Login จากนั้นเติมหน้าจอ Queue และ Detail ด้วย ใช้ * ระบุ required fields, ใช้ textbox แทนข้อมูลที่แก้ไขได้ และใช้เส้นเฉียงแสดงข้อมูล read-only หรือ calculated}
+{Use requirements R1-R4 and R7-R12 to complete the Requester, IT Staff and Administrator Dashboards in the supplied frames. After sign-in, each role must land on the appropriate home page. Do not draw a Login screen. Then complete the Queue and Detail screens. Mark required fields with *, use text boxes for editable values, and use hatching for read-only or calculated data.}
 \ticketNotationReference
 \bsub{10.1}{หน้าแรกและ Dashboard ตาม role}{Role-specific home dashboards}{3}
-\pair{เติมองค์ประกอบและทางไปหน้ารายละเอียดให้ครบทั้งสามกรอบ Requester แสดง Ticket ของตนที่ยังเปิด รอข้อมูล เพิ่งอัปเดต และเพิ่งแก้เสร็จ; IT Staff แสดง Ticket ที่ยังไม่มี Owner, Ticket ที่ตนเป็น Owner, สรุปตาม status หรือ IT priority และรายการที่เพิ่งอัปเดต; Administrator ใช้สรุปของ Staff และอาจเพิ่มจำนวนบัญชี ทุก metric ที่กดได้ต้องพาไปยังรายการที่ตรงกัน}
-{Complete all three frames with suitable content and drill-downs. The Requester view summarizes only their open, waiting, recently updated and recently resolved Tickets. IT Staff see unassigned Tickets, Tickets they own, counts by status or IT priority, and recently updated Tickets. The Administrator may reuse Staff metrics and add account counts. Each actionable metric must open the corresponding list.}
+\pair{เติมข้อมูลและเส้นทางไปยังรายการที่เกี่ยวข้องให้ครบทั้งสาม Dashboard Requester เห็นเฉพาะ Ticket ของตนที่ยังเปิด รอข้อมูล เพิ่งอัปเดต หรือเพิ่งแก้ไขเสร็จ IT Staff เห็น Ticket ที่ยังไม่มี Owner, Ticket ที่ตนดูแล, จำนวนแยกตาม status หรือ IT priority และรายการที่เพิ่งอัปเดต Administrator ใช้ metrics ของ Staff และอาจเพิ่มจำนวนบัญชีได้ เมื่อกด metric ต้องเปิดรายการที่เกี่ยวข้อง}
+{Complete all three Dashboards and show how users reach the corresponding lists. Requesters see only their own open, waiting, recently updated or recently resolved Tickets. IT Staff see unassigned Tickets, Tickets they own, counts by status or IT priority, and recently updated Tickets. The Administrator uses the Staff metrics and may add an account count. Selecting a metric opens the corresponding list.}
 \examRoleDashboards
 \newpage
 \continued{ข้อ 10 (ต่อ): Ticket Queue ของ IT Staff}{Question 10 (continued): IT Staff Ticket Queue}
 \bsub{10.2}{ค้นหาและกรอง Ticket ตาม Owner}{Search and filter Tickets by Owner}{3}
-\pair{แสดงข้อมูล Queue ทุกช่องตาม R4 พร้อมค้นหา title, ตัวกรอง status/IT priority/Owner, การเลือกเปิด Ticket และ pagination แยก empty state จาก no-results และทำให้ล้างตัวกรองได้}
-{Show every Queue field in R4, title search, status/IT priority/Owner filters, Ticket selection and pagination. Distinguish the empty state from no results and provide a way to clear filters.}
+\pair{แสดงข้อมูลทุกช่องที่ระบุใน R4 เพิ่มช่องค้นหาจาก title และตัวกรอง status, IT priority และ Owner ให้เลือกแถวเพื่อเปิด Ticket และเปลี่ยนหน้าได้ แสดงข้อความแยกกันเมื่อระบบยังไม่มี Ticket กับเมื่อไม่มีผลลัพธ์จากตัวกรอง และมีทางล้างตัวกรอง}
+{Show every field listed in R4. Provide title search and filters for status, IT priority and Owner. Let users open a Ticket from its row and move between pages. Use different messages for an empty system and a filter with no matches, and provide a way to clear the filters.}
 \examTicketQueue
 \newpage
 \continued{ข้อ 10 (ต่อ): Staff Ticket Detail}{Question 10 (continued): Staff Ticket Detail}
-\bsub{10.3}{ข้อมูล เจ้าของ Ticket และการทำงาน}{Ticket data, Owner and actions}{4}
-\pair{เติมข้อมูลตาม R3 แยก read-only จาก IT priority, Owner และ status ที่แก้ได้ Owner เลือกได้เฉพาะ IT Staff ที่ active แยก Public Comments กับ Internal Notes พร้อม Action และไฟล์แนบที่เลือกได้ แสดง feedback เมื่อ Resolve ไม่ผ่าน gate, ข้อความว่าง หรือ STALE\_UPDATE โดยคง input เดิมและไม่ส่งซ้ำอัตโนมัติ}
-{Complete R3's data, separating read-only fields from editable IT priority, Owner and status. Owner selection must include only active IT Staff. Distinguish Public Comments from Internal Notes; provide Action and optional attachment entry. Show feedback for a blocked Resolve, blank text or STALE\_UPDATE, preserving unsaved input without automatic resubmission.}
+\bsub{10.3}{รายละเอียด Ticket ผู้รับผิดชอบ และการดำเนินงาน}{Ticket details, ownership and actions}{4}
+\pair{เติมข้อมูลตาม R3 โดยแยกค่าที่แก้ไขไม่ได้ออกจาก IT priority, Owner และ status ที่ IT Staff เปลี่ยนได้ รายชื่อ Owner ต้องมีเฉพาะ IT Staff ที่ยัง active แยก Public Comments ออกจาก Internal Notes และมีช่องบันทึก Action พร้อมแนบไฟล์ได้ เมื่อ Resolve ไม่ผ่านเงื่อนไข, ข้อความว่าง หรือเกิด STALE\_UPDATE ให้แจ้งสาเหตุ คงข้อมูลที่ผู้ใช้กรอกไว้ และไม่ส่งคำขอซ้ำโดยอัตโนมัติ}
+{Complete the fields in R3. Separate read-only values from the IT priority, Owner and status that IT Staff can edit. Offer only active IT Staff as Owners. Keep Public Comments separate from Internal Notes, and provide an Action form with an optional attachment. If Resolve is blocked, text is blank or a STALE\_UPDATE occurs, explain the problem, preserve the user's input and do not resubmit automatically.}
 \examTicketForm
 \newpage
 \continued{บริบทร่วมสำหรับข้อ 11-12: Git Workflow}{Shared context for Questions 11-12: Git Workflow}
 \begin{prompttable}
-\prow{ExamScore เป็นโปรแกรม Python แบบ command-line สำหรับอาจารย์ อ่านรายชื่อและคะแนนสอบจาก CSV ตรวจคะแนนช่วง 0-100 คำนวณสถิติและทำรายงานอัตราผ่าน เลือก Python เพื่อให้อ่านโค้ดและจัดการ CSV ได้โดยไม่รบกวนการฝึก Git}
-{ExamScore is a small Python command-line program for an instructor. It reads names and scores from CSV, validates scores from 0 to 100, computes statistics and prepares a pass-rate report. Python keeps the code and CSV processing readable while the exercise focuses on Git.}
-\prow{main แทน release ที่ deploy แล้ว sprint staging branches ใช้รวมและทดสอบงานที่เสร็จ ส่วน feature branches แยกการเปลี่ยนแปลงแต่ละงานจนพร้อมรวม}
-{main represents the deployed release. Sprint staging branches collect completed work for integration and testing. Feature branches isolate individual changes until they are ready to merge.}
+\prow{ExamScore เป็นโปรแกรม command-line ที่อาจารย์ใช้หลังสอบเพื่ออ่านรายชื่อและคะแนนจากไฟล์ CSV ตรวจว่าคะแนนอยู่ระหว่าง 0-100 คำนวณสถิติ และจัดทำรายงานอัตราผ่าน โจทย์ใช้ Python เพื่อให้ตัวอย่างโค้ดและการจัดการ CSV เข้าใจง่าย โดยเน้นการฝึก Git}
+{ExamScore is a command-line program instructors use after an examination. It reads names and marks from a CSV file, checks that each mark is between 0 and 100, calculates summary statistics and produces a pass-rate report. Python keeps the code and CSV example straightforward so the exercise can focus on Git.}
+\prow{ในโจทย์นี้ main แทนรุ่นที่นำขึ้นใช้งานแล้ว ส่วน sprint branches ใช้รวบรวมงานเพื่อทดสอบ และ feature branches ใช้แยกงานแต่ละส่วนก่อนนำไปรวม}
+{In this exercise, main represents the deployed release. Sprint branches collect work for testing, while feature branches isolate individual changes before integration.}
 \end{prompttable}
 \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|}\hline
 File & \bilingualcell{Purpose}{หน้าที่}\\\hline
@@ -343,29 +343,29 @@ File & \bilingualcell{Purpose}{หน้าที่}\\\hline
 \code{validation\_notes.txt} & \bilingualcell{New file documenting validation cases}{ไฟล์ใหม่บันทึกกรณีทดสอบ}\\\hline
 \end{tabularx}
 \begin{prompttable}
-\prow{HEAD ระบุ local branch ที่ checkout ส่วน origin/* เป็น local remote-tracking reference ซึ่งบันทึกสถานะ GitHub ล่าสุดที่เครื่องนี้ทราบ การ switch ย้าย HEAD แต่ไม่ย้าย branch pointers}
-{HEAD identifies the checked-out local branch. Each origin/* is a local remote-tracking reference recording the latest GitHub state known to this PC. Switching moves HEAD without moving branch pointers.}
-\prow{สมมติ working directory สะอาด คำสั่งสำเร็จและไม่เกิด conflict เว้นแต่โจทย์ระบุเป็นอื่น ไม่มีการติดต่อ GitHub ถ้าไม่ได้แสดง fetch, push หรือ remote command แต่ละข้อเริ่มจาก graph ของตนเอง}
-{Assume a clean working directory, successful commands and no conflict unless stated otherwise. No command contacts GitHub unless fetch, push or another remote command is shown. Each question starts from its own graph.}
+\prow{HEAD ชี้ไปยัง branch ที่กำลัง checkout. origin/* เป็น remote-tracking references ซึ่งบันทึกสถานะล่าสุดของ remote ที่เครื่องนี้ทราบ. การ switch เปลี่ยน HEAD แต่ไม่ย้าย branch อื่น}
+{HEAD points to the checked-out branch. The origin/* names are remote-tracking references that record the latest remote state known to this machine. Switching changes HEAD but does not move other branches.}
+\prow{ให้ถือว่า working tree สะอาด คำสั่งทำงานสำเร็จ และไม่มี conflict เว้นแต่โจทย์จะระบุไว้ หากไม่มีคำสั่ง fetch, push หรือคำสั่ง remote อื่น ให้ถือว่าไม่ได้ติดต่อ GitHub แต่ละข้อเริ่มจาก graph ของตนเอง}
+{Assume a clean working tree, successful commands and no conflicts unless stated otherwise. If no fetch, push or other remote command appears, assume GitHub is not contacted. Each question starts from its own graph.}
 \prow{\textbf{ใช้ชื่อไฟล์เมื่อ stage ห้ามใช้ \code{git add .}} แสดง local branches, origin/* และ HEAD ตามคำสั่งของแต่ละขั้น อย่านำ graph สุดท้ายของข้อ 11 ไปเริ่มข้อ 12}
 {\textbf{Stage explicit file names; \code{git add .} is not permitted.} Show local branches, origin/* and HEAD as requested at each step. Do not use Question 11's final graph as Question 12's starting state.}
-\prow{กราฟ A---B แทน B ที่มี parent A; ชื่อใน [ ] และ ref -> commit บอกตำแหน่งตัวชี้ HEAD -> branch คือ branch ปัจจุบัน เส้น / กับ \textbackslash{} แสดงการเชื่อม ancestry เครื่องหมาย > หน้าคำสั่งเป็น prompt คำตอบใช้กราฟตัวอักษรหรือภาพวาดได้}
-{In A---B, B has parent A. Names in [ ] and ref -> commit locate references; HEAD -> branch marks the current branch. / and \textbackslash{} connect ancestry. A leading > is a command prompt. Answers may use a text graph or a drawn diagram.}
+\prow{ในกราฟ A---B หมายถึง commit B มี parent คือ A. ชื่อในวงเล็บเหลี่ยมหรือรูปแบบ ref -> commit ใช้ระบุตำแหน่งของ ref; HEAD -> branch ระบุ branch ปัจจุบัน. เครื่องหมาย / และ \textbackslash{} แสดงเส้นทาง ancestry ส่วน > ใช้นำหน้าคำสั่ง ผู้สอบตอบด้วยกราฟตัวอักษรหรือวาดแผนภาพได้}
+{In a graph, A---B means commit B has A as its parent. Bracketed names and ref -> commit identify reference locations; HEAD -> branch marks the current branch. The / and \textbackslash{} lines show ancestry. A leading > marks a command. Answers may use ASCII or a drawn graph.}
 \end{prompttable}
 \newpage
-\bq{11}{แก้ defect แล้วรวมงานตรวจคะแนนเข้า sprint\_1}{Fix a defect and integrate score validation into sprint\_1}{10}
-\pair{ExamScore เป็นเครื่องมือที่อาจารย์ใช้ตรวจคะแนนหลังสอบและจัดทำรายงานอัตราผ่าน รุ่นที่ deploy แล้วอยู่บน \code{main} ซึ่งชี้ไป commit C ส่วนทีม Sprint แยก \code{sprint\_1} จาก B และเพิ่ม D เพื่อปรับรูปแบบรายงาน ขณะเดียวกันทีมตรวจสอบคะแนนแยก \code{feature/load\_scores} จาก B และทำ parser refactor ไว้ที่ E ทั้งสองงานต้องอยู่ในประวัติเมื่อรวมรุ่นทดสอบ}
-{ExamScore is a tool instructors use to validate marks and prepare a pass-rate report after an examination. The deployed release is on \code{main} at C. The Sprint team branched \code{sprint\_1} from B and added D for a report-format change. Separately, the score-validation team branched \code{feature/load\_scores} from B and committed a parser refactor as E. Both changes must remain in the test release.}
-\pair{ก่อนปล่อยรุ่นทดสอบ ผู้ตรวจพบว่า \code{score\_data.py} ยังรับคะแนนต่ำกว่า 0 หรือสูงกว่า 100 ได้ ผู้พัฒนาแก้ validation บน feature branch แล้ว แต่การแก้ยังไม่ stage หรือ commit และ working tree มีการเปลี่ยนแปลงนี้เพียงไฟล์เดียว \code{scores.csv} ไม่ได้แก้ ต้องบันทึก patch นี้เป็น F แล้วรวม feature เข้า \code{sprint\_1} โดยเก็บงาน D ไว้ จากนั้นกลับไป \code{main} เพื่อตรวจรุ่นที่ deploy อยู่ ไม่มีการ push ในโจทย์นี้}
-{Before preparing the test release, a reviewer finds that \code{score\_data.py} still accepts values below 0 or above 100. The developer has corrected validation on the feature branch, but the edit is not staged or committed; it is the only working-tree change. \code{scores.csv} is unchanged. Record the patch as F, integrate the feature into \code{sprint\_1} without losing D, then return to \code{main} to inspect the deployed release. Do not push.}
+\bq{11}{แก้ข้อผิดพลาดและรวมงานตรวจคะแนนเข้า sprint\_1}{Fix a defect and merge score validation into sprint\_1}{10}
+\pair{ทีมกำลังเตรียมรุ่นทดสอบของ ExamScore โปรแกรมที่ใช้ตรวจคะแนนจาก CSV และจัดทำรายงาน รุ่นที่นำขึ้นใช้งานแล้วอยู่ที่ commit C บน \code{main} ทีม Sprint แยก \code{sprint\_1} จาก B และสร้าง D เพื่อปรับรูปแบบรายงาน ส่วนอีกทีมแยก \code{feature/load\_scores} จาก B และสร้าง E เพื่อปรับการอ่านคะแนน ทั้งสองงานต้องอยู่ในรุ่นทดสอบ}
+{The team is preparing an ExamScore test release. The program validates marks from CSV files and produces reports. The deployed version is at C on \code{main}. The Sprint team branched \code{sprint\_1} from B and created D to revise the report. Another team branched \code{feature/load\_scores} from B and created E to improve score loading. Both changes are needed in the test release.}
+\pair{ระหว่างตรวจรุ่นทดสอบ พบว่า \code{score\_data.py} ยังรับคะแนนต่ำกว่า 0 หรือสูงกว่า 100 ได้ ผู้พัฒนาแก้ข้อผิดพลาดบน \code{feature/load\_scores} แล้ว แต่ยังไม่ได้ stage หรือ commit และไฟล์นี้เป็นรายการเดียวที่แก้ใน working tree ส่วน \code{scores.csv} ไม่เปลี่ยน ให้ทำตามคำสั่งด้านล่างเพื่อบันทึก F รวม feature เข้า \code{sprint\_1} โดยเก็บ D ไว้ แล้วสลับกลับ \code{main} โดยไม่ push}
+{During review, the team finds that \code{score\_data.py} still accepts scores below 0 or above 100. A developer has fixed it on \code{feature/load\_scores}, but has not staged or committed the change. This is the only modified file; \code{scores.csv} is unchanged. Follow the commands below to record F, merge the feature into \code{sprint\_1} while keeping D, and return to \code{main}. Do not push.}
 \begin{gitpanel}
 A---B---C [main, origin/main]
      |\
      D E [HEAD -> feature/load_scores, origin/feature/load_scores]
 sprint_1, origin/sprint_1 -> D
 \end{gitpanel}
-\pair{สมมติ working tree มีเฉพาะการแก้ \code{score\_data.py} ดังกล่าว ให้รันคำสั่งตามลำดับ ไม่มี conflict และ merge สร้าง commit เมื่อ branch แยกสายกัน}
-{Assume the working tree contains only the stated edit to \code{score\_data.py}. Run the commands in order. There are no file conflicts, and a merge commit is created when the branches have diverged.}
+\pair{working tree มีเฉพาะการแก้ \code{score\_data.py} ที่ระบุไว้ ให้ใช้คำสั่งต่อไปนี้ตามลำดับ สมมติว่าไม่มี conflict และเมื่อรวม branch ที่แยกจากกัน Git จะสร้าง merge commit}
+{The working tree contains only the stated change to \code{score\_data.py}. Run the commands below in order. Assume there are no conflicts and that Git creates a merge commit when merging the diverged branches.}
 \begin{gitpanel}
 > git status
 > git diff -- score_data.py
@@ -375,18 +375,18 @@ sprint_1, origin/sprint_1 -> D
 > git merge feature/load_scores
 > git switch main
 \end{gitpanel}
-\bsub{11.1}{แสดง graph หลัง commit F}{Draw the graph after commit F}{2}
+\bsub{11.1}{วาด commit graph หลังสร้าง F}{Draw the commit graph after creating F}{2}
 \pair{แสดง local branches, origin/* และ HEAD โดยไม่ย้าย refs ที่คำสั่งยังไม่เปลี่ยน}{Show all local branches, origin/* and HEAD; keep every reference that these commands have not moved.}
 \blankbox{3.4cm}
 \newpage
-\continued{ข้อ 11 (ต่อ): รวม feature เข้า sprint\_1 และสลับกลับ main}{Question 11 (continued): Merge the feature into sprint\_1 and switch back to main}
-\bsub{11.2}{แสดง graph หลัง merge เข้า sprint\_1}{Draw the graph after merging into sprint\_1}{5}
-\pair{แสดง commit graph และ refs ทุกตัว ระบุชนิด merge, common ancestor และ parents ของ merge commit G อธิบายว่า local branch ใดขยับ และ origin/* ใดคงเดิม}
-{Show the commit graph and every reference. Identify the merge type, common ancestor and both parents of merge commit G. Explain which local branch moves and which origin/* references stay unchanged.}
+\continued{ข้อ 11 (ต่อ): รวม feature เข้า sprint\_1 และกลับไป main}{Question 11 (continued): Merge the feature into sprint\_1 and return to main}
+\bsub{11.2}{วาด graph หลัง merge เข้า sprint\_1}{Draw the graph after merging into sprint\_1}{5}
+\pair{วาด commit graph พร้อม refs ทั้งหมด ระบุชนิดของ merge, ancestor ร่วม และ parent ทั้งสองของ merge commit G. อธิบายว่า local branch ใดเลื่อน และ origin/* ใดคงเดิม}
+{Draw the commit graph with all references. Identify the merge type, common ancestor and both parents of merge commit G. Explain which local branch moves and which origin/* references remain unchanged.}
 \blankbox{5.4cm}
-\bsub{11.3}{แสดง graph หลัง switch ไป main}{Draw the graph after switching to main}{3}
-\pair{ระบุ HEAD และตำแหน่ง branch/ref หลังคำสั่งสุดท้าย พร้อมอธิบายว่า switch สร้าง commit หรือไม่}
-{State HEAD and every branch/reference after the final command. Explain whether switching creates a commit.}
+\bsub{11.3}{วาด graph หลัง switch กลับไป main}{Draw the graph after switching back to main}{3}
+\pair{หลังคำสั่งสุดท้าย HEAD และ branch/ref แต่ละตัวชี้อยู่ที่ใด อธิบายด้วยว่า switch สร้าง commit ใหม่หรือไม่}
+{After the final command, where does HEAD point, and where is each branch/reference? Also explain whether switching creates a new commit.}
 \blankbox{3cm}
 \newpage
 \bq{12}{เขียนคำสั่งและวาด graph ทีละขั้น}{Write commands and redraw after each step}{10}

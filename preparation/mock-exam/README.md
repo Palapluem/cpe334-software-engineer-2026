@@ -7,8 +7,8 @@ These student-created materials are for study and timed practice. They are not a
 | File | Format | Contents |
 | --- | --- | --- |
 | [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **33 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English question text followed by Thai; 3 parts, 12 questions, 100 marks, 3 hours |
-| [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 15 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
-| [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 18 pages | The same core answers followed by S1-S3 |
+| [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 16 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
+| [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 19 pages | The same core answers followed by S1-S3 |
 
 ข้อสอบหลักมีไฟล์เดียว ไม่แยกฉบับไทย อังกฤษ หรือฉบับแนบแบบฝึกเสริม ส่วน S1-S3 ยังเก็บเป็น [source ไทย](midterm/supplements/questions-th.tex) และ [source อังกฤษ](midterm/supplements/questions-en.tex) พร้อมเฉลยไทยเพื่อใช้ฝึกแยก ไม่อยู่ในข้อสอบหลักและไม่นับรวม 100 คะแนนหรือเวลา 3 ชั่วโมง
 
@@ -43,9 +43,9 @@ These student-created materials are for study and timed practice. They are not a
 
 ข้อ 5 คงงาน A-I, owners, durations, วันที่และ buffers ตามแนวเดิม ข้อ 6 คงกฎถือการจองได้ไม่เกินหนึ่งรายการต่อวัน ข้อ 7 คง velocity 16, anchor 3 และ Fibonacci scale
 
-พาร์ท 50 คะแนนใช้เรื่อง TokTickIT แบบย่อสำหรับข้อ 8-10 และสถานการณ์ Git สำหรับข้อ 11-12 เรื่อง TokTickIT เป็นโจทย์ฝึกที่แต่งตามบริบทที่นักศึกษาเล่า ไม่ใช่การถอดข้อสอบจริงหรือคัดกฎแลปทั้งหมด R1 ระบุ Administrator เป็นชนิดย่อยของ IT Staff **เฉพาะแบบจำลองนี้** เพื่อฝึก generalization; ไม่ใช่กฎสากลของ RBAC ข้อ 8 ใช้เฉพาะ nodes ที่ให้ ส่วนข้อ 9 ใช้ state paths ที่เขียนใน R8-R10 ไม่เติม transition จากความจำของแลป
+พาร์ท 50 คะแนนใช้ข้อกำหนด TokTickIT แบบย่อในข้อ 8-10 และสถานการณ์ Git ในข้อ 11-12 ทั้งหมดเป็นโจทย์ฝึกที่เรียบเรียงจากเนื้อหารายวิชาและบริบทที่นักศึกษาเล่า ไม่ใช่การถอดข้อสอบจริงหรือการคัดกฎจากแลปมาทั้งหมด ใน R1 กำหนดให้ Administrator เป็นชนิดย่อยของ IT Staff **เฉพาะในแบบจำลองของโจทย์นี้** เพื่อฝึก generalization ไม่ได้หมายความว่า RBAC ทุกระบบต้องจัดบทบาทแบบเดียวกัน ข้อ 8 ให้เติมความสัมพันธ์ระหว่าง node ที่แสดงไว้แล้ว ส่วนข้อ 9 ใช้เฉพาะ state transitions ที่ระบุใน R8-R10
 
-ข้อ 11 ใช้ graph ตั้งต้นตามที่นักศึกษาจำได้จากข้อสอบจริง: `A---B---C [main, origin/main]` และ `D [sprint_1, origin/sprint_1]` แยกจาก B; โจทย์ฝึกเพิ่ม feature branch `feature/load_scores` ที่ E จาก B เพื่อให้ได้สถานการณ์สามปลายสาย จุดเริ่มและชื่อ `sprint_1` สะท้อนความทรงจำของนักศึกษา ส่วนรายละเอียด ExamScore, F/G, คำสั่งและคำถามย่อยเป็นโจทย์ฝึกที่สร้างต่อ ไม่ได้อ้างว่าเป็นข้อความหรือคำตอบตรงจากข้อสอบจริง ผู้ทำ stage เฉพาะ `score_data.py`, commit F, merge เข้า `sprint_1` ให้เป็น G และกลับไป `main`; ไม่มี push ข้อ 12 เริ่มคนละ snapshot: D/E ต่ออยู่บน feature สายเดียว จึงฝึก fast-forward และสร้าง F หลัง stage สามไฟล์ด้วยข้อความ commit ที่กำหนด ไม่มี fetch/push ที่โจทย์ไม่ได้สั่ง และห้ามใช้ `git add .`
+ข้อ 11 คงจุดเริ่มตามที่นักศึกษาจำได้จากข้อสอบจริง คือ `main` ชี้ไป C และ `sprint_1` ชี้ไป D ซึ่งแยกจาก B ส่วนโจทย์ฝึกเพิ่ม branch `feature/load_scores` ที่ E และใช้สถานการณ์ ExamScore สำหรับฝึก merge รายละเอียดและเหตุการณ์ที่เหลือเป็นโจทย์ฝึก ไม่ใช่ข้อความจากข้อสอบจริง ให้ stage เฉพาะ `score_data.py` แล้วบันทึกการแก้เป็น F จากนั้น merge feature เข้า `sprint_1` ให้เกิด G และสลับกลับ `main` โดยไม่ push ข้อ 12 เป็นอีกสถานการณ์หนึ่ง: D และ E อยู่บน feature branch เดียวกัน จึงฝึก fast-forward และสร้าง F หลัง stage สามไฟล์ตาม commit message ที่กำหนด หากโจทย์ไม่ได้สั่ง fetch หรือ push ให้คง remote-tracking refs ไว้ และห้ามใช้ `git add .`
 
 ## ความครอบคลุมและแหล่งข้อมูล
 
@@ -63,7 +63,7 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 | S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
 | S3 | Samples pp. 8-9, 19 | Explain graph ตาม 2.2 ครบหกคำถาม |
 
-รูปแบบคำถามอังกฤษก่อนและภาษาไทยบรรทัดถัดไปเทียบกับ Samples pp. 1-2 ส่วนหน้าปกเทียบ source และ PDF ฉบับแรกใน commit `86647f0` โดยคงวันสอบที่แก้ถูกแล้วเป็น 27 ตุลาคม 2569 จำนวนหน้าเป็น 30 และปรับเฉพาะกติกากระดาษสรุปตามข้อมูลสอบจริงที่นักศึกษายืนยัน เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
+รูปแบบคำถามอังกฤษก่อนและภาษาไทยบรรทัดถัดไปเทียบกับ Samples pp. 1-2 ส่วนหน้าปกเทียบ source และ PDF ฉบับแรกใน commit `86647f0` โดยคงวันสอบเป็น 27 ตุลาคม 2569 ข้อสอบฉบับนี้มี 33 หน้า และปรับเฉพาะกติกากระดาษสรุปตามข้อมูลสอบจริงที่นักศึกษายืนยัน เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
 
 หลักการตรวจเฉลยยังอิง Lecture 2 pp. 14-29 (requirements/proposal), Lecture 5 pp. 5-8, 19-23, 28-38 (security), Lecture 6 pp. 71-96 (WBS/Gantt/RACI) และ Lecture 7 pp. 60-72, 94-104, 114-118 (grooming/planning) รับคำตอบอื่นที่ตรงข้อกำหนดและมีเหตุผล เกณฑ์คะแนนและตัวอย่างคำตอบเป็นของชุดฝึก ไม่ใช่เฉลยทางการ
 
@@ -89,6 +89,6 @@ python3 preparation/mock-exam/midterm/build.py
 
 ## ตรวจฉบับ 28 October 2026
 
-ตรวจ render ของโจทย์ทั้ง 33 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือกล่องคำตอบแยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference ตรวจ graph ข้อ 11 จากความทรงจำที่นักศึกษาระบุ: C อยู่บน `main`, D อยู่บน `sprint_1` ซึ่งแยกจาก B; feature branch และเหตุการณ์หลังจากนั้นระบุชัดว่าเป็นส่วนที่แต่งเพิ่มสำหรับฝึก ไม่ยืนยันว่าเป็นโจทย์จริง
+ตรวจ PDF ทั้ง 33 หน้าและเฉลยที่ปรับ รวมถึงเลขหน้า การจับคู่ภาษา เนื้อหาข้อ 1-12, R1-R12, คะแนนรวม 25+25+50 และตำแหน่ง Git refs ไม่พบหน้าว่างหรือกล่องคำตอบที่หลุดไปอีกหน้า หน้า 14 เป็นแนวนอนเพียงหน้าเดียว แผนภาพเป็น vector และไม่มีเส้นเฉลยในโจทย์ ตรวจทิศ include/extend/generalization และ state transitions เทียบกับเฉลยแล้ว สำหรับข้อ 11 ตรวจว่า C อยู่บน `main` และ D อยู่บน `sprint_1` ซึ่งแยกจาก B ส่วน feature branch และเหตุการณ์หลังจากนั้นระบุไว้ชัดว่าเป็นรายละเอียดสำหรับโจทย์ฝึก
 
 ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน
