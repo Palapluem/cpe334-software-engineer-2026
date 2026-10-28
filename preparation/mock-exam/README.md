@@ -20,6 +20,7 @@ These student-created materials are for study and timed practice. They are not a
 - คง Sarabun และขนาดโจทย์ประมาณ 14 pt; หัว/ท้ายกระดาษเล็กกว่าโจทย์ ไม่ลดฟอนต์เพื่อบีบจำนวนหน้า พื้นที่ตอบใช้ร่วมกันเต็มความกว้าง ไม่แบ่งคำตอบเป็นสองภาษา
 - หน้า Gantt เป็นแนวนอนเพียงหน้าเดียว ครบ 20 วันทำงาน มี 14 แถวสำหรับ tasks/milestones/buffer และคอลัมน์ No., Task, Owner, Start, Due; หน้าถัดไปกลับเป็นแนวตั้ง
 - ข้อ 8 ให้ actors, use cases และ boundary มาแล้ว ผู้ทำเติมเส้น association, include, extend และ generalization; ข้อ 9 ให้ states มาแล้ว ผู้ทำเติม transitions/events/guards; ข้อ 10 ให้กรอบ List/Form พร้อมตัวอย่าง notation แล้วเติมข้อมูลและ controls
+- โจทย์ Git ให้กราฟตัวอักษรแบบ `A--B` พร้อมสถานการณ์และคำสั่งต่อเนื่อง รับคำตอบทั้ง ASCII และภาพวาด หาก ancestry, branches, remote-tracking refs และ HEAD ครบ
 - ภาพคนกับวงรีงานและเส้น include/extend/generalization เป็น **Use Case Diagram** ส่วน **State Diagram** แสดง states กับ transitions แยกเป็นคนละข้อ เพื่อไม่ใช้สัญลักษณ์ผิดประเภท
 
 ## แผนหน้าและคะแนน
@@ -42,9 +43,9 @@ These student-created materials are for study and timed practice. They are not a
 
 ข้อ 5 คงงาน A-I, owners, durations, วันที่และ buffers ตามแนวเดิม ข้อ 6 คงกฎถือการจองได้ไม่เกินหนึ่งรายการต่อวัน ข้อ 7 คง velocity 16, anchor 3 และ Fibonacci scale
 
-พาร์ท 50 คะแนนใช้เรื่อง TokTickIT แบบย่อสำหรับข้อ 8-10 และ Git แบบเดิมสำหรับข้อ 11-12 เรื่อง TokTickIT เป็นโจทย์ฝึกที่แต่งตามบริบทที่นักศึกษาเล่า ไม่ใช่การถอดข้อสอบจริงหรือคัดกฎแลปทั้งหมด R1 ระบุ Administrator เป็นชนิดย่อยของ IT Staff **เฉพาะแบบจำลองนี้** เพื่อฝึก generalization; ไม่ใช่กฎสากลของ RBAC ข้อ 8 ใช้เฉพาะ nodes ที่ให้ ส่วนข้อ 9 ใช้ state paths ที่เขียนใน R8-R10 ไม่เติม transition จากความจำของแลป
+พาร์ท 50 คะแนนใช้เรื่อง TokTickIT แบบย่อสำหรับข้อ 8-10 และสถานการณ์ Git สำหรับข้อ 11-12 เรื่อง TokTickIT เป็นโจทย์ฝึกที่แต่งตามบริบทที่นักศึกษาเล่า ไม่ใช่การถอดข้อสอบจริงหรือคัดกฎแลปทั้งหมด R1 ระบุ Administrator เป็นชนิดย่อยของ IT Staff **เฉพาะแบบจำลองนี้** เพื่อฝึก generalization; ไม่ใช่กฎสากลของ RBAC ข้อ 8 ใช้เฉพาะ nodes ที่ให้ ส่วนข้อ 9 ใช้ state paths ที่เขียนใน R8-R10 ไม่เติม transition จากความจำของแลป
 
-ข้อ 11 คง three-way merge ที่สร้าง G แล้ว switch กลับ main ข้อ 12 คงการ switch, fast-forward และสร้าง F หลัง stage สามไฟล์ด้วย commit message เดิม ไม่มี fetch/push ที่โจทย์ไม่ได้สั่ง และห้ามใช้ `git add .`
+ข้อ 11 เริ่ม `A--B` โดยทุก branch/ref ที่ให้ชี้ B และ HEAD อยู่ main; switch ไป feature แล้ว commit C, switch ไป staging แล้ว commit D จึงแยกจาก B คนละสาย ก่อน merge เป็น E ที่มี parents D/C ให้เติมกราฟก่อนและหลัง พร้อมเหตุผล ไม่มี switch กลับ main หลัง merge ข้อ 12 เริ่มคนละ snapshot: D/E ต่ออยู่บน feature สายเดียว จึงยังฝึก fast-forward และการสร้าง F หลัง stage สามไฟล์ด้วยข้อความ commit เดิม ไม่มี fetch/push ที่โจทย์ไม่ได้สั่ง และห้ามใช้ `git add .`
 
 ## ความครอบคลุมและแหล่งข้อมูล
 
@@ -56,7 +57,8 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 | 5 | Lecture 10 pp. 14-21 | คง tasks, owners, durations, วันที่และ buffers; meeting notes ของ RACI เพิ่มเพื่อให้กรอกครบ |
 | 6-7 | Lecture 10 pp. 22-26 | คง client facts, sprint goal, anchor และ velocity |
 | 8-10 | [Lecture 4](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) pp. 5-8, 45-46, 111-117; บริบท TokTickIT จากคำบอกเล่านักศึกษา | แต่ง R1-R12 ให้ตอบได้ในตัวเอง; ไม่ใช่ R1-R11 ของ KU Registration ใน Samples |
-| 11-12 | [Midterm Samples](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 6, 10-12, 20-21 | ใช้ 2.5 และ 2.3 คง ancestry, refs, filenames และ commit message; วาด vector ใหม่ |
+| 11 | [Midterm Samples](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 6, 12, 21; ลักษณะสถานการณ์ที่นักศึกษาเล่าหลังสอบ | ดัดแปลงเป็น switch/commit C และ D คนละ branch แล้ว merge E; ไม่ใช่การคัด graph ของ 2.5 เดิม |
+| 12 | Samples pp. 6, 10-11, 20-21 | คง 2.3: ancestry, refs, filenames และ commit message; เปลี่ยนกราฟตั้งต้นเป็น ASCII |
 | S1 | Lecture 4 pp. 5-8, 64-65 | Grades Submission Use Case; ฝึกแยกจาก TokTickIT |
 | S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
 | S3 | Samples pp. 8-9, 19 | Explain graph ตาม 2.2 ครบหกคำถาม |
@@ -86,6 +88,6 @@ python3 preparation/mock-exam/midterm/build.py
 
 ## ตรวจฉบับ 28 October 2026
 
-ตรวจ render ของโจทย์ทั้ง 30 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือหน้า guard แยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference
+ตรวจ render ของโจทย์ทั้ง 30 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือหน้า guard แยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference ตรวจโจทย์ Git ใหม่ด้วย Git จริงใน repository ชั่วคราวแยก: C และ D มี parent B; E มี parents D/C; source/main/origin refs ไม่เลื่อน และ HEAD ยังอยู่ staging จากนั้นลบ repository ทดสอบ
 
 ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน

@@ -338,30 +338,33 @@ CLOSED และ CANCELLED $\rightarrow$ Final & จบวงจร & ไม่�
 \textbf{เกณฑ์ตรวจ:} data/read-only และ controls ตาม R3 ครบ 2; แยก Public Comments/Internal Notes 1; Action/optional file พร้อม validation 1; Resolve gate/refusal 1; stale แล้วคง input/Refresh ไม่ส่งเอง 1 รวม 6\par
 \textbf{เงื่อนไข:} แสดง panel ข้อผิดพลาดตามเหตุการณ์จริง ไม่บังคับให้หลาย error เกิดพร้อมกัน; Requester ไม่เห็น Internal Notes หรือจำนวนรายการ และ role/state ที่ไม่มีสิทธิ์ต้องไม่เกิดการเปลี่ยนแปลง
 \newpage
-\qtitle{11}{Three-way merge แล้ว switch}{10}
-\solsource{Samples ข้อ 2.5 หน้า 12 และเฉลยหน้า 21; สมมติฐาน Git หน้า 6}
-\begin{center}
-\begin{tikzpicture}[x=2cm,y=1cm]
-\foreach\n/\x in{A/0,B/1,C/2,D/3}{\node[commit](\n)at(\x,0){\n};}
-\node[commit](E)at(4,1){E};\node[commit](F)at(4,-1){F};\node[commit](G)at(5,-1){G};
-\foreach\a/\b in{A/B,B/C,C/D,D/E,D/F,E/G,F/G}{\draw[thick](\a)--(\b);}
-\node[below=4mm of B,align=center]{main (HEAD)\\origin/main};
-\node[above=4mm of E,align=center]{feature/basic\_statistics\\origin/feature/basic\_statistics};
-\node[below=4mm of F]{origin/sprint\_1\_staging};
-\node[right=3mm of G]{sprint\_1\_staging};
-\end{tikzpicture}
-\end{center}
-\begin{tabularx}{\linewidth}{|Y|C{1.5cm}|}\hline
-Reference & Commit\\\hline
-main; origin/main & B\\\hline
-feature/basic\_statistics; origin/feature/basic\_statistics & E\\\hline
-sprint\_1\_staging & G\\\hline
-origin/sprint\_1\_staging & F\\\hline
-HEAD & main (B)\\\hline
+\qtitle{11}{Switch ทำ commit แยกสาย แล้ว merge}{10}
+\solsource{โจทย์สถานการณ์ดัดแปลงในชุดฝึก; หลัก three-way merge และ refs: Samples หน้า 6, 12, 21}
+\textbf{ก่อน merge:} C และ D ต่างมี parent เป็น B เพราะทำงานต่อจาก B คนละ branch ไม่ใช่ C ตามด้วย D ในเส้นเดียว HEAD อยู่ sprint\_1\_staging ที่ D หลัง switch ครั้งที่สอง
+\begin{verbatim}
+    C  (feature/load_scores)
+   /
+A--B
+   \
+    D  (HEAD -> sprint_1_staging)
+\end{verbatim}
+\textbf{หลัง merge:} E เป็น merge commit ที่มี first parent D และ second parent C; เลื่อนเฉพาะ sprint\_1\_staging ไป E โดย HEAD ยังชี้ branch เดิม
+\begin{verbatim}
+    C-----------.
+   /             \
+A--B--D-----------E  (HEAD -> sprint_1_staging)
+\end{verbatim}
+\begin{tabularx}{\linewidth}{|Y|C{3cm}|C{3cm}|}\hline
+Reference & ก่อน merge & หลัง merge\\\hline
+main & B & B\\\hline
+feature/load\_scores & C & C\\\hline
+sprint\_1\_staging & D & E\\\hline
+origin/main; origin/sprint\_1\_staging; origin/feature/load\_scores & B ทุกตัว & B ทุกตัว\\\hline
+HEAD & sprint\_1\_staging (D) & sprint\_1\_staging (E)\\\hline
 \end{tabularx}
-\textbf{คำตอบย่อ:} เป็น three-way merge เพราะสาย E และ F แยกจาก D จึงสร้าง G ที่มี parents F และ E ตามลำดับ แล้วเลื่อน sprint\_1\_staging ไป G ส่วน \code{switch main} ย้าย HEAD ไป main ที่ B และใช้ไฟล์จาก commit B โดยไม่เลื่อน branch ใดเพิ่ม ตัวชี้ origin/* คงเดิมเพราะไม่มีคำสั่งติดต่อ remote
-
-\textbf{เกณฑ์ตรวจ:} ancestry A-F เดิม 1; G มี parents F และ E ครบ 2; local sprint=G, feature=E, main=B ตัวละ 1 รวม 3; origin/main=B, origin/feature=E, origin/sprint=F รวม 1.5; HEAD ที่ main/B 1; three-way พร้อมเหตุผล 1; switch ไม่ย้าย branch pointers 0.5 รวม 10
+\textbf{เหตุผล:} เป็น three-way merge เพราะ C กับ D แยกจาก common ancestor B ไม่มีปลายใดเป็น ancestor ของอีกปลาย จึง fast-forward ไม่ได้ source branch คงที่ C และ origin/* คงที่ B เพราะไม่มี fetch หรือ push การ switch เปลี่ยน current branch/working tree แต่ไม่สร้าง commit; C และ D เกิดจาก commit สองคำสั่ง ส่วน E เกิดจาก merge\par
+\textbf{เกณฑ์ตรวจ 10 คะแนน:} C และ D มี parent B ครบ 2; local branches/HEAD ก่อน merge ถูก 2; E มี parents D และ C ครบ 2; current branch/HEAD หลัง merge ถูก 1; คง main, source branch และ remote refs ถูก 2; อธิบาย three-way และ switch ไม่สร้าง commit 1\par
+\textbf{รูปแบบคำตอบ:} รับภาพวงกลมกับเส้นเชื่อมหรือ ASCII ที่สื่อ ancestry เดียวกัน อย่าเติม commit ใหม่เพียงเพราะมี switch และอย่าเลื่อน origin/* ตาม local branch โดยไม่มีการติดต่อ remote
 \newpage
 \qtitle{12}{คำสั่งและ graph แบบต่อเนื่อง}{10}
 \solsource{Samples ข้อ 2.3 หน้า 10-11 และเฉลยหน้า 20-21; สมมติฐาน Git หน้า 6}

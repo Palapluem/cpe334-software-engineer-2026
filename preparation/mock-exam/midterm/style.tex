@@ -96,23 +96,6 @@
   signal/.style={-{Straight Barb[length=1.4mm,width=1.1mm]},line width=.4pt},
   ganttdep/.style={-{Straight Barb[length=.95mm,width=.75mm]},line width=.35pt},
   life/.style={draw,align=center,inner sep=3pt}}
-\newcommand{\startgitFF}{%
-\begin{tikzpicture}[x=2.4cm,y=1cm]
-\foreach \n/\x in {A/0,B/1,C/2,D/3,E/4}{\node[commit] (\n) at (\x,0){\n};}
-\foreach \a/\b in {A/B,B/C,C/D,D/E}{\draw[thick] (\a)--(\b);}
-\node[below=5mm of B,align=center]{main\\origin/main};
-\node[above=5mm of C,align=center]{sprint\_1\_staging\\origin/sprint\_1\_staging};
-\node[below=5mm of E,align=center]{feature/load\_scores\\HEAD};
-\end{tikzpicture}}
-\newcommand{\startgitMerge}{%
-\begin{tikzpicture}[x=2.1cm,y=1cm]
-\foreach \n/\x in {A/0,B/1,C/2,D/3}{\node[commit] (\n) at (\x,0){\n};}
-\node[commit](E)at(4,1.2){E};\node[commit](F)at(4,-1.2){F};
-\foreach \a/\b in {A/B,B/C,C/D,D/E,D/F}{\draw[thick](\a)--(\b);}
-\node[below=5mm of B,align=center]{main\\origin/main};
-\node[right=4mm of E,align=left]{feature/basic\_statistics\\origin/feature/basic\_statistics};
-\node[right=4mm of F,align=left]{sprint\_1\_staging (HEAD)\\origin/sprint\_1\_staging};
-\end{tikzpicture}}
 % Repository snapshot for the supplementary Explain-the-graph exercise.
 \newcommand{\supplementgitgraph}{%
 \begin{tikzpicture}[x=2cm,y=1cm,font=\fontsize{9.5}{11}\selectfont]
