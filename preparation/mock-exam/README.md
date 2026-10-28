@@ -20,7 +20,7 @@ These student-created materials are for study and timed practice. They are not a
 - คง Sarabun และขนาดโจทย์ประมาณ 14 pt; หัว/ท้ายกระดาษเล็กกว่าโจทย์ ไม่ลดฟอนต์เพื่อบีบจำนวนหน้า พื้นที่ตอบใช้ร่วมกันเต็มความกว้าง ไม่แบ่งคำตอบเป็นสองภาษา
 - หน้า Gantt เป็นแนวนอนเพียงหน้าเดียว ครบ 20 วันทำงาน มี 14 แถวสำหรับ tasks/milestones/buffer และคอลัมน์ No., Task, Owner, Start, Due; หน้าถัดไปกลับเป็นแนวตั้ง
 - ข้อ 8 ให้ actors, use cases และ boundary มาแล้ว ผู้ทำเติมเส้น association, include, extend และ generalization; ข้อ 9 ให้ states มาแล้ว ผู้ทำเติม transitions/events/guards; ข้อ 10 ให้กรอบ List/Form พร้อมตัวอย่าง notation แล้วเติมข้อมูลและ controls
-- โจทย์ Git ให้กราฟตัวอักษรแบบ `A--B` พร้อมสถานการณ์และคำสั่งต่อเนื่อง รับคำตอบทั้ง ASCII และภาพวาด หาก ancestry, branches, remote-tracking refs และ HEAD ครบ
+- กราฟ Git ใช้รูปแบบส่วน 2 ของ Samples: แผงสีเทาอ่อนมีกรอบ, monospace `A---B`, ชื่อ refs ใน `[main, origin/main]` ต่อท้าย commit, `[HEAD -> branch]`, เส้น `\`/`/` แยกสายและรวมประวัติ และ `ref -> commit` ใต้กราฟเมื่อวางในบรรทัดไม่พอ คำสั่งอยู่ในแผงแบบเดียวกันและมี `>` นำหน้าเป็น prompt รับคำตอบทั้ง ASCII และภาพวาดหาก ancestry/refs ถูกต้อง ไม่ใช้ผัง `+--` หรือ caret เป็นตัวชี้แทนรูปแบบนี้
 - ภาพคนกับวงรีงานและเส้น include/extend/generalization เป็น **Use Case Diagram** ส่วน **State Diagram** แสดง states กับ transitions แยกเป็นคนละข้อ เพื่อไม่ใช้สัญลักษณ์ผิดประเภท
 
 ## แผนหน้าและคะแนน
@@ -58,7 +58,7 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 | 6-7 | Lecture 10 pp. 22-26 | คง client facts, sprint goal, anchor และ velocity |
 | 8-10 | [Lecture 4](<../../lectures/Week 4/CPE334_Lecture04 UML, SDS Features, STS Features.pdf>) pp. 5-8, 45-46, 111-117; บริบท TokTickIT จากคำบอกเล่านักศึกษา | แต่ง R1-R12 ให้ตอบได้ในตัวเอง; ไม่ใช่ R1-R11 ของ KU Registration ใน Samples |
 | 11 | [Midterm Samples](<../../lectures/Week 10/CPE334_Midterm Samples by Suthep.pdf>) pp. 6, 12, 21; ลักษณะสถานการณ์ที่นักศึกษาเล่าหลังสอบ | ดัดแปลงเป็น switch/commit C และ D คนละ branch แล้ว merge E; ไม่ใช่การคัด graph ของ 2.5 เดิม |
-| 12 | Samples pp. 6, 10-11, 20-21 | คง 2.3: ancestry, refs, filenames และ commit message; เปลี่ยนกราฟตั้งต้นเป็น ASCII |
+| 12 | Samples pp. 6, 10-11, 20-21 | คง 2.3: ancestry, refs, filenames และ commit message; ใช้กราฟเรียงบรรทัด/วงเล็บและแผงคำสั่งตามรูปแบบต้นฉบับ |
 | S1 | Lecture 4 pp. 5-8, 64-65 | Grades Submission Use Case; ฝึกแยกจาก TokTickIT |
 | S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
 | S3 | Samples pp. 8-9, 19 | Explain graph ตาม 2.2 ครบหกคำถาม |
@@ -75,6 +75,7 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 - `midterm/bilingual/ticket-diagrams.tex`: actors/use cases/states และ blank UI scaffolds; ภาพโจทย์ไม่มีเส้นคำตอบ
 - `midterm/bilingual/cover.tex`, `frontmatter/cover-layout.tex`, `exam-info.tex`: ข้อความปก กริดและข้อมูลสอบ
 - `midterm/solutions/answers.tex`: เฉลยไทยและเกณฑ์ตรวจ
+- `midterm/style.tex`: รูปแบบร่วม รวม `gitpanel` สำหรับกราฟ/คำสั่ง; `midterm/git-explain-graph.tex` เป็น snapshot S3 ที่ใช้ร่วมกันในโจทย์และเฉลย
 
 จาก root ของ repository:
 
@@ -88,6 +89,6 @@ python3 preparation/mock-exam/midterm/build.py
 
 ## ตรวจฉบับ 28 October 2026
 
-ตรวจ render ของโจทย์ทั้ง 30 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือหน้า guard แยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference ตรวจโจทย์ Git ใหม่ด้วย Git จริงใน repository ชั่วคราวแยก: C และ D มี parent B; E มี parents D/C; source/main/origin refs ไม่เลื่อน และ HEAD ยังอยู่ staging จากนั้นลบ repository ทดสอบ
+ตรวจ render ของโจทย์ทั้ง 30 หน้าและเฉลยที่เปลี่ยน ตรวจเลขหน้า/จำนวนหน้าบนปก การจับคู่ภาษา ข้อ 1-12, R1-R12, งาน A-I, story points, Git refs/files/messages และคะแนน 25+25+50 ไม่พบหน้าว่างหรือหน้า guard แยกหลุด ตรวจว่า page 14 เป็น landscape เพียงหน้าเดียว ส่วน diagrams เป็น vector, nodes โจทย์ไม่ติดกันและไม่มีเส้นเฉลยแฝง ตรวจทิศ include/extend/generalization และ State เทียบตารางคำตอบเฉลย คอมไพล์ไม่มี overfull box, missing glyph หรือ unresolved reference รอบแก้ notation อ่านส่วน Git ใน Samples pp. 6-14 และคำตอบ pp. 18-26 พร้อมเทียบภาพหน้า 7, 13, 20-21; ปรับกราฟโจทย์/เฉลยทุกขั้นและ S3 เป็นรูปแบบเดียวกันโดยไม่เปลี่ยน ancestry หรือคะแนน ลบตาราง refs ที่ซ้ำกับกราฟเต็มในเฉลยข้อ 11 ผลตรวจสถานการณ์ด้วย Git จริงใน repository ชั่วคราวแยกจากรอบก่อนยังใช้ได้: C และ D มี parent B; E มี parents D/C; source/main/origin refs ไม่เลื่อน และ HEAD ยังอยู่ staging จากนั้นลบ repository ทดสอบ
 
 ข้อสอบเก่า `TH_EN.pdf` ถูกแทนด้วยชื่อเต็มที่ลิงก์ไว้ด้านบน เฉลยยังเป็นไทยสองไฟล์ตามเดิม พิมพ์ที่ 100% และตั้งตามขนาด/ทิศทางหน้า PDF เพื่อรักษา Gantt แนวนอน

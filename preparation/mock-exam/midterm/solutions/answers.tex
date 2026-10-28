@@ -341,27 +341,25 @@ CLOSED และ CANCELLED $\rightarrow$ Final & จบวงจร & ไม่�
 \qtitle{11}{Switch ทำ commit แยกสาย แล้ว merge}{10}
 \solsource{โจทย์สถานการณ์ดัดแปลงในชุดฝึก; หลัก three-way merge และ refs: Samples หน้า 6, 12, 21}
 \textbf{ก่อน merge:} C และ D ต่างมี parent เป็น B เพราะทำงานต่อจาก B คนละ branch ไม่ใช่ C ตามด้วย D ในเส้นเดียว HEAD อยู่ sprint\_1\_staging ที่ D หลัง switch ครั้งที่สอง
-\begin{verbatim}
-    C  (feature/load_scores)
-   /
-A--B
-   \
-    D  (HEAD -> sprint_1_staging)
-\end{verbatim}
+\begin{gitpanel}
+A---B---D [HEAD -> sprint_1_staging]
+     \
+      C [feature/load_scores]
+
+main, origin/main, origin/sprint_1_staging -> B
+origin/feature/load_scores -> B
+\end{gitpanel}
 \textbf{หลัง merge:} E เป็น merge commit ที่มี first parent D และ second parent C; เลื่อนเฉพาะ sprint\_1\_staging ไป E โดย HEAD ยังชี้ branch เดิม
-\begin{verbatim}
-    C-----------.
-   /             \
-A--B--D-----------E  (HEAD -> sprint_1_staging)
-\end{verbatim}
-\begin{tabularx}{\linewidth}{|Y|C{3cm}|C{3cm}|}\hline
-Reference & ก่อน merge & หลัง merge\\\hline
-main & B & B\\\hline
-feature/load\_scores & C & C\\\hline
-sprint\_1\_staging & D & E\\\hline
-origin/main; origin/sprint\_1\_staging; origin/feature/load\_scores & B ทุกตัว & B ทุกตัว\\\hline
-HEAD & sprint\_1\_staging (D) & sprint\_1\_staging (E)\\\hline
-\end{tabularx}
+\begin{gitpanel}
+A---B---D---------E [HEAD -> sprint_1_staging]
+     \           /
+      C---------/
+
+main, origin/main, origin/sprint_1_staging -> B
+feature/load_scores -> C
+origin/feature/load_scores -> B
+\end{gitpanel}
+
 \textbf{เหตุผล:} เป็น three-way merge เพราะ C กับ D แยกจาก common ancestor B ไม่มีปลายใดเป็น ancestor ของอีกปลาย จึง fast-forward ไม่ได้ source branch คงที่ C และ origin/* คงที่ B เพราะไม่มี fetch หรือ push การ switch เปลี่ยน current branch/working tree แต่ไม่สร้าง commit; C และ D เกิดจาก commit สองคำสั่ง ส่วน E เกิดจาก merge\par
 \textbf{เกณฑ์ตรวจ 10 คะแนน:} C และ D มี parent B ครบ 2; local branches/HEAD ก่อน merge ถูก 2; E มี parents D และ C ครบ 2; current branch/HEAD หลัง merge ถูก 1; คง main, source branch และ remote refs ถูก 2; อธิบาย three-way และ switch ไม่สร้าง commit 1\par
 \textbf{รูปแบบคำตอบ:} รับภาพวงกลมกับเส้นเชื่อมหรือ ASCII ที่สื่อ ancestry เดียวกัน อย่าเติม commit ใหม่เพียงเพราะมี switch และอย่าเลื่อน origin/* ตาม local branch โดยไม่มีการติดต่อ remote
@@ -369,48 +367,52 @@ HEAD & sprint\_1\_staging (D) & sprint\_1\_staging (E)\\\hline
 \qtitle{12}{คำสั่งและ graph แบบต่อเนื่อง}{10}
 \solsource{Samples ข้อ 2.3 หน้า 10-11 และเฉลยหน้า 20-21; สมมติฐาน Git หน้า 6}
 \anshead{12.1 Switch}{2}
-\begin{verbatim}
-git switch sprint_1_staging
-\end{verbatim}
-\begin{center}
-\begin{tikzpicture}[x=2.4cm,y=1cm]
-\foreach\n/\x in{A/0,B/1,C/2,D/3,E/4}{\node[commit](\n)at(\x,0){\n};}\foreach\a/\b in{A/B,B/C,C/D,D/E}{\draw[thick](\a)--(\b);}
-\node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C,align=center]{sprint\_1\_staging (HEAD)\\origin/sprint\_1\_staging};\node[below=4mm of E]{feature/load\_scores};
-\end{tikzpicture}
-\end{center}
+\begin{gitpanel}
+> git switch sprint_1_staging
+\end{gitpanel}
+\begin{gitpanel}
+A---B [main, origin/main]
+     \
+      C [HEAD -> sprint_1_staging, origin/sprint_1_staging]
+       \
+        D---E [feature/load_scores]
+\end{gitpanel}
 \textbf{คะแนน:} คำสั่ง 1; graph พร้อม HEAD ที่ C และ pointers เดิม 1
 
 \anshead{12.2 Merge}{3}
-\begin{verbatim}
-git merge feature/load_scores
-\end{verbatim}
+\begin{gitpanel}
+> git merge feature/load_scores
+\end{gitpanel}
 เป็น fast-forward เพราะ C เป็น ancestor ของ E ไม่สร้าง merge commit ใหม่
-\begin{center}
-\begin{tikzpicture}[x=2.4cm,y=1cm]
-\foreach\n/\x in{A/0,B/1,C/2,D/3,E/4}{\node[commit](\n)at(\x,0){\n};}\foreach\a/\b in{A/B,B/C,C/D,D/E}{\draw[thick](\a)--(\b);}
-\node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C]{origin/sprint\_1\_staging};\node[below=4mm of E,align=center]{feature/load\_scores\\sprint\_1\_staging (HEAD)};
-\end{tikzpicture}
-\end{center}
+\begin{gitpanel}
+A---B [main, origin/main]
+     \
+      C---D---E [HEAD -> sprint_1_staging, feature/load_scores]
+
+origin/sprint_1_staging -> C
+\end{gitpanel}
 \textbf{คะแนน:} คำสั่ง merge ถูก branch 1; ระบุประเภท fast-forward 1; graph เลื่อน local sprint/HEAD ไป E และคง origin/sprint ที่ C 1
 
 \textbf{ข้อควรระวัง:} กราฟเริ่มต้นไม่มี origin/feature/load\_scores จึงไม่เติมตัวชี้นี้เอง และไม่ใช้ \code{git merge --no-ff} เพราะจะสร้าง merge commit ต่างจาก fast-forward ตามโจทย์
 \newpage
 \anshead{12.3 Inspect, stage และ commit}{5}
-\begin{verbatim}
-git status
-git diff -- score_data.py scores.csv
-git add -- score_data.py scores.csv validation_notes.txt
-git diff --cached -- score_data.py scores.csv validation_notes.txt
-git commit -m "Document score validation cases"
-\end{verbatim}
+\begin{gitpanel}
+> git status
+> git diff -- score_data.py scores.csv
+> git add -- score_data.py scores.csv validation_notes.txt
+> git diff --cached -- score_data.py scores.csv validation_notes.txt
+> git commit -m "Document score validation cases"
+\end{gitpanel}
 \textbf{เหตุผลสั้น:} \code{status} ดูสถานะไฟล์; \code{diff} ดูส่วนต่างของไฟล์ที่ Git ติดตามแล้ว; \code{diff --cached} ตรวจสิ่งที่เลือกไว้หลัง stage รวมไฟล์ใหม่ ก่อนสร้าง commit รับวิธีอื่นที่ตรวจครบและเลือกเฉพาะสามไฟล์
 
-\begin{center}
-\begin{tikzpicture}[x=2.2cm,y=1cm]
-\foreach\n/\x in{A/0,B/1,C/2,D/3,E/4,F/5}{\node[commit](\n)at(\x,0){\n};}\foreach\a/\b in{A/B,B/C,C/D,D/E,E/F}{\draw[thick](\a)--(\b);}
-\node[below=4mm of B,align=center]{main\\origin/main};\node[above=4mm of C]{origin/sprint\_1\_staging};\node[below=4mm of E]{feature/load\_scores};\node[above=4mm of F,align=center]{sprint\_1\_staging\\HEAD};
-\end{tikzpicture}
-\end{center}
+\begin{gitpanel}
+A---B [main, origin/main]
+     \
+      C---D---E---F [HEAD -> sprint_1_staging]
+
+feature/load_scores -> E
+origin/sprint_1_staging -> C
+\end{gitpanel}
 F มี parent E ตัวเดียวและบันทึกการแก้ทั้งสามไฟล์; sprint\_1\_staging = F โดย HEAD ชี้ branch นี้ ส่วน feature/load\_scores = E, main และ origin/main = B, origin/sprint\_1\_staging = C เพราะไม่มีคำสั่งติดต่อ remote จึงคง remote-tracking refs เดิม
 
 \textbf{เกณฑ์ตรวจ 5 คะแนน:}

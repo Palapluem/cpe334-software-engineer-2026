@@ -1,6 +1,6 @@
 % Shared chapter/solution style; class, font scale and margins match the template.
 \providecommand{\MockAssetRoot}{..}
-\usepackage{fontspec,polyglossia,graphicx,tikz,geometry,enumitem,array,lastpage,amssymb,amsmath,xcolor,tabularx}
+\usepackage{fontspec,polyglossia,graphicx,tikz,geometry,enumitem,array,lastpage,amssymb,amsmath,xcolor,tabularx,fancyvrb}
 \usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,patterns}
 \setmainlanguage{thai}
 \XeTeXlinebreaklocale "th"
@@ -96,15 +96,24 @@
   signal/.style={-{Straight Barb[length=1.4mm,width=1.1mm]},line width=.4pt},
   ganttdep/.style={-{Straight Barb[length=.95mm,width=.75mm]},line width=.35pt},
   life/.style={draw,align=center,inner sep=3pt}}
-% Repository snapshot for the supplementary Explain-the-graph exercise.
-\newcommand{\supplementgitgraph}{%
-\begin{tikzpicture}[x=2cm,y=1cm,font=\fontsize{9.5}{11}\selectfont]
-\foreach\n/\x in{A/0,B/1,C/2}{\node[commit](\n)at(\x,0){\n};}
-\node[commit](D)at(3,1){D};\node[commit](E)at(4,1){E};
-\node[commit](F)at(3,-1.1){F};\node[commit](G)at(4,-1.1){G};
-\foreach\a/\b in{A/B,B/C,C/D,D/E,C/F,F/G}{\draw[thick](\a)--(\b);}
-\node[below=4mm of B,align=center]{main\\origin/main};
-\node[right=3mm of E,align=left]{feature/load\_scores\\origin/feature/load\_scores};
-\node[below=4mm of F,align=center]{origin/sprint\_1\_staging};
-\node[right=3mm of G,align=left]{sprint\_1\_staging\\HEAD};
-\end{tikzpicture}}
+% Samples section 2: pale framed panels, monospace graph, inline [refs].
+\definecolor{gitpanelborder}{RGB}{190,193,197}
+\definecolor{gitpanelbackground}{RGB}{243,244,246}
+\newsavebox{\gitpanelbox}
+\newcommand{\gitpanelfont}{\fontsize{10.5}{14}\selectfont}
+\newenvironment{gitpanel}{%
+  \VerbatimEnvironment
+  \par\smallskip\begingroup
+  \setlength{\fboxsep}{6pt}\setlength{\fboxrule}{.4pt}%
+  \begin{lrbox}{\gitpanelbox}%
+  \begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}%
+  \begin{Verbatim}[fontsize=\gitpanelfont,baselinestretch=1]%
+}{%
+  \end{Verbatim}
+  \end{minipage}%
+  \end{lrbox}%
+  \noindent\fcolorbox{gitpanelborder}{gitpanelbackground}{\usebox{\gitpanelbox}}%
+  \par\endgroup\smallskip
+}
+% Shared snapshot for S3 in the question sources and the Thai answer.
+\newcommand{\supplementgitgraph}{\input{\MockAssetRoot/git-explain-graph.tex}}

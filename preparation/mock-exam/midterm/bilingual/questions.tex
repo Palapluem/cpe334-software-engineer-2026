@@ -360,31 +360,31 @@ File & Purpose & หน้าที่\\\hline
 {Assume a clean working directory, successful commands and no conflict unless stated otherwise. No command contacts GitHub unless fetch, push or another remote command is shown. Each question starts from its own graph.}
 \prow{\textbf{ใช้ชื่อไฟล์เมื่อ stage ห้ามใช้ \code{git add .}} แสดง local branches, origin/* และ HEAD ตามคำสั่งของแต่ละขั้น อย่านำ graph สุดท้ายของข้อ 11 ไปเริ่มข้อ 12}
 {\textbf{Stage explicit file names; \code{git add .} is not permitted.} Show local branches, origin/* and HEAD as requested at each step. Do not use Question 11's final graph as Question 12's starting state.}
-\prow{กราฟแบบ A--B หมายถึง B มี parent เป็น A ตัวอักษรแทน commit ไม่ใช่ชื่อ branch คำตอบวาดเป็นตัวอักษรแบบนี้หรือเป็นภาพวงกลมก็ได้ โดยต้องแสดงเส้น ancestry และตำแหน่ง refs/HEAD ให้ครบ}
-{In A--B, B has parent A. Letters name commits, not branches. You may answer using this text notation or a drawn diagram, provided ancestry edges and every required reference/HEAD position are clear.}
+\prow{กราฟ A---B แทน B ที่มี parent A; ชื่อใน [ ] และ ref -> commit บอกตำแหน่งตัวชี้ HEAD -> branch คือ branch ปัจจุบัน เส้น / กับ \textbackslash{} แสดงการเชื่อม ancestry เครื่องหมาย > หน้าคำสั่งเป็น prompt คำตอบใช้กราฟตัวอักษรหรือภาพวาดได้}
+{In A---B, B has parent A. Names in [ ] and ref -> commit locate references; HEAD -> branch marks the current branch. / and \textbackslash{} connect ancestry. A leading > is a command prompt. Answers may use a text graph or a drawn diagram.}
 \end{prompttable}
 \newpage
 % Page 27.
 \bq{11}{Switch ทำ commit แยกสาย แล้ว merge}{Switch, commit on separate branches, then merge}{10}
 \pair{เริ่มที่ main ตามกราฟ ทุก branch ในภาพมีอยู่แล้วและชี้ B ใช้ข้อสมมติร่วมของข้อ 11-12}
 {Start on main as shown. All named branches already exist and point to B. Apply the shared assumptions for Questions 11-12.}
-\begin{verbatim}
-A--B
-   +-- main (HEAD), origin/main
-   +-- sprint_1_staging, origin/sprint_1_staging
-   +-- feature/load_scores, origin/feature/load_scores
-\end{verbatim}
+\begin{gitpanel}
+A---B [HEAD -> main, origin/main]
+
+sprint_1_staging, origin/sprint_1_staging -> B
+feature/load_scores, origin/feature/load_scores -> B
+\end{gitpanel}
 \pair{รันตามลำดับด้านล่าง ก่อน add ครั้งแรกให้ถือว่าแก้ score\_data.py แล้ว และก่อน add ครั้งที่สองให้ถือว่าแก้ scores.csv แล้ว commit สองครั้งสร้าง C และ D ตามลำดับ จากนั้น merge สำเร็จเป็น E โดยไม่มี conflict}
 {Run the commands below. Immediately before the first add, score\_data.py has been edited; before the second add, scores.csv has been edited. The two commits create C and D respectively. The final merge succeeds as E without conflicts.}
-\begin{verbatim}
-git switch feature/load_scores
-git add score_data.py
-git commit -m "Validate score range"
-git switch sprint_1_staging
-git add scores.csv
-git commit -m "Add regression score cases"
-git merge feature/load_scores
-\end{verbatim}
+\begin{gitpanel}
+> git switch feature/load_scores
+> git add score_data.py
+> git commit -m "Validate score range"
+> git switch sprint_1_staging
+> git add scores.csv
+> git commit -m "Add regression score cases"
+> git merge feature/load_scores
+\end{gitpanel}
 \pair{วาดกราฟก่อน merge และหลัง merge พร้อม local branches, origin/* และ HEAD ทุกตัว แล้วอธิบายประเภท merge และผลของ switch ต่อการสร้าง commit โดยย่อ}
 {Draw the graphs before and after the merge, with every local branch, origin/* and HEAD. Briefly explain the merge type and whether switch itself creates a commit.}
 \begin{tabularx}{\linewidth}{|P|P|}\hline
@@ -397,13 +397,13 @@ git merge feature/load_scores
 \bq{12}{เขียนคำสั่งและวาด graph ทีละขั้น}{Write commands and redraw after each step}{10}
 \pair{ข้อ 12 เริ่มใหม่ตามกราฟนี้: feature แยกจาก C และได้ทำ commit D กับ E ต่อกันไว้แล้ว ขณะนี้ HEAD อยู่ feature/load\_scores ทำ 12.1-12.3 ต่อเนื่องโดยคง refs ที่ไม่มีคำสั่งเปลี่ยน ไม่ใช้ผลจากข้อ 11}
 {Question 12 starts afresh: the feature was branched at C and has since added D and E in sequence. HEAD is on feature/load\_scores. Complete 12.1-12.3 continuously, retaining unchanged refs. Do not carry over Question 11's result.}
-\begin{verbatim}
-A--B--C--D--E
-   ^  ^     ^
-   |  |     +-- feature/load_scores (HEAD)
-   |  +-------- sprint_1_staging, origin/sprint_1_staging
-   +----------- main, origin/main
-\end{verbatim}
+\begin{gitpanel}
+A---B [main, origin/main]
+     \
+      C [sprint_1_staging, origin/sprint_1_staging]
+       \
+        D---E [HEAD -> feature/load_scores]
+\end{gitpanel}
 \bsub{12.1}{เปลี่ยนไป sprint staging branch}{Switch to the sprint staging branch}{2}
 \pair{เขียนคำสั่งเปลี่ยนจาก feature/load\_scores ไป sprint\_1\_staging แล้ววาด graph ใหม่ให้แสดงตำแหน่ง HEAD และ branch/remote-tracking references หลังคำสั่ง}
 {Write the command to switch from feature/load\_scores to sprint\_1\_staging. Redraw the graph to show HEAD and all branch/remote-tracking references after the command.}
