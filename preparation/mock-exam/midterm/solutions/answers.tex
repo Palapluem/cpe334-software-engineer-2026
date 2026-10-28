@@ -173,8 +173,8 @@ M1: ข้อกำหนดอนุมัติ\quad M2: แบบอนุม
 \textbf{เกณฑ์ตรวจ:} ผู้ใช้ 0.5; ความสามารถ 0.75; คุณค่า 0.75
 
 \anshead{6.2 รายละเอียดจากลูกค้า}{2}
-มีข้อมูลสนามและเวลาเปิดแล้ว; จองครั้งละ 1 ชั่วโมง; แต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน; จองสำเร็จแล้วแสดง Booked ส่วนการยกเลิกและการนับสิทธิ์ วันจองล่วงหน้าและการชำระเงินยังต้องถาม\par
-\textbf{เกณฑ์ตรวจ:} ข้อเท็จจริงสี่ประเด็น ประเด็นละ 0.5
+มีข้อมูลสนามและเวลาเปิดแล้ว จองได้เฉพาะช่วงที่เปิดและว่าง ครั้งละ 1 ชั่วโมง; แต่ละคนถือการจองได้ไม่เกิน 1 รายการต่อวัน; สำเร็จแล้วสร้างรายการยืนยันและแสดง Booked; หากเกินสิทธิ์ต้องไม่เพิ่มรายการหรือจองช่วงใหม่ ส่วนการยกเลิก การคืนสิทธิ์ การจองล่วงหน้าและการชำระเงินยังต้องถาม\par
+\textbf{เกณฑ์ตรวจ:} ข้อมูลสนาม/เวลาและช่วงที่จองได้ 0.5; ระยะเวลาและโควตา 0.5; ผลสำเร็จ/ปฏิเสธที่ไม่เปลี่ยนข้อมูลผิด 0.5; แยกประเด็นที่ยังไม่ตกลงและไม่เดา metadata 0.5
 
 \anshead{6.3 เกณฑ์ยอมรับสองสถานการณ์}{4}
 \note{\textbf{สถานการณ์: จองสำเร็จ}\par
@@ -191,7 +191,7 @@ Then ปฏิเสธคำขอ จำนวนการจองไม่�
 Assignees: -; Labels: enhancement; Milestone: -; Estimate: -\par
 \textbf{เกณฑ์ตรวจ:} ช่องละ 0.5 ไม่เดาเจ้าของ/sprint/points และไม่ใช้ 0 แทนค่ายังไม่ทราบ
 
-\medskip
+\newpage
 \qtitle{7}{วางแผน Sprint}{5}
 \solsource{Lecture 10 หน้า 25-26; Lecture 7 หน้า 67-72, 114-118}
 \begin{tabularx}{\linewidth}{|C{.7cm}|Y|C{1cm}|C{1.1cm}|Y|}\hline
@@ -206,7 +206,7 @@ Assignees: -; Labels: enhancement; Milestone: -; Estimate: -\par
 \textbf{7.2:} $8+5+3=16$ points\quad
 \textbf{7.3:} เลือก 1/3/4 ตามเป้าหมาย Sprint Goal และลำดับความสำคัญ รวม 16 points พอดีกำลังทีม (capacity); ไม่เลือก 2 เพราะไม่ช่วยเป้าหมาย ส่วน 5/6 เกินกำลังที่เหลือ\par
 \textbf{เกณฑ์ตรวจ:} points หกช่อง ช่องละ 0.25 และการเลือกหกช่อง ช่องละ 0.25 รวม 3; ผลรวม 1; เหตุผลด้านเป้าหมาย/ลำดับ 0.5 และ capacity 0.5\par
-\solextra{เทียบ anchor 3 บน scale: ใหญ่ขึ้นสองขั้นคือ 3 ไป 5 ไป 8 ไม่ใช่ 3+2; points วัดขนาดงานสัมพัทธ์ ไม่ใช่วันหรือชั่วโมง รับแผนอื่นที่มีเหตุผลจากโจทย์และไม่เกิน capacity}
+\solextra{ใหญ่ขึ้นสองขั้นจาก 3 คือ 3 ไป 5 ไป 8; points ไม่ใช่วันหรือชั่วโมง รับแผนอื่นที่ตรงโจทย์ มีเหตุผลและไม่เกิน capacity}
 \newpage
 \qtitle{8}{ความสัมพันธ์ใน Use Case Diagram}{10}
 \solsource{ข้อกำหนด R1-R8 และ R12 ในชุดฝึกนี้; Lecture 4 หน้า 5-8 เรื่อง actor/association และ include/extend/generalization}
@@ -239,6 +239,7 @@ NEW หรือ OPEN $\rightarrow$ CANCELLED & cancel / Requester ของ Tic
 CLOSED และ CANCELLED $\rightarrow$ Final & จบวงจร & ไม่มี transition กลับมาทำงาน\\\hline
 \end{tabularx}
 \textbf{canResolve}: owner ไม่ว่าง \textbf{และ} มี COMPLETED Action อย่างน้อยหนึ่งรายการ \textbf{และ} จำนวน OPEN Actions เป็นศูนย์ ถ้าไม่ผ่านข้อใดให้คงสถานะเดิมและแจ้งเหตุผล การเขียน Comment ไม่ใช่เหตุให้เปลี่ยน status โดยอัตโนมัติ\par
+กรณี TT0042 ที่ให้มา Resolve ยังไม่ผ่านเพราะมี OPEN Action ค้าง แม้มี Owner และ COMPLETED แล้ว; Comment ของ Requester ไม่เปลี่ยนสถานะเอง ไม่เพิ่ม transition หรือสถานะ Error เพื่อแก้กรณีนี้\par
 \textbf{เกณฑ์ตรวจ:} Initial/NEW และ terminal exits 1; claim/start 2; request information/resume 2; resolve พร้อม guard ทั้งสาม 2; accept/reopen 2; cancel เฉพาะ NEW/OPEN ของตน 1 รวม 10 ไม่ให้คะแนนเส้นที่เพิ่ม transition ต้องห้าม
 \newpage
 \textbf{ข้อ 9: แผนภาพตัวอย่าง}\par
@@ -319,7 +320,7 @@ Administrator Dashboard & ใช้ metric ของ Staff และอาจเ
 \node[anchor=west]at(3,-143){*Result: ( ) OPEN ( ) COMPLETED\quad File (optional): [Choose file]};
 \node[anchor=west]at(3,-150){[Record Action]\qquad [Resolve]\qquad [Back to Queue]};
 \draw(3,-155)rectangle(165,-180);
-\node[anchor=north west,align=left]at(5,-157){Feedback (shown for the relevant attempt):\\Resolve blocked: No COMPLETED Action. Current status is unchanged.\\STALE\_UPDATE: New version available. Your unsaved input is retained. [Refresh]\\Validation: Action text is required. / Attachment type or size is not allowed.};
+\node[anchor=north west,align=left]at(5,-157){Feedback (shown for the relevant attempt):\\Resolve blocked: An OPEN Action remains. Status unchanged.\\STALE\_UPDATE: New version available. Your unsaved input is retained. [Refresh]\\Validation: Action text is required. / Attachment type or size is not allowed.};
 \end{tikzpicture}\end{center}
 \textbf{เกณฑ์ตรวจ:} read-only/editable fields และ Owner ตามเงื่อนไข 1; แยก Public Comments/Internal Notes 1; Action/optional file และ validation 1; Resolve gate, blank text และ STALE\_UPDATE พร้อมคง input/ไม่ส่งซ้ำอัตโนมัติ 1 รวม 4\par
 \textbf{เงื่อนไข:} ไม่แสดง Internal Notes หรือจำนวนรายการให้ Requester และไม่ทำให้ role/state ที่ไม่มีสิทธิ์เปลี่ยนแปลง
@@ -339,8 +340,8 @@ Administrator Dashboard & ใช้ metric ของ Staff และอาจเ
 \textbf{หลัง commit F:}
 \begin{gitpanel}
 A---B---C [main, origin/main]
-     |\
-     D E---F [HEAD -> feature/load_scores]
+    |\
+    D E---F [HEAD -> feature/load_scores]
 sprint_1, origin/sprint_1 -> D
 origin/feature/load_scores -> E
 \end{gitpanel}
@@ -348,10 +349,10 @@ Commit F ต่อจาก E ทำให้ local \code{feature/load\_scores} 
 \textbf{หลัง merge G:}\par\smallskip\noindent
 \begin{gitpanel}
 A---B---C [main, origin/main]
-     |\
-     D E---F [feature/load_scores]
-      \     /
-       \---G [HEAD -> sprint_1]
+    |\
+    D E---F [feature/load_scores]
+     \   /
+      \-G [HEAD -> sprint_1]
 origin/sprint_1 -> D
 origin/feature/load_scores -> E
 \end{gitpanel}
@@ -359,16 +360,15 @@ G มี parent สองตัวคือ D และ F การรวมน�
 \textbf{หลังคำสั่งสุดท้าย \code{git switch main}:}\par\smallskip\noindent
 \begin{gitpanel}
 A---B---C [HEAD -> main, origin/main]
-     |\
-     D E---F [feature/load_scores]
-      \     /
-       \---G [sprint_1]
+    |\
+    D E---F [feature/load_scores]
+     \   /
+      \-G [sprint_1]
 origin/sprint_1 -> D
 origin/feature/load_scores -> E
 \end{gitpanel}
 หลังสลับ branch, HEAD ชี้กลับไป C บน \code{main}; \code{sprint\_1} ยังคงชี้ G และ \code{feature/load\_scores} ยังคงชี้ F
 \textbf{คะแนน:} 11.1 F ต่อจาก E และ refs ถูก (2); 11.2 three-way merge, common ancestor B, parents D/F และ refs หลัง G ถูก (5); 11.3 HEAD กลับ main ที่ C, refs คงเดิม และ switch ไม่สร้าง commit (3). รวม 10 คะแนน.\par
-\textbf{ตรวจ:} commit ขยับ feature; merge ขยับ \code{sprint\_1}; switch เปลี่ยน HEAD เท่านั้น ไม่มี push จึง origin refs คงเดิม.
 \newpage
 \qtitle{12}{คำสั่งและ graph แบบต่อเนื่อง}{10}
 \solsource{Samples ข้อ 2.3 หน้า 10-11 และเฉลยหน้า 20-21; สมมติฐาน Git หน้า 6}
