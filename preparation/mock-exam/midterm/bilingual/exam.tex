@@ -11,22 +11,21 @@
 \renewcommand{\code}[1]{{\bfseries #1}}
 \setlength{\tabcolsep}{6pt}
 \renewcommand{\arraystretch}{1.12}
-% Pair complete paragraphs rather than slicing their lines into parallel cells.
+% Bilingual prose is stacked in the exam's reading order: English, then Thai.
 \newcommand{\pair}[2]{%
-  \par\smallskip\noindent
-  \begin{tabularx}{\linewidth}{|P|P|}\hline
-  #2 & #1\\\hline
-  \end{tabularx}\par\smallskip}
-\newenvironment{prompttable}{%
-  \par\smallskip\noindent\tabularx{\linewidth}{|P|P|}\hline
-  \textbf{English} & \textbf{ภาษาไทย}\\\hline
-}{\endtabularx\par\smallskip}
-\newcommand{\prow}[2]{#2 & #1\\\hline}
+  \par\smallskip\begingroup\setlength{\parskip}{0pt}%
+  \noindent #2\par\nopagebreak[3]\noindent #1\par
+  \endgroup\smallskip}
+\newenvironment{prompttable}{\par\smallskip}{\par\smallskip}
+\newcommand{\prow}[2]{%
+  \par\begingroup\setlength{\parskip}{0pt}%
+  \noindent #2\par\nopagebreak[3]\noindent #1\par\endgroup}
 \newcommand{\bpart}[3]{\pair{\textbf{\large ส่วนที่ #1\quad #2}}{\textbf{\large Part #1\quad #3}}}
-\newcommand{\bq}[4]{\pair{\textbf{ข้อ #1\quad #2\hfill\hspace{.35em}\mbox{(#4 คะแนน)}}}{\textbf{Question #1\quad #3\hfill\hspace{.35em}\mbox{(#4 \ifstrequal{#4}{1}{mark}{marks})}}}}
-\newcommand{\bsub}[4]{\pair{\textbf{#1\quad #2\hfill\hspace{.35em}\mbox{(#4 คะแนน)}}}{\textbf{#1\quad #3\hfill\hspace{.35em}\mbox{(#4 \ifstrequal{#4}{1}{mark}{marks})}}}}
+\newcommand{\bq}[4]{\pair{\textbf{ข้อ #1\quad (#4 คะแนน): #2}}{\textbf{Question #1\quad (#4 \ifstrequal{#4}{1}{mark}{marks}): #3}}}
+\newcommand{\bsub}[4]{\pair{\textbf{#1 (#4 คะแนน) #2}}{\textbf{#1 (#4 \ifstrequal{#4}{1}{mark}{marks}) #3}}}
 \newcommand{\continued}[2]{\pair{\textbf{#1}}{\textbf{#2}}}
-\newcommand{\answerlabel}{\par\smallskip\textbf{คำตอบ / Answer}\par}
+\newcommand{\bilingualcell}[2]{\parbox[t]{\linewidth}{\raggedright #1\par #2}}
+\newcommand{\answerlabel}{\pair{\textbf{คำตอบ}}{\textbf{Answer}}}
 % End each answer page above the footer, adapting to the actual prompt height.
 \newdimen\answerroom
 \newcommand{\answerfill}{%

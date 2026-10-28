@@ -1,6 +1,5 @@
-% Paired questions preserve all twelve questions and the original marks.
-% Page 2.
-\bpart{1}{ข้อกำหนดและความมั่นคงปลอดภัย (25 คะแนน)}{Requirements and Security (25 marks)}
+% English appears first; Thai follows directly below. All original marks are retained.
+\bpart{1}{(25 คะแนน) ข้อกำหนดและความมั่นคงปลอดภัย}{(25 marks) Requirements and Security}
 \bq{1}{วิเคราะห์ความต้องการของผู้มีส่วนได้ส่วนเสีย}{Analyse stakeholder requirements}{8}
 \begin{prompttable}
 \prow{มหาวิทยาลัยกำลังเตรียมระบบลงทะเบียน workshop ผู้ประสานงานส่งข้อความความต้องการสี่ข้อให้ทีมพัฒนา แต่ทีมยังไม่ได้ยืนยันรายละเอียดอื่นนอกเหนือจากข้อความที่ให้ ให้วิเคราะห์แต่ละข้อแยกกัน โดยใช้หัวข้อต่อไปนี้}
@@ -13,7 +12,6 @@
 {“The system shall let a signed-in student view all workshops that are open for registration.” Analyse this statement using all the criteria in Question 1.}
 \answerlabel\answerfill
 \newpage
-% Page 3.
 \continued{ข้อ 1 (ต่อ): ใช้หัวข้อวิเคราะห์เดียวกับหน้าแรกของข้อ 1}{Question 1 (continued): Apply the same analysis criteria}
 \bsub{1.2}{ความเร็วในการลงทะเบียน}{Registration speed}{2}
 \pair{“กระบวนการลงทะเบียนควรรวดเร็ว” อธิบายว่าข้อความนี้บอกอะไรและยังขาดข้อมูลใด เสนอวิธีตรวจและผลที่คาดหวังซึ่งสอดคล้องกับการตีความของคุณ หากเพิ่มเกณฑ์ขึ้นเอง ให้ระบุว่าเป็นข้อเสนอที่ยังต้องยืนยัน}
@@ -24,14 +22,12 @@
 {“University policy limits each student to three workshop registrations per semester.” Apply the same analysis criteria without changing the stated policy. Identify any details that should be clarified before implementation or testing.}
 \answerlabel\answerfill
 \newpage
-% Page 4.
 \continued{ข้อ 1 (ต่อ): วิเคราะห์ข้อความข้อสุดท้าย}{Question 1 (continued): Analyse the final statement}
 \bsub{1.4}{ยกเลิกการลงทะเบียนและดูรายชื่อ}{Cancel registrations and view participant lists}{2}
 \pair{“ระบบต้องให้นักศึกษายกเลิกการลงทะเบียน และให้ผู้ประสานงานดูรายชื่อผู้เข้าร่วมได้” วิเคราะห์ประเภท จุดประสงค์ คุณภาพ วิธีตรวจ และสิ่งที่ควรปรับ โดยให้เหตุผลจากข้อความที่ได้รับ หากแยกเป็นหลายข้อ ต้องรักษาความต้องการเดิมให้ครบ และไม่เพิ่มสิทธิ์หรือเงื่อนไขใหม่โดยถือว่าเป็นข้อเท็จจริง}
 {“The system shall let students cancel a registration and let coordinators see participant lists.” Analyse its type, purpose, quality, verification and possible revision, using evidence from the statement. If you split it into multiple requirements, preserve all the original intent. Do not treat newly introduced permissions or conditions as given facts.}
 \answerlabel\answerfill
 \newpage
-% Page 5.
 \bq{2}{ประเมินข้อเสนอโครงการ WorkshopHub}{Evaluate the WorkshopHub proposal}{7}
 \begin{prompttable}
 \prow{ปัจจุบันนักศึกษาสมัคร workshop ของมหาวิทยาลัยผ่านแบบฟอร์มออนไลน์ที่แยกจากกัน ผู้ประสานงานรวบรวมคำตอบด้วยมือ บางครั้งจึงเกิดการลงทะเบียนซ้ำและยืนยันล่าช้า}
@@ -44,7 +40,7 @@
 {Assess all eight elements in the proposal as written. Mark each as present, incomplete, or missing, and support your judgment with a phrase or reason from the proposal. Do not count your own recommendations as information already provided.}
 \begingroup\renewcommand{\tabularxcolumn}[1]{m{#1}}
 \begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|}\hline
-องค์ประกอบ / Element & สถานะและหลักฐาน / Status and evidence\\\hline
+\bilingualcell{Element}{องค์ประกอบ} & \bilingualcell{Status and evidence}{สถานะและหลักฐาน}\\\hline
 Problem & \rule{0pt}{.95cm}\\\hline
 Users & \rule{0pt}{.95cm}\\\hline
 Solution & \rule{0pt}{.95cm}\\\hline
@@ -55,14 +51,12 @@ Effort & \rule{0pt}{.95cm}\\\hline
 Evidence of completion & \rule{0pt}{.95cm}\\\hline
 \end{tabularx}\endgroup
 \newpage
-% Page 6.
 \continued{ข้อ 2 (ต่อ): ใช้ข้อเสนอ WorkshopHub จากหน้าก่อน}{Question 2 (continued): Use the preceding WorkshopHub proposal}
 \bsub{2.2}{เขียนข้อเสนอฉบับปรับปรุง}{Write an improved proposal}{3}
 \pair{เขียนข้อเสนอที่ช่วยให้ทีมตัดสินใจได้ว่าจะสร้างอะไร และช่วยให้ผู้ตรวจรับทราบว่างานเสร็จเมื่อใด คงปัญหา ผู้ใช้ และขอบเขตรุ่นแรกตามโจทย์ เติมหรือเสนอวิธียืนยันส่วนที่ยังขาด แยกข้อมูลเดิมออกจากคำแนะนำของคุณให้ชัด โดยไม่แต่งตัวเลขประมาณการขึ้นเป็นข้อเท็จจริง ตอบเป็นย่อหน้าต่อเนื่องหรือหัวข้อที่เชื่อมโยงกันได้}
 {Revise the proposal so that a team can decide what to build and a reviewer can determine when it is complete. Preserve the original problem, users and first-release scope. Fill the gaps or propose how to establish the missing information. Distinguish the original facts from your recommendations; do not present invented estimates as agreed facts. You may write connected paragraphs or clearly related points.}
 \answerlabel\answerfill
 \newpage
-% Page 7.
 \bq{3}{สิทธิ์การใช้งานตามบทบาท}{Role-Based Access Control}{4}
 \begin{prompttable}
 \prow{WorkshopHub กำหนดหนึ่ง role ต่อหนึ่งบัญชี ไม่มีการสืบทอดสิทธิ์ระหว่าง roles และปฏิเสธ operation ที่นโยบายไม่ได้อนุญาต Student ดู workshop ที่เผยแพร่และส่งคำขอลงทะเบียนของตนเองได้}
@@ -75,18 +69,17 @@ Evidence of completion & \rule{0pt}{.95cm}\\\hline
 {Enter Allow or Deny according to the stated policy. Do not assume that one role automatically receives the permissions of another.}
 \begin{tabularx}{\linewidth}{|P|M{2.5cm}|M{2.5cm}|}\hline
 Operation & Student & Coordinator\\\hline
-ดู workshop ที่เผยแพร่ / View published workshops &\rule{0pt}{.85cm}&\\\hline
-ส่งคำขอลงทะเบียนของตน / Submit own registration &\rule{0pt}{.85cm}&\\\hline
-สร้าง workshop / Create a workshop &\rule{0pt}{.85cm}&\\\hline
-แก้ workshop / Edit workshop details &\rule{0pt}{.85cm}&\\\hline
-ส่งออกรายชื่อ / Export participant lists &\rule{0pt}{.85cm}&\\\hline
+\bilingualcell{View published workshops}{ดู workshop ที่เผยแพร่} &\rule{0pt}{.85cm}&\\\hline
+\bilingualcell{Submit own registration}{ส่งคำขอลงทะเบียนของตน} &\rule{0pt}{.85cm}&\\\hline
+\bilingualcell{Create a workshop}{สร้าง workshop} &\rule{0pt}{.85cm}&\\\hline
+\bilingualcell{Edit workshop details}{แก้ workshop} &\rule{0pt}{.85cm}&\\\hline
+\bilingualcell{Export participant lists}{ส่งออกรายชื่อ} &\rule{0pt}{.85cm}&\\\hline
 \end{tabularx}
 \bsub{3.2}{การซ่อนปุ่มเพียงพอหรือไม่}{Is hiding the button sufficient?}{1.5}
 \pair{ทีมซ่อนปุ่มส่งออกรายชื่อจาก Student แล้ว การทำเช่นนี้เพียงพอหรือไม่? อธิบายสิ่งที่ backend ต้องตรวจ และเสนอ direct-request test หนึ่งกรณีพร้อมผลที่คาดหวัง}
 {The team hides the export button from Students. Is this sufficient? Explain what the backend must check, and propose one direct-request test with its expected result.}
 \answerlabel\answerfill
 \newpage
-% Page 8.
 \bq{4}{วิเคราะห์ช่องโหว่ระบบส่งรายงาน}{Analyse a report-upload vulnerability}{6}
 \begin{prompttable}
 \prow{ระบบส่งงานของมหาวิทยาลัยให้นักศึกษาอัปโหลดรายงาน PDF แต่ตรวจชนิดไฟล์เฉพาะใน browser นักศึกษาคนหนึ่งข้ามการตรวจดังกล่าว แล้วส่ง script ที่ปลอมเป็น PDF เข้าสู่ server}
@@ -99,37 +92,34 @@ Operation & Student & Coordinator\\\hline
 {Identify the attacker, protected assets, attack surface and crossed trust boundaries. Explain which security objective is harmed and connect your reasoning to the incident. Naming terms without explaining their relevance is not sufficient.}
 \answerlabel\answerfill
 \newpage
-% Page 9.
 \continued{ข้อ 4 (ต่อ): ใช้เหตุการณ์อัปโหลดจากหน้าก่อน}{Question 4 (continued): Use the preceding upload incident}
 \bsub{4.2}{มาตรการป้องกันและการทดสอบเชิงลบ}{Controls and negative tests}{3}
 \pair{เสนอ control และ negative test จำนวน 2 คู่ แต่ละคู่ต้องระบุว่าจะป้องกันปัญหาตรงใด วิธีทดสอบที่พยายามข้ามการป้องกัน และผลที่ควรได้ เลือกมาตรการที่แก้ความเสี่ยงในเหตุการณ์จริง ไม่ใช้การตรวจใน browser เพียงอย่างเดียวเป็นมาตรการทั้งหมด}
 {Propose two control-and-negative-test pairs. For each pair, identify the weakness it addresses, describe a test that attempts to bypass the protection, and state the expected result. Choose controls relevant to the incident; browser-only validation must not be your entire defense.}
-\textbf{คู่ที่ 1 / Pair 1}\par\blankbox{7.7cm}
-\textbf{คู่ที่ 2 / Pair 2}\par\answerfill
+\pair{\textbf{คู่ที่ 1}}{\textbf{Pair 1}}\blankbox{7.7cm}
+\pair{\textbf{คู่ที่ 2}}{\textbf{Pair 2}}\answerfill
 \newpage
-% Page 10.
-\bpart{2}{การวางแผนและดำเนินโครงการ (25 คะแนน)}{Project Planning and Execution (25 marks)}
+\bpart{2}{(25 คะแนน) การวางแผนและดำเนินโครงการ}{(25 marks) Project Planning and Execution}
 \bq{5}{วางแผนโครงการ DormFix}{Plan the DormFix project}{10}
 \pair{คุณเป็นผู้จัดการโครงการ DormFix ซึ่งใช้ Waterfall เพื่อสร้างเว็บแจ้งซ่อมหอพัก ทีมมี Aom (BA), Bank (UX/UI), Chai (Developer), Dao (Developer/Tester) ผู้จัดการหอพักเป็น Sponsor และหัวหน้าช่างเป็นตัวแทน User งานในตารางไม่ได้เรียงตามลำดับ ให้ใช้ข้อมูลนี้ทำข้อ 5.1-5.3}
 {You are the project manager of DormFix, a Waterfall web application for dormitory repairs. Your team is Aom (BA), Bank (UX/UI), Chai (Developer) and Dao (Developer/Tester). The dormitory manager is the Sponsor, and the maintenance head represents the User. Tasks below are not in execution order. Use them for Questions 5.1-5.3.}
 \begingroup\fontsize{9.5}{12.5}\selectfont
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
-\begin{tabularx}{\linewidth}{|M{.55cm}|P|P|M{1.1cm}|M{.75cm}|}\hline
-ID & Task & งาน & Owner & Days\\\hline
-A & Code the request form from the approved designs & เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ & Chai & 4\\\hline
-B & Submit the requirements for approval by the dormitory manager & ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ & PM & 1\\\hline
-C & Design the screens from the approved requirements & ออกแบบหน้าจอจาก requirements ที่อนุมัติ & Bank & 3\\\hline
-D & Test the two coded parts together & ทดสอบโปรแกรมสองส่วนร่วมกัน & Dao & 2\\\hline
-E & Write the requirements; this is the first task & เขียน requirements เป็นงานแรก & Aom & 3\\\hline
-F & Submit both designs for approval by the maintenance head & ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ & PM & 1\\\hline
-G & Design the database from the approved requirements & ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ & Chai & 2\\\hline
-H & Submit the tested system for acceptance by the dormitory manager & ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ & PM & 1\\\hline
-I & Code the technician dashboard from the approved designs & เขียน dashboard ช่างจากแบบที่อนุมัติ & Dao & 3\\\hline
+\begin{tabularx}{\linewidth}{|M{.55cm}|P|M{1.1cm}|M{.75cm}|}\hline
+ID & \bilingualcell{Task}{งาน} & Owner & Days\\\hline
+A & \bilingualcell{Code the request form from the approved designs}{เขียนแบบฟอร์มแจ้งซ่อมจากแบบที่อนุมัติ} & Chai & 4\\\hline
+B & \bilingualcell{Submit the requirements for approval by the dormitory manager}{ส่ง requirements ให้ผู้จัดการหอพักอนุมัติ} & PM & 1\\\hline
+C & \bilingualcell{Design the screens from the approved requirements}{ออกแบบหน้าจอจาก requirements ที่อนุมัติ} & Bank & 3\\\hline
+D & \bilingualcell{Test the two coded parts together}{ทดสอบโปรแกรมสองส่วนร่วมกัน} & Dao & 2\\\hline
+E & \bilingualcell{Write the requirements; this is the first task}{เขียน requirements เป็นงานแรก} & Aom & 3\\\hline
+F & \bilingualcell{Submit both designs for approval by the maintenance head}{ส่งแบบทั้งสองให้หัวหน้าช่างอนุมัติ} & PM & 1\\\hline
+G & \bilingualcell{Design the database from the approved requirements}{ออกแบบฐานข้อมูลจาก requirements ที่อนุมัติ} & Chai & 2\\\hline
+H & \bilingualcell{Submit the tested system for acceptance by the dormitory manager}{ส่งระบบที่ทดสอบแล้วให้ผู้จัดการหอพักตรวจรับ} & PM & 1\\\hline
+I & \bilingualcell{Code the technician dashboard from the approved designs}{เขียน dashboard ช่างจากแบบที่อนุมัติ} & Dao & 3\\\hline
 \end{tabularx}\endgroup
 \pair{ใช้ชื่อผู้ทำและจำนวนวันตามตารางในการวางแผน รายละเอียดการอนุมัติและคำว่า “จากแบบที่อนุมัติ” หรือ “ระบบที่ทดสอบแล้ว” เป็นข้อมูลที่ต้องใช้กำหนดความสัมพันธ์ของงาน ไม่จำเป็นต้องใช้ทุกช่องของแบบฟอร์มคำตอบ}
 {Use the stated owner and duration for scheduling. Approval steps and phrases such as “from the approved designs” and “the tested system” determine task relationships. You do not need to fill every available answer box.}
 \newpage
-% Page 11.
 \continued{ข้อ 5 (ต่อ): ใช้รายการงาน A-I}{Question 5 (continued): Use Tasks A-I}
 \bsub{5.1}{จัด WBS ตาม milestone ที่บรรลุ}{Organize a milestone-based WBS}{3}
 \begin{prompttable}
@@ -143,7 +133,6 @@ I & Code the technician dashboard from the approved designs & เขียน da
 {You may use the space below for working or a brief explanation. Record the main answer in the tree above.}
 \answerfill
 \newpage
-% Page 12.
 \continued{ข้อ 5 (ต่อ): บันทึกประชุมสำหรับ RACI}{Question 5 (continued): Meeting notes for RACI}
 \bsub{5.2}{เติม RACI ตามบทบาทที่ได้รับมอบหมาย}{Complete the RACI chart}{2}
 \pair{พิจารณาบทบาทของแต่ละคนในแต่ละงานจากบันทึกประชุมด้านล่าง กรอก R, A, C, I หรือ “-” เมื่อไม่มีบทบาทให้ครบทุกช่อง ไม่อนุมานบทบาทเพิ่มจากตำแหน่งงานเพียงอย่างเดียว}
@@ -167,9 +156,10 @@ G &\rule{0pt}{1.25cm}&&&&\\\hline
 D &\rule{0pt}{1.25cm}&&&&\\\hline
 \end{tabularx}\endgroup
 \newpage
-% Page 13.
 \continued{ข้อ 5 (ต่อ): เงื่อนไขการจัดตาราง}{Question 5 (continued): Scheduling conditions}
 \bsub{5.3}{วางกำหนดการเป็น Gantt chart}{Build the Gantt chart}{5}
+\pair{\textbf{1 คะแนน (รวมอยู่ในข้อ 5.3):} อธิบายว่าคุณใส่ buffer ตรงใดและเพราะเหตุใด รวมทั้งเหตุผลที่ milestone ไม่ใช้เวลาทำงาน คำอธิบายต้องตรงกับตารางที่คุณวาด}
+{\textbf{1 mark (included in Question 5.3):} Explain where you placed buffers and why, and why milestones take no working time. Your explanation must match your chart.}
 \begin{prompttable}
 \prow{โครงการเริ่มวันจันทร์ที่ 4 มกราคม 2027 ทำงานวันจันทร์ถึงศุกร์และไม่มีวันหยุดอื่น ใช้ owner และจำนวนวันของแต่ละงานตามตาราง A-I งานหนึ่งเริ่มได้ในวันทำงานถัดจากวันที่ predecessors และ buffers ของงานเหล่านั้นเสร็จครบ}
 {The project starts on Monday 4 January 2027. Work is Monday to Friday with no other holidays. Use the owner and duration in the A-I task table. A task starts on the working day after all its predecessors and their buffers have finished.}
@@ -180,8 +170,6 @@ D &\rule{0pt}{1.25cm}&&&&\\\hline
 \prow{ใช้ตารางหน้าถัดไป กรอก No. ตาม WBS, Task, Owner, Start และ Due โดย Start/Due เป็นวันแรก/สุดท้ายที่ทำเครื่องหมาย รวม buffer ใช้ X แทนวันทำงาน, - แทน buffer, * แทน milestone และแสดง dependency arrows เว้นแถวที่ไม่ใช้}
 {Use the chart on the next page. Fill No. from the WBS, Task, Owner, Start and Due. Start/Due are the first/last marked days, including buffers. Use X for work, - for a buffer, and * for a milestone. Draw dependency arrows and leave unused rows empty.}
 \end{prompttable}
-\pair{\textbf{คำอธิบาย 1 คะแนน รวมอยู่ในข้อ 5.3:} อธิบายว่าคุณใส่ buffer ตรงใดและเพราะเหตุใด รวมทั้งเหตุผลที่ milestone ไม่ใช้เวลาทำงาน คำอธิบายต้องตรงกับตารางที่คุณวาด}
-{\textbf{Explanation: 1 mark within Question 5.3.} Explain where you placed buffers and why, and why milestones take no working time. Your explanation must match your chart.}
 \answerlabel\answerfill
 \newpage
 % The only landscape sheet in the question booklet.
@@ -198,7 +186,6 @@ D &\rule{0pt}{1.25cm}&&&&\\\hline
 \end{landscape}
 \restoregeometry
 \linespread{1.1}\fontsize{10.5}{14}\selectfont\setlength{\parskip}{4pt}
-% Page 15.
 \bq{6}{Backlog grooming: จองสนามแบดมินตัน}{Backlog grooming: Book a badminton court}{10}
 \begin{prompttable}
 \prow{คุณทำหน้าที่ Product Owner ระหว่าง grooming ของ Issue \#12 “Book a badminton court” ฝ่ายกีฬาซึ่งเป็น client ต้องการให้นักศึกษาจองสนามครั้งละ 1 ชั่วโมง เพื่อไม่ต้องต่อคิวที่เคาน์เตอร์}
@@ -217,13 +204,12 @@ D &\rule{0pt}{1.25cm}&&&&\\\hline
 {Record the facts already known from the client. Separate unresolved questions from facts, and retain the meaning of the one-booking-per-day limit.}
 \answerfill
 \newpage
-% Page 16.
 \continued{ข้อ 6 (ต่อ): เกณฑ์ยอมรับและ metadata ของ Issue \#12}{Question 6 (continued): Acceptance criteria and Issue \#12 metadata}
 \bsub{6.3}{เขียน Acceptance Criteria แบบ Gherkin}{Write Gherkin acceptance criteria}{4}
 \pair{เขียน 2 สถานการณ์พร้อม Given, When และ Then: (1) จองสำเร็จตามตัวอย่างสนาม 2 เวลา 17:00 วันนี้ และ (2) ขอจองเพิ่มเมื่อมีการจองในวันนั้นอยู่แล้ว แต่ละสถานการณ์ต้องมีเงื่อนไขตั้งต้น การกระทำ และผลที่ตรวจได้สอดคล้องกัน}
 {Write two scenarios using Given, When and Then: (1) successful booking of Court 2 at 17:00 today, and (2) requesting another booking while already holding a booking that day. Each scenario must connect its precondition, action and observable outcome.}
-\textbf{สถานการณ์ที่ 1 / Scenario 1}\par\blankbox{5cm}
-\textbf{สถานการณ์ที่ 2 / Scenario 2}\par\blankbox{5cm}
+\pair{\textbf{สถานการณ์ที่ 1}}{\textbf{Scenario 1}}\blankbox{5cm}
+\pair{\textbf{สถานการณ์ที่ 2}}{\textbf{Scenario 2}}\blankbox{5cm}
 \bsub{6.4}{กำหนด metadata หลัง grooming}{Set the post-grooming metadata}{2}
 \pair{กรอกทั้งสี่ช่องตามสิ่งที่ตกลงแล้ว เลือก label ให้สอดคล้องกับประเภทงาน และใส่ “-” ในช่องที่ยังไม่มีค่า}
 {Complete all four fields using agreed information. Choose a label consistent with the type of work, and enter “-” where no value is available.}
@@ -232,7 +218,6 @@ Assignees & Labels & Milestone & Estimate\\\hline
 \rule{0pt}{1.7cm}&&&\\\hline
 \end{tabularx}
 \newpage
-% Page 17.
 \bq{7}{Sprint planning: ShuttleNow}{Sprint planning: ShuttleNow}{5}
 \begin{prompttable}
 \prow{คุณเป็น Scrum Master ของ ShuttleNow แอปติดตามรถรับส่งในมหาวิทยาลัย Product Owner ระบุเป้าหมาย Sprint 6 ว่า “นักศึกษาติดตามรถรับส่งและทราบเวลาที่รถจะมาถึงได้”}
@@ -245,18 +230,17 @@ Assignees & Labels & Milestone & Estimate\\\hline
 {Complete Points and Yes/No in every row, using the stated sprint goal, capacity and priority order.}
 \begingroup\fontsize{9.5}{12.5}\selectfont
 \renewcommand{\tabularxcolumn}[1]{m{#1}}
-\begin{tabularx}{\linewidth}{|M{.55cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|M{1.35cm}|M{.8cm}|M{.9cm}|}\hline
-No. & User story (English) & User story (ไทย) & เทียบ anchor & Points & Yes/No\\\hline
-1 & See a shuttle's live position & ดูตำแหน่งรถสด & +2 steps &\rule{0pt}{.9cm}&\\\hline
-2 & Pay the fare by QR code & จ่ายค่าโดยสาร QR & Same &\rule{0pt}{.9cm}&\\\hline
-3 & See the arrival time at my stop & เวลาถึงป้ายฉัน & +1 step &\rule{0pt}{.9cm}&\\\hline
-4 & Receive an alert before arrival & เตือนก่อนรถถึง & Same &\rule{0pt}{.9cm}&\\\hline
-5 & See arrival times for all route stops & เวลาถึงทุกป้าย & +1 step &\rule{0pt}{.9cm}&\\\hline
-6 & Fix the route list being cut off on small phones & แก้รายการเส้นทางถูกตัดบนมือถือ & -1 step &\rule{0pt}{.9cm}&\\\hline
+\begin{tabularx}{\linewidth}{|M{.55cm}|>{\raggedright\arraybackslash}X|M{1.35cm}|M{.8cm}|M{.9cm}|}\hline
+No. & \bilingualcell{User story}{เรื่องผู้ใช้} & เทียบ anchor & Points & Yes/No\\\hline
+1 & \bilingualcell{See a shuttle's live position}{ดูตำแหน่งรถสด} & +2 steps &\rule{0pt}{.9cm}&\\\hline
+2 & \bilingualcell{Pay the fare by QR code}{จ่ายค่าโดยสาร QR} & Same &\rule{0pt}{.9cm}&\\\hline
+3 & \bilingualcell{See the arrival time at my stop}{เวลาถึงป้ายฉัน} & +1 step &\rule{0pt}{.9cm}&\\\hline
+4 & \bilingualcell{Receive an alert before arrival}{เตือนก่อนรถถึง} & Same &\rule{0pt}{.9cm}&\\\hline
+5 & \bilingualcell{See arrival times for all route stops}{เวลาถึงทุกป้าย} & +1 step &\rule{0pt}{.9cm}&\\\hline
+6 & \bilingualcell{Fix the route list being cut off on small phones}{แก้รายการเส้นทางถูกตัดบนมือถือ} & -1 step &\rule{0pt}{.9cm}&\\\hline
 \end{tabularx}\endgroup
 \bsub{7.2}{รวม points ของงานที่เลือก}{Total the selected story points}{1}
 \blankbox{.7cm}
-% Page 18.
 \newpage
 \continued{ข้อ 7 (ต่อ): อธิบาย Sprint backlog ที่เลือก}{Question 7 (continued): Explain the selected sprint backlog}
 \bsub{7.3}{อธิบายเหตุผลที่เลือกและไม่เลือก}{Explain your selection and exclusions}{1}
@@ -265,7 +249,7 @@ No. & User story (English) & User story (ไทย) & เทียบ anchor & P
 \answerfill
 \newpage
 % Shared miniature specification. This exercise is self-contained.
-\bpart{3}{แผนภาพ การออกแบบหน้าจอ และ Git (50 คะแนน)}{UML/UI and Git Workflow (50 marks)}
+\bpart{3}{(50 คะแนน) แผนภาพ การออกแบบหน้าจอ และ Git}{(50 marks) UML/UI and Git Workflow}
 \continued{ข้อกำหนดร่วมสำหรับข้อ 8-10: ระบบแจ้งปัญหา TokTickIT}{Shared requirements for Questions 8-10: TokTickIT Service Tickets}
 \pair{ใช้ข้อกำหนด R1-R12 ของ TokTickIT ด้านล่างตอบข้อ 8-10 โดยยึดเฉพาะกฎที่ให้ ไม่ต้องเพิ่มทุกฟังก์ชันจากแลปจริง}
 {Answer Questions 8-10 using the self-contained TokTickIT specification R1-R12 below. Model only the stated behaviour; do not import other laboratory features.}
@@ -301,6 +285,8 @@ No. & User story (English) & User story (ไทย) & เทียบ anchor & P
 \end{prompttable}
 \newpage
 \bq{8}{เติมความสัมพันธ์ใน Use Case Diagram}{Complete the Use Case Diagram relationships}{10}
+\pair{\textbf{เกณฑ์คะแนน:} actor associations และขอบเขต 3; include 3; extend พร้อมเงื่อนไข 2; generalization และทิศทาง 2 รวม 10 คะแนน}
+{\textbf{Marks:} actor associations and scope 3; include 3; extend with conditions 2; generalization and direction 2. Total: 10 marks.}
 \pair{ใช้ R1-R8 และ R12 เติมความสัมพันธ์ในโครงหน้าถัดไป Actors, use cases และ system boundary มีให้แล้ว ไม่ต้องวาดกล่องใหม่ ให้ใช้ association เส้นทึบ, dependency เส้นประพร้อม \textless\textless include\textgreater\textgreater หรือ \textless\textless extend\textgreater\textgreater และ generalization เส้นทึบหัวสามเหลี่ยมโปร่งตามความหมายของแต่ละคู่}
 {Using R1-R8 and R12, complete the skeleton on the next page. Actors, use cases and the system boundary are supplied. Do not add nodes. Use solid associations, dashed dependencies labelled \textless\textless include\textgreater\textgreater or \textless\textless extend\textgreater\textgreater, and solid generalizations with hollow triangular arrowheads as appropriate.}
 \begin{prompttable}
@@ -309,9 +295,7 @@ No. & User story (English) & User story (ไทย) & เทียบ anchor & P
 \prow{แยกพฤติกรรมที่ต้องเกิดทุกครั้งออกจากพฤติกรรมที่เกิดเฉพาะเมื่อเลือกแนบไฟล์หรือย้าย owner แสดงทิศหัวลูกศร stereotype และเงื่อนไขของ extension ให้ถูกต้อง แผนภาพนี้แสดงขอบเขตความสามารถ ไม่ใช่ลำดับงานหรือ transition ของ status}
 {Distinguish mandatory reused behaviour from behaviour performed only when a file or reassignment is selected. Show arrow direction, stereotypes and extension conditions correctly. This diagram models capabilities and scope, not an execution sequence or status transitions.}
 \end{prompttable}
-\pair{\textbf{เกณฑ์คะแนน:} actor associations และขอบเขต 3; include 3; extend พร้อมเงื่อนไข 2; generalization และทิศทาง 2 รวม 10 คะแนน}
-{\textbf{Marks:} actor associations and scope 3; include 3; extend with conditions 2; generalization and direction 2. Total: 10 marks.}
-\textbf{คำอธิบายหรือสมมติฐาน / Explanation or assumptions}\par\blankbox{4cm}
+\pair{\textbf{คำอธิบายหรือสมมติฐาน}}{\textbf{Explanation or assumptions}}\blankbox{4cm}
 \newpage
 \continued{ข้อ 8 (ต่อ): เติมเส้นและป้ายความสัมพันธ์ในโครงที่ให้}{Question 8 (continued): Add relationship edges and labels}
 \examTicketUseCase
@@ -322,7 +306,7 @@ No. & User story (English) & User story (ไทย) & เทียบ anchor & P
 \pair{ต้องแยก claim, start, request information, resume, resolve, accept, reopen และ cancel ให้ครบ เขียนเงื่อนไข Resolve ของ R8 กำกับลูกศรหรือใช้ชื่อ guard แล้วขยายความด้านล่าง การกระทำที่ไม่ผ่าน guard คงสถานะเดิม ไม่ต้องเพิ่มสถานะ Error}
 {Cover claim, start, request information, resume, resolve, accept, reopen and cancel. Put R8's resolution conditions on the transition, or name the guard and define it below. A refused operation retains its state; do not add an Error state.}
 \examTicketState
-\textbf{นิยาม guard / Guard definition}\par\blankbox{1.2cm}
+\pair{\textbf{นิยาม guard}}{\textbf{Guard definition}}\blankbox{1.2cm}
 \newpage
 \bq{10}{เติม List View และ Form View}{Complete the List View and Form View}{10}
 \pair{ใช้ R2-R4 และ R7-R11 ออกแบบหน้าจอ IT Staff ในกรอบที่ให้ เติมชื่อ fields, ค่าตัวอย่าง, controls และ feedback ใช้ * นำหน้า required fields, textbox สำหรับข้อมูลแก้ได้ และเส้นเฉียงสำหรับ read-only/calculated ห้ามเติมข้อมูลบัญชีหรือสถานะที่ไม่เกี่ยวข้องเพียงเพื่อให้เต็มกรอบ}
@@ -339,7 +323,6 @@ No. & User story (English) & User story (ไทย) & เทียบ anchor & P
 {Complete R3's data, separating read-only values from editable IT priority, owner and status. Distinguish Public Comments and Internal Notes, provide Action/file entry, and show or annotate a blocked Resolve and a STALE\_UPDATE while retaining the input required by R11. You need not draw a separate page for every state.}
 \examTicketForm
 \newpage
-% Page 26.
 \continued{บริบทร่วมสำหรับข้อ 11-12: Git Workflow}{Shared context for Questions 11-12: Git Workflow}
 \begin{prompttable}
 \prow{ExamScore เป็นโปรแกรม Python แบบ command-line สำหรับอาจารย์ อ่านรายชื่อและคะแนนสอบจาก CSV ตรวจคะแนนช่วง 0-100 คำนวณสถิติและทำรายงานอัตราผ่าน เลือก Python เพื่อให้อ่านโค้ดและจัดการ CSV ได้โดยไม่รบกวนการฝึก Git}
@@ -347,11 +330,11 @@ No. & User story (English) & User story (ไทย) & เทียบ anchor & P
 \prow{main แทน release ที่ deploy แล้ว sprint staging branches ใช้รวมและทดสอบงานที่เสร็จ ส่วน feature branches แยกการเปลี่ยนแปลงแต่ละงานจนพร้อมรวม}
 {main represents the deployed release. Sprint staging branches collect completed work for integration and testing. Feature branches isolate individual changes until they are ready to merge.}
 \end{prompttable}
-\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|P|}\hline
-File & Purpose & หน้าที่\\\hline
-\code{score\_data.py} & Loads and validates exam scores & โหลดและตรวจสอบคะแนนสอบ\\\hline
-\code{scores.csv} & Sample student names and scores & รายชื่อและคะแนนตัวอย่าง\\\hline
-\code{validation\_notes.txt} & New file documenting validation cases & ไฟล์ใหม่บันทึกกรณีทดสอบ\\\hline
+\begin{tabularx}{\linewidth}{|>{\raggedright\arraybackslash}m{4.1cm}|P|}\hline
+File & \bilingualcell{Purpose}{หน้าที่}\\\hline
+\code{score\_data.py} & \bilingualcell{Loads and validates exam scores}{โหลดและตรวจสอบคะแนนสอบ}\\\hline
+\code{scores.csv} & \bilingualcell{Sample student names and scores}{รายชื่อและคะแนนตัวอย่าง}\\\hline
+\code{validation\_notes.txt} & \bilingualcell{New file documenting validation cases}{ไฟล์ใหม่บันทึกกรณีทดสอบ}\\\hline
 \end{tabularx}
 \begin{prompttable}
 \prow{HEAD ระบุ local branch ที่ checkout ส่วน origin/* เป็น local remote-tracking reference ซึ่งบันทึกสถานะ GitHub ล่าสุดที่เครื่องนี้ทราบ การ switch ย้าย HEAD แต่ไม่ย้าย branch pointers}
@@ -364,7 +347,6 @@ File & Purpose & หน้าที่\\\hline
 {In A---B, B has parent A. Names in [ ] and ref -> commit locate references; HEAD -> branch marks the current branch. / and \textbackslash{} connect ancestry. A leading > is a command prompt. Answers may use a text graph or a drawn diagram.}
 \end{prompttable}
 \newpage
-% Page 27.
 \bq{11}{Switch ทำ commit แยกสาย แล้ว merge}{Switch, commit on separate branches, then merge}{10}
 \pair{เริ่มที่ main ตามกราฟ ทุก branch ในภาพมีอยู่แล้วและชี้ B ใช้ข้อสมมติร่วมของข้อ 11-12}
 {Start on main as shown. All named branches already exist and point to B. Apply the shared assumptions for Questions 11-12.}
@@ -388,12 +370,11 @@ feature/load_scores, origin/feature/load_scores -> B
 \pair{วาดกราฟก่อน merge และหลัง merge พร้อม local branches, origin/* และ HEAD ทุกตัว แล้วอธิบายประเภท merge และผลของ switch ต่อการสร้าง commit โดยย่อ}
 {Draw the graphs before and after the merge, with every local branch, origin/* and HEAD. Briefly explain the merge type and whether switch itself creates a commit.}
 \begin{tabularx}{\linewidth}{|P|P|}\hline
-\textbf{Before merge / ก่อน merge} & \textbf{After merge / หลัง merge}\\\hline
+\bilingualcell{Before merge}{ก่อน merge} & \bilingualcell{After merge}{หลัง merge}\\\hline
 \rule{0pt}{3.4cm} & \\\hline
 \end{tabularx}
-\textbf{คำอธิบาย / Explanation}\par\blankbox{1cm}
+\pair{\textbf{คำอธิบาย}}{\textbf{Explanation}}\blankbox{1cm}
 \newpage
-% Page 28.
 \bq{12}{เขียนคำสั่งและวาด graph ทีละขั้น}{Write commands and redraw after each step}{10}
 \pair{ข้อ 12 เริ่มใหม่ตามกราฟนี้: feature แยกจาก C และได้ทำ commit D กับ E ต่อกันไว้แล้ว ขณะนี้ HEAD อยู่ feature/load\_scores ทำ 12.1-12.3 ต่อเนื่องโดยคง refs ที่ไม่มีคำสั่งเปลี่ยน ไม่ใช้ผลจากข้อ 11}
 {Question 12 starts afresh: the feature was branched at C and has since added D and E in sequence. HEAD is on feature/load\_scores. Complete 12.1-12.3 continuously, retaining unchanged refs. Do not carry over Question 11's result.}
@@ -407,18 +388,16 @@ A---B [main, origin/main]
 \bsub{12.1}{เปลี่ยนไป sprint staging branch}{Switch to the sprint staging branch}{2}
 \pair{เขียนคำสั่งเปลี่ยนจาก feature/load\_scores ไป sprint\_1\_staging แล้ววาด graph ใหม่ให้แสดงตำแหน่ง HEAD และ branch/remote-tracking references หลังคำสั่ง}
 {Write the command to switch from feature/load\_scores to sprint\_1\_staging. Redraw the graph to show HEAD and all branch/remote-tracking references after the command.}
-\textbf{คำสั่ง / Command}\par\blankbox{2cm}
-\textbf{Graph หลังข้อ 12.1 / Graph after 12.1}\par\answerfill
+\pair{\textbf{คำสั่ง}}{\textbf{Command}}\blankbox{2cm}
+\pair{\textbf{Graph หลังข้อ 12.1}}{\textbf{Graph after 12.1}}\answerfill
 \newpage
-% Page 29.
 \continued{ข้อ 12 (ต่อ): เริ่มจากผลของข้อ 12.1}{Question 12 (continued): Start from the result of 12.1}
 \bsub{12.2}{รวม feature branch เข้า staging}{Merge the feature branch into staging}{3}
 \pair{ขณะนี้อยู่ที่ sprint\_1\_staging ให้เขียนคำสั่งรวม feature/load\_scores เข้าสู่ branch ปัจจุบัน ระบุ merge type พร้อมเหตุผลจาก ancestry แล้ววาด graph หลัง merge โดยแสดง HEAD, local branches และ remote-tracking references ทุกตัว}
 {While on sprint\_1\_staging, write the command to merge feature/load\_scores into the current branch. Identify the merge type and justify it from the ancestry. Redraw the graph after the merge, showing HEAD, all local branches and all remote-tracking references.}
-\textbf{คำสั่งและประเภท merge / Command and merge type}\par\blankbox{4cm}
-\textbf{Graph หลังข้อ 12.2 / Graph after 12.2}\par\answerfill
+\pair{\textbf{คำสั่งและประเภท merge}}{\textbf{Command and merge type}}\blankbox{4cm}
+\pair{\textbf{Graph หลังข้อ 12.2}}{\textbf{Graph after 12.2}}\answerfill
 \newpage
-% Page 30.
 \continued{ข้อ 12 (ต่อ): เริ่มจากผลของข้อ 12.2}{Question 12 (continued): Start from the result of 12.2}
 \bsub{12.3}{ตรวจการเปลี่ยนแปลง stage และ commit}{Inspect, stage and commit the file changes}{5}
 \begin{prompttable}
@@ -427,5 +406,5 @@ A---B [main, origin/main]
 \prow{เขียนคำสั่ง Git เพื่อตรวจการเปลี่ยนแปลง stage เฉพาะสามไฟล์นี้ และสร้าง commit F ด้วยข้อความ \code{Document score validation cases} จากนั้นวาด graph โดยแสดง F, HEAD และ references ทุกตัว ไม่มีคำสั่ง push ในขั้นนี้}
 {Write Git commands to inspect the changes, stage only these three files, and create commit F with message \code{Document score validation cases}. Then draw the graph with F, HEAD and every reference. No push is performed in this step.}
 \end{prompttable}
-\textbf{คำสั่ง / Commands}\par\blankbox{5cm}
-\textbf{Graph หลังสร้าง F / Graph after creating F}\par\answerfill
+\pair{\textbf{คำสั่ง}}{\textbf{Commands}}\blankbox{5cm}
+\pair{\textbf{Graph หลังสร้าง F}}{\textbf{Graph after creating F}}\answerfill

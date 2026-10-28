@@ -12,8 +12,8 @@ Course materials, lab work, and midterm preparation for CPE334 Software Engineer
 ## Midterm preparation
 
 - [Two-page cheat sheet](preparation/cheat-sheet/README.md) — a compact Thai review of Lectures 1–7 and Practice Midterm. The PDF is prepared as a clean handout; source mapping, glossary, and review questions with answers are kept in the companion README.
-- [Practice midterm paper and sources](preparation/mock-exam/README.md#published-files) — one 30-page A4 paper with a Thai cover, English-left/Thai-right questions and one landscape Gantt sheet; supplementary exercises remain in source form.
-- [Bilingual midterm mock exam (30 pages; English left, Thai right)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf)
+- [Practice midterm paper and sources](preparation/mock-exam/README.md#published-files) — one 30-page A4 paper with a Thai cover, English-first questions followed by Thai and one landscape Gantt sheet; supplementary exercises remain in source form.
+- [Bilingual midterm mock exam (30 pages; English first, Thai below)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf)
 - [Thai solutions and marking guide: core edition (15 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf)
 - [Thai solutions and marking guide: with supplementary answers (18 pages)](preparation/mock-exam/midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf)
 - [Cheat sheet (PDF)](preparation/cheat-sheet/midterm/output/pdf/CPE334_Midterm_Cheat_Sheet.pdf)

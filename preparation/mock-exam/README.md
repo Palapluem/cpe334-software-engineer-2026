@@ -6,7 +6,7 @@ These student-created materials are for study and timed practice. They are not a
 
 | File | Format | Contents |
 | --- | --- | --- |
-| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **30 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English on the left and Thai on the right; 3 parts, 12 questions, 100 marks, 3 hours |
+| [Bilingual mock exam](midterm/output/pdf/CPE334_Midterm_Mock_TH_EN.pdf) | **30 A4 pages**; page 14 landscape, all other pages portrait | Thai cover; English question text followed by Thai; 3 parts, 12 questions, 100 marks, 3 hours |
 | [Thai core solutions](midterm/output/pdf/CPE334_Midterm_Mock_Solutions.pdf) | 15 pages | Answers and marking guide for Questions 1-12, including the revised TokTickIT problems |
 | [Thai solutions with supplementary answers](midterm/output/pdf/CPE334_Midterm_Mock_Solutions_With_Supplements.pdf) | 18 pages | The same core answers followed by S1-S3 |
 
@@ -16,7 +16,7 @@ These student-created materials are for study and timed practice. They are not a
 
 - หน้าปกยึดฉบับแรกที่เก็บไว้ในประวัติ 24 October 2026: คืนถ้อยคำคำชี้แจงฉบับเต็ม ชื่อส่วน Requirements/Security, Project Planning/Execution และ UML/UI/Git Workflow พร้อมกริด ฟอนต์ ตัวหนา เส้นใต้และระยะบรรทัดเดิม คำชี้แจงเป็นภาษาไทยและใช้ศัพท์เนื้อหารายวิชาตามต้นแบบ ช่องชุดข้อสอบคงความหมาย optional ด้วยคำไทย “ถ้ามี” และกลุ่มนานาชาติใช้ป้ายภาษาไทย
 - เงื่อนไขกระดาษสรุปแก้ตามที่นักศึกษายืนยันหลังสอบ: อนุญาต A4 1 แผ่นและ **ไม่ต้องส่งพร้อมข้อสอบ** นำข้อบังคับให้ส่ง ข้อหัก 5 คะแนน และข้อบังคับเขียนชื่อบนกระดาษสรุปที่ยกมาจากเรฟ CPE241 ออก ไม่ใช้กติกาของวิชาอื่นแทนข้อสอบ CPE334
-- ตารางโจทย์ใช้ **English ซ้าย / ไทยขวา** ทุกข้อ รวมตารางงาน A-I และ sprint backlog จับคู่ย่อหน้าที่มีความหมายเดียวกัน คะแนนของสองฝั่งเป็นคะแนนเดียวกัน
+- คำถามและคำสั่งแสดง **English ก่อน แล้วตามด้วยภาษาไทยบรรทัดถัดไป** ไม่มีตารางสองคอลัมน์สำหรับข้อความคู่ภาษา ตารางงานและตารางคำตอบที่จำเป็นยังคงรูปแบบตาราง โดยวางคำแปลไทยใต้ข้อความอังกฤษในเซลล์เดียวกัน
 - คง Sarabun และขนาดโจทย์ประมาณ 14 pt; หัว/ท้ายกระดาษเล็กกว่าโจทย์ ไม่ลดฟอนต์เพื่อบีบจำนวนหน้า พื้นที่ตอบใช้ร่วมกันเต็มความกว้าง ไม่แบ่งคำตอบเป็นสองภาษา
 - หน้า Gantt เป็นแนวนอนเพียงหน้าเดียว ครบ 20 วันทำงาน มี 14 แถวสำหรับ tasks/milestones/buffer และคอลัมน์ No., Task, Owner, Start, Due; หน้าถัดไปกลับเป็นแนวตั้ง
 - ข้อ 8 ให้ actors, use cases และ boundary มาแล้ว ผู้ทำเติมเส้น association, include, extend และ generalization; ข้อ 9 ให้ states มาแล้ว ผู้ทำเติม transitions/events/guards; ข้อ 10 ให้กรอบ List/Form พร้อมตัวอย่าง notation แล้วเติมข้อมูลและ controls
@@ -63,14 +63,14 @@ Lecture 10 ให้ฝึก UML/UI ห้าประเภท (Use Case, Acti
 | S2 | Lecture 4 pp. 45-46, 61-62 | Service Ticket State ตามตัวอย่างใน Lecture ไม่ใช่ state rules ของข้อ 9 ใหม่ |
 | S3 | Samples pp. 8-9, 19 | Explain graph ตาม 2.2 ครบหกคำถาม |
 
-รูปแบบอังกฤษซ้าย/ไทยขวาเทียบกับ Samples pp. 1-2 ส่วนหน้าปกเทียบ source และ PDF ฉบับแรกใน commit `86647f0` โดยคงวันสอบที่แก้ถูกแล้วเป็น 27 ตุลาคม 2569 จำนวนหน้าเป็น 30 และปรับเฉพาะกติกากระดาษสรุปตามข้อมูลสอบจริงที่นักศึกษายืนยัน เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
+รูปแบบคำถามอังกฤษก่อนและภาษาไทยบรรทัดถัดไปเทียบกับ Samples pp. 1-2 ส่วนหน้าปกเทียบ source และ PDF ฉบับแรกใน commit `86647f0` โดยคงวันสอบที่แก้ถูกแล้วเป็น 27 ตุลาคม 2569 จำนวนหน้าเป็น 30 และปรับเฉพาะกติกากระดาษสรุปตามข้อมูลสอบจริงที่นักศึกษายืนยัน เลขหน้าแหล่งข้อมูลนับจากหน้าแรกของ PDF ไม่ใช่หมายเลขสไลด์
 
 หลักการตรวจเฉลยยังอิง Lecture 2 pp. 14-29 (requirements/proposal), Lecture 5 pp. 5-8, 19-23, 28-38 (security), Lecture 6 pp. 71-96 (WBS/Gantt/RACI) และ Lecture 7 pp. 60-72, 94-104, 114-118 (grooming/planning) รับคำตอบอื่นที่ตรงข้อกำหนดและมีเหตุผล เกณฑ์คะแนนและตัวอย่างคำตอบเป็นของชุดฝึก ไม่ใช่เฉลยทางการ
 
 ## แก้ไขและคอมไพล์
 
 - `midterm/main.tex`: จุดเริ่มต้นข้อสอบ
-- `midterm/bilingual/questions.tex`: ข้อความคู่ภาษา โดย source รับ argument ไทยก่อน/อังกฤษหลัง แต่ macro แสดงอังกฤษซ้าย
+- `midterm/bilingual/questions.tex`: ข้อความคู่ภาษา โดย source รับ argument ไทยก่อน/อังกฤษหลัง แต่ macro แสดงอังกฤษก่อนและไทยบรรทัดถัดไป
 - `midterm/bilingual/exam.tex`: layout, table macros, answer spaces และ Gantt
 - `midterm/bilingual/ticket-diagrams.tex`: actors/use cases/states และ blank UI scaffolds; ภาพโจทย์ไม่มีเส้นคำตอบ
 - `midterm/bilingual/cover.tex`, `frontmatter/cover-layout.tex`, `exam-info.tex`: ข้อความปก กริดและข้อมูลสอบ
