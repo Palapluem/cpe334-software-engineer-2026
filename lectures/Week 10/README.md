@@ -35,7 +35,7 @@ The product must be a real full-stack application: UI → API/application layer 
 
 ### Three-sprint and submission timeline
 
-Dates below reproduce the supplied Week 10 schedule. The draft `group_work_specs_v1.pdf` says submissions are due at 23:59, but confirm each deadline against the instructor-approved handout or announcement. For example, the supplied Deliverable 2 handout states 29 November 2026 but does not specify a time.
+Dates below reproduce the supplied Week 10 schedule. The draft `group_work_specs_v1.pdf` says submissions are due at 23:59; the detailed Deliverable 1, Deliverable 2 (§4), Final (§4) and Lab 5 handouts also specify 23:59. Confirm any newer announcement and reconcile the detailed Lab 6/7 handouts when supplied.
 
 | Due | Assessment | Expected checkpoint | Points / course weight |
 | --- | --- | --- | ---: |

@@ -7,8 +7,11 @@
 # Graded product repository — tracked as its own independent Git repo, never as embedded content
 /labs/toktickit_cpe334/
 
+# PocketLedger group product: independent Git repository, never an embedded course tree.
+/project/pocket-ledger/
+
 # CPE334 course materials and lab/homework files are intentionally tracked here.
-# The graded TokTickIT product remains a separate nested Git repository.
+# Both graded products remain separate nested Git repositories.
 
 # Publish editable preparation sources and final PDFs, but never LaTeX build debris.
 /preparation/**/*.aux

@@ -1,13 +1,18 @@
 # CPE334 — Software Engineering (Semester 1/2026)
 
-Course materials, lab work, and midterm preparation for CPE334 Software Engineering. This repository keeps the course-facing materials together; the TokTickIT application is maintained in its own repository.
+Course materials, lab work, and midterm preparation for CPE334 Software Engineering. This repository keeps course-facing materials together, while the individual TokTickIT application and team PocketLedger product each have a separate repository.
 
 ## Course materials
 
 - [Lecture materials](lectures/): slides, examples, and study notes for the course.
 - [Week 10 midterm and project guide](lectures/Week%2010/README.md): exam-topic map, project-launch material, and source-document notes.
-- [Lab materials and reports](labs/): lab sheets, evidence, and submitted reports for Labs 1–4.
-- [TokTickIT product repository](https://github.com/Palapluem/toktickit_cpe334): the application repository used for the engineering labs. It is separate from this course-material repository.
+- [Week 11 cloud deployment lecture](lectures/Week%2011/CPE334_Lecture11%20-%20Cloud%20Deployment%20and%20Delivery%20to%20Users.pdf): SDD, reviewed releases, Docker/GCP delivery, and smoke/persistence checks.
+- [Lab materials and reports](labs/): lab sheets, evidence, and submitted reports for Labs 1–4, followed by group labs.
+- [Group Project preparation](project/README.md): team/theme, assessment handouts, Deliverable 1 preparation and the decisions needed before implementation.
+- [Lab 5 preparation and extracted starter kit](labs/Lab05/README.md): required checks, evidence plan, deployment/report templates and the original reference files.
+- [Lab 6 UAT preparation](labs/Lab06/README.md) and [Lab 7 maintenance preparation](labs/Lab07/README.md): provisional guides/templates based on the master until the detailed handouts arrive.
+- [PocketLedger team product](https://github.com/Palapluem/pocket-ledger): independent source/specifications/tests/delivery repository for Deliverables 1–2, Labs 5–7 and Final.
+- [TokTickIT product repository](https://github.com/Palapluem/toktickit_cpe334): the application repository used for individual Labs 1–4. It is separate from this course-material repository and the team product.
 
 ## Midterm preparation
 
@@ -25,9 +30,15 @@ The practice papers are student-created study materials, not actual or officiall
 ```text
 lectures/                  Course slides, examples, and study notes
 labs/                      Lab sheets, reports, evidence, and project workflow
+project/                   Group-project handouts, preparation and reusable document templates
+  pocket-ledger/           Local independent product checkout; ignored by the course Git repo
 preparation/
   cheat-sheet/             Editable LaTeX source and two-page PDF
   mock-exam/               Bilingual exam source, printable paper and Thai solutions
 ```
 
 LaTeX source files and their printable PDFs are kept together in `preparation/`. Build intermediates and operating-system metadata are excluded. When revising course content, keep the source and its generated deliverable in sync, and verify the rendered PDF before replacing the published copy.
+
+The group project and Labs 5–7 continue one team application. Their product repository is separate from this course-material repository and from the individual TokTickIT work. The Lab 5 starter kit is retained here as reference material; its nested workflows are templates, not this repository's active CI/deployment configuration.
+
+PocketLedger lives locally at `project/pocket-ledger/` with its own Git root and remote. The course repository ignores the whole checkout; it is not a submodule. Read [AGENTS.md](AGENTS.md) and [the project index](project/README.md) before updating either repository.
