@@ -11,7 +11,7 @@
 
 หัวข้อที่เลือกตามคำยืนยันของทีมเมื่อ 3 พฤศจิกายน 2026 คือ **Theme 7: Personal Money and Expense Logging System** เลือกได้จากรหัสนักศึกษาของ Natthawat ที่ลงท้ายด้วย 7 ตาม master specification §6
 
-ผู้เรียนเลือกชื่อ **PocketLedger** และ repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** แล้ว ชื่อ/เลขกลุ่ม section, stack และ financial policies ยังรอทีมยืนยัน การ bootstrap repo เป็นการเตรียมงาน ไม่ใช่ accepted Sprint 1 release
+ผู้เรียนเลือกชื่อ **PocketLedger** และ repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** แล้ว ชื่อกลุ่มใน LEB2 คือ **2-Nor** ตามคำยืนยันวันที่ 7 พฤศจิกายน 2026 ส่วน section/เลขกลุ่มแยก, stack และ financial policies ยังรอทีมยืนยัน ขณะนี้มีร่าง baseline และ Sprint 1 contracts/STS ให้ทีม review แต่ยังไม่มี accepted Sprint 1 release
 
 ## แยกสอง repo อย่างไร
 
@@ -23,11 +23,13 @@
 
 Nested checkout ไม่ใช่ submodule ห้าม force-add หรือ push source จาก PocketLedger เข้า CPE334 ก่อนทุก Git write ให้ตรวจ root/remote/status ของ repo ที่ตั้งใจ ดู [workspace rules](../AGENTS.md) และ [product contribution rules](https://github.com/Palapluem/pocket-ledger/blob/main/CONTRIBUTING.md)
 
-เอกสารทางการที่พัฒนาจริงอยู่ใน product repo แผนตัดสินใจและ glossary ย้ายไปที่นั่นแล้วเพื่อไม่ให้สองสำเนาคลาดกัน ส่วน course templates เป็นแม่แบบ/แนวประกอบรายงาน
+เอกสารวิศวกรรมฉบับหลักอยู่ใน product repo: docs/decisions.md, srs.md, features.md, traceability.md, system-sds.md และ docs/sprints/ ส่วน course templates เป็นแนวประกอบรายงาน ร่างปัจจุบันรวมใน [PR #4](https://github.com/Palapluem/pocket-ledger/pull/4) ซึ่งยังรอ teammate review; อย่าสับสนกับ main ที่ยังเป็น bootstrap
+
+แหล่งทำรายงานที่ผู้เรียนกำหนดคือ [แท็บ Project Deliverable 1](https://docs.google.com/document/d/1LvDrVanne23Pgj6LH7AoiacwpgOu-sGl7Hyr6pycZCo/edit?tab=t.241qhfcdhce3) และ [แท็บ Lab 5](https://docs.google.com/document/d/1LvDrVanne23Pgj6LH7AoiacwpgOu-sGl7Hyr6pycZCo/edit?tab=t.s9umabyrevqi) ใน Google Doc เดียวกัน จัดทำฉบับส่งเป็น PDF ผ่าน Print หลังเนื้อหาและหลักฐานพร้อม ไม่ใช้ผลหรือภาพ TokTickIT เป็นหลักฐาน PocketLedger
 
 ## อ่านและทำตามลำดับนี้
 
-1. อ่าน [product decision map](https://github.com/Palapluem/pocket-ledger/blob/main/docs/wayfinder/map.md) และยืนยันข้อมูลกลุ่ม/stack/กติกาการเงินที่ยังเปิดอยู่
+1. อ่าน decision register และร่าง baseline ใน [PR #4](https://github.com/Palapluem/pocket-ledger/pull/4) และร่วมกันยืนยัน stack/กติกาการเงิน/session/interfaces/ขอบเขต Sprint 1 ที่ยังเปิดอยู่
 2. ใช้ [คู่มือเตรียม Deliverable 1](Project%20Deliverable%201/README.md) สร้าง baseline ของทั้งผลิตภัณฑ์และ contract ของ Sprint 1 ก่อนเริ่ม implementation
 3. ใช้ [แม่แบบ feature contract](Project%20Deliverable%201/feature-contract-template.md) กับฟีเจอร์ที่กำลังจะทำ และใช้ [โครงรายงาน Parts A–F](Project%20Deliverable%201/report-outline.md) เก็บตำแหน่งหลักฐานตั้งแต่ต้น
 4. ส่ง working Sprint 1 ที่ผ่าน review และ integration บน `main` ก่อนนำ release นั้นไปทำ [Lab 5](../labs/Lab05/README.md)
@@ -89,12 +91,12 @@ Lab 5 §6 ให้ยึด handout เมื่อขัดกับคู่�
 | --- | --- | --- |
 | `pdf` | อ่าน rubric, ตาราง, ข้อยกเว้น และตรวจ PDF เมื่อเริ่มทำรายงาน | อ่านเอกสารต้นทาง |
 | `thai-study-assistant` | อธิบายข้อกำหนดเป็นไทยโดยรักษา required/recommended และเงื่อนไข | ใช้เขียนคู่มือเตรียมงาน |
-| `wayfinder` | รวมการตัดสินใจและ dependency ก่อนเริ่ม implementation | ใช้ [product map](https://github.com/Palapluem/pocket-ledger/blob/main/docs/wayfinder/map.md) แบบ local Markdown |
+| `wayfinder` | ใช้เฉพาะเมื่อผู้เรียนพิมพ์ /wayfinder โดยตรง | ไม่เรียกอัตโนมัติ; งานปัจจุบันใช้ decision register เดียวและ sprint plan |
 | `domain-modeling` | แยกศัพท์การเงินที่สับสนและบันทึกความหมายให้ตรงกัน | ใช้ [product GLOSSARY](https://github.com/Palapluem/pocket-ledger/blob/main/GLOSSARY.md) |
 | `tdd` | วาง expected results และจุดทดสอบ behavior ก่อนทำทีละ slice | เตรียมแนวทดสอบ; ยังไม่เขียนหรือรันทดสอบแอป |
 | `code-review` | ตรวจ diff เทียบมาตรฐานและ contract เมื่อมี implementation/PR จริง | ใช้เมื่อถึงรอบ review |
 | `agent-browser` | ตรวจ UI และ user journey จริง รวมถึง smoke/persistence evidence | ใช้เมื่อมีแอปที่รันได้ |
-| `google-drive:google-docs` | ทำรายงานใน Google Docs เมื่อมีเอกสารเป้าหมายและอนุญาตรอบแก้ | ใช้ภายหลัง |
+| `google-drive:google-docs` | แก้เฉพาะแท็บ Lab 5 และ Deliverable 1 ที่ผู้เรียนกำหนด | จัดร่างใหม่ตาม rubric และเว้นหลักฐานที่ยังไม่เกิดขึ้น |
 | `supabase-postgres-best-practices` | ตรวจ schema/query/transaction เมื่อทีมเลือก PostgreSQL | ใช้เมื่อเริ่มออกแบบหรือแก้ฐานข้อมูล |
 
 ไม่ต้องเรียกสกิลของบริการหรือเทคโนโลยีที่ทีมไม่ได้ใช้ และไม่เพิ่ม Kubernetes, microservices, external bank integration หรือ quota ของ UML/test/commit ที่ใบงานไม่ได้กำหนด
@@ -108,4 +110,4 @@ Lab 5 §6 ให้ยึด handout เมื่อขัดกับคู่�
 - รายงานใช้ professional English, Sarabun สำหรับเนื้อความ, Consolas สำหรับโค้ด/คำสั่ง, จัดชิดขอบสำหรับ prose และ caption สีน้ำเงินตัวเอียงตามรูปแบบเดิมของผู้เรียน ตาราง โค้ด และภาพใช้ alignment ที่อ่านง่าย
 - เก็บหลักฐานเป็นชุดเดียวต่อเรื่อง ภาพต้องไม่ขาด ID/ข้อความ ไม่มี cursor ของเครื่องมือ และอ่านได้ที่ 100% รายงานแต่ละงานใช้ความครบ/ความกระชับตาม handout ของงานนั้น
 
-สถานะปัจจุบันคือ **repository bootstrap และเอกสารเตรียมงาน** มีโครง collaboration/review และแม่แบบต่อถึง Final แต่ยังไม่มี application implementation, accepted sprint release, product test results, cloud resources หรือ completed assessment ดูสถานะงานจริงจาก [PocketLedger](https://github.com/Palapluem/pocket-ledger)
+สถานะปัจจุบันคือ **draft baseline และ Sprint 1 contracts/STS ระหว่างทีม review** ยังไม่มี application implementation, accepted sprint release, product test results, cloud resources หรือ completed assessment ดูสถานะจริงจาก [PocketLedger](https://github.com/Palapluem/pocket-ledger) และไม่เปิด PR เพิ่มเพียงเพื่อบันทึกว่า PR ก่อนหน้า merge แล้ว

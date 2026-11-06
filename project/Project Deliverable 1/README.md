@@ -60,7 +60,7 @@ Docker, completed CI/CD และ GCP เป็นงาน Lab 5 ไม่ต�
 | Administrator | จัดการ platform users/access รวมการเปิด/ปิดใช้งาน แต่ดูหรือแก้ financial data/summaries ไม่ได้ |
 | Out of scope ที่โจทย์ระบุ | period budgets, shared budgets, automatic recurring transactions และ bank integration |
 
-ใช้ [product GLOSSARY](https://github.com/Palapluem/pocket-ledger/blob/main/GLOSSARY.md) แยกความหมายของ account และเปิด [การตัดสินใจกติกาการเงิน](https://github.com/Palapluem/pocket-ledger/blob/main/docs/wayfinder/decisions.md#ตกลงกติกาการเงินและขอบเขต-sprint-1) ก่อนกำหนดข้อยกเว้นเอง
+ใช้ [product GLOSSARY](https://github.com/Palapluem/pocket-ledger/blob/main/GLOSSARY.md) แยกความหมายของ account และอ่านร่าง docs/decisions.md กับ contracts ใน [PR #4](https://github.com/Palapluem/pocket-ledger/pull/4) ก่อนกำหนดข้อยกเว้นเอง Stack และ financial policies ยังเป็นข้อเสนอที่ทีมไม่ได้ยืนยัน
 
 ## Sprint 1 ที่ต้องพิสูจน์
 
@@ -132,4 +132,4 @@ Auth ต้องเป็นของจริง มี User และ Adminis
 - [ ] README มี dependencies/env/setup/migrate/seed/run/build/test; บัญชีทดสอบเป็น synthetic และส่ง secret ผ่านช่องทางส่วนตัว
 - [ ] ทั้งสองคนตรวจตัวอย่าง requirement → feature → AC → test → result ได้
 
-Product คือ **PocketLedger**, repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** และ local code checkout อยู่ที่ `project/pocket-ledger/` แบบ independent Git สิ่งที่ยังรอทีมคือชื่อ/เลขกลุ่ม section, stack และ financial policies ใน [product decision map](https://github.com/Palapluem/pocket-ledger/blob/main/docs/wayfinder/map.md)
+Product คือ **PocketLedger**, repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** และ local code checkout อยู่ที่ `project/pocket-ledger/` แบบ independent Git ชื่อกลุ่มใน LEB2 ยืนยันว่า **2-Nor**; section/เลขกลุ่มแยก, stack, financial policies และการแบ่งงานยังเปิดอยู่ใน docs/decisions.md ของ [PR #4](https://github.com/Palapluem/pocket-ledger/pull/4)

@@ -4,6 +4,8 @@
 
 ## Identity and history
 
+Start with a clear DRAFT / REVIEWED / ACCEPTED status. Link any unresolved decision IDs and list which behavior is blocked by them. A prepared document does not establish team agreement, test execution or implementation completion.
+
 | Field | Agreed value |
 | --- | --- |
 | Feature ID and name | |

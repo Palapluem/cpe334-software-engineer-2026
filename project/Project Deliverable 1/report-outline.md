@@ -2,12 +2,15 @@
 
 > Report assembly template. Replace guidance and blank cells with the complete approved content and actual evidence. This is not a submitted report. Parts A–E must appear in full; repository links supplement the PDF.
 
+Authoring source: the student's Project Deliverable 1 Google Docs tab (t.241qhfcdhce3). The current engineering documents are drafts in existing product PR #4. Stack and financial proposals have not been approved. Replace the copied Lab 4 content, not merely its title; create the final PDF through Print when ready.
+
 ## Submission identity and navigation
 
 | Field | Submission value |
 | --- | --- |
-| Team name / number / section | |
-| Product name and context | PocketLedger; detailed user context to be agreed |
+| LEB2 group name | 2-Nor |
+| Section / separate team number | |
+| Product name and context | PocketLedger; personal financial recording under Theme 7 |
 | Theme | 7. Personal Money and Expense Logging System |
 | Student | Wisit Suwannao · 67070501042 · Palapluem |
 | Student | Natthawat Primsirikunawut · 67070501027 · N0TAW00D |

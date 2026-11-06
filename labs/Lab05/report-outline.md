@@ -2,11 +2,14 @@
 
 > Evidence-index template. Fill blank cells with actual verified evidence; do not mark a planned check as passing. Keep the exact Answer Part 0–4 order. The final PDF filename is `lab5_sec<section>_<group name>.pdf`, using the confirmed section and team name.
 
+Authoring source: the student's Lab 5 Google Docs tab (t.s9umabyrevqi). LEB2 group name is 2-Nor; section remains unconfirmed. The report starts from PocketLedger's accepted Sprint 1, not the old TokTickIT Lab 4 report. Print the final PDF only after actual evidence is ready.
+
 ## Answer Part 0: Team and Evidence Index
 
 | Field | Actual submission value |
 | --- | --- |
-| Team name / number / section | |
+| LEB2 group name | 2-Nor |
+| Section / separate team number | |
 | Topic and product name | PocketLedger · Personal Money and Expense Logging System |
 | Student | Wisit Suwannao · 67070501042 · Palapluem |
 | Student | Natthawat Primsirikunawut · 67070501027 · N0TAW00D |
