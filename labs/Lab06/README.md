@@ -1,64 +1,66 @@
-# เตรียม Lab 6: Cross-team UAT and Defect Management
+# Lab 6: Cross-team UAT and defect management
 
-**PocketLedger · ทีม Wisit + Natthawat · กำหนดตาม master: 22 พฤศจิกายน 2026 เวลา 23:59 · 100 คะแนน (5%)**
+**Due:** 22 November 2026, 23:59 · **100 lab points (5%)**
 
-โฟลเดอร์นี้ยังไม่มีใบ Lab 6 ฉบับละเอียดเมื่อจัดเตรียมวันที่ 3 พฤศจิกายน 2026 คู่มือนี้อิง [Group Work Specification §10](../../project/group_work_specs_v1.pdf#page=14) ต้องตรวจรูปแบบส่ง ชื่อไฟล์ และ rubric กับ handout/ประกาศจริงเมื่อได้รับ ไม่ใช้แม่แบบนี้แทนการยืนยันข้อกำหนดใหม่
+**Product:** PocketLedger · **Team:** Wisit Suwannao and Natthawat Primsirikunawut
 
-## ต้องมีอะไรพร้อมก่อน
+Use the actual [Lab 6 UAT handout](Lab_6_Sprint_1_UAT.pdf) as the authority. This guide and the [report outline](report-outline.md) help organise the work; neither substitutes for the handout.
 
-- Accepted release ของ PocketLedger ที่ deploy ผ่าน pipeline ของ Lab 5; ระบุ tag/full SHA, public URL และ served version
-- **อีกหนึ่งทีม Project** สำหรับ independent UAT ไม่ใช่ Natthawat ซึ่งเป็นสมาชิกทีมเดียวกัน
-- Synthetic test accounts/data และ private credential handoff; ห้ามใส่รหัสผ่านในรายงาน/public repo
-- UAT cases อย่างน้อย 4 แบบ: normal journey, rule/boundary, role/ownership restriction และ state/history/persistence
-- วิธีบันทึก defect, triage, fix/release และ independent re-test ของ version ใหม่
+## Assessment goal
 
-## Rubric จาก master
+Test another team's deployed Sprint 1 release independently, provide executable UAT cases for PocketLedger, classify every real finding, resolve release-blocking defects, and obtain an evidence-based independent acceptance decision. Lab 6 assesses the delivered Sprint 1 scope, not unfinished Sprint 2 or Sprint 3 features.
 
-| ส่วน | คะแนน | หลักฐานที่ต้องเตรียม |
-| --- | ---: | --- |
-| UAT preparation and handoff | 20 | cases ที่ทำตามได้, safe accounts/data, access และ release/version |
-| Independent execution | 25 | ผลทดสอบแอปทีมคู่ ระบุผู้ทดสอบ version, expected/actual, PASS/FAIL และ evidence |
-| Defect reporting and triage | 20 | reproduction, expected/actual, severity และ accepted/duplicate/not-defect/enhancement พร้อมเหตุผล |
-| Resolution and independent re-test | 35 | accepted defect → regression red → fix → reviewed PR/CI/deploy → partner re-test |
+Both teams have two roles. As **Product Team**, prepare and hand off PocketLedger's cases and test access, assess findings, fix accepted defects, and provide corrected releases. As **UAT Team**, execute the partner team's cases, report reproducible findings, independently retest fixes, and decide whether the tested Sprint 1 release is acceptable. Wisit and Natthawat are one product team; one cannot substitute for an external UAT partner.
 
-แต่ละทีมมีหน้าที่ทั้ง **tester ของทีมคู่** และ **developer ของแอปตัวเอง** ต้องเก็บสองฝั่ง ไม่สรุปว่าจบ Lab 6 จากการให้เพื่อนดูแอปของเราเพียงอย่างเดียว
+| Part | Points | Required outcome |
+|---|---:|---|
+| A. UAT preparation and handoff | 20 | Another team can execute the Sprint 1 cases against the identified scope/version using the written instructions and safe accounts. |
+| B. Independent execution | 25 | Record actual outcomes for the partner's UAT cases, with testers, tested release and supporting evidence. |
+| C. Defect reporting and triage | 20 | Report reproducible findings and give every received finding a reasoned classification, severity, owner and disposition. |
+| D. Resolution and independent retest | 35 | Correct release-blocking defects through the reviewed release process and obtain a partner retest/acceptance decision for the identified version. |
 
-## แผน UAT สำหรับ PocketLedger
+## Work in order
 
-แหล่ง record จริงอยู่ใน [product UAT record](https://github.com/Palapluem/pocket-ledger/blob/main/docs/labs/lab-06/uat.md) โดยเตรียม candidate cases 5 เรื่องเพื่อแยก privacy ของ User กับ Admin ให้ชัด:
+1. **Agree on the partner team and dates.** Schedule initial UAT, finding review and retest early. If the team is unavailable or its app cannot be accessed, notify the instructor/TA promptly and retain the notice. Do not replace independent UAT with your own developer testing.
+2. **Prepare cases for PocketLedger.** Include at least four executable cases, each with a stable ID, linked Sprint 1 requirement/AC, role, purpose, preconditions, synthetic input, numbered steps and specific expected results. Four is a minimum; cover important implemented AC as well.
+3. **Hand off a precise version and safe test access.** Record Sprint 1 tag/commit, deployed revision and URL, accepted scope, roles/account labels, data setup/reset and cleanup. Send credentials privately; never place secrets in the PDF or public repo.
+4. **Test the partner product independently.** Record actual results separately from expected results, with tester, date/time, input, tested version and PASS/FAIL/BLOCKED. BLOCKED is not PASS. Show that rejected actions did not disclose or partially change protected state.
+5. **Triage findings against the contract.** Classify each as accepted defect, duplicate, not-defect or enhancement, with a reason, severity, owner and status. Reproduce and clarify a failure before dismissing it; do not label a failed requirement as an enhancement.
+6. **Fix and retest accepted blocking defects.** Add a meaningful regression test and show RED against the defective version, fix to GREEN, run related regression checks, obtain substantive peer review, pass CI, release and deploy. Give the independent UAT team the corrected release and original reproduction steps for retest.
+7. **Record one final decision.** State Accepted, Accepted with documented minor limitations, or Not Accepted, with the exact tested version, independent tester, date and rationale. Only the independent UAT team can confirm acceptance.
 
-1. opening balance → salary → split credit-card charge → repayment → persisted summary/history
-2. allocation ไม่ตรง total ต้องถูกปฏิเสธและไม่เปลี่ยนยอดบางส่วน
-3. User B เข้า financial records ของ User A ไม่ได้
-4. Admin ทำงานดูแล platform access ได้ แต่เข้า financial records/summaries ไม่ได้
-5. อ่านรายการเดิมและ state/history/persisted values กลับมาตาม version/เหตุการณ์ที่กำหนด
+### Minimum PocketLedger case categories
 
-นี่เป็นแผนเสนอ ต้องเติม AC, preconditions, steps และ expected values จาก contract ที่อนุมัติแล้วก่อนส่งทีมคู่ ห้ามใส่ผล PASS ล่วงหน้า
+- Normal finance journey with expected money movement and balances calculated from the approved Sprint 1 contract.
+- Business-rule or boundary rejection; verify that no partial transaction/allocation/balance change remains.
+- Forbidden access, including User B attempting to read User A's records and an Administrator being denied financial records/summaries.
+- State/history/persistence behavior in the implemented Sprint 1 scope.
 
-## ลำดับทำงาน
+Use synthetic accounts and data. Derive amounts and expected values from the approved contract; do not invent values or record planned outcomes as test results.
 
-| ขั้น | งาน | จบเมื่อ |
-| --- | --- | --- |
-| Handoff | ตกลงทีมคู่ version, test window, cases และส่ง credentials ส่วนตัว | อีกทีมเริ่มทำตามได้โดยไม่เดา |
-| Execute | แต่ละคนในทีมทดสอบแอปคู่และเก็บ actual result | มี case/tester/date/version/evidence ครบ |
-| Triage | ตรวจพบจริงเทียบ expected requirement และจัดประเภท | defect ที่ accepted มี reproduction/impact และ owner |
-| Fix | เขียน regression ที่แดงก่อน, แก้บน bounded branch, ให้ teammate review/merge, CI/deploy | ระบุ red/fix/release versions ได้ |
-| Re-test | ทีมคู่ทดสอบ version ที่แก้แล้วโดยอิสระ | expected/actual และ PASS/FAIL/reopened มีหลักฐาน |
+## If UAT finds no legitimate defect
 
-ต้อง resolve และ independent re-test อย่างน้อยหนึ่ง legitimate accepted defect หากไม่พบจริง ให้ติดต่อ TA เพื่อ controlled defect exercise บน isolated version/branch ไม่สร้างเรื่อง ไม่ทำ live release เสีย และไม่ใช้ enhancement แทน defect
+A sound release is not penalised for having no natural defect. Complete the partner UAT and obtain its acceptance decision. Ask the instructor/TA for a controlled exercise on an isolated version/branch to demonstrate defect correction. Keep that exercise separate from the accepted release. Do not fabricate a finding, substitute a feature request, or deliberately break the live release.
 
-## ไฟล์และการส่งต่อ
+## What the team submits
 
-- Product repo: UAT/triage/re-test records, defect Issues, regression tests, reviewed PR/CI/release evidence
-- Course repo: ใบงานเมื่อได้รับ, คู่มือเตรียม, report outline และ PDF ฉบับส่ง
-- Raw evidence/credentials: เก็บส่วนตัวที่ `_private/pocket-ledger/` เมื่อจำเป็น
-- ใช้ [report outline](report-outline.md) เตรียมช่องข้อมูล; หัวข้อและชื่อ PDF ยังต้องยืนยันจากใบ Lab 6
-- ผลและ defects ที่เกี่ยวข้องต้องต่อเข้า Deliverable 2 และ Final; final ยังต้อง re-test version ใหม่เมื่อ behavior ได้รับผลกระทบ
+Submit one self-contained PDF per team through LEB2 by the deadline. The PDF contains Parts A–D, page navigation, identity/theme/repository, Sprint 1 scope and exact tested/deployed version. Embed the relevant cases, results, findings/dispositions, test excerpts and execution evidence; external links alone do not replace the assessed material.
 
-## พร้อมส่งเมื่อ
+| Report part | Include |
+|---|---|
+| A | PocketLedger UAT cases/handoff and the partner team's identity, release, actual case execution, tester/date and selected evidence. |
+| B | Outgoing defect reports, all findings received and each triage/disposition, including accepted minor limitations or “none” where true. |
+| C | Correction/retest evidence for release-blocking defects or approved controlled exercise, red/green results, review/CI/redeployment and the independent Sprint 1 decision. |
+| D | PocketLedger's own accepted-defect chain, with regression excerpt/results, relevant diff, reviewed release/deployed fix and independent partner retest/closure. |
 
-- [ ] handout ฉบับจริงถูกเทียบแล้ว
-- [ ] มีอย่างน้อย 4 executable cases และหลักฐานรับส่ง safe access/version
-- [ ] มี independent results สำหรับแอปคู่และผลที่รับกลับของ PocketLedger
-- [ ] legitimate accepted defect หรือ TA-controlled exercise มี red/fix/CI/deploy และ independent re-test
-- [ ] triage/known issues/version/contributions ตรงกัน ไม่มีผลหรือ finding ที่แต่งขึ้น
+Keep full application source out of the PDF. Include contributions, truthful AI-use and limitations; identify tested versions for every claim. Use [`report-outline.md`](report-outline.md) to assemble the PDF and reconcile page references after printing.
+
+## Record locations
+
+- Course handout: `labs/Lab06/Lab_6_Sprint_1_UAT.pdf`
+- Course report outline: `labs/Lab06/report-outline.md`
+- Product preparation record: [`docs/labs/lab-06/uat.md`](https://github.com/Palapluem/pocket-ledger/blob/sprint-1-staging/docs/labs/lab-06/uat.md)
+- Product defect Issues, regression tests, reviewed PRs, CI and release records: `Palapluem/pocket-ledger`
+- Private credentials/raw evidence: use a private course handoff or `_private/pocket-ledger/` when needed; do not commit secrets.
+
+Carry relevant UAT findings, accepted changes and independent retests into PD2 Part A and Final verification. An old PASS does not establish that a later release remains correct.

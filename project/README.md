@@ -13,7 +13,7 @@
 
 ผู้เรียนเลือกชื่อ **PocketLedger** และ repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** แล้ว ชื่อกลุ่มใน LEB2 คือ **2-Nor** ตามคำยืนยันวันที่ 7 พฤศจิกายน 2026 ส่วน section/เลขกลุ่มแยก, stack และ financial policies ยังรอทีมยืนยัน ขณะนี้มีร่าง baseline และ Sprint 1 contracts/STS ให้ทีม review แต่ยังไม่มี accepted Sprint 1 release
 
-สำหรับแผนแบ่งงานและสถานะล่าสุดของ PD1, Lab 5 และ Lab 6 ให้เริ่มที่ [Team Work Plan](TEAM_WORK_PLAN_PD1_LAB5_LAB6.md) แล้วกลับมาใช้ handout ต้นฉบับตัดสินข้อกำหนดและคะแนน
+สำหรับแผนทำงานและสถานะของ **PD1, Lab 5, Lab 6, Lab 7, PD2 และ Final Delivery** ให้ใช้ [PocketLedger Team Work Plan](POCKETLEDGER_TEAM_WORK_PLAN_PD1_PD2_LABS5-7_FINAL.md) ส่วน rubric และเงื่อนไขส่งให้ยึด handout ของแต่ละงาน
 
 ## แยกสอง repo อย่างไร
 
@@ -112,4 +112,4 @@ Lab 5 §6 ให้ยึด handout เมื่อขัดกับคู่�
 - รายงานใช้ professional English, Sarabun สำหรับเนื้อความ, Consolas สำหรับโค้ด/คำสั่ง, จัดชิดขอบสำหรับ prose และ caption สีน้ำเงินตัวเอียงตามรูปแบบเดิมของผู้เรียน ตาราง โค้ด และภาพใช้ alignment ที่อ่านง่าย
 - เก็บหลักฐานเป็นชุดเดียวต่อเรื่อง ภาพต้องไม่ขาด ID/ข้อความ ไม่มี cursor ของเครื่องมือ และอ่านได้ที่ 100% รายงานแต่ละงานใช้ความครบ/ความกระชับตาม handout ของงานนั้น
 
-สถานะที่ตรวจเมื่อ 11 พ.ย. 2026 คือ **draft baseline และ Sprint 1 contracts/STS อยู่บน `sprint-1-staging`**; ยังไม่มี application implementation, accepted Sprint 1 release, product test results, cloud resources หรือ completed assessment. PR #4 merge แล้วและไม่มี PR เปิดในเวลาตรวจ. ดู [Team Work Plan](TEAM_WORK_PLAN_PD1_LAB5_LAB6.md) และตรวจ [PocketLedger](https://github.com/Palapluem/pocket-ledger) ก่อนทำงานต่อ; ไม่เปิด PR เพิ่มเพียงเพื่อบันทึกว่า PR ก่อนหน้า merge แล้ว
+สถานะที่ตรวจเมื่อ 11 พ.ย. 2026 คือ **draft baseline และ Sprint 1 contracts/STS อยู่บน `sprint-1-staging`**; ยังไม่มี application implementation, accepted Sprint 1 release, product test results, cloud resources หรือ completed assessment. PR #4 merge แล้วและไม่มี PR เปิดในเวลาตรวจ. ดู [PocketLedger Team Work Plan](POCKETLEDGER_TEAM_WORK_PLAN_PD1_PD2_LABS5-7_FINAL.md) และตรวจ [PocketLedger](https://github.com/Palapluem/pocket-ledger) ก่อนทำงานต่อ; ไม่เปิด PR เพิ่มเพียงเพื่อบันทึกว่า PR ก่อนหน้า merge แล้ว
