@@ -6,18 +6,20 @@
 
 This is the shared work plan for the same product, team and product repository across Project Deliverables 1–2, Labs 5–7 and Final Delivery. Use each assessment's official handout as the authority for its rubric and submission requirements. This file maps the dependencies, current status, team work and source paths.
 
-## Work order
+## Schedule and dependency map
 
-| Order | Assessment | Outcome | When to start |
-|---:|---|---|---|
-| 1 | **Project Deliverable 1 (PD1)** | Whole-product engineering baseline and accepted, tested Sprint 1 release on `main`. | Now; this is the critical path. |
-| 2 | **Lab 5** | Docker, required PR CI, public GCP deployment, durable data and repeatable release pipeline for the accepted PD1 release. | Prepare safe configuration in parallel; deploy from the accepted Sprint 1 release. |
-| 3 | **Lab 6** | UAT cases for PocketLedger, independent testing of another team's product, finding triage, fixes and independent retest. | Arrange the other team now; execute against deployed Sprint 1 releases. |
-| 4 | **Lab 7** | One approved maintenance change to an already implemented behavior, impact analysis, regression-safe release, engineering metrics and readiness review. | Runs alongside Sprint 2 and PD2 preparation; its approved change and evidence feed later checkpoints. |
-| 5 | **Project Deliverable 2 (PD2)** | Sprint 2 fully complete, meaningful tested Sprint 3 progress, updated traceability and a deployed integrated candidate. | Due on the same date as Lab 7; plan both against the same approved product baseline. |
-| 6 | **Final Delivery** | Complete, integrated and independently verified product across all three sprints, final deployment, report and demonstration. | Continue from PD2 and close the remaining approved scope. |
+These assessments share one product and repository, but they are not six consecutive blocks. Lab 6 preparation and Sprint 2 work overlap with deployment; Lab 7 and PD2 also overlap and share a deadline.
 
-**Priority now: PD1, then Lab 5.** Book the independent Lab 6 partner now. PD2 and Lab 7 are both due on 29 November, so plan their work together after Sprint 1 is accepted; neither changes the product identity or repository. Do not replace the release history between assessments.
+| When / checkpoint | Workstream | Dependency and exit condition |
+|---|---|---|
+| First: PD1 | **Project Deliverable 1** | Agree the Sprint 1 contract, implement and verify the vertical slice locally, then release it through reviewed PRs to `main`. PD1 is the starting release for the later labs. Wisit reports an extension to 14 November; the saved handout still says 8 November, so verify the extension from the official announcement. |
+| Next: Lab 5, due 15 Nov | **Docker, PR CI and GCP deployment** | Prepare configuration while PD1 work finishes; deploy the accepted Sprint 1 release. Complete the clean-clone/container check, required PR checks and repeatable deployment to GCP. The app must be available for grading. |
+| Prepare alongside Lab 5; execute after deployment; due 22 Nov | **Lab 6 UAT** | Arrange the partner team and write executable cases early. Execute both teams' UAT responsibilities against the identified deployed Sprint 1 releases once they are available. Triage findings; fix and independently retest release-blocking defects through the Lab 5 delivery process. |
+| After the Sprint 1 baseline; continues during Labs 5–7; due 29 Nov | **Sprint 2 and PD2** | Implement all planned Sprint 2 features with reviewed contracts and tests, define all remaining Sprint 3 contracts, and implement/test at least one meaningful Sprint 3 workflow. PD2 requires a coherent GCP-deployed candidate and reports relevant deployment, UAT and maintenance findings, including honest unresolved status. |
+| Work sessions listed 17/19 Nov; due 29 Nov in the available master | **Lab 7 maintenance** | The available master document is marked draft for instructor review, and the Lab 7 folder still has no detailed official handout. Treat these dates and rubric as provisional. Provisionally plan one instructor/TA-approved change to an already implemented behavior, regression-safe delivery and metrics. Run it alongside Sprint 2/PD2; reconcile the details when the official Lab 7 handout arrives. |
+| After PD2; final due 13 Dec | **Final Delivery** | Complete Sprint 3, integrate and verify the approved scope, perform final UAT/retests, and deliver the final release, report and demonstration. |
+
+**Immediate order:** finish the accepted PD1 release, then complete the Lab 5 deployment path. Book the Lab 6 partner now and prepare its cases in parallel; its execution depends on a working deployed Sprint 1 release. Continue Sprint 2 while Labs 5 and 6 run. Lab 7 and PD2 both have a 29 November deadline, so coordinate their release/evidence cutoffs; PD2 does not need to wait for a separate later “Lab 7 phase,” but it must report the maintenance finding/status that exists at submission. Keep one product identity, repository and release history throughout.
 
 ## Current status snapshot
 
@@ -57,7 +59,7 @@ The four report links are tabs in one Google Doc:
 | PD1 | 8 November 2026, 23:59 in the saved handout | Wisit reports an extension to **14 November**. Confirm the official announcement; the local handout has not changed. |
 | Lab 5 | 15 November 2026, 23:59 in the handout | No extension confirmed in the material checked. Ask the TA whether this moved with PD1. |
 | Lab 6 | 22 November 2026, 23:59 in the Lab 6 handout | Identify and schedule the independent UAT partner now. |
-| Lab 7 | 29 November 2026, 23:59 in the available master schedule | The Lab 7 folder has a preparation guide, not a detailed Lab 7 handout; confirm the final submission instructions when the handout or announcement is available. |
+| Lab 7 | 29 November 2026, 23:59 in the available master draft | The Lab 7 folder has a preparation guide, not a detailed Lab 7 handout; treat the date as provisional and confirm the final submission instructions when the handout or announcement is available. |
 | PD2 | 29 November 2026, 23:59 in the handout | Sprint 2 completion and tested Sprint 3 progress. |
 | Final Delivery | 13 December 2026, 23:59 in the handout | Complete integrated release and final verification. |
 
@@ -89,7 +91,7 @@ For each Issue, record feature/requirement/AC IDs, owner, expected behavior, tes
 
 Board flow: `Backlog → Specified → Started → PR Review → Fixing → Done`. A card reaches Done only when its AC are met. Staging integration is followed by one reviewed release PR to `main`; a Done card is not a release or deployment record. Do not create a PR just to record that another PR merged.
 
-## Phase 1 — Project Deliverable 1: establish and release Sprint 1
+## Project Deliverable 1 — establish and release Sprint 1
 
 **Due:** 14 November as reported by Wisit; saved handout still says 8 November · **Score:** 80 points (8%).
 
@@ -117,7 +119,7 @@ PD1 covers whole-product planning in Parts A–D and Sprint 1 specification/impl
 
 **PD1 release gate:** the submitted commit on `main` must run the whole documented domain journey and retrieve persisted data. It must include authentication, backend permissions, meaningful business validation and relevant automated tests. Seeded accounts are sufficient; self-registration, password recovery and advanced administration are not required at this checkpoint.
 
-## Phase 2 — Lab 5: make the accepted Sprint 1 release reproducible and deploy it
+## Lab 5 — make the accepted Sprint 1 release reproducible and deploy it
 
 **Due:** 15 November 2026, 23:59 in the handout; confirm whether the instructor changed it · **Score:** 100 lab points (5%).
 
@@ -155,7 +157,7 @@ Product repo paths: `Dockerfile`, `.dockerignore`, `.env.example`, `.github/work
 
 Set an alerts-only budget before creating GCP resources. Never commit a password, key or connection string. Do not pay prepayment or click Upgrade in the prescribed Free Trial flow. Review billing, IAM and database changes with the student/TA; an agent must not make those changes on its own.
 
-## Phase 3 — Lab 6: cross-team UAT and defect management
+## Lab 6 — cross-team UAT and defect management
 
 **Due:** 22 November 2026, 23:59 · **Score:** 100 lab points (5%).
 
@@ -176,9 +178,9 @@ If no legitimate defect occurs, do not invent one or break the assessed release.
 
 Product path: `docs/labs/lab-06/uat.md` is a preparation draft; its execution/results are not complete until actually performed. Course report path: `labs/Lab06/`. The Lab 6 Google Docs tab was still a copy of Lab 5 in the 10 November comparison, so rebuild that tab from the Lab 6 handout before preparing its PDF.
 
-## Phase 4 — Lab 7: make one approved maintenance change and measure the engineering process
+## Lab 7 — provisional preparation for maintenance and metrics
 
-**Due:** 29 November 2026, 23:59 in the available master schedule. The Lab 7 folder has no detailed Lab 7 handout yet; the preparation guide is based on Group Work Specification §10 and must be reconciled with the detailed handout or instructor announcement when it arrives. Do not treat the draft guide as a substitute for that handout. **Available rubric:** 100 points (5%) in the master specification: impact analysis and updated contract (25), implementation and regression-safe delivery (50), objective engineering metrics (15), and readiness/retrospective (10).
+**Provisional timing:** 29 November 2026, 23:59 in the available master document, which is marked draft for instructor review. The Lab 7 folder has no detailed Lab 7 handout yet; the preparation guide is based on Group Work Specification §10 and must be reconciled with the detailed handout or instructor announcement when it arrives. Do not treat the draft guide as a substitute for that handout. **Provisional rubric:** 100 points (5%) in the available master: impact analysis and updated contract (25), implementation and regression-safe delivery (50), objective engineering metrics (15), and readiness/retrospective (10).
 
 **Sources:** [Lab 7 preparation guide](../labs/Lab07/README.md) and [report outline](../labs/Lab07/report-outline.md).
 
@@ -195,7 +197,7 @@ Lab 7 is a controlled change to a behavior the team has already implemented. It 
 
 Do not fabricate a defect or claim an unapproved change. Preserve the old rule and its history. The current guide lists the metric sources as Issue close dates, merged PRs, passing test output, UAT defect records and CI runs; use one consistent measurement window and explain what each number means.
 
-## Phase 5 — Project Deliverable 2: complete Sprint 2 and show tested Sprint 3 progress
+## Project Deliverable 2 — complete Sprint 2 and show tested Sprint 3 progress
 
 **Due:** 29 November 2026, 23:59 · **Score:** 70 points (7%).
 
@@ -223,7 +225,7 @@ Product paths: update `docs/srs.md`, `docs/features.md`, `docs/traceability.md`,
 
 **Dependency:** findings and retest status from Lab 5, Lab 6 and Lab 7 feed PD2 Part A. Only record a real finding, approved disposition, tested fix and version. Do not claim Lab 6 acceptance before an external UAT team has independently tested the recorded release.
 
-## Phase 6 — Final Delivery: finish and verify the complete product
+## Final Delivery — finish and verify the complete product
 
 **Due:** 13 December 2026, 23:59 · **100 points (10%).**
 
@@ -244,7 +246,7 @@ The final checkpoint requires the complete approved scope across three sprints o
 | `project/Project Deliverable 2/` | PD2 handout, preparation guide and A–E report outline. |
 | `project/Final Delivery/` | Final handout, preparation guide and report outline. |
 | `project/group_work_specs_v1.pdf` | Master product/theme requirements; use the assessment handout for that assessment's submission instructions. |
-| `project/POCKETLEDGER_TEAM_WORK_PLAN_PD1_PD2_LABS5-7_FINAL.md` | This operational sequence, current status snapshot and team workflow for PD1, Labs 5–7, PD2 and Final Delivery. |
+| `project/pocketledger-team-work-plan.md` | This operational sequence, current status snapshot and team workflow for PD1, Labs 5–7, PD2 and Final Delivery. |
 
 ### PocketLedger product repository
 
@@ -277,4 +279,4 @@ Both repositories are public coursework. Never publish credentials, tokens, real
 4. Agree two small, end-to-end Sprint 1 slices and name one implementer and the other reviewer for each; alternate roles.
 5. Finish contracts/AC/STS before implementation, then begin the first feature and report actual progress to each other.
 6. In parallel, identify the independent Lab 6 partner team and schedule its first UAT window.
-7. Keep PD2 and Lab 7 planning tied to the same Sprint 2/Sprint 3 baseline; confirm their shared 29 November deadline and do not let later-report polishing displace the PD1 release and Lab 5 critical path.
+7. Keep PD2 and provisional Lab 7 planning tied to the same Sprint 2/Sprint 3 baseline; confirm the Lab 7 date and rubric when the detailed handout/announcement appears. Do not let later-report polishing displace the PD1 release and Lab 5 critical path.
