@@ -2,7 +2,7 @@
 
 **Team:** Wisit Suwannao (Palapluem) · Natthawat Primsirikunawut (N0TAW00D) · **LEB2 group:** 2-Nor · **Product:** PocketLedger, Theme 7: Personal Money and Expense Logging System
 
-**Status checked:** 11 November 2026
+**Status checked:** 12 November 2026
 
 This is the shared work plan for the same product, team and product repository across Project Deliverables 1–2, Labs 5–7 and Final Delivery. Use each assessment's official handout as the authority for its rubric and submission requirements. This file maps the dependencies, current status, team work and source paths.
 
@@ -25,7 +25,7 @@ This is the shared work plan for the same product, team and product repository a
 
 Repository: [Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)
 
-| Item | Verified status on 11 November 2026 |
+| Item | Verified status on 12 November 2026 |
 |---|---|
 | `main` | `a4cced2` — bootstrap/documentation baseline; no accepted Sprint 1 release. |
 | `sprint-1-staging` | `ff2143a` — PR #4's documentation changes are merged here. |
@@ -124,6 +124,22 @@ PD1 covers whole-product planning in Parts A–D and Sprint 1 specification/impl
 **Official sources:** [Lab 5 handout](../labs/Lab05/01_SE_Lab_5_updated.pdf), [Student Guide V1.1](../labs/Lab05/03_Student-Guide-GCP-Deployment-and%20CI%20CD-V1_1.pdf), [deployment template](../labs/Lab05/deployment-template.md), and `../labs/Lab05/toktickit-lab5-starter/` as a reference only.
 
 Start the assessed deployment from the accepted PD1 Sprint 1 release. Keep the same product, repository, GCP project and pipeline for later labs. Do not copy TokTickIT application source into PocketLedger.
+
+### Where the work runs — keep these stages distinct
+
+“CI/CD on GCP” does **not** mean that development, every test, the CI runner and the application must all run on a GCP virtual machine. The handouts separate local development, pull-request checks and deployment:
+
+| Stage | Where it runs | What the requirement means |
+|---|---|---|
+| PD1 development and verification | On the team's computers | Build and test the Sprint 1 candidate locally; record the results against its release commit. PD1 explicitly says completed Docker, CI/CD and GCP deployment are Lab 5 work. |
+| Docker readiness | Docker on a developer machine or another suitable build environment | Keep the Docker files in the product repo and prove a clean-clone build. The Student Guide recommends running the container locally before cloud deployment; it does not require a development VM. |
+| CI for pull requests | A GitHub Actions runner, or an equivalent CI service | Run the required build and automated tests for relevant PRs. The required check must block a failing merge. GitHub Actions is the guide's reference; the runner does not have to be a VM in GCP. |
+| CD and live application | The deployment workflow sends the accepted release to GCP; the app runs on the selected GCP service | After the reviewed release reaches `main`, deploy it repeatably and identify the running commit. The recommended stack uses Cloud Run for the app, Cloud SQL for PostgreSQL for persistent data, Artifact Registry for images, Secret Manager for runtime secrets and GitHub Actions for CI/CD. |
+| Initial cloud setup | GCP Console or the documented setup commands (the guide's first-deploy example uses Cloud Shell) | Create and configure the actual GCP resources safely. Track manual setup changes in Issues and record the real project, region and resource names. |
+
+The handout requires the outcomes above, not Compute Engine or a GCP-hosted runner. Cloud Build, a self-hosted runner and a VM are possible alternatives only if the team chooses and documents them; they are not extra requirements. Follow the Lab 5 handout if a guide or starter-kit detail conflicts with it.
+
+**Current PocketLedger checkpoint (12 November):** the live product repo still has only the documentation baseline (`main` at `a4cced2`, `sprint-1-staging` at `ff2143a`). The tracked tree has no application source, tests, Dockerfile or CI workflow yet, and there is no open PR. Therefore, there is no current pipeline or deployed app to move onto a VM. Finish and release the local Sprint 1 increment for PD1 first; then implement the Lab 5 Docker, PR-CI and GCP-deployment evidence against that accepted release.
 
 | Requirements | Work and evidence |
 |---|---|
