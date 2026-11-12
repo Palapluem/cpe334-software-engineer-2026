@@ -2,7 +2,7 @@
 
 > Report assembly template. Replace guidance and blank cells with the complete approved content and actual evidence. This is not a submitted report. Parts A–E must appear in full; repository links supplement the PDF.
 
-Authoring source: the student's Project Deliverable 1 Google Docs tab (t.241qhfcdhce3). The current engineering documents are drafts in existing product PR #4. Stack and financial proposals have not been approved. Replace the copied Lab 4 content, not merely its title; create the final PDF through Print when ready.
+Authoring source: the student's Project Deliverable 1 Google Docs tab (t.241qhfcdhce3). PRs #4–#8 are merged into `sprint-1-staging`; PR #5 records Better T Stack with Better Auth as the selected stack. PR #9 is open and awaiting review; it proposes first-party sessions but does not change D-02 unless both students agree and record that decision. Proposals in PRs #6 and #7 also remain pending team agreement. Issues #1 and #2 remain open. `main` is still the bootstrap commit `a4cced2`; no Sprint 1 release has been accepted, and no product implementation or test result is available. Leave execution evidence and page ranges blank until verified results exist; export through Print only after the final version is verified and authorized.
 
 ## Submission identity and navigation
 
