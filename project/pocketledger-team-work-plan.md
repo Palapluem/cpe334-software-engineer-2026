@@ -30,17 +30,19 @@ Repository: [Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger
 | Item | Verified status on 16 November 2026 |
 |---|---|
 | `main` | `a4cced2` — bootstrap/documentation baseline; no accepted Sprint 1 release. |
-| `sprint-1-staging` | `53c20ff` — current integrated Sprint 1 candidate; PR #25 is the latest merge. |
+| `sprint-1-staging` | `922adfc` — current integrated candidate; PR #27 is the latest merge. |
 | PR #18 | Merged into staging at `8cefcaf`; identity/administration UI and browser identity journey. |
 | PR #19 | Merged into staging at `a77d324`; Lab 5 container/deployment pipeline. This merge is not evidence of a GCP deployment. |
 | PRs #22 and #23 | Merged into staging at `7d8be8e` and `6048593`; F-05/F-06 and shared financial schema. |
 | PR #25 | Merged into staging at `53c20ff` after N0TAW00D approved head `420c6bd`; F-03/F-04. CI #59 passed on the PR head (125 server tests / 518 assertions, 11 browser E2E, type checks, Biome, web build and Docker image build). Issue #20 is closed; Issue and PR cards are Done. |
+| PR #27 | Docs-only reconciliation merged into staging at `922adfc`; N0TAW00D approved head `13b90a2`, and CI #62 passed. Issue #26 is closed and its Project card is Done. |
+| PR #28 | Single release PR from `sprint-1-staging` to `main`; open, CI #64 passed, and no conflict. N0TAW00D's formal approval is pending confirmation of GCP preflight. The merge triggers Lab 5's deploy workflow. |
 | PR #24 | Open docs-only D-05 Origin/CSRF proposal. The policy remains deferred; it is separate from PR #25 and is not a PD1 feature blocker. |
-| Open Issues | #2 team metadata/setup and deferred Origin policy; #17 Lab 5. Issues #20 and #21 are closed, and their Project cards and linked PR cards are Done. |
+| Open Issues / PRs | Issues #2 (team metadata/runtime/authentication) and #17 (Lab 5) remain open. PR #24 is the separate D-05 Origin/CSRF docs proposal; PR #28 is the release PR; PR #29 is a Lab 5 Cloud SQL/secret setup docs PR with CI passed and review requested from Palapluem. Issues #20, #21 and #26 are closed; their completed Project cards are Done. |
 | Application source and tests | F-01/F-02, F-03/F-04 and F-05/F-06 are integrated in staging. PR #25's exact-head CI #59 passed; clean-checkout TEST-27 passed on `53c20ff`. Repeat release-level verification on the accepted `main` commit. |
-| Decisions | D-01–D-07 were accepted by both students through PR #15 at `98afb3b`. PR #16 is the earlier documentation snapshot; Issue #26 tracks reconciliation to the current staging evidence and needs teammate review. |
+| Decisions | D-01–D-07 were accepted by both students through PR #15 at `98afb3b`. PR #27 reconciled the staging evidence; Issue #26 is complete. |
 
-PD1 is still incomplete: `main` is still the bootstrap commit `a4cced2`, with no accepted Sprint 1 release. Staging TEST-27 passed on `53c20ff`; the remaining sequence is teammate review/merge of the single Issue #26 documentation PR, a reviewed staging-to-main release, release-matched checks, final Part F evidence, A–F page ranges and the self-contained PDF. GCP deployment is a Lab 5 requirement, not a PD1 requirement. The reported PD1 cutoff has passed; an extension is not verified.
+PD1 is still incomplete: `main` is still the bootstrap commit `a4cced2`, with no accepted Sprint 1 release. PR #28 is the release PR; CI #64 passed and the diff is conflict-free, but formal teammate approval awaits GCP preflight. The 10 GitHub Actions variables and `production` environment are configured. Separate Lab 5 docs PR #29 is open against staging with CI passed and review requested from Palapluem; its author reports Cloud SQL role checks, but they are not independently verified here. Secret Manager, WIF/IAM readiness and live deployment remain unverified. If #29 merges before #28, it advances staging and requires fresh release CI/review; keep it separate from the PD1 release unless the team deliberately chooses to include it. After #28 is accepted, repeat TEST-27 and acceptance checks on the exact `main` SHA, then complete Part F evidence, a dated board screenshot, A–F page ranges and the self-contained PDF. GCP deployment is not a separate PD1 rubric item, but merging #28 triggers the Lab 5 deployment workflow. The reported PD1 cutoff has passed; an extension is not verified.
 
 ### Google Docs tabs
 
@@ -66,7 +68,7 @@ The four report links are tabs in one Google Doc:
 | PD2 | 29 November 2026, 23:59 in the handout | Sprint 2 completion and tested Sprint 3 progress. |
 | Final Delivery | 13 December 2026, 23:59 in the handout | Complete integrated release and final verification. |
 
-The reported PD1 cutoff passed on 15 November; no extension is verified. The financial features are now integrated in `sprint-1-staging`, but there is no accepted `main` release. PR #19's Lab 5 pipeline is merged into staging; GCP deployment evidence has not been verified here.
+The reported PD1 cutoff passed on 15 November; no extension is verified. The financial features and PR #27 documentation reconciliation are integrated in `sprint-1-staging` at `922adfc`, but there is no accepted `main` release. PR #28 is open with CI #64 passed. Separate Lab 5 docs PR #29 is open against staging with CI passed and review requested from Palapluem; its Cloud SQL check is author-reported and not independently verified here. GCP deployment evidence has not been verified.
 
 ## Team ownership and product workflow
 
@@ -144,7 +146,7 @@ Start the assessed deployment from the accepted PD1 Sprint 1 release. Keep the s
 
 The handout requires the outcomes above, not Compute Engine or a GCP-hosted runner. Cloud Build, a self-hosted runner and a VM are possible alternatives only if the team chooses and documents them; they are not extra requirements. Follow the Lab 5 handout if a guide or starter-kit detail conflicts with it.
 
-**Current PocketLedger checkpoint (16 November 2026):** `main` remains at bootstrap `a4cced2`; `sprint-1-staging` is at `53c20ff`. PR #18 merged at `8cefcaf`, PR #19 at `a77d324`, PR #22 at `7d8be8e`, PR #23 at `6048593`, and PR #25 at `53c20ff`. PR #25 was approved by N0TAW00D; CI #59 passed on its head `420c6bd`, not on the merge commit. Issues #20 (F-03/F-04) and #21 (F-05/F-06) are closed; their Issue cards and linked PR cards are Done. PR #24 is the only open PR, a docs-only D-05 proposal; Origin/CSRF remains deferred. No accepted main release exists. The merged Lab 5 pipeline is not proof of a GCP deployment; verify actual deployment/revision evidence separately.
+**Current PocketLedger checkpoint (16 November 2026):** `main` remains at bootstrap `a4cced2`; `sprint-1-staging` is at `922adfc`. PR #18 merged at `8cefcaf`, PR #19 at `a77d324`, PR #22 at `7d8be8e`, PR #23 at `6048593`, PR #25 at `53c20ff`, and docs-only PR #27 at `922adfc`. CI #59 passed on #25 head `420c6bd`; CI #62 passed on #27 head `13b90a2`; release PR #28 CI #64 passed on exact staging head `922adfc`. Issue #26 is closed and its board card is Done; PR #28 is on the board in PR Review. PR #24 remains open as a separate docs-only D-05 proposal; Origin/CSRF remains deferred. PR #28 is open pending formal teammate approval after GCP preflight. Separate Lab 5 docs PR #29 is open against staging with CI passed and review requested from Palapluem; its author reports Cloud SQL role checks, not independently verified here. If #29 merges first, #28's head and CI must be rechecked. The GitHub Actions variables and protected `production` environment are configured; Secret Manager, WIF/IAM readiness and live deployment remain unverified. The merged Lab 5 pipeline is not proof of a GCP deployment; verify actual deployment/revision evidence separately.
 
 | Requirements | Work and evidence |
 |---|---|
@@ -277,9 +279,10 @@ Both repositories are public coursework. Never publish credentials, tokens, real
 ## Immediate actions for both students
 
 1. Ask the instructor/TA about late-submission handling; the student-reported PD1 cutoff has passed and no extension is verified.
-2. Finish the single Issue #26 documentation reconciliation and obtain the teammate's substantive review/merge into `sprint-1-staging`. TEST-27 already passed on staging SHA `53c20ff`.
-3. Run final staging integration/acceptance checks, then prepare the required single reviewed release PR from `sprint-1-staging` to `main`; the teammate reviews and merges it. Do not open a PR merely to record that merge.
-4. Run and record the required build/test checks on the accepted `main` release. Capture final Part F workflow, board and program evidence for that same release; fill in A–F page ranges and produce the self-contained PDF.
-5. Treat PR #19 as merged Lab 5 pipeline setup only. Verify the actual GCP deployment, URL, running revision and persistence against Lab 5 evidence before claiming deployment complete.
-6. Identify and schedule the independent Lab 6 UAT partner; prepare cases now, but do not claim acceptance before an external team tests the recorded deployed release.
-7. Keep PD2 and provisional Lab 7 planning tied to the same Sprint 2/Sprint 3 baseline; confirm Lab 7 requirements when its detailed handout arrives.
+2. PR #27 and Issue #26 are complete; do not open another PD1 documentation PR. Release PR #28 is open, CI #64 passed, and N0TAW00D's formal approval awaits GCP preflight.
+3. PR #29 is a separate Lab 5 docs PR, open against staging with CI passed and review requested from Palapluem. Review it separately; merging it before #28 moves the release head and requires fresh CI/review. Keep it out of the PD1 release unless both students choose to include it.
+4. Confirm the GCP-owned resources/secrets and WIF/IAM preflight with the project owner; the repo's 10 Actions variables and `production` approval environment are configured. PR #29's Cloud SQL role results are author-reported pending review. Only the owner can verify remaining cloud state; merging #28 triggers deployment, so do not merge until deployment readiness is confirmed.
+5. After the teammate approves and merges #28, rerun TEST-27 and required acceptance checks on the exact `main` release, then capture final Part F and dated board evidence, fill A–F page ranges and complete the self-contained PDF.
+6. Record Lab 5's deployment, URL, running revision and persistence separately; do not infer a live deployment from merged PR #19 or the release PR alone.
+7. Identify and schedule the independent Lab 6 UAT partner; prepare cases now, but do not claim acceptance before an external team tests the recorded deployed release.
+8. Keep PD2 and provisional Lab 7 planning tied to the same Sprint 2/Sprint 3 baseline; confirm Lab 7 requirements when its detailed handout arrives.
