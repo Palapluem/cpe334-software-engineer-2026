@@ -37,10 +37,10 @@ Repository: [Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger
 | PR #25 | Merged into staging at `53c20ff` after N0TAW00D approved head `420c6bd`; F-03/F-04. CI #59 passed on the PR head (125 server tests / 518 assertions, 11 browser E2E, type checks, Biome, web build and Docker image build). Issue #20 is closed; Issue and PR cards are Done. |
 | PR #24 | Open docs-only D-05 Origin/CSRF proposal. The policy remains deferred; it is separate from PR #25 and is not a PD1 feature blocker. |
 | Open Issues | #2 team metadata/setup and deferred Origin policy; #17 Lab 5. Issues #20 and #21 are closed, and their Project cards and linked PR cards are Done. |
-| Application source and tests | F-01/F-02, F-03/F-04 and F-05/F-06 are integrated in staging. PR #25's exact-head CI is green; TEST-27 and final release-level verification on an accepted `main` commit remain pending. |
-| Decisions | D-01–D-07 were accepted by both students through PR #15 at `98afb3b`. PR #16 records those decisions and the current staging evidence; it is documentation-only. |
+| Application source and tests | F-01/F-02, F-03/F-04 and F-05/F-06 are integrated in staging. PR #25's exact-head CI #59 passed; clean-checkout TEST-27 passed on `53c20ff`. Repeat release-level verification on the accepted `main` commit. |
+| Decisions | D-01–D-07 were accepted by both students through PR #15 at `98afb3b`. PR #16 is the earlier documentation snapshot; Issue #26 tracks reconciliation to the current staging evidence and needs teammate review. |
 
-PD1 is still incomplete: `main` is still the bootstrap commit `a4cced2`, with no accepted Sprint 1 release. Feature work is integrated in staging, but TEST-27/final checks on the accepted release, final Part F evidence, A–F page ranges and the self-contained PDF are outstanding. GCP deployment is a Lab 5 requirement, not a PD1 requirement. The reported PD1 cutoff has passed; an extension is not verified.
+PD1 is still incomplete: `main` is still the bootstrap commit `a4cced2`, with no accepted Sprint 1 release. Staging TEST-27 passed on `53c20ff`; the remaining sequence is teammate review/merge of the single Issue #26 documentation PR, a reviewed staging-to-main release, release-matched checks, final Part F evidence, A–F page ranges and the self-contained PDF. GCP deployment is a Lab 5 requirement, not a PD1 requirement. The reported PD1 cutoff has passed; an extension is not verified.
 
 ### Google Docs tabs
 
@@ -277,8 +277,8 @@ Both repositories are public coursework. Never publish credentials, tokens, real
 ## Immediate actions for both students
 
 1. Ask the instructor/TA about late-submission handling; the student-reported PD1 cutoff has passed and no extension is verified.
-2. Run TEST-27 and integration/acceptance checks on a clean staging checkout, recording actual commands, versions, counts and the exact tested SHA.
-3. After checks pass, prepare the required single reviewed release PR from `sprint-1-staging` to `main`; the teammate reviews and merges it. Do not open a PR merely to record that merge.
+2. Finish the single Issue #26 documentation reconciliation and obtain the teammate's substantive review/merge into `sprint-1-staging`. TEST-27 already passed on staging SHA `53c20ff`.
+3. Run final staging integration/acceptance checks, then prepare the required single reviewed release PR from `sprint-1-staging` to `main`; the teammate reviews and merges it. Do not open a PR merely to record that merge.
 4. Run and record the required build/test checks on the accepted `main` release. Capture final Part F workflow, board and program evidence for that same release; fill in A–F page ranges and produce the self-contained PDF.
 5. Treat PR #19 as merged Lab 5 pipeline setup only. Verify the actual GCP deployment, URL, running revision and persistence against Lab 5 evidence before claiming deployment complete.
 6. Identify and schedule the independent Lab 6 UAT partner; prepare cases now, but do not claim acceptance before an external team tests the recorded deployed release.
