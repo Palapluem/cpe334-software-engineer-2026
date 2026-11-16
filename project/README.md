@@ -11,7 +11,7 @@
 
 หัวข้อที่เลือกตามคำยืนยันของทีมเมื่อ 3 พฤศจิกายน 2026 คือ **Theme 7: Personal Money and Expense Logging System** เลือกได้จากรหัสนักศึกษาของ Natthawat ที่ลงท้ายด้วย 7 ตาม master specification §6
 
-ผู้เรียนเลือกชื่อ **PocketLedger** และ repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** แล้ว ชื่อกลุ่มใน LEB2 คือ **2-Nor** ตามคำยืนยันวันที่ 7 พฤศจิกายน 2026 ส่วน section/เลขกลุ่มแยก, stack และ financial policies ยังรอทีมยืนยัน ขณะนี้มีร่าง baseline และ Sprint 1 contracts/STS ให้ทีม review แต่ยังไม่มี accepted Sprint 1 release
+ทีมยืนยันชื่อผลิตภัณฑ์ **PocketLedger**, repo **[Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)** และกลุ่ม LEB2 **2-Nor** แล้ว ส่วน baseline, stack, financial policies และ Sprint 1 contracts/STS ได้รับการยอมรับและนำไปใช้ใน release ที่ผ่าน review บน `main` (`bbf7c4a`). รายงาน PD1 ฉบับพิมพ์ 58 หน้าอยู่ที่ [Project Deliverable 1](Project%20Deliverable%201/README.md); การอัปโหลดเข้า LEB2 ยังไม่ได้ยืนยัน
 
 สำหรับแผนทำงาน ลำดับ dependency และสถานะของ **PD1, Lab 5, Lab 6, Lab 7, PD2 และ Final Delivery** ให้ใช้ [PocketLedger Team Work Plan](pocketledger-team-work-plan.md) ส่วน rubric และเงื่อนไขส่งให้ยึด handout ของแต่ละงาน
 
@@ -25,16 +25,16 @@
 
 Nested checkout ไม่ใช่ submodule ห้าม force-add หรือ push source จาก PocketLedger เข้า CPE334 ก่อนทุก Git write ให้ตรวจ root/remote/status ของ repo ที่ตั้งใจ ดู [workspace rules](../AGENTS.md) และ [product contribution rules](https://github.com/Palapluem/pocket-ledger/blob/main/CONTRIBUTING.md)
 
-เอกสารวิศวกรรมฉบับหลักอยู่ใน product repo: docs/decisions.md, srs.md, features.md, traceability.md, system-sds.md และ docs/sprints/ **PR #4 merge เข้า `sprint-1-staging` แล้วเมื่อ 8 พฤศจิกายน 2026** โดยเพิ่มเอกสารเท่านั้น; ไม่ได้เพิ่ม application source, tests หรือ accepted release. ณ 12 พฤศจิกายน `main` ยังอยู่ที่ bootstrap `a4cced2`, `sprint-1-staging` อยู่ที่ `ff2143a`, ไม่มี PR เปิด และ Issues #1–#3 ยังเปิดอยู่. ตรวจสถานะสดจาก [GitHub](https://github.com/Palapluem/pocket-ledger) ก่อนเริ่มงานเสมอ
+เอกสารวิศวกรรมฉบับหลักอยู่ใน product repo: `docs/decisions.md`, `srs.md`, `features.md`, `traceability.md`, `system-sds.md` และ `docs/sprints/`. PR #28 ปล่อย Sprint 1 ที่ผ่าน review ขึ้น `main` แล้วที่ `bbf7c4a`; main CI run #43911059795 ผ่าน. PR #29 เป็นเอกสาร Lab 5 แยกต่างหาก และ PR #24 เป็นข้อเสนอ D-05 แยกจาก PD1. Deploy run #43911059895 ยังรออนุมัติ `production`: N0TAW00D เป็นผู้เริ่มรันและเป็น reviewer คนเดียว ขณะที่ปิดการอนุมัติตัวเองไว้ จึงต้องใช้ reviewer คนอื่นหรือปรับกฎผ่านการตกลงของทีมก่อน; ยังไม่อ้างว่า deploy สำเร็จ
 
 แหล่งทำรายงานที่ผู้เรียนกำหนดคือแท็บ [Project Deliverable 1](https://docs.google.com/document/d/1LvDrVanne23Pgj6LH7AoiacwpgOu-sGl7Hyr6pycZCo/edit?tab=t.241qhfcdhce3), [Lab 5](https://docs.google.com/document/d/1LvDrVanne23Pgj6LH7AoiacwpgOu-sGl7Hyr6pycZCo/edit?tab=t.s9umabyrevqi), [Lab 6](https://docs.google.com/document/d/1LvDrVanne23Pgj6LH7AoiacwpgOu-sGl7Hyr6pycZCo/edit?tab=t.uhs47dish96h) และ [Project Deliverable 2](https://docs.google.com/document/d/1LvDrVanne23Pgj6LH7AoiacwpgOu-sGl7Hyr6pycZCo/edit?tab=t.amnwb9uwd0u0) ใน Google Doc เดียวกัน จัดทำ PDF ผ่าน Print หลังเนื้อหาและหลักฐานพร้อม และอย่าใช้ผลหรือภาพ TokTickIT เป็นหลักฐาน PocketLedger ตรวจแท็บ Lab 6/PD2 ให้มีเนื้อหาของงานนั้นจริงก่อนใช้; การเปลี่ยนชื่อแท็บอย่างเดียวไม่พอ
 
 ## อ่านและทำตามลำดับนี้
 
-1. อ่าน [decision register](https://github.com/Palapluem/pocket-ledger/blob/sprint-1-staging/docs/decisions.md), Issues #1–#3 และร่าง baseline บน `sprint-1-staging`; ร่วมกันยืนยัน stack/กติกาการเงิน/session/interfaces/ขอบเขต Sprint 1 ที่ยังเปิดอยู่
-2. ใช้ [คู่มือเตรียม Deliverable 1](Project%20Deliverable%201/README.md) สร้าง baseline ของทั้งผลิตภัณฑ์และ contract ของ Sprint 1 ก่อนเริ่ม implementation
-3. ใช้ [แม่แบบ feature contract](Project%20Deliverable%201/feature-contract-template.md) กับฟีเจอร์ที่กำลังจะทำ และใช้ [โครงรายงาน Parts A–F](Project%20Deliverable%201/report-outline.md) เก็บตำแหน่งหลักฐานตั้งแต่ต้น
-4. ส่ง working Sprint 1 ที่ผ่าน review และ integration บน `main` ก่อนนำ release นั้นไปทำ [Lab 5](../labs/Lab05/README.md)
+1. ใช้ [decision register](https://github.com/Palapluem/pocket-ledger/blob/main/docs/decisions.md), SRS, feature inventory and Sprint 1 contracts เป็น baseline ที่ยอมรับแล้ว; ทำ change control หากทีมต้องการเปลี่ยนกติกา
+2. ตรวจ [บันทึกรายงาน PD1](Project%20Deliverable%201/README.md) และยืนยันการอัปโหลดไฟล์ PDF ใน LEB2; ห้ามสับสนรายงานฉบับพิมพ์กับ product source
+3. ใช้ [แม่แบบ feature contract](Project%20Deliverable%201/feature-contract-template.md) กับฟีเจอร์ใหม่ และใช้ [แผนที่รายงาน PD1](Project%20Deliverable%201/report-outline.md) ตรวจเนื้อหา/ตำแหน่งหลักฐานของ PDF ฉบับสุดท้าย
+4. ใช้ Sprint 1 release ที่ผ่าน review บน `main` (`bbf7c4a`) เป็นฐานของ [Lab 5](../labs/Lab05/README.md); workflow deploy ยังรออนุมัติ environment `production` และยังไม่มีการยืนยันว่า deploy สำเร็จ
 5. ทำ [Lab 6](../labs/Lab06/README.md), [Lab 7](../labs/Lab07/README.md), [Deliverable 2](Project%20Deliverable%202/README.md) และ [Final Delivery](Final%20Delivery/README.md) ต่อบน product/release เดิม โดยทำตาม dependency ของแต่ละงาน; Lab 6 และ Sprint 2 เริ่มเตรียม/พัฒนาควบคู่กับ Lab 5 ได้เมื่อมีฐาน Sprint 1 แต่ UAT ต้องรอ deployed release ส่วน PD2 กับ Lab 7 ทำทับช่วงกัน
 
 ```mermaid
@@ -78,14 +78,14 @@ Lab 5 §6 ให้ยึด handout เมื่อขัดกับคู่�
 
 | งาน | กำหนดส่ง | คะแนน / น้ำหนักรายวิชา |
 | --- | --- | --- |
-| Deliverable 1 | 8 พ.ย. 2026 เวลา 23:59 ตาม handout | 80 / 8%; ผู้เรียนแจ้งว่าเลื่อนเป็น 14 พ.ย. ให้ยืนยันประกาศทางการ |
+| Deliverable 1 | 8 พ.ย. 2026 เวลา 23:59 ตาม handout | 80 / 8%; รายงาน PDF 58 หน้าเตรียมแล้ว แต่ไม่มีหลักฐานยืนยัน LMS receipt หรือ extension |
 | Lab 5 | 15 พ.ย. 2026 เวลา 23:59 | 100 / 5% |
 | Lab 6 | 22 พ.ย. 2026 เวลา 23:59 ตาม master schedule | 100 / 5% |
 | Deliverable 2 | 29 พ.ย. 2026 เวลา 23:59 ตาม handout §4 | 70 / 7% |
 | Lab 7 | 29 พ.ย. 2026 เวลา 23:59 ตาม master draft (provisional) | 100 / 5% ตาม master draft |
 | Final Delivery | 13 ธ.ค. 2026 เวลา 23:59 ตาม handout §4 | 100 / 10% |
 
-ตรวจประกาศ LEB2/อาจารย์ประกอบก่อนส่ง ผู้เรียนแจ้งว่า PD1 เลื่อนเป็น 14 พ.ย. แต่ Lab 5 handout ยังระบุ 15 พ.ย.; ยืนยันว่า Lab 5 เลื่อนตามหรือไม่. Lab 6 handout มีอยู่ใน `labs/Lab06/`; Lab 7 ยังไม่มี handout ฉบับละเอียด วันที่และคะแนนในตารางจึงเป็น provisional ตาม master draft. PD2 กับ Lab 7 ระบุวันส่งเดียวกันใน master; วางแผนและรายงานสถานะร่วมกัน ไม่ถือว่า Lab 7 เป็น phase ที่ต้องรอหลัง PD2
+ตรวจประกาศ LEB2/อาจารย์ประกอบก่อนส่ง เพราะวันกำหนดส่งอาจเปลี่ยนจาก handout; ยังไม่มีหลักฐาน extension ของ PD1 ใน repo นี้. Lab 6 handout มีอยู่ใน `labs/Lab06/`; Lab 7 ยังไม่มี handout ฉบับละเอียด วันที่และคะแนนในตารางจึงเป็น provisional ตาม master draft. PD2 กับ Lab 7 ระบุวันส่งเดียวกันใน master; วางแผนและรายงานสถานะร่วมกัน ไม่ถือว่า Lab 7 เป็น phase ที่ต้องรอหลัง PD2
 
 อ่าน handout Deliverable 2 และ Final ครบแล้ว Final §2 กับ §3.5 ขัดกันเรื่องวิดีโอไม่เกิน 10/4 นาที อีกทั้ง master แบ่งคะแนน video/release-summary ต่างจาก Final handout ให้เก็บ instructor clarification ก่อนบันทึกวิดีโอ โดยใช้ [Final preparation](Final%20Delivery/README.md) ติดตามประเด็นนี้
 
@@ -116,4 +116,4 @@ Lab 5 §6 ให้ยึด handout เมื่อขัดกับคู่�
 - รายงานใช้ professional English, Sarabun สำหรับเนื้อความ, Consolas สำหรับโค้ด/คำสั่ง, จัดชิดขอบสำหรับ prose และ caption สีน้ำเงินตัวเอียงตามรูปแบบเดิมของผู้เรียน ตาราง โค้ด และภาพใช้ alignment ที่อ่านง่าย
 - เก็บหลักฐานเป็นชุดเดียวต่อเรื่อง ภาพต้องไม่ขาด ID/ข้อความ ไม่มี cursor ของเครื่องมือ และอ่านได้ที่ 100% รายงานแต่ละงานใช้ความครบ/ความกระชับตาม handout ของงานนั้น
 
-สถานะที่ตรวจเมื่อ 12 พ.ย. 2026 คือ **draft baseline และ Sprint 1 contracts/STS อยู่บน `sprint-1-staging`**; ยังไม่มี application implementation, accepted Sprint 1 release, product test results หรือ deployment evidence ใน repo. PR #4 merge แล้วและไม่มี PR เปิดในเวลาตรวจ. ดู [PocketLedger Team Work Plan](pocketledger-team-work-plan.md) และตรวจ [PocketLedger](https://github.com/Palapluem/pocket-ledger) ก่อนทำงานต่อ; ไม่เปิด PR เพิ่มเพียงเพื่อบันทึกว่า PR ก่อนหน้า merge แล้ว
+สถานะที่ตรวจเมื่อ 17 พ.ย. 2026: **PD1 release และรายงาน PDF พร้อมแล้ว**. `main` อยู่ที่ `bbf7c4a`; main CI run `43911059795` ผ่าน และ PR #28 ถูก merge แล้ว. Deploy run `43911059895` ยังรออนุมัติ environment `production` ซึ่งเป็นงาน Lab 5; ไม่มีการอ้างว่า deploy สำเร็จ. PR #29 เป็นเอกสาร Lab 5 แยกต่างหาก. ดู [PocketLedger Team Work Plan](pocketledger-team-work-plan.md) และ [บันทึก PD1](Project%20Deliverable%201/README.md); อย่าเปิด PR เพิ่มเพียงเพื่อบันทึกว่า PR ก่อนหน้า merge แล้ว

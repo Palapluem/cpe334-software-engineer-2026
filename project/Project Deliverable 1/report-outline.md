@@ -1,85 +1,38 @@
-# Project Deliverable 1: Engineering baseline and working Sprint 1
+# Project Deliverable 1 — Report map and verification record
 
-> Report assembly template. Replace guidance and blank cells with the complete approved content and actual evidence. This is not a submitted report. Parts A–E must appear in full; repository links supplement the PDF.
+This file indexes the self-contained PDF; it is not a substitute for the report or an LMS receipt.
 
-Authoring source: the student's Project Deliverable 1 Google Docs tab (t.241qhfcdhce3). Status checked 16 November 2026 after PR #27 merged. `sprint-1-staging` is `922adfc`; PR #27 reconciled staging evidence and closed Issue #26 after N0TAW00D approved head `13b90a2`; CI #62 passed. Issue #26 and its Project card are Done. The release PR #28 from staging to `main` is open at `922adfc`; CI #64 passed, but formal teammate approval is pending GCP preflight. The 10 GitHub Actions variables and the `production` environment are configured, with N0TAW00D as required deployment approver. Separate Lab 5 docs PR #29 is open against staging, CI passed, and review is requested from Palapluem; its author reports Cloud SQL role checks on the live instance, but those results are not independently verified here. Secret Manager, WIF/IAM readiness and live deployment remain unverified. If #29 merges before #28, staging and the release head will advance and #28 needs fresh CI/review. `main` remains bootstrap `a4cced2`; there is no accepted Sprint 1 release. Staging TEST-27 passed on `53c20ff`; release-matched checks, Part F screenshots/workflow evidence, A–F page ranges and the self-contained submission PDF remain incomplete. The student-reported cutoff of 15 November 2026 at 23:30 Asia/Bangkok has passed; no extension is verified. GCP deployment is not a separate PD1 scoring requirement, but merging PR #28 will trigger the Lab 5 deployment workflow. Do not print or label this template as a submitted report.
+- **PDF:** [CPE334_PD1_PocketLedger.pdf](CPE334_PD1_PocketLedger.pdf)
+- **Source:** Project Deliverable 1 tab in the shared Google Doc
+- **Print export:** 17 November 2026, 01:34 (+07)
+- **Pages:** 58 A4
+- **SHA-256:** `3e2d11638c5d920b67219b065aee9875a555de290cc54b7f887fc663ecb7300b`
+- **Accepted product release:** `main` at `bbf7c4a168b6b3585c4e973bb78faf7f233fd11b`
 
-## Submission identity and navigation
+## Rubric and page map
 
-| Field | Submission value |
-| --- | --- |
-| LEB2 group name | 2-Nor |
-| Section / separate team number | Pending confirmation; 2-Nor is the LEB2 group name. |
-| Product name and context | PocketLedger; personal financial recording under Theme 7 |
-| Theme | 7. Personal Money and Expense Logging System |
-| Student | Wisit Suwannao · 67070501042 · Palapluem |
-| Student | Natthawat Primsirikunawut · 67070501027 · N0TAW00D |
-| Public / grader-accessible product repository | https://github.com/Palapluem/pocket-ledger |
-| Immutable submitted release tag and full commit | |
+| Part | Points | Contents | PDF pages |
+|---|---:|---|---:|
+| A | 10 | Whole-product SRS, scope, functional/business/non-functional requirements and decisions | 3–13 |
+| B | 10 | Feature inventory, dependencies and requirement-to-feature-to-sprint traceability | 14–23 |
+| C | 15 | System-Level SDS: architecture, data, UI/API, roles, authentication and delivery design | 24–29 |
+| D | 5 | Goals, dependencies and completion outcomes for all three sprints | 30–33 |
+| E | 20 | Sprint 1 feature contracts, acceptance criteria, STS and DoD | 34–45 |
+| F | 20 | Working increment, reproduction, demonstrations, verification, review and contributions | 46–58 |
 
-| Part | Actual PDF page range | Relevant IDs and internal evidence pages |
-| --- | --- | --- |
-| A | | |
-| B | | |
-| C | | |
-| D | | |
-| E | | |
-| F | | |
+## Part F evidence locations
 
-## Part A: SRS and product scope
+| Evidence | PDF pages |
+|---|---:|
+| Release/test summary and demonstration matrix | 46–48 |
+| Application screenshots, Figures F.1–F.5 | 49–53 |
+| Build, test counts, exact tested versions and AC-to-test results | 54–55 |
+| Red/green evidence, selected test excerpts, reviews, board status, contributions, AI-use statement and limitations | 56–58 |
 
-Include the complete SRS: stakeholder problem, chosen context, actors/responsibilities, scope/exclusions, numbered FR/BR and measurable NFR, assumptions and resolved/open decisions.
+## Version and result notes
 
-## Part B: Feature inventory and traceability
+The accepted release is `main` at `bbf7c4a168b6b3585c4e973bb78faf7f233fd11b`; its tree matches reviewed PR #28’s tested head `922adfc70a26a7c8371628a64c168e17805210bf`. Main CI run [43911059795](https://github.com/Palapluem/pocket-ledger/actions/runs/43911059795) passed 125 PostgreSQL-backed server tests, 11 browser E2E tests, type checks, Biome, web build and production-image build. Manual TEST-27 remains attributed to `53c20ff`.
 
-Include the complete feature inventory, dependencies and requirement → feature/responsibility → sprint mapping. Cover the whole baseline; show gaps and approved changes. Later-sprint requirements need allocation now, not fully implemented tests.
+The report does not claim a live GCP deployment. Deploy run [43911059895](https://github.com/Palapluem/pocket-ledger/actions/runs/43911059895) is waiting at the `production` gate: N0TAW00D triggered the run and is its only configured reviewer, while self-review is disabled. Another authorized reviewer or a team-approved environment-rule change is needed for Lab 5. Repository secrets are not set; the workflow uses OIDC and GCP Secret Manager, whose secret state and IAM access remain unverified.
 
-## Part C: System-Level SDS
-
-Include the complete architecture/stack rationale, component responsibilities, major data entities and constraints, ownership links, migration/seed approach, UI/API conventions, role matrix, authentication/session lifecycle, configuration/secrets and planned Docker/GCP design.
-
-## Part D: Three-sprint plan
-
-Include goals, feature IDs, dependencies and completion outcomes for all three sprints. Explain why Sprint 1 is a useful complete vertical slice and how the remaining Theme 7 scope is allocated.
-
-## Part E: Sprint 1 engineering contracts
-
-Include every Sprint 1 feature contract: behavior and SDS, applicable UI/API/data detail, stable AC, STS and Product Definition of Done. Show the versions/reasons for significant changes and point to the contract-before-implementation sequence in Part F.
-
-## Part F: Working Sprint 1 and verification
-
-### Reproduction and release
-
-State dependencies, environment examples, database setup/migration/seed and app/build/test commands. Identify the assessed release and any evidence from another version. Do not disclose real passwords, connection strings, keys or tokens.
-
-### Demonstrations
-
-| Scenario | Feature / AC | Role and preconditions | Brief steps | Expected / actual outcome | Figure and release |
-| --- | --- | --- | --- | --- | --- |
-| Complete domain journey and persisted retrieval | | | | | |
-| Meaningful rule / boundary rejection | | | | | |
-| Login / logout | | | | | |
-| Forbidden role / ownership operation | | | | | |
-
-Show backend/API evidence for access restrictions. Pair each image with a precise caption and describe enough of the sequence for a TA to follow it without opening the repository.
-
-### Build and test evidence
-
-Include actual commands, tested commit, readable execution output and passing/failing/skipped counts. Include the full Sprint 1 AC-to-test results table with actual file/test names. Distinguish manual checks.
-
-Embed two short excerpts of actual automated tests: one important domain rule and one role/ownership restriction. Show relevant setup, assertion and execution result. Identify the red/green versions for meaningful TDD behavior.
-
-### Workflow, contributions and limitations
-
-Show two completed Issue/PR examples with feature/contract IDs, branch, author/reviewer, substantive review and integration into staging/main. Include the final board status, release reference and dated contract/test-design → implementation history.
-
-| Student | Requirement/design and tests | Implementation / supervision | Review / integration | Issue / PR / version evidence |
-| --- | --- | --- | --- | --- |
-| Wisit Suwannao | | | | |
-| Natthawat Primsirikunawut | | | | |
-
-Add a brief truthful AI-use declaration listing tools and assisted tasks, plus known limitations and failed/skipped/incomplete work. Full prompt transcripts and long reflections are not required.
-
-### Final assembly check
-
-Update the navigation page ranges after layout is final. Use one evidence set per topic, readable tables/images at normal zoom, Sarabun prose and Consolas commands/code. Put code and repository trees in clear boxes. Use the student's established blue italic captions and justified prose. Print/export only after the content and submitted release are fixed and the student authorizes the final output.
+The PDF has 58 A4 pages, a complete A–F navigation table, and no blank final page. It was visually checked at the cover, navigation, Part F demonstrations and final page. The repository does not establish whether the PDF was uploaded to the LMS or whether an extension was granted.

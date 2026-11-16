@@ -2,7 +2,7 @@
 
 **Team:** Wisit Suwannao (Palapluem) · Natthawat Primsirikunawut (N0TAW00D) · **LEB2 group:** 2-Nor · **Product:** PocketLedger, Theme 7: Personal Money and Expense Logging System
 
-**Status checked:** 16 November 2026
+**Status checked:** 17 November 2026
 
 This is the shared work plan for the same product, team and product repository across Project Deliverables 1–2, Labs 5–7 and Final Delivery. Use each assessment's official handout as the authority for its rubric and submission requirements. This file maps the dependencies, current status, team work and source paths.
 
@@ -12,14 +12,14 @@ These assessments share one product and repository, but they are not six consecu
 
 | When / checkpoint | Workstream | Dependency and exit condition |
 |---|---|---|
-| First: PD1 | **Project Deliverable 1** | Agree the Sprint 1 contract, implement and verify the vertical slice locally, then release it through reviewed PRs to `main`. PD1 is the starting release for the later labs. The saved handout says 8 November 2026, 23:59; the student-reported cutoff was 15 November 2026, 23:30 Asia/Bangkok. Both dates have passed; no extension is verified. |
-| Next: Lab 5, original date 15 Nov | **Docker, PR CI and GCP deployment** | Prepare configuration while PD1 work finishes; deploy the accepted Sprint 1 release. Complete the clean-clone/container check, required PR checks and repeatable deployment to GCP. The handout date has passed; no extension is verified. |
+| Completed: PD1 | **Project Deliverable 1** | The reviewed Sprint 1 release is on `main` at `bbf7c4a` and the 58-page self-contained report PDF is prepared. The handout says 8 November 2026, 23:59; the later cutoff reported by the student was 15 November 2026, 23:30 Asia/Bangkok. Both dates have passed; no extension or LMS receipt is verified. |
+| Current: Lab 5, original date 15 Nov | **Docker, PR CI and GCP deployment** | Continue from accepted PD1 `main` at `bbf7c4a`. Deploy run `43911059895` is waiting at the `production` gate: N0TAW00D triggered it and is the only configured reviewer, but self-review is disabled. A different authorized reviewer or a team-approved environment-rule change is needed. Then verify GCP Secret Manager/IAM state, complete deployment, and record the running revision and persistence checks. The handout date has passed; no extension is verified. |
 | Prepare alongside Lab 5; execute after deployment; due 22 Nov | **Lab 6 UAT** | Arrange the partner team and write executable cases early. Execute both teams' UAT responsibilities against the identified deployed Sprint 1 releases once they are available. Triage findings; fix and independently retest release-blocking defects through the Lab 5 delivery process. |
 | After the Sprint 1 baseline; continues during Labs 5–7; due 29 Nov | **Sprint 2 and PD2** | Implement all planned Sprint 2 features with reviewed contracts and tests, define all remaining Sprint 3 contracts, and implement/test at least one meaningful Sprint 3 workflow. PD2 requires a coherent GCP-deployed candidate and reports relevant deployment, UAT and maintenance findings, including honest unresolved status. |
 | Work sessions listed 17/19 Nov; due 29 Nov in the available master | **Lab 7 maintenance** | The available master document is marked draft for instructor review, and the Lab 7 folder still has no detailed official handout. Treat these dates and rubric as provisional. Provisionally plan one instructor/TA-approved change to an already implemented behavior, regression-safe delivery and metrics. Run it alongside Sprint 2/PD2; reconcile the details when the official Lab 7 handout arrives. |
 | After PD2; final due 13 Dec | **Final Delivery** | Complete Sprint 3, integrate and verify the approved scope, perform final UAT/retests, and deliver the final release, report and demonstration. |
 
-**Immediate order:** finish the accepted PD1 release, then complete the Lab 5 deployment path. Book the Lab 6 partner now and prepare its cases in parallel; its execution depends on a working deployed Sprint 1 release. Continue Sprint 2 while Labs 5 and 6 run. Lab 7 and PD2 both have a 29 November deadline, so coordinate their release/evidence cutoffs; PD2 does not need to wait for a separate later “Lab 7 phase,” but it must report the maintenance finding/status that exists at submission. Keep one product identity, repository and release history throughout.
+**Current order:** verify the PD1 PDF upload/receipt if it has not already been submitted; then continue the Lab 5 deployment path. Book the Lab 6 partner and prepare its cases in parallel; its execution depends on a working deployed Sprint 1 release. Continue Sprint 2 while Labs 5 and 6 run. Lab 7 and PD2 both have a 29 November deadline, so coordinate their release/evidence cutoffs; PD2 does not need to wait for a separate later “Lab 7 phase,” but it must report the maintenance finding/status that exists at submission. Keep one product identity, repository and release history throughout.
 
 ## Current status snapshot
 
@@ -27,22 +27,22 @@ These assessments share one product and repository, but they are not six consecu
 
 Repository: [Palapluem/pocket-ledger](https://github.com/Palapluem/pocket-ledger)
 
-| Item | Verified status on 16 November 2026 |
+| Item | Verified status on 17 November 2026 |
 |---|---|
-| `main` | `a4cced2` — bootstrap/documentation baseline; no accepted Sprint 1 release. |
+| `main` | `bbf7c4a` — accepted reviewed Sprint 1 release; tree matches tested staging head `922adfc`. |
 | `sprint-1-staging` | `922adfc` — current integrated candidate; PR #27 is the latest merge. |
 | PR #18 | Merged into staging at `8cefcaf`; identity/administration UI and browser identity journey. |
 | PR #19 | Merged into staging at `a77d324`; Lab 5 container/deployment pipeline. This merge is not evidence of a GCP deployment. |
 | PRs #22 and #23 | Merged into staging at `7d8be8e` and `6048593`; F-05/F-06 and shared financial schema. |
 | PR #25 | Merged into staging at `53c20ff` after N0TAW00D approved head `420c6bd`; F-03/F-04. CI #59 passed on the PR head (125 server tests / 518 assertions, 11 browser E2E, type checks, Biome, web build and Docker image build). Issue #20 is closed; Issue and PR cards are Done. |
 | PR #27 | Docs-only reconciliation merged into staging at `922adfc`; N0TAW00D approved head `13b90a2`, and CI #62 passed. Issue #26 is closed and its Project card is Done. |
-| PR #28 | Single release PR from `sprint-1-staging` to `main`; open, CI #64 passed, and no conflict. N0TAW00D's formal approval is pending confirmation of GCP preflight. The merge triggers Lab 5's deploy workflow. |
+| PR #28 | Single release PR from `sprint-1-staging` to `main`; merged by N0TAW00D at `bbf7c4a`. CI #64 passed on tested head `922adfc`; main CI run `43911059795` passed on the merge commit. The release tree matches the tested head. |
 | PR #24 | Open docs-only D-05 Origin/CSRF proposal. The policy remains deferred; it is separate from PR #25 and is not a PD1 feature blocker. |
-| Open Issues / PRs | Issues #2 (team metadata/runtime/authentication) and #17 (Lab 5) remain open. PR #24 is the separate D-05 Origin/CSRF docs proposal; PR #28 is the release PR; PR #29 is a Lab 5 Cloud SQL/secret setup docs PR with CI passed and review requested from Palapluem. Issues #20, #21 and #26 are closed; their completed Project cards are Done. |
-| Application source and tests | F-01/F-02, F-03/F-04 and F-05/F-06 are integrated in staging. PR #25's exact-head CI #59 passed; clean-checkout TEST-27 passed on `53c20ff`. Repeat release-level verification on the accepted `main` commit. |
+| Open Issues / PRs | Issues #2 (team metadata/runtime/authentication) and #17 (Lab 5) remain open. PR #24 is the separate D-05 Origin/CSRF docs proposal; PR #29 is separate Lab 5 documentation against staging and is not a PD1 blocker. Issues #20, #21 and #26 are closed; completed Project cards #26 and #28 are Done. |
+| Application source and tests | F-01/F-02, F-03/F-04 and F-05/F-06 are in accepted `main` at `bbf7c4a`. Main CI run `43911059795` passed on that commit. TEST-27's recorded manual result is from `53c20ff`; keep its original tested SHA in the report. |
 | Decisions | D-01–D-07 were accepted by both students through PR #15 at `98afb3b`. PR #27 reconciled the staging evidence; Issue #26 is complete. |
 
-PD1 is still incomplete: `main` is still the bootstrap commit `a4cced2`, with no accepted Sprint 1 release. PR #28 is the release PR; CI #64 passed and the diff is conflict-free, but formal teammate approval awaits GCP preflight. The 10 GitHub Actions variables and `production` environment are configured. Separate Lab 5 docs PR #29 is open against staging with CI passed and review requested from Palapluem; its author reports Cloud SQL role checks, but they are not independently verified here. Secret Manager, WIF/IAM readiness and live deployment remain unverified. If #29 merges before #28, it advances staging and requires fresh release CI/review; keep it separate from the PD1 release unless the team deliberately chooses to include it. After #28 is accepted, repeat TEST-27 and acceptance checks on the exact `main` SHA, then complete Part F evidence, a dated board screenshot, A–F page ranges and the self-contained PDF. GCP deployment is not a separate PD1 rubric item, but merging #28 triggers the Lab 5 deployment workflow. The reported PD1 cutoff has passed; an extension is not verified.
+PD1's accepted product release is `main` at `bbf7c4a`; its tree matches the PR #28 head tested by CI #64, and main CI run `43911059795` passed. The self-contained report PDF is prepared at `project/Project Deliverable 1/CPE334_PD1_PocketLedger.pdf` (58 A4 pages; SHA-256 `3e2d11638c5d920b67219b065aee9875a555de290cc54b7f887fc663ecb7300b`). Its A–F page map and Part F evidence are filled in. The PDF's LMS upload receipt and any deadline extension are not verified; the handout deadline was 8 November 2026, 23:59. The release review records the GCP preflight; deploy run `43911059895` is waiting for the required `production` approval. No live deployment is claimed; deployment remains Lab 5 work. PR #29 is separate Lab 5 documentation and does not block PD1.
 
 ### Google Docs tabs
 
@@ -61,32 +61,24 @@ The four report links are tabs in one Google Doc:
 
 | Assessment | Date in the available handout/schedule | Current status |
 |---|---|---|
-| PD1 | Original handout: 8 November 2026, 23:59 | Later cutoff reported by Wisit: **15 November 2026, 23:30 Asia/Bangkok**; passed. No extension is verified. |
+| PD1 | Handout: 8 November 2026, 23:59 | The final PDF is prepared. The later reported cutoff of 15 November 2026, 23:30 has passed; no extension or LMS receipt is verified. |
 | Lab 5 | 15 November 2026, 23:59 in the handout | Date has passed; no extension is verified. Do not infer one from the PD1 cutoff. |
 | Lab 6 | 22 November 2026, 23:59 in the Lab 6 handout | Identify and schedule the independent UAT partner now. |
 | Lab 7 | 29 November 2026, 23:59 in the available master draft | The Lab 7 folder has a preparation guide, not a detailed Lab 7 handout; treat the date as provisional and confirm the final submission instructions when the handout or announcement is available. |
 | PD2 | 29 November 2026, 23:59 in the handout | Sprint 2 completion and tested Sprint 3 progress. |
 | Final Delivery | 13 December 2026, 23:59 in the handout | Complete integrated release and final verification. |
 
-The reported PD1 cutoff passed on 15 November; no extension is verified. The financial features and PR #27 documentation reconciliation are integrated in `sprint-1-staging` at `922adfc`, but there is no accepted `main` release. PR #28 is open with CI #64 passed. Separate Lab 5 docs PR #29 is open against staging with CI passed and review requested from Palapluem; its Cloud SQL check is author-reported and not independently verified here. GCP deployment evidence has not been verified.
+The handout deadline was 8 November 2026, 23:59; a later extension is not verified. PR #28 is accepted and merged to `main` at `bbf7c4a`; its tree equals tested staging head `922adfc`, and main CI run `43911059795` passed. The final 58-page self-contained PD1 PDF is prepared in the course repository; confirm its LMS upload/receipt. PR #29 is a separate Lab 5 documentation PR on staging, not a PD1 blocker. The deployment workflow is awaiting the required production-environment approval; no live deployment is claimed.
 
 ## Team ownership and product workflow
 
 Both students must participate in requirements, design, testing, implementation, AI-agent supervision, review and release. Assign bounded work and rotate implementer/reviewer responsibilities. Equal commit counts are not required. A member must be able to explain the feature and its tests, not just the report section they prepared.
 
-### First joint working session
+### Accepted Sprint 1 baseline and change control
 
-Use Issues [#1](https://github.com/Palapluem/pocket-ledger/issues/1), [#2](https://github.com/Palapluem/pocket-ledger/issues/2), [#3](https://github.com/Palapluem/pocket-ledger/issues/3), and `docs/decisions.md` on `sprint-1-staging`.
+The team accepted decisions D-01–D-07 through PR #15. The current implementation and documentation are released on `main` at `bbf7c4a`, after reviewed integration through `sprint-1-staging`. The report records the accepted product scope, stack/runtime, financial rules, session policy, interfaces, acceptance criteria and test strategy.
 
-Agree and record the decisions that control Sprint 1 behavior:
-
-- smallest complete domain journey and included/excluded scope;
-- stack/runtime and reproducible local setup;
-- financial amounts, allocation, balance signs, dates, correction and boundary rules;
-- authentication, current-user identity, roles, ownership and Administrator privacy boundary;
-- UI/API/data interfaces, stable acceptance criteria and how each criterion will be checked.
-
-Do not silently adopt proposals in `docs/decisions.md`. If a decision cannot be made from the assignment, record the question and ask the instructor/TA.
+For future work, use the current decision register and contracts as the baseline. Do not reopen Issues #1–#3 or silently adopt an old proposal merely to restate an accepted decision. Record a new proposal and obtain team/instructor agreement when a later change would affect scope, balances, privacy, dates or verification.
 
 ### Bounded Issues, branches and review
 
@@ -98,9 +90,9 @@ Board flow: `Backlog → Specified → Started → PR Review → Fixing → Done
 
 ## Project Deliverable 1 — establish and release Sprint 1
 
-**Cutoff:** the student-reported 15 November 2026, 23:30 Asia/Bangkok cutoff has passed; the saved handout says 8 November · **Score:** 80 points (8%). No later extension is verified.
+**Deadline:** the handout says 8 November 2026, 23:59; a later cutoff of 15 November 2026, 23:30 was reported by the student and has passed. No extension or LMS receipt is verified · **Score:** 80 points (8%).
 
-**Official source:** [PD1 handout](Project%20Deliverable%201/project_deliverable_1_v1.pdf), [preparation guide](Project%20Deliverable%201/README.md), [report outline](Project%20Deliverable%201/report-outline.md), and [feature-contract template](Project%20Deliverable%201/feature-contract-template.md).
+**Official source:** [PD1 handout](Project%20Deliverable%201/project_deliverable_1_v1.pdf), [final report status](Project%20Deliverable%201/README.md), [report map](Project%20Deliverable%201/report-outline.md), and [feature-contract template](Project%20Deliverable%201/feature-contract-template.md).
 
 PD1 covers whole-product planning in Parts A–D and Sprint 1 specification/implementation in Parts E–F. By the checkpoint, release a useful working Sprint 1 increment on `main`. Docker, completed CI/CD and GCP deployment are Lab 5 work, not PD1 requirements.
 
@@ -146,7 +138,7 @@ Start the assessed deployment from the accepted PD1 Sprint 1 release. Keep the s
 
 The handout requires the outcomes above, not Compute Engine or a GCP-hosted runner. Cloud Build, a self-hosted runner and a VM are possible alternatives only if the team chooses and documents them; they are not extra requirements. Follow the Lab 5 handout if a guide or starter-kit detail conflicts with it.
 
-**Current PocketLedger checkpoint (16 November 2026):** `main` remains at bootstrap `a4cced2`; `sprint-1-staging` is at `922adfc`. PR #18 merged at `8cefcaf`, PR #19 at `a77d324`, PR #22 at `7d8be8e`, PR #23 at `6048593`, PR #25 at `53c20ff`, and docs-only PR #27 at `922adfc`. CI #59 passed on #25 head `420c6bd`; CI #62 passed on #27 head `13b90a2`; release PR #28 CI #64 passed on exact staging head `922adfc`. Issue #26 is closed and its board card is Done; PR #28 is on the board in PR Review. PR #24 remains open as a separate docs-only D-05 proposal; Origin/CSRF remains deferred. PR #28 is open pending formal teammate approval after GCP preflight. Separate Lab 5 docs PR #29 is open against staging with CI passed and review requested from Palapluem; its author reports Cloud SQL role checks, not independently verified here. If #29 merges first, #28's head and CI must be rechecked. The GitHub Actions variables and protected `production` environment are configured; Secret Manager, WIF/IAM readiness and live deployment remain unverified. The merged Lab 5 pipeline is not proof of a GCP deployment; verify actual deployment/revision evidence separately.
+**Current PocketLedger checkpoint (17 November 2026):** `main` is at merge commit `bbf7c4a`; `sprint-1-staging` is at `922adfc`. The two commits have identical trees. PR #18 merged at `8cefcaf`, PR #19 at `a77d324`, PR #22 at `7d8be8e`, PR #23 at `6048593`, PR #25 at `53c20ff`, and docs-only PR #27 at `922adfc`. CI #59 passed on #25 head `420c6bd`; CI #62 passed on #27 head `13b90a2`; CI #64 passed on tested release head `922adfc`; main CI run `43911059795` passed on merge commit `bbf7c4a` (type checks, Biome, PostgreSQL integration, web build, browser E2E and production Docker image). Issues #26 and the #28 Project card are Done. PR #24 remains a separate docs-only D-05 proposal; Origin/CSRF remains deferred. PR #29 is a separate Lab 5 documentation PR against staging, not a PD1 blocker. Deploy run `43911059895` is waiting at the `production` gate: N0TAW00D triggered it and is the only configured reviewer, but self-review is disabled. No live GCP deployment is claimed. The merge review records the GCP preflight checks. The merged pipeline alone does not prove deployment or persistence; verify those under Lab 5.
 
 | Requirements | Work and evidence |
 |---|---|
@@ -244,7 +236,7 @@ The final checkpoint requires the complete approved scope across three sprints o
 
 | Path | Use |
 |---|---|
-| `project/Project Deliverable 1/` | PD1 handout, preparation guide, contract template and A–F report outline. |
+| `project/Project Deliverable 1/` | PD1 handout, final report PDF, report map and feature-contract template. |
 | `labs/Lab05/` | Lab 5 handout, Student Guide V1.1, deployment template, report outline and reference Starter Kit. |
 | `labs/Lab06/` | Lab 6 UAT handout, preparation guide and report outline. |
 | `labs/Lab07/` | Lab 7 preparation guide and report outline; check for a detailed handout/announcement before relying on final submission requirements. |
@@ -278,11 +270,11 @@ Both repositories are public coursework. Never publish credentials, tokens, real
 
 ## Immediate actions for both students
 
-1. Ask the instructor/TA about late-submission handling; the student-reported PD1 cutoff has passed and no extension is verified.
-2. PR #27 and Issue #26 are complete; do not open another PD1 documentation PR. Release PR #28 is open, CI #64 passed, and N0TAW00D's formal approval awaits GCP preflight.
-3. PR #29 is a separate Lab 5 docs PR, open against staging with CI passed and review requested from Palapluem. Review it separately; merging it before #28 moves the release head and requires fresh CI/review. Keep it out of the PD1 release unless both students choose to include it.
-4. Confirm the GCP-owned resources/secrets and WIF/IAM preflight with the project owner; the repo's 10 Actions variables and `production` approval environment are configured. PR #29's Cloud SQL role results are author-reported pending review. Only the owner can verify remaining cloud state; merging #28 triggers deployment, so do not merge until deployment readiness is confirmed.
-5. After the teammate approves and merges #28, rerun TEST-27 and required acceptance checks on the exact `main` release, then capture final Part F and dated board evidence, fill A–F page ranges and complete the self-contained PDF.
+1. Upload `project/Project Deliverable 1/CPE334_PD1_PocketLedger.pdf` to the course submission site if it has not already been submitted, and retain the receipt. Ask the instructor/TA about late-submission handling; the handout deadline was 8 November 2026, 23:59, and no extension is verified here.
+2. PR #28 and Issue #26 are complete; do not open another PD1 PR. The accepted release is `main` at `bbf7c4a`; its tested tree matches and main CI passed.
+3. No more PD1 report assembly or release PR is required based on the current checked state.
+4. Deploy run `43911059895` cannot be approved by its configured reviewer because N0TAW00D triggered the run and self-review is disabled. A different authorized reviewer or team-approved environment-rule change is needed; do not bypass it for PD1.
+5. PR #29 is separate Lab 5 documentation against staging; it is not needed for PD1 and no new PD1 PR is required.
 6. Record Lab 5's deployment, URL, running revision and persistence separately; do not infer a live deployment from merged PR #19 or the release PR alone.
 7. Identify and schedule the independent Lab 6 UAT partner; prepare cases now, but do not claim acceptance before an external team tests the recorded deployed release.
 8. Keep PD2 and provisional Lab 7 planning tied to the same Sprint 2/Sprint 3 baseline; confirm Lab 7 requirements when its detailed handout arrives.
