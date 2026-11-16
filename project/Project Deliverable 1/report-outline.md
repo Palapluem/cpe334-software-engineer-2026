@@ -2,14 +2,14 @@
 
 > Report assembly template. Replace guidance and blank cells with the complete approved content and actual evidence. This is not a submitted report. Parts A–E must appear in full; repository links supplement the PDF.
 
-Authoring source: the student's Project Deliverable 1 Google Docs tab (t.241qhfcdhce3). PRs #4–#8 are merged into `sprint-1-staging`; PR #5 records Better T Stack with Better Auth as the selected stack. PR #9 is open and awaiting review; it proposes first-party sessions but does not change D-02 unless both students agree and record that decision. Proposals in PRs #6 and #7 also remain pending team agreement. Issues #1 and #2 remain open. `main` is still the bootstrap commit `a4cced2`; no Sprint 1 release has been accepted, and no product implementation or test result is available. Leave execution evidence and page ranges blank until verified results exist; export through Print only after the final version is verified and authorized.
+Authoring source: the student's Project Deliverable 1 Google Docs tab (t.241qhfcdhce3). Status checked 16 November 2026. PRs #18, #19, #22, #23 and #25 are integrated into `sprint-1-staging` at `53c20ff`; PR #25 for F-03/F-04 was approved by N0TAW00D and merged at that commit. CI run #59 passed on PR head `420c6bd` (125 server tests across 14 files, 518 assertions; 11 browser E2E tests; type checks, Biome, web build and production Docker image build). Issues #20 and #21 are closed; both Project cards and linked PR cards are Done. PR #24 is a separate open docs-only D-05 Origin/CSRF proposal; that policy remains deferred. `main` remains bootstrap `a4cced2`, so no accepted Sprint 1 release exists. TEST-27 and final release-level verification, Part F screenshots/workflow evidence, A–F page ranges and the self-contained submission PDF remain incomplete. The student-reported cutoff of 15 November 2026 at 23:30 Asia/Bangkok has passed; no extension is verified. GCP deployment is Lab 5 work, not a PD1 requirement. Do not print or label this template as a submitted report.
 
 ## Submission identity and navigation
 
 | Field | Submission value |
 | --- | --- |
 | LEB2 group name | 2-Nor |
-| Section / separate team number | |
+| Section / separate team number | Pending confirmation; 2-Nor is the LEB2 group name. |
 | Product name and context | PocketLedger; personal financial recording under Theme 7 |
 | Theme | 7. Personal Money and Expense Logging System |
 | Student | Wisit Suwannao · 67070501042 · Palapluem |
